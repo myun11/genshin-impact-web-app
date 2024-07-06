@@ -9,6 +9,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState('Home')
   const [characters, setCharacters] = useState([])
+  const [masterCharacterData, setMasterCharacterData] = useState([])
   const types = [
     'artifacts',
     'boss',
@@ -29,6 +30,16 @@ function App() {
       .then(res => {
         // console.log(res.data)
         setCharacters(res.data)
+        const api_data = new Map();
+        res.data.map(char => {
+          try {
+            axios.get('https://genshin.jmp.blue/characters/' + char)
+            .then(res => api_data[char] = res.data)
+        } catch (error) {
+            console.log("Error getting API: ", error)
+        }
+        setMasterCharacterData(api_data)
+        })
       })
       setLoading(false)
     } catch (error) {
@@ -36,8 +47,24 @@ function App() {
       console.log(error)
     }
   }
+  const getCharacterDataAll = async () => {
+    const api_data = new Map();
+    console.log("working")
+    await characters.map(char => {
+        try {
+            axios.get('https://genshin.jmp.blue/characters/' + char)
+            .then(res => api_data[char] = res.data)
+        } catch (error) {
+            console.log("Error getting API: ", error)
+        }
+        
+    })
+    setMasterCharacterData(api_data)
+    
+}
   useEffect(() => {
     fetchData('')
+    // .then(() => getCharacterDataAll())
   }, [])
   return (
     <>
@@ -61,15 +88,14 @@ function App() {
 
       {/* Characters */}
       {page == 'Characters' &&
-        <Characters characters = {characters}/>
+        <Characters characters = {characters} masterCharacterData = {masterCharacterData}/>
       }
       
       {/* Dev */}
       {page == 'Dev' &&
       <div>
-        <button onClick={() => console.log(data)}>
-          Get data.
-        </button>
+        <button onClick={() => console.log(data)}> Get data. </button>
+        <button onClick={() => console.log(masterCharacterData)}> Get master character data. </button>
         {
           types.map(entry => {
             return(
