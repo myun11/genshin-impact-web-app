@@ -31,9 +31,9 @@ function App() {
         // console.log(res.data)
         setCharacters(res.data)
         const api_data = new Map();
-        res.data.map(char => {
+        res.data.map(async char => {
           try {
-            axios.get('https://genshin.jmp.blue/characters/' + char)
+            await axios.get('https://genshin.jmp.blue/characters/' + char)
             .then(res => api_data[char] = res.data)
         } catch (error) {
             console.log("Error getting API: ", error)
@@ -41,6 +41,9 @@ function App() {
         setMasterCharacterData(api_data)
         })
       })
+      setTimeout(function(){
+        setLoading(false)
+      }, 1500)
       setLoading(false)
     } catch (error) {
       setLoading(false)
@@ -59,9 +62,8 @@ function App() {
         }
         
     })
-    setMasterCharacterData(api_data)
-    
-}
+    setMasterCharacterData(api_data)  
+  }
   useEffect(() => {
     fetchData('')
     // .then(() => getCharacterDataAll())

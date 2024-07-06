@@ -1,9 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import CharactersPreview from './CharactersPreview'
 
 const Characters = (props) => {
+    
+    // Array of filtered characters
     const [filteredCharacters, setFilteredCharacters] = useState(props.characters)
+    
+    // Icons for each character button in the grid
     const [icons, setIcons] = useState([])
+    
+    // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
+    const [charPreviewState, setCharPreviewState] = useState(false)
+
+    // This is the current character's data that is being previewed.
+    const [charPreviewData, setCharPreviewData] = useState([])
 
     // API call for one character
     const getCharacterData = async (char) => {
@@ -30,38 +41,57 @@ const Characters = (props) => {
 
     return (
         <div>
-             <h1>Characters</h1>
-                <button onClick = {() => console.log(props.masterCharacterData["amber"]["rarity"])}>get props master info</button>
-            {/* Filter function that filters prop's array into filteredCharacters array. */}
-            {/* Also accounts for capitalization variances. */}
-            <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
-                setFilteredCharacters(emptyArray)
-            }}/>
+            {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
+            {charPreviewState ? 
+                <div>
+                    <CharactersPreview
+                        setCharPreviewState={setCharPreviewState}
+                        setCharPreviewData={setCharPreviewData}
+                        charPreviewData={charPreviewData}
+                    /> 
+                </div>
+                :
+                <div>
+                <h1>Characters</h1>
+                    {/* <button onClick = {() => console.log(props.masterCharacterData)}>get props master info</button> */}
+                    {/* <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
+                {/* Filter function that filters prop's array into filteredCharacters array. */}
+                {/* Also accounts for capitalization variances. */}
+                <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                    let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
+                    setFilteredCharacters(emptyArray)
+                }}/>
 
-            {/* Character Grid */}
-            <div className = "grid grid-cols-4 gap-4">
-                {filteredCharacters.map(entry => {
-                    if (props.masterCharacterData[entry]["rarity"] == 4) {
-                        return(
-                            <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry]} onClick = {() => getCharacterData(entry)}/></button>
-                                <h2 className = "capitalize">{entry}</h2>
-                            </div>
-                        )
-                    }
-                    if (props.masterCharacterData[entry]["rarity"] == 5) {                   
-                        return(
-                            <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry]} onClick = {() => getCharacterData(entry)}/></button>
-                                <h2 className = "capitalize">{entry}</h2>
-                            </div>
-                        )
-                    }
-                    
-                })}                
+                {/* Character Grid */}
+                <div className = "grid grid-cols-4 gap-4">
+                    {filteredCharacters.map(entry => {
+                        if (props.masterCharacterData[entry]["rarity"] == 4) {
+                            return(
+                                <div className = "w-full h-full">
+                                    <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(props.masterCharacterData[entry])
+                                    }}/></button>
+                                    <h2 className = "capitalize">{entry}</h2>
+                                </div>
+                            )
+                        }
+                        if (props.masterCharacterData[entry]["rarity"] == 5) {                   
+                            return(
+                                <div className = "w-full h-full">
+                                    <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(props.masterCharacterData[entry])
+                                    }}/></button>
+                                    <h2 className = "capitalize">{entry}</h2>
+                                </div>
+                            )
+                        }
+                        
+                    })}                
+                </div>  
             </div>
-            
+            }
         </div>
     )
 }
