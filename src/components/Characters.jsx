@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Characters = (props) => {
@@ -8,20 +8,41 @@ const Characters = (props) => {
         .then(res => console.log(res.data))
     }
 
+    const [icons, setIcons] = useState([])
+
+    // Helper function for converting character array into img src array for each character in grid.
+    const getCharacterIcons = () => {
+        const img_src_arrays_map = new Map();
+        props.characters.map(char => {
+           img_src_arrays_map[char] = "https://genshin.jmp.blue/characters/" + char + "/icon-big"
+        })
+        setIcons(img_src_arrays_map)
+    }
+
+    useEffect(() => {
+        getCharacterIcons()
+    }, [])
     return (
         <div>
             <h1>Characters</h1>
-
+            {/* <button onClick = {() => console.log(icons["albedo"])}>get icon</button> */}
+            {/* <button onClick = {() => console.log(props.characters)}>get prop characters</button> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             <input type = "string" placeholder='Search Character' onChange = {(e) => {
                 // console.log(e.target.value)
                 let emptyArray = props.characters.filter(entry => entry.includes(e.target.value))
                 setFilteredCharacters(emptyArray)
             }}/>
-            {/* <button onClick = {() => {console.log(filteredCharacters)}}>Characters Array</button> */}
-            <div>
+
+            {/* Character Grid */}
+            <div className = "grid grid-cols-5 gap-5 row-span-5">
                 {filteredCharacters.map(entry => {
-                    return(<button id = {entry} onClick = {() => getCharacterData(entry)}>{entry}</button>)
+                    return(
+                        <div className = "w-24 h-24">
+                            <img src = {icons[entry]}/>
+                            <button  id = {entry} key = {entry} onClick = {() => getCharacterData(entry)}>{entry}</button>
+                        </div>
+                    )
                 })}
             </div>
         </div>
