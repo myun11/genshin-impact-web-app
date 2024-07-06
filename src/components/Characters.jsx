@@ -63,7 +63,7 @@ const Characters = (props) => {
                 }}/>
 
                 {/* Character Grid */}
-                <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4">
+                <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                     {filteredCharacters.map(entry => {
                         if (props.masterCharacterData[entry]["rarity"] == 4) {
                             return(

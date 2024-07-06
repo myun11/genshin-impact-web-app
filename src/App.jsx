@@ -72,7 +72,7 @@ function App() {
     <div>
       Loading Page
     </div> :
-    <div>
+    <div className=''>
       {/* Navbar */}
       <button onClick = {() => setPage('Home')}>Home</button>
       <button onClick = {() => setPage('Characters')}>Characters</button>

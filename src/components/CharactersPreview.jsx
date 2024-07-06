@@ -4,6 +4,18 @@ import axios from 'axios'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
+    const [vision, setVision] = useState("")
+    // Setting up dict for the varying background colors.
+    let vision_css = {}
+    function fillDict() {
+        vision_css['Pyro'] = 'bg-gradient-to-br from-red-500 to-red-200'
+        vision_css['Geo'] = 'bg-gradient-to-br from-orange-500 to-orange-200'
+        vision_css['Dendro'] = 'bg-gradient-to-br from-green-500 to-green-200'
+        vision_css['Electro'] = 'bg-gradient-to-br from-purple-500 to-purple-200'
+        vision_css['Hydro'] = 'bg-gradient-to-br from-blue-500 to-blue-200'
+        vision_css['Anemo'] = 'bg-gradient-to-br from-teal-500 to-teal-200'
+        vision_css['Cryo'] = 'bg-gradient-to-br from-sky-500 to-red-200'
+    }
     const getCharacterImage = async (char) => {
         try {
             await axios.get("https://api.wanderer.moe/game/genshin-impact/splash-art/")
@@ -23,12 +35,23 @@ const CharactersPreview = (props) => {
 
     useEffect(() => {
         getCharacterImage(props.charPreviewData.name)
+        fillDict()
+        setVision(vision_css[props.charPreviewData.vision])
+        setLoading(false)
         // setCard("https://genshin.jmp.blue/characters/" + props.charPreviewData.id + "/card")
-    },[])
+    },[vision_css, vision])
     
+    if (loading) {
+        return (
+            <div>
+                Loading
+            </div>
+        )
+    }
     return (
-        <div className='bg-gradient-to-br from-red-500 to-red-200'>
-            <button onClick = {() => console.log(props.charPreviewData)}>char preview data</button>
+        <div className={vision}>
+            {/* <button onClick = {() => console.log(vision)}>char preview data</button> */}
+            {/* <button onClick = {() => console.log(vision_css[vision])}>vision css</button> */}
             {/* <button onClick = {() => console.log(card)}>card</button> */}
             <button onClick = {() => {
                 props.setCharPreviewData([])
