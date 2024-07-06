@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import './output.css'
+// import './output.css'
 import axios from 'axios';
 import Characters from './components/Characters';
 
