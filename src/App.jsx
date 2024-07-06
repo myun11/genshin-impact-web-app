@@ -40,11 +40,9 @@ function App() {
         }
         setMasterCharacterData(api_data)
         })
-      })
-      setTimeout(function(){
+      }).then(
         setLoading(false)
-      }, 1500)
-      setLoading(false)
+      )
     } catch (error) {
       setLoading(false)
       console.log(error)
