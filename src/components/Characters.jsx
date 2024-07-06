@@ -35,12 +35,14 @@ const Characters = (props) => {
             }}/>
 
             {/* Character Grid */}
-            <div className = "grid grid-cols-5 gap-5 row-span-5">
+            <div className = "grid grid-cols-5 gap-2">
                 {filteredCharacters.map(entry => {
                     return(
                         <div className = "w-24 h-24">
-                            <img src = {icons[entry]}/>
-                            <button  id = {entry} key = {entry} onClick = {() => getCharacterData(entry)}>{entry}</button>
+                            
+                            
+                            <button><img className="w-15 h-15"src = {icons[entry]} onClick = {() => getCharacterData(entry)}/></button>
+                            <h2>{entry}</h2>
                         </div>
                     )
                 })}
