@@ -98,7 +98,7 @@ const Characters = (props) => {
                     {/* Filter by element */}
                     {elements.map(res => {
                         return(
-                        <button className = "py-2 px-2 rounded-full" onClick = {() =>
+                        <button className = {selectedElements.includes(res) ? "py-2 px-2 rounded-full bg-gray-500" : "py-2 px-2 rounded-full bg-gray-200"} onClick = {() =>
                             {
                                 if (selectedElements.includes(res)) {
                                     // setSelectedElements([...selectedElements.filter(entry => entry != res)])
