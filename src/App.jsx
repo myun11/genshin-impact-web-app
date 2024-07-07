@@ -9,7 +9,8 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState('Home')
   const [characters, setCharacters] = useState([])
-  const [masterCharacterData, setMasterCharacterData] = useState([])
+  const [masterCharacterDataMap, setMasterCharacterDataMap] = useState([])
+  const [masterCharacterDataArray, setMasterCharacterDataArray] = useState([])
   const types = [
     'artifacts',
     'boss',
@@ -29,21 +30,26 @@ function App() {
       await axios.get('https://genshin.jmp.blue/characters' + text)
       .then(res => {
         setCharacters(res.data)
-        const api_data = new Map()
+        const api_data_map = new Map()
+        const api_data_array = []
         res.data.map(async char => {
           try {
             await axios.get('https://genshin.jmp.blue/characters/' + char)
-            .then(res => api_data[char] = res.data)
+            .then(res => {
+              api_data_map[char] = res.data
+              api_data_array.push(res.data)
+            })
           } catch (error) {
             console.log("Error getting API: ", error)
           }
         })
-        setMasterCharacterData(api_data)
-        console.log("we're here 1")
+        setMasterCharacterDataMap(api_data_map)
+        setMasterCharacterDataArray(api_data_array)
+        // console.log("we're here 1")
       }).then(() => {
-        console.log("we're here 2")
+        // console.log("we're here 2")
         setLoading(false)
-        console.log("we're here 3")
+        // console.log("we're here 3")
       }
         
       )
@@ -64,7 +70,7 @@ function App() {
         }
         
     })
-    setMasterCharacterData(api_data)  
+    setMasterCharacterDataMap(api_data)  
   }
   useEffect(() => {
     fetchData('')
@@ -92,14 +98,18 @@ function App() {
 
       {/* Characters */}
       {page == 'Characters' &&
-        <Characters characters = {characters} masterCharacterData = {masterCharacterData}/>
+        <Characters 
+          characters = {characters}
+          masterCharacterDataMap = {masterCharacterDataMap}
+          masterCharacterDataArray = {masterCharacterDataArray}
+        />
       }
       
       {/* Dev */}
       {page == 'Dev' &&
       <div>
         <button onClick={() => console.log(data)}> Get data. </button>
-        <button onClick={() => console.log(masterCharacterData)}> Get master character data. </button>
+        <button onClick={() => console.log(masterCharacterDataMap)}> Get master character data. </button>
         {
           types.map(entry => {
             return(

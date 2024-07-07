@@ -41,10 +41,10 @@ const Characters = (props) => {
     const [selectedElements, setSelectedElements] = useState([])
 
     // API call for one character
-    const getCharacterData = async (char) => {
-        await axios.get('https://genshin.jmp.blue/characters/' + char)
-        .then(res => console.log(res.data))
-    }
+    // const getCharacterData = async (char) => {
+    //     await axios.get('https://genshin.jmp.blue/characters/' + char)
+    //     .then(res => console.log(res.data))
+    // }
 
     // Helper function for converting character array into img src array for each character in grid.
     const getCharacterIcons = () => {
@@ -64,7 +64,7 @@ const Characters = (props) => {
     useEffect(() => {
         if (selectedElements.length > 0) {
             let empty_array = props.characters.filter(char => {
-                let char_vision = props.masterCharacterData[char]["vision"]
+                let char_vision = props.masterCharacterDataMap[char]["vision"]
                 // console.log(char_vision)
                 // console.log(selectedElements)
                 return (selectedElements.includes(char_vision))
@@ -160,23 +160,23 @@ const Characters = (props) => {
                 {/* Character Grid */}
                 <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                     {filteredCharacters.map(entry => {
-                        if (props.masterCharacterData[entry]["rarity"] == 4) {
+                        if (props.masterCharacterDataMap[entry]["rarity"] == 4) {
                             return(
                                 <div className = "w-full h-full">
                                     <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry]} onClick = {() => {
                                         setCharPreviewState(true)
-                                        setCharPreviewData(props.masterCharacterData[entry])
+                                        setCharPreviewData(props.masterCharacterDataMap[entry])
                                     }}/></button>
                                     <h2 className = "capitalize">{entry}</h2>
                                 </div>
                             )
                         }
-                        if (props.masterCharacterData[entry]["rarity"] == 5) {                   
+                        if (props.masterCharacterDataMap[entry]["rarity"] == 5) {                   
                             return(
                                 <div className = "w-full h-full">
                                     <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry]} onClick = {() => {
                                         setCharPreviewState(true)
-                                        setCharPreviewData(props.masterCharacterData[entry])
+                                        setCharPreviewData(props.masterCharacterDataMap[entry])
                                     }}/></button>
                                     <h2 className = "capitalize">{entry}</h2>
                                 </div>
