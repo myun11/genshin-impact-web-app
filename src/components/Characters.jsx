@@ -16,6 +16,16 @@ const Characters = (props) => {
     // This is the current character's data that is being previewed.
     const [charPreviewData, setCharPreviewData] = useState([])
 
+    const elements = [
+        'pyro',
+        'geo',
+        'electro',
+        'dendro',
+        'cryo',
+        'hydro',
+        'anemo'
+    ]
+
     // API call for one character
     const getCharacterData = async (char) => {
         await axios.get('https://genshin.jmp.blue/characters/' + char)
@@ -53,15 +63,34 @@ const Characters = (props) => {
                 :
                 <div>
                 <h1>Characters</h1>
-                    {/* <button onClick = {() => console.log(props.masterCharacterData)}>get props master info</button> */}
-                    {/* <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
+                
+                {/* <div>
+                    <button onClick = {() => console.log(props.masterCharacterData)}>get props master info</button>
+                    <button onClick = {() => console.log(charPreviewData)}>preview character</button>
+                </div> */}
                 {/* Filter function that filters prop's array into filteredCharacters array. */}
                 {/* Also accounts for capitalization variances. */}
-                <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                    let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
-                    setFilteredCharacters(emptyArray)
-                }}/>
+                
+                <div className='inline-flex m-8'>
 
+                    {/* Filter by element */}
+                    {elements.map(res => {
+                        return(
+                    <button className = "py-2 px-2 rounded-full" >
+                        <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res + '/icon'} onClick = {() =>
+                            {
+                            }
+                        }/>
+                    </button>
+                        )
+                    })}
+                    
+                                        
+                    <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                        let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
+                        setFilteredCharacters(emptyArray)
+                    }}/>
+                </div>
                 {/* Character Grid */}
                 <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                     {filteredCharacters.map(entry => {

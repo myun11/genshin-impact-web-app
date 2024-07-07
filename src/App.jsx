@@ -28,23 +28,27 @@ function App() {
       setLoading(true)
       await axios.get('https://genshin.jmp.blue/characters' + text)
       .then(res => {
-        // console.log(res.data)
         setCharacters(res.data)
-        const api_data = new Map();
+        const api_data = new Map()
         res.data.map(async char => {
           try {
             await axios.get('https://genshin.jmp.blue/characters/' + char)
             .then(res => api_data[char] = res.data)
-        } catch (error) {
+          } catch (error) {
             console.log("Error getting API: ", error)
-        }
-        setMasterCharacterData(api_data)
+          }
         })
-      }).then(
+        setMasterCharacterData(api_data)
+        console.log("we're here 1")
+      }).then(() => {
+        console.log("we're here 2")
         setLoading(false)
+        console.log("we're here 3")
+      }
+        
       )
     } catch (error) {
-      setLoading(false)
+      // setLoading(false)
       console.log(error)
     }
   }
