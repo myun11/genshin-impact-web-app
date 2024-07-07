@@ -27,6 +27,15 @@ const Characters = (props) => {
         'Anemo'
     ]
 
+    // An array of weapons to iterate through for convenience
+    const weapons = [
+        ['Sword', 'favonius-sword'],
+        ['Bow', 'favonius-warbow'],
+        ['Claymore', 'favonius-greatsword'],
+        ['Polearm', 'favonius-lance'],
+        ['Catalyst', 'favonius-codex']
+    ]
+
     // The current selected elements that the user can filter through by pressing buttons.
     // This allows for multiple element filtering.
     const [selectedElements, setSelectedElements] = useState([])
@@ -89,6 +98,13 @@ const Characters = (props) => {
                     <button onClick = {() => console.log(props.characters)}>props characters</button>
                     <button onClick = {() => console.log(filteredCharacters)}>filteredCharacters</button>
                     <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
+                    {/* <button onClick = {() => {
+                        const weapons = []
+                        props.characters.map(char => {
+                            weapons.push(props.masterCharacterData[char]["weapon"])
+                        })
+                        console.log(new Set(weapons))
+                    }}>list of weapons</button> */}
                 </div>
                 {/* Filter function that filters prop's array into filteredCharacters array. */}
                 {/* Also accounts for capitalization variances. */}
@@ -98,7 +114,7 @@ const Characters = (props) => {
                     {/* Filter by element */}
                     {elements.map(res => {
                         return(
-                        <button className = {selectedElements.includes(res) ? "py-2 px-2 rounded-full bg-gray-500" : "py-2 px-2 rounded-full bg-gray-200"} onClick = {() =>
+                        <button className = {selectedElements.includes(res) ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedElements.includes(res)) {
                                     // setSelectedElements([...selectedElements.filter(entry => entry != res)])
@@ -117,16 +133,30 @@ const Characters = (props) => {
                         </button>
                         )
                     })}
-                        <button className = "py-2 px-2 rounded-full" onClick = {() => setSelectedElements([])}>
+                        {/* <button className = "py-2 px-2 rounded-full" onClick = {() => setSelectedElements([])}>
                         All
-                        </button>
+                        </button> */}
                     
-                                        
+                    
                     <input type = "string" placeholder='Search Character' onChange = {(e) => {
                         let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
                         setFilteredCharacters(emptyArray)
                     }}/>
                 </div>
+
+                <div className="inline-flex">
+                {weapons.map(entry => {
+                        let wep = entry[0]
+                        let icon = entry[1]
+
+                        return(
+                            <button className="items-center justify-center py-1 px-1 rounded-full bg-gray-200">
+                                <img className=" items-center justify-center w-1/2 h-1/2 rounded-lg" src = {'https://genshin.jmp.blue/weapons/' + icon + '/icon'} />
+                            </button>
+                        )
+                    })}
+                </div>
+
                 {/* Character Grid */}
                 <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                     {filteredCharacters.map(entry => {
