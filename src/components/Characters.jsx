@@ -16,15 +16,20 @@ const Characters = (props) => {
     // This is the current character's data that is being previewed.
     const [charPreviewData, setCharPreviewData] = useState([])
 
+    // An array of elements to iterate through for convenience
     const elements = [
-        'pyro',
-        'geo',
-        'electro',
-        'dendro',
-        'cryo',
-        'hydro',
-        'anemo'
+        'Pyro',
+        'Geo',
+        'Electro',
+        'Dendro',
+        'Cryo',
+        'Hydro',
+        'Anemo'
     ]
+
+    // The current selected elements that the user can filter through by pressing buttons.
+    // This allows for multiple element filtering.
+    const [selectedElements, setSelectedElements] = useState([])
 
     // API call for one character
     const getCharacterData = async (char) => {
@@ -47,6 +52,20 @@ const Characters = (props) => {
         getCharacterIcons()
     }, [])
 
+    useEffect(() => {
+        if (selectedElements.length > 0) {
+            let empty_array = props.characters.filter(char => {
+                let char_vision = props.masterCharacterData[char]["vision"]
+                // console.log(char_vision)
+                // console.log(selectedElements)
+                return (selectedElements.includes(char_vision))
+            })
+            setFilteredCharacters(empty_array)
+    
+        } else {
+            setFilteredCharacters(props.characters)
+        }
+    }, [selectedElements,])
     // Renders each character background orange for 5 star and purple for 4 star
 
     return (
@@ -64,10 +83,13 @@ const Characters = (props) => {
                 <div>
                 <h1>Characters</h1>
                 
-                {/* <div>
-                    <button onClick = {() => console.log(props.masterCharacterData)}>get props master info</button>
-                    <button onClick = {() => console.log(charPreviewData)}>preview character</button>
-                </div> */}
+                <div>
+                    {/* Debugging */}
+                    {/* <button onClick = {() => console.log(props.masterCharacterData)}>props masterCharacterData</button>
+                    <button onClick = {() => console.log(props.characters)}>props characters</button>
+                    <button onClick = {() => console.log(filteredCharacters)}>filteredCharacters</button>
+                    <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
+                </div>
                 {/* Filter function that filters prop's array into filteredCharacters array. */}
                 {/* Also accounts for capitalization variances. */}
                 
@@ -76,14 +98,28 @@ const Characters = (props) => {
                     {/* Filter by element */}
                     {elements.map(res => {
                         return(
-                    <button className = "py-2 px-2 rounded-full" >
-                        <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res + '/icon'} onClick = {() =>
+                        <button className = "py-2 px-2 rounded-full" onClick = {() =>
                             {
+                                if (selectedElements.includes(res)) {
+                                    // setSelectedElements([...selectedElements.filter(entry => entry != res)])
+                                    setSelectedElements(current => [...current].filter(entry => entry != res))
+                                } else {
+                                    // setSelectedElements([...selectedElements, res])
+                                    setSelectedElements(current => [...current, res])
+                                }
+                                console.log(selectedElements.length > 0)
+                                // console.log(selectedElements.includes(res))
+                                // console.log(props.masterCharacterData)
+                                
                             }
-                        }/>
-                    </button>
+                        }>
+                            <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
+                        </button>
                         )
                     })}
+                        <button className = "py-2 px-2 rounded-full" onClick = {() => setSelectedElements([])}>
+                        All
+                        </button>
                     
                                         
                     <input type = "string" placeholder='Search Character' onChange = {(e) => {
