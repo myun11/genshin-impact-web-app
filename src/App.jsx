@@ -102,6 +102,7 @@ function App() {
           characters = {characters}
           masterCharacterDataMap = {masterCharacterDataMap}
           masterCharacterDataArray = {masterCharacterDataArray}
+          loading = {loading}
         />
       }
       
