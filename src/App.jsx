@@ -3,6 +3,7 @@ import './App.css'
 import './output.css'
 import axios from 'axios';
 import Characters from './components/Characters';
+import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = useState([])
@@ -77,56 +78,62 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <>
-    {loading ? 
-    <div>
-      Loading Page
-    </div> :
-    <div className=''>
-      {/* Navbar */}
-      <button onClick = {() => setPage('Home')}>Home</button>
-      <button onClick = {() => setPage('Characters')}>Characters</button>
-      <button onClick = {() => setPage('Weapons')}>Weapons</button>
-      <button onClick = {() => setPage('Dev')}>Dev</button>
-
-      {/* Home */}
-      {page == 'Home' && 
+    <div className="">
+      {loading ? 
       <div>
-        <h1>Genshin Impact Data Hub</h1>
-      </div>  
-      }
+        Loading Page
+      </div> :
+      <div className='min-h-screen flex flex-col justify-between'>
+              {/* Navbar */}
+        <div class="h-10 bg-red-500">
+          <button onClick = {() => setPage('Home')}>Home</button>
+          <button onClick = {() => setPage('Characters')}>Characters</button>
+          <button onClick = {() => setPage('Weapons')}>Weapons</button>
+          <button onClick = {() => setPage('Dev')}>Dev</button>
+        </div>
 
-      {/* Characters */}
-      {page == 'Characters' &&
-        <Characters 
-          characters = {characters}
-          masterCharacterDataMap = {masterCharacterDataMap}
-          masterCharacterDataArray = {masterCharacterDataArray}
-          loading = {loading}
-        />
-      }
-      
-      {/* Dev */}
-      {page == 'Dev' &&
-      <div>
-        <button onClick={() => console.log(data)}> Get data. </button>
-        <button onClick={() => console.log(masterCharacterDataMap)}> Get master character data. </button>
-        {
-          types.map(entry => {
-            return(
-              <div>
-                <button onClick = {() => {
-                  fetchData(entry)
-                }}> {entry} </button>
-              </div>
-            )
-          })
-        }
+        <div className = "mb-auto h-10 bg-green-500 flex-grow">
+          {/* Home */}
+          {page == 'Home' && 
+          <div className = "">
+            <h1>Genshin Impact Data Hub</h1>
+          </div>  
+          }
+
+          {/* Characters */}
+          {page == 'Characters' &&
+            <Characters 
+              characters = {characters}
+              masterCharacterDataMap = {masterCharacterDataMap}
+              masterCharacterDataArray = {masterCharacterDataArray}
+              loading = {loading}
+            />
+          }
+        
+          {/* Dev */}
+          {page == 'Dev' &&
+          <div>
+            <button onClick={() => console.log(data)}> Get data. </button>
+            <button onClick={() => console.log(masterCharacterDataMap)}> Get master character data. </button>
+            {
+              types.map(entry => {
+                return(
+                  <div>
+                    <button onClick = {() => {
+                      fetchData(entry)
+                    }}> {entry} </button>
+                  </div>
+                )
+              })
+            }
+          </div>
+          }
+        </div>
+        <Footer/>
       </div>
       }
+      
     </div>
-    }
-    </>
   )
 }
 

@@ -119,8 +119,6 @@ const Characters = (props) => {
     return (
     <div>
 
-        
-        <button onClick = {() => console.log(filteredArray)}>filtered array</button>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div>
