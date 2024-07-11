@@ -4,6 +4,7 @@ import './output.css'
 import axios from 'axios';
 import Characters from './components/Characters';
 import Footer from './components/Footer';
+import Home from './components/Home';
 
 function App() {
   const [data, setData] = useState([])
@@ -78,25 +79,25 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className="">
+    <div className="min-h-screen flex flex-col justify-between items-center">
       {loading ? 
       <div>
         Loading Page
       </div> :
-      <div className='min-h-screen flex flex-col justify-between'>
+      <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
               {/* Navbar */}
-        <div class="h-10 bg-red-500">
+        <div class="h-10">
           <button onClick = {() => setPage('Home')}>Home</button>
           <button onClick = {() => setPage('Characters')}>Characters</button>
           <button onClick = {() => setPage('Weapons')}>Weapons</button>
           <button onClick = {() => setPage('Dev')}>Dev</button>
         </div>
 
-        <div className = "mb-auto h-10 bg-green-500 flex-grow">
+        <div className = "">
           {/* Home */}
           {page == 'Home' && 
           <div className = "">
-            <h1>Genshin Impact Data Hub</h1>
+            <Home />
           </div>  
           }
 
@@ -130,10 +131,14 @@ function App() {
           }
         
         </div>
-        
+
+        {/* Footer */}
+        <div className='min-h-screen '>
+          <Footer/>
+        </div>
       </div>
       }
-      <Footer/>
+      
     </div>
   )
 }
