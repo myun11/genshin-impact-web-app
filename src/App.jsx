@@ -79,14 +79,14 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className="min-h-screen flex flex-col justify-between items-center">
+    <div className="bg-paimon bg-center w-screen bg-cover bg-slate-800 bg-no-repeat md:h-[350px] min-h-screen flex flex-col justify-between items-center">
       {loading ? 
       <div>
         Loading Page
       </div> :
       <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
               {/* Navbar */}
-        <div class="h-10">
+        <div className="h-10">
           <button onClick = {() => setPage('Home')}>Home</button>
           <button onClick = {() => setPage('Characters')}>Characters</button>
           <button onClick = {() => setPage('Weapons')}>Weapons</button>

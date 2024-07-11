@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'paimon': "url('./src/images/transparent_paimon.png')",
+      }
+    }
   },
   plugins: [],
 }
