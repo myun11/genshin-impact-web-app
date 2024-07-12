@@ -3,20 +3,8 @@
 @tailwind utilities;
 
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.character-grid {
-  max-width: 800px;
-  display: grid;
-  justify-items: center;
-  gap: 8;
-}
-
-.character-button {
-  max-width: 200px;
-  max-height: 200 px;
 }

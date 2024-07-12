@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'paimon': "url('./src/images/transparent_paimon.png')",
+        'paimon': "url('/public/transparent_paimon.png')",
       }
     }
   },
