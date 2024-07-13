@@ -86,8 +86,8 @@ function App() {
       </div> :
       <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
               {/* Navbar */}
-        <div className="h-10 bg-black">
-          <button onClick = {() => setPage('Home')}>Home</button>
+        <div className="inline-flex rounded-md shadow-sm h-10 bg-black" role="group">
+          <button className = "inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700" onClick = {() => setPage('Home')}>Home</button>
           <button onClick = {() => setPage('Characters')}>Characters</button>
           <button onClick = {() => setPage('Weapons')}>Weapons</button>
           <button onClick = {() => setPage('Dev')}>Dev</button>

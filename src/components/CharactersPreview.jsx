@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import moment from 'moment'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
     const [vision, setVision] = useState("")
+    const [birthday, setBirthday] = useState("")
+    const [releaseDate, setReleaseDate] = useState("")
+
+    // Helper function for converting birthday and release date data from api to a readable string.
+    const convertDates = () => {
+        let temp_birthday = moment(props.charPreviewData.birthday, "YYYY-MM-DD").format("MMMM D")
+        let temp_release = moment(props.charPreviewData.release, "YYYY-MM-DD").format("MMMM D YYYY")
+        setBirthday(temp_birthday)
+        setReleaseDate(temp_release)
+    }
+    
     // Setting up dict for the varying background colors.
     let vision_css = {}
     function fillDict() {
@@ -52,6 +63,7 @@ const CharactersPreview = (props) => {
         fillDict()
         setVision(vision_css[props.charPreviewData.vision])
         setLoading(false)
+        convertDates()
         // setCard("https://genshin.jmp.blue/characters/" + props.charPreviewData.id + "/card")
     },[vision_css, vision])
     
@@ -70,26 +82,52 @@ const CharactersPreview = (props) => {
             }}> Go Back </button>
 
             {/* Top section divided into two columns */}
-            <div className = "grid grid-cols-2 gap-4">
-                <div>
-                    <img className = "w-1/3" src={card}></img>
+            
+            <div className = "items-center justify-center grid grid-cols-2 gap-4">
+                <div className = "flex items-center justify-center">
+                    <img className = "w-1/2" src={card}></img>
                 </div>
                 <div>
-                    <h1>{props.charPreviewData.name}</h1>
-                    <br/>
-                    <h1>{props.charPreviewData.title}</h1>
-                    <p>Affilitation: {props.charPreviewData.affiliation}</p>
-                    <p>Birthday: {props.charPreviewData.birthday}</p>
-                    <p>Description: {props.charPreviewData.description}</p>
-                    <p>Gender: {props.charPreviewData.gender}</p>
-                    <p>Nation: {props.charPreviewData.nation}</p>
-                    <p>Rarity: {props.charPreviewData.rarity}</p>
-                    <p>Release Date: {props.charPreviewData.release}</p>            
-                    <p>Special Dish: {props.charPreviewData.specialDish}</p>
-                    <p>Title: {props.charPreviewData.title}</p>
-                    <p>Vision: {props.charPreviewData.vision}</p>
-                    <p>Weapon: {props.charPreviewData.weapon}</p>
-                    <p>id: {props.charPreviewData.id}</p>
+                    <h1 className="text-9xl m-5">{props.charPreviewData.name}</h1>
+                    <p className="italic font-black text-2xl">{props.charPreviewData.title}</p>
+                    <div className="block max-w-full m-2 p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
+                    </div>
+                    {/* <p className="text-lg"> {props.charPreviewData.description}</p> */}
+                    <div className = "w-full">
+                        
+                        <div className = "grid grid-cols-2 gap-4">
+                            <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
+                            </div>
+                            <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{birthday}</p>
+                            </div>
+                            <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{releaseDate}</p>
+                            </div>
+                            <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.gender}</p>
+                            </div>
+                            <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                <h2 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.nation}</p>
+                            </div>
+
+                            {/* Show with icons */}
+
+                            Show these other three with icons
+                            <p>Rarity: {props.charPreviewData.rarity}</p>
+                            <p>Vision: {props.charPreviewData.vision}</p>
+                            <p>Weapon: {props.charPreviewData.weapon}</p>
+                            <button onClick = {() => console.log(props.charPreviewData)}>props</button>
+                            {/* <p>id: {props.charPreviewData.id}</p> */}
+                        </div>
+                    </div>
                 </div>
             </div>
 
