@@ -86,7 +86,7 @@ function App() {
       </div> :
       <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
               {/* Navbar */}
-        <div className="h-10">
+        <div className="h-10 bg-black">
           <button onClick = {() => setPage('Home')}>Home</button>
           <button onClick = {() => setPage('Characters')}>Characters</button>
           <button onClick = {() => setPage('Weapons')}>Weapons</button>
