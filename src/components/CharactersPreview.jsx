@@ -79,20 +79,23 @@ const CharactersPreview = (props) => {
             <h1>{props.charPreviewData.name}</h1>
             <p>Affilitation: {props.charPreviewData.affiliation}</p>
             <p>Birthday: {props.charPreviewData.birthday}</p>
-            <p>Constellation: {props.charPreviewData.constellation}</p>
-            <p>Constellations (6 drop down goes here?): </p>
             <p>Description: {props.charPreviewData.description}</p>
             <p>Gender: {props.charPreviewData.gender}</p>
             <p>Nation: {props.charPreviewData.nation}</p>
-            <p>Passive Talents: (3 drop down goes here?): </p>
             <p>Rarity: {props.charPreviewData.rarity}</p>
-            <p>Release Date: {props.charPreviewData.release}</p>
-            <p>Skill Talents: (3 drop down goes here?):</p>
+            <p>Release Date: {props.charPreviewData.release}</p>            
             <p>Special Dish: {props.charPreviewData.specialDish}</p>
             <p>Title: {props.charPreviewData.title}</p>
             <p>Vision: {props.charPreviewData.vision}</p>
             <p>Weapon: {props.charPreviewData.weapon}</p>
             <p>id: {props.charPreviewData.id}</p>
+
+
+            {/* More complex content that will appear at the bottom of page. */}
+            <p>Constellation: {props.charPreviewData.constellation}</p>
+            <p>Constellations (6 drop down goes here?): </p>
+            <p>Passive Talents: (3 drop down goes here?): </p>
+            <p>Skill Talents: (3 drop down goes here?):</p>
         </div>
   )
 }
