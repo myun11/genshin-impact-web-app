@@ -54,7 +54,26 @@ const CharactersPreview = (props) => {
         // }
         
         // genshin api
-        setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/card")
+        // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-card")
+        setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/portrait")
+    }
+
+    const getSkillsImages = async (char) => {
+        try {
+            await axios.all([
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-1"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-2"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-3"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-4"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-5"),
+                axios.get("https://genshin.jmp.blue/characters/" +char.toLowerCase() + "/constellation-6")
+            ]).then(axios.spread((res1, res2, res3, res4, res5, res6, res7) => {
+
+            }))
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
@@ -120,11 +139,11 @@ const CharactersPreview = (props) => {
 
                             {/* Show with icons */}
 
-                            Show these other three with icons
+                            {/* Show these other three with icons */}
                             <p>Rarity: {props.charPreviewData.rarity}</p>
                             <p>Vision: {props.charPreviewData.vision}</p>
                             <p>Weapon: {props.charPreviewData.weapon}</p>
-                            <button onClick = {() => console.log(props.charPreviewData)}>props</button>
+                            {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
                             {/* <p>id: {props.charPreviewData.id}</p> */}
                         </div>
                     </div>
