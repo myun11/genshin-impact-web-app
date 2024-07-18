@@ -114,7 +114,7 @@ const CharactersPreview = (props) => {
         )
     }
     return (
-        <div className = "m-4">
+        <div className = "">
             <div className="bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 
                 <button onClick = {() => {
@@ -125,7 +125,7 @@ const CharactersPreview = (props) => {
                 {/* Top section divided into two columns */}
                 
                 <div className = "items-center justify-center grid grid-cols-2">
-                    <div className = "h-full w-full flex items-center justify-center align-middle">
+                    <div className = "h-screen w-full flex items-center justify-center align-middle">
                         <img className = "object-contain items-center justify-center" src={card}></img>
                     </div>
                     <div>
