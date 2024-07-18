@@ -114,8 +114,10 @@ const CharactersPreview = (props) => {
         )
     }
     return (
-        <div className = "">
-            <div className="bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+        <div className = "mb-4">
+
+            {/* Character Card */}
+            <div className="block p-6 bg-white border border-gray-200 rounded-lg bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 
                 <button onClick = {() => {
                     props.setCharPreviewData([])
@@ -136,114 +138,108 @@ const CharactersPreview = (props) => {
                     </div>
                 </div>
             </div>
-            <div>
-                
 
-                {/* More complex content that will appear at the bottom of page. */}
-
-                <div>
-                    <div className="block max-w-full m-2 p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
-                        </div>
-                        <div className = "w-full">
-                            
-                            <div className = "grid grid-cols-2 gap-4">
-                                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
-                                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
-                                </div>
-                                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
-                                    <p className="font-normal text-gray-700 dark:text-gray-400">{birthday}</p>
-                                </div>
-                                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
-                                    <p className="font-normal text-gray-700 dark:text-gray-400">{releaseDate}</p>
-                                </div>
-                                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
-                                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.gender}</p>
-                                </div>
-                                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
-                                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.nation}</p>
-                                </div>
-
-                                {/* Show with icons */}
-
-                                {/* Show these other three with icons */}
-                                <p>Rarity: {props.charPreviewData.rarity}</p>
-                                <p>Vision: {props.charPreviewData.vision}</p>
-                                <p>Weapon: {props.charPreviewData.weapon}</p>
-                                {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
-                                {/* <p>id: {props.charPreviewData.id}</p> */}
-                            </div>
-                        </div>
-                    
-                    <h1>Constellation</h1>
-                    <p>Constellation: {props.charPreviewData.constellation}</p>
-                    {props.charPreviewData.constellations.map(entry => {
-                        return(
-                            <div>
-                                <p>Level: {entry.level}</p>
-                                <p>Name: {entry.name}</p>
-                                <p>Description: {entry.description}</p>
-                            </div>
-
-                        )
-                    })}
-
-                    <h1>Passive Talents</h1>
-                    {props.charPreviewData.passiveTalents.map(entry => {
-                        return(
-                            <div>
-                                {entry.unlock}
-                                {entry.name}
-                                {entry.description}
-                            </div>
-                        )
-                    })}
-
-                    <h1>Skill Talents</h1>
-                    {props.charPreviewData.skillTalents.map(entry => {
-                        return(
-                            <div>
-                                {entry.unlock}
-                                {entry.name}
-                                {entry.description}
-                                Upgrades:
-                                {entry.upgrades.map(obj => {
-                                    return(
-                                        <div>
-                                            <p>Name: {obj.name}</p>
-                                            <p>Value: {obj.value}</p>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })}
-
-                    <img src = {images["namecard-background"]}/>
-                    <img src = {images["constellation-shape"]}/>
-                    <img src={images["constellation"]}/>
-                    <img src={images["constellation-1"]}/>
-                    <img src={images["constellation-2"]}/>
-                    <img src={images["constellation-3"]}/>
-                    <img src={images["constellation-4"]}/>
-                    <img src={images["constellation-5"]}/>
-                    <img src={images["constellation-6"]}/>
-                    <img src={images["talent-na"]}/>
-                    <img src={images["talent-burst"]}/>
-                    <img src={images["talent-skill"]}/>
-                    <img src={images["talent-passive-0"]}/>
-                    <img src={images["talent-passive-1"]}/>
-                    <img src={images["talent-passive-2"]}/>
-                    {/* <button onClick = {() => console.log(skillImages['constellation'])}>skills images</button> */}
+            {/* Facts Card */}
+            <div className = "block p-6 border border-gray-200 rounded-lg bg-slate-500 gap-4">
+                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
                 </div>
+                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{birthday}</p>
+                </div>
+                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{releaseDate}</p>
+                </div>
+                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.gender}</p>
+                </div>
+                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.nation}</p>
+                </div>
+
+                {/* Show with icons */}
+
+                {/* Show these other three with icons */}
+                <p>Rarity: {props.charPreviewData.rarity}</p>
+                <p>Vision: {props.charPreviewData.vision}</p>
+                <p>Weapon: {props.charPreviewData.weapon}</p>
+                {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
+                {/* <p>id: {props.charPreviewData.id}</p> */}
+            </div>
+
+             {/*Constellation  */}
+            <div className = "block p-6 bg-slate-600 border border-gray-200 rounded-lg">   
+                <h1>Constellation</h1>
+                <p>Constellation: {props.charPreviewData.constellation}</p>
+                {props.charPreviewData.constellations.map(entry => {
+                    return(
+                        <div>
+                            <p>Level: {entry.level}</p>
+                            <p>Name: {entry.name}</p>
+                            <p>Description: {entry.description}</p>
+                        </div>
+
+                    )
+                })}
+                <img src = {images["constellation-shape"]}/>
+                <img src={images["constellation"]}/>
+                <img src={images["constellation-1"]}/>
+                <img src={images["constellation-2"]}/>
+                <img src={images["constellation-3"]}/>
+                <img src={images["constellation-4"]}/>
+                <img src={images["constellation-5"]}/>
+                <img src={images["constellation-6"]}/>
+            </div>
+
+            {/* Passive Talents */}
+            <div className = "block p-6 bg-slate-800 border border-gray-200 rounded-lg">
+                <h1>Passive Talents</h1>
+                {props.charPreviewData.passiveTalents.map(entry => {
+                    return(
+                        <div>
+                            {entry.unlock}
+                            {entry.name}
+                            {entry.description}
+                        </div>
+                    )
+                })}
+                <img src={images["talent-passive-0"]}/>
+                <img src={images["talent-passive-1"]}/>
+                <img src={images["talent-passive-2"]}/>
+            </div>
+
+            {/* Skill Talents */}
+            <div className = "block p-6 bg-gray-950 border border-gray-200 rounded-lg">
+                <h1>Skill Talents</h1>
+                {props.charPreviewData.skillTalents.map(entry => {
+                    return(
+                        <div>
+                            {entry.unlock}
+                            {entry.name}
+                            {entry.description}
+                            Upgrades:
+                            {entry.upgrades.map(obj => {
+                                return(
+                                    <div>
+                                        <p>Name: {obj.name}</p>
+                                        <p>Value: {obj.value}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+                <img src={images["talent-na"]}/>
+                <img src={images["talent-burst"]}/>
+                <img src={images["talent-skill"]}/>
             </div>
         </div>
-  )
+    )
 }
 
 export default CharactersPreview
