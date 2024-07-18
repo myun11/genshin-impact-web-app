@@ -121,6 +121,7 @@ const CharactersPreview = (props) => {
                     props.setCharPreviewData([])
                     props.setCharPreviewState(false)
                 }}> Go Back </button>
+                <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button>
 
                 {/* Top section divided into two columns */}
                 
@@ -178,10 +179,50 @@ const CharactersPreview = (props) => {
                                 {/* <p>id: {props.charPreviewData.id}</p> */}
                             </div>
                         </div>
+                    
+                    <h1>Constellation</h1>
                     <p>Constellation: {props.charPreviewData.constellation}</p>
-                    <p>Constellations (6 drop down goes here?): </p>
-                    <p>Passive Talents: (3 drop down goes here?): </p>
-                    <p>Skill Talents: (3 drop down goes here?):</p>
+                    {props.charPreviewData.constellations.map(entry => {
+                        return(
+                            <div>
+                                <p>Level: {entry.level}</p>
+                                <p>Name: {entry.name}</p>
+                                <p>Description: {entry.description}</p>
+                            </div>
+
+                        )
+                    })}
+
+                    <h1>Passive Talents</h1>
+                    {props.charPreviewData.passiveTalents.map(entry => {
+                        return(
+                            <div>
+                                {entry.unlock}
+                                {entry.name}
+                                {entry.description}
+                            </div>
+                        )
+                    })}
+
+                    <h1>Skill Talents</h1>
+                    {props.charPreviewData.skillTalents.map(entry => {
+                        return(
+                            <div>
+                                {entry.unlock}
+                                {entry.name}
+                                {entry.description}
+                                Upgrades:
+                                {entry.upgrades.map(obj => {
+                                    return(
+                                        <div>
+                                            <p>Name: {obj.name}</p>
+                                            <p>Value: {obj.value}</p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        )
+                    })}
 
                     <img src = {images["namecard-background"]}/>
                     <img src = {images["constellation-shape"]}/>
