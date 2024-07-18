@@ -79,7 +79,7 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className="bg-paimon bg-center w-screen bg-cover bg-slate-800 bg-no-repeat md:h-[350px] min-h-screen flex flex-col justify-between items-center">
+    <div className=" bg-center w-screen bg-cover bg-slate-800 bg-no-repeat md:h-[350px] min-h-screen flex flex-col justify-between items-center">
       {loading ? 
       <div>
         Loading Page
