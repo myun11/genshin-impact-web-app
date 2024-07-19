@@ -7,6 +7,50 @@ const CharactersPreview = (props) => {
     const [birthday, setBirthday] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
     const [images, setImages] = useState([])
+    const colors = {
+        "Dendro" : {
+            "About" : "bg-lime-600",
+            "Constellation" : "bg-lime-700",
+            "Passive-Talents" : "bg-lime-900",
+            "Skill-Talents" : "bg-lime-950",
+        },
+        "Pyro" : {
+            "About" : "bg-red-500",
+            "Constellation" : "bg-red-700",
+            "Passive-Talents" : "bg-red-900",
+            "Skill-Talents" : "bg-red-950"
+        },
+        "Hydro" : {
+            "About" : "bg-blue-500",
+            "Constellation" : "bg-blue-700",
+            "Passive-Talents" : "bg-blue-900",
+            "Skill-Talents" : "bg-blue-950"
+        },
+        "Electro" : {
+            "About" : "bg-purple-500",
+            "Constellation" : "bg-purple-700",
+            "Passive-Talents" : "bg-purple-900",
+            "Skill-Talents" : "bg-purple-950"
+        },
+        "Anemo" : {
+            "About" : "bg-teal-500",
+            "Constellation" : "bg-teal-700",
+            "Passive-Talents" : "bg-teal-900",
+            "Skill-Talents" : "bg-teal-950"
+        },
+        "Geo" : {
+            "About" : "bg-amber-500",
+            "Constellation" : "bg-amber-700",
+            "Passive-Talents" : "bg-amber-900",
+            "Skill-Talents" : "bg-amber-950"
+        },
+        "Cryo" : {
+            "About" : "bg-cyan-500",
+            "Constellation" : "bg-cyan-700",
+            "Passive-Talents" : "bg-cyan-900",
+            "Skill-Talents" : "bg-cyan-950"
+        }
+    }
 
     // Helper function for converting birthday and release date data from api to a readable string.
     const convertDates = () => {
@@ -15,7 +59,8 @@ const CharactersPreview = (props) => {
         setBirthday(temp_birthday)
         setReleaseDate(temp_release)
     }
-    
+
+    // Sets section colors based on the character's vision.
 
     const getCharacterImage = (char) => {
         
@@ -117,21 +162,19 @@ const CharactersPreview = (props) => {
         <div className = "mb-4">
 
             {/* Character Card */}
-            <div className="block p-6 bg-white border border-gray-200 rounded-lg bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+            <div className=" block p-6 bg-white border border-gray-200 rounded-lg bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 
-                <button onClick = {() => {
-                    props.setCharPreviewData([])
-                    props.setCharPreviewState(false)
-                }}> Go Back </button>
-                <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button>
-
                 {/* Top section divided into two columns */}
-                
                 <div className = "items-center justify-center grid grid-cols-2">
-                    <div className = "h-screen w-full flex items-center justify-center align-middle">
+                    <div className = "object-contain w-full flex items-center justify-center align-middle">
                         <img className = "object-contain items-center justify-center" src={card}></img>
                     </div>
-                    <div>
+                    <div className="items-start justify-start text-start">
+                        <button onClick = {() => {
+                            props.setCharPreviewData([])
+                            props.setCharPreviewState(false)
+                            }}> Go Back </button>
+                        {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
                         <h1 className="text-9xl m-5">{props.charPreviewData.name}</h1>
                         <p className="italic font-black text-2xl">{props.charPreviewData.title}</p>
                         <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
@@ -139,8 +182,8 @@ const CharactersPreview = (props) => {
                 </div>
             </div>
 
-            {/* Facts Card */}
-            <div className = "block p-6 border border-gray-200 rounded-lg bg-slate-500 gap-4">
+            {/* About Card */}
+            <div className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
                 <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
@@ -173,7 +216,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/*Constellation  */}
-            <div className = "block p-6 bg-slate-600 border border-gray-200 rounded-lg">   
+            <div className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <h1>Constellation</h1>
                 <p>Constellation: {props.charPreviewData.constellation}</p>
                 {props.charPreviewData.constellations.map(entry => {
@@ -197,7 +240,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div className = "block p-6 bg-slate-800 border border-gray-200 rounded-lg">
+            <div className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <h1>Passive Talents</h1>
                 {props.charPreviewData.passiveTalents.map(entry => {
                     return(
@@ -214,7 +257,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div className = "block p-6 bg-gray-950 border border-gray-200 rounded-lg">
+            <div className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <h1>Skill Talents</h1>
                 {props.charPreviewData.skillTalents.map(entry => {
                     return(
@@ -223,7 +266,7 @@ const CharactersPreview = (props) => {
                             {entry.name}
                             {entry.description}
                             Upgrades:
-                            {entry.upgrades.map(obj => {
+                            {entry.upgrades && entry.upgrades.map(obj => {
                                 return(
                                     <div>
                                         <p>Name: {obj.name}</p>
