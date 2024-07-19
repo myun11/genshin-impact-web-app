@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import Constellation from './Constellation'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
@@ -51,7 +52,15 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-cyan-950"
         }
     }
-
+    // const colors2 = {
+    //     "Dendro" : "bg-lime-500",
+    //     "Pyro" : ,
+    //     "Hydro" : ,
+    //     "Electro" : ,
+    //     "Anemo" : ,
+    //     "Geo" : ,
+    //     "Cryo" : 
+    // }
     // Helper function for converting birthday and release date data from api to a readable string.
     const convertDates = () => {
         let temp_birthday = moment(props.charPreviewData.birthday, "YYYY-MM-DD").format("MMMM D")
@@ -217,26 +226,11 @@ const CharactersPreview = (props) => {
 
              {/*Constellation  */}
             <div className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
-                <h1>Constellation</h1>
-                <p>Constellation: {props.charPreviewData.constellation}</p>
-                {props.charPreviewData.constellations.map(entry => {
-                    return(
-                        <div>
-                            <p>Level: {entry.level}</p>
-                            <p>Name: {entry.name}</p>
-                            <p>Description: {entry.description}</p>
-                        </div>
-
-                    )
-                })}
-                <img src = {images["constellation-shape"]}/>
-                <img src={images["constellation"]}/>
-                <img src={images["constellation-1"]}/>
-                <img src={images["constellation-2"]}/>
-                <img src={images["constellation-3"]}/>
-                <img src={images["constellation-4"]}/>
-                <img src={images["constellation-5"]}/>
-                <img src={images["constellation-6"]}/>
+                <Constellation
+                    images = {images}
+                    constellationName = {props.charPreviewData.constellation}
+                    constellationLevel = {props.charPreviewData.constellations}
+                />
             </div>
 
             {/* Passive Talents */}
