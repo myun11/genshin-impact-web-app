@@ -268,6 +268,7 @@ const CharactersPreview = (props) => {
                                     </div>
                                 )
                             })}
+                            <br/>
                         </div>
                     )
                 })}
