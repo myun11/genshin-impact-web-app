@@ -118,7 +118,6 @@ const Characters = (props) => {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
     <div>
-
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div>
@@ -256,7 +255,7 @@ const Characters = (props) => {
                     if (entry["rarity"] == 4) {
                         return(
                             <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry["id"]]} onClick = {() => {
+                                <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
                                 }}/></button>
@@ -267,7 +266,7 @@ const Characters = (props) => {
                     if (entry["rarity"] == 5) {                   
                         return(
                             <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry["id"]]} onClick = {() => {
+                                <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
                                 }}/></button>
