@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import Constellation from './Constellation'
+import PassiveTalents from './PassiveTalents'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
@@ -235,19 +236,10 @@ const CharactersPreview = (props) => {
 
             {/* Passive Talents */}
             <div className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
-                <h1>Passive Talents</h1>
-                {props.charPreviewData.passiveTalents.map(entry => {
-                    return(
-                        <div>
-                            {entry.unlock}
-                            {entry.name}
-                            {entry.description}
-                        </div>
-                    )
-                })}
-                <img src={images["talent-passive-0"]}/>
-                <img src={images["talent-passive-1"]}/>
-                <img src={images["talent-passive-2"]}/>
+                <PassiveTalents 
+                    images = {images}
+                    passiveTalents = {props.charPreviewData.passiveTalents}   
+                />
             </div>
 
             {/* Skill Talents */}
