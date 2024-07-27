@@ -9,6 +9,30 @@ const CharactersPreview = (props) => {
     const [birthday, setBirthday] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
     const [images, setImages] = useState([])
+    const keywords = [
+        '\\d*\\.?\\d+s', // Any integer or float number followed by "s"
+        'CRIT Rate',
+        'CRIT DMG',
+        '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
+        'ATK',
+        'Electro DMG',
+        'Cryo DMG',
+        'Geo DMG',
+        'Hydro DMG',
+        'Dendro DMG',
+        'Anemo DMG',
+        'Pyro DMG',
+        'DMG',
+        'Charged ATK',
+        'Charged Attack DMG',
+        'DEF',
+        '\\d',
+        '\\d*\\.?\\d',
+        'Normal',
+        'Charged',
+        'attacks'
+    ];
+
     const colors = {
         "Dendro" : {
             "About" : "bg-lime-600",
@@ -229,6 +253,7 @@ const CharactersPreview = (props) => {
             <div className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
+                    keywords = {keywords}
                     constellationName = {props.charPreviewData.constellation}
                     constellationLevel = {props.charPreviewData.constellations}
                 />
@@ -237,6 +262,7 @@ const CharactersPreview = (props) => {
             {/* Passive Talents */}
             <div className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
+                    keywords = {keywords}
                     images = {images}
                     passiveTalents = {props.charPreviewData.passiveTalents}   
                 />
