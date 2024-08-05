@@ -28,7 +28,7 @@ const Constellation = (props) => {
                                     <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-400">{
                                         parts.map((part, index) =>
                                             props.keywords.some(keyword => new RegExp(keyword, 'i').test(part)) ? (
-                                                <span key={index} className="text-cyan-300">
+                                                <span key={index} className={props.keywordsColor}>
                                                 {part}
                                                 </span>
                                             ) : (

@@ -35,42 +35,49 @@ const CharactersPreview = (props) => {
 
     const colors = {
         "Dendro" : {
+            "Keyword-Text" : "text-lime-300",
             "About" : "bg-lime-600",
             "Constellation" : "bg-lime-700",
             "Passive-Talents" : "bg-lime-900",
             "Skill-Talents" : "bg-lime-950",
         },
         "Pyro" : {
+            "Keyword-Text" : "text-red-300",
             "About" : "bg-red-500",
             "Constellation" : "bg-red-700",
             "Passive-Talents" : "bg-red-900",
             "Skill-Talents" : "bg-red-950"
         },
         "Hydro" : {
+            "Keyword-Text" : "text-blue-300",
             "About" : "bg-blue-500",
             "Constellation" : "bg-blue-700",
             "Passive-Talents" : "bg-blue-900",
             "Skill-Talents" : "bg-blue-950"
         },
         "Electro" : {
+            "Keyword-Text" : "text-purple-300",
             "About" : "bg-purple-500",
             "Constellation" : "bg-purple-700",
             "Passive-Talents" : "bg-purple-900",
             "Skill-Talents" : "bg-purple-950"
         },
         "Anemo" : {
+            "Keyword-Text" : "text-teal-300",
             "About" : "bg-teal-500",
             "Constellation" : "bg-teal-700",
             "Passive-Talents" : "bg-teal-900",
             "Skill-Talents" : "bg-teal-950"
         },
         "Geo" : {
+            "Keyword-Text" : "text-amber-300",
             "About" : "bg-amber-500",
             "Constellation" : "bg-amber-700",
             "Passive-Talents" : "bg-amber-900",
             "Skill-Talents" : "bg-amber-950"
         },
         "Cryo" : {
+            "Keyword-Text" : "text-cyan-300",
             "About" : "bg-cyan-500",
             "Constellation" : "bg-cyan-700",
             "Passive-Talents" : "bg-cyan-900",
@@ -254,8 +261,10 @@ const CharactersPreview = (props) => {
                 <Constellation
                     images = {images}
                     keywords = {keywords}
+                    keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     constellationName = {props.charPreviewData.constellation}
                     constellationLevel = {props.charPreviewData.constellations}
+
                 />
             </div>
 
@@ -263,6 +272,7 @@ const CharactersPreview = (props) => {
             <div className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
+                    keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     images = {images}
                     passiveTalents = {props.charPreviewData.passiveTalents}   
                 />
