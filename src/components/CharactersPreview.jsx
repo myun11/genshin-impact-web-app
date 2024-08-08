@@ -4,6 +4,7 @@ import moment from 'moment'
 import Constellation from './Constellation'
 import PassiveTalents from './PassiveTalents'
 import Sidebar from './Sidebar'
+import Factions from './Factions'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
@@ -204,7 +205,7 @@ const CharactersPreview = (props) => {
         <div className = "mb-4">
             <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
-                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Art">Art</a></li>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Factions">Factions</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Constellation">Constellation</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Passive Talents">Passive Talents</a></li>
@@ -212,7 +213,7 @@ const CharactersPreview = (props) => {
                 </ul>
             </div>
             {/* Character Card */}
-            <div id="Art" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
+            <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
                 <div className = "h-full min-h-screen flex justify-center items-center p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
@@ -230,35 +231,18 @@ const CharactersPreview = (props) => {
 
             {/* About Card */}
             <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
-                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
-                </div>
-                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{birthday}</p>
-                </div>
-                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{releaseDate}</p>
-                </div>
-                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.gender}</p>
-                </div>
-                <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.nation}</p>
-                </div>
 
-                {/* Show with icons */}
 
-                {/* Show these other three with icons */}
-                <p>Rarity: {props.charPreviewData.rarity}</p>
-                <p>Vision: {props.charPreviewData.vision}</p>
-                <p>Weapon: {props.charPreviewData.weapon}</p>
-                {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
-                {/* <p>id: {props.charPreviewData.id}</p> */}
+                <Factions
+                    affilitation = {props.charPreviewData.affiliation}
+                    birthday = {birthday}
+                    releaseDate = {releaseDate}
+                    gender = {props.charPreviewData.gender}
+                    nation = {props.charPreviewData.nation}
+                    rarity = {props.charPreviewData.rarity}
+                    weapon = {props.charPreviewData.weapon}
+                    vision = {props.charPreviewData.vision}
+                />                
             </div>
 
              {/*Constellation  */}
