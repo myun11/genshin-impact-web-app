@@ -3,6 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 import Constellation from './Constellation'
 import PassiveTalents from './PassiveTalents'
+import Sidebar from './Sidebar'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
@@ -201,30 +202,34 @@ const CharactersPreview = (props) => {
     }
     return (
         <div className = "mb-4">
-
+            <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
+                <ul>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Art">Art</a></li>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Factions">Factions</a></li>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Constellation">Constellation</a></li>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Passive Talents">Passive Talents</a></li>
+                    <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Skill Talents">Skill Talents</a></li>
+                </ul>
+            </div>
             {/* Character Card */}
-            <div className=" block p-6 bg-white border border-gray-200 rounded-lg bg-cover bg-center h-screen min-h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
-                
-                {/* Top section divided into two columns */}
-                <div className = "items-center justify-center grid grid-cols-2">
-                    <div className = "object-contain w-full flex items-center justify-center align-middle">
-                        <img className = "object-contain items-center justify-center" src={card}></img>
-                    </div>
-                    <div className="items-start justify-start text-start">
-                        <button onClick = {() => {
-                            props.setCharPreviewData([])
-                            props.setCharPreviewState(false)
-                            }}> Go Back </button>
-                        {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
-                        <h1 className="text-9xl m-5">{props.charPreviewData.name}</h1>
-                        <p className="italic font-black text-2xl">{props.charPreviewData.title}</p>
-                        <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
-                    </div>
+            <div id="Art" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
+                <div className = "h-full min-h-screen flex justify-center items-center p-4">
+                    <img className = "object-contain max-h-screen" src={card}></img>
+                </div>
+                <div className="items-start justify-start text-start">
+                    <button onClick = {() => {
+                        props.setCharPreviewData([])
+                        props.setCharPreviewState(false)
+                        }}> Go Back </button>
+                    {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
+                    <h1 className="text-9xl m-5">{props.charPreviewData.name}</h1>
+                    <p className="italic font-black text-2xl">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
             </div>
 
             {/* About Card */}
-            <div className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
                 <div className="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">{props.charPreviewData.affiliation}</p>
@@ -257,7 +262,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/*Constellation  */}
-            <div className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
@@ -269,7 +274,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -279,7 +284,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <h1>Skill Talents</h1>
                 {props.charPreviewData.skillTalents.map(entry => {
                     return(
