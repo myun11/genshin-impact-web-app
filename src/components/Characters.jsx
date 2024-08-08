@@ -254,7 +254,7 @@ const Characters = (props) => {
                 {filteredArray.map(entry => {
                     if (entry["rarity"] == 4) {
                         return(
-                            <div className = "w-full h-full">
+                            <div className = "w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                 <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
@@ -265,7 +265,7 @@ const Characters = (props) => {
                     }
                     if (entry["rarity"] == 5) {                   
                         return(
-                            <div className = "w-full h-full">
+                            <div className = "w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                                 <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
