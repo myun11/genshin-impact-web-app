@@ -232,9 +232,9 @@ const CharactersPreview = (props) => {
             {/* About Card */}
             <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
 
-
                 <Factions
-                    affilitation = {props.charPreviewData.affiliation}
+                    id = {props.charPreviewData.id}
+                    affiliation = {props.charPreviewData.affiliation}
                     birthday = {birthday}
                     releaseDate = {releaseDate}
                     gender = {props.charPreviewData.gender}

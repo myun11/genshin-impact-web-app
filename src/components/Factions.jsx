@@ -8,19 +8,19 @@ import Sword_Icon from '../images/Icon_Sword.webp'
 const Factions = (props) => {
   const [visionIcon, setVisionIcon] = useState("")
   useEffect(() => {
-    if (props.vision == "Sword") {
+    if (props.weapon == "Sword") {
       setVisionIcon(Sword_Icon)
     }
-    if (props.vision == "Claymore") {
+    if (props.weapon == "Claymore") {
       setVisionIcon(Claymore_Icon)
     }
-    if (props.vision == "Bow") {
+    if (props.weapon == "Bow") {
       setVisionIcon(Bow_Icon)
     }
-    if (props.vision == "Catalyst") {
+    if (props.weapon == "Catalyst") {
       setVisionIcon(Catalyst_Icon)
     }
-    if (props.vision == "Polearm") {
+    if (props.weapon == "Polearm") {
       setVisionIcon(Polearm_Icon)
     }
   }, [])
@@ -51,11 +51,15 @@ const Factions = (props) => {
 
       {/* Show these other three with icons */}
       <p>Rarity: {props.rarity}</p>
-      <p>Vision: {props.vision}</p>
-      <img className="rounded-lg" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
-      <img className="bg-white h-full w-full rounded-lg" src = {visionIcon}/>
-      {visionIcon}
-      <p>Weapon: {props.weapon}</p>
+      {/* <p>Vision: {props.vision}</p> */}
+      <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
+        
+      <div className="flex bg-black w-1/5">
+        <img className="rounded-lg" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
+        <img className="rounded-lg" src = {visionIcon}/>  
+      </div>
+      
+      {/* <p>Weapon: {props.weapon}</p> */}
       {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
       {/* <p>id: {props.charPreviewData.id}</p> */}
     </div>
