@@ -53,7 +53,7 @@ const Factions = (props) => {
       <p>Rarity: {props.rarity}</p>
       {/* <p>Vision: {props.vision}</p> */}
       <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
-        
+      <img className="rounded-lg" src = {"https://genshin.jmp.blue/characters/" + props.id + "/gacha-card"}/>
       <div className="flex bg-black w-1/5">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
         <img className="rounded-lg" src = {visionIcon}/>  
