@@ -110,6 +110,11 @@ const Characters = (props) => {
             })
             currentArray = emptyArray
         }
+
+        currentArray = currentArray.sort((a,b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+        })
         setFilteredArray(currentArray)
 
     }, [selectedElements, selectedWeapons])
