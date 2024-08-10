@@ -54,48 +54,62 @@ const CharactersPreview = (props) => {
             "Constellation" : "bg-lime-700",
             "Passive-Talents" : "bg-lime-900",
             "Skill-Talents" : "bg-lime-950",
+            "Icon-High" : "to-lime-300",
+            "Icon-Low" : "from-lime-800"
         },
         "Pyro" : {
             "Keyword-Text" : "text-red-300",
             "About" : "bg-red-500",
             "Constellation" : "bg-red-700",
             "Passive-Talents" : "bg-red-900",
-            "Skill-Talents" : "bg-red-950"
+            "Skill-Talents" : "bg-red-950",
+            "Icon-High" : "to-red-300",
+            "Icon-Low" : "from-red-800"
         },
         "Hydro" : {
             "Keyword-Text" : "text-blue-300",
             "About" : "bg-blue-500",
             "Constellation" : "bg-blue-700",
             "Passive-Talents" : "bg-blue-900",
-            "Skill-Talents" : "bg-blue-950"
+            "Skill-Talents" : "bg-blue-950",
+            "Icon-High" : "to-blue-300",
+            "Icon-Low" : "from-blue-800"
         },
         "Electro" : {
             "Keyword-Text" : "text-purple-300",
             "About" : "bg-purple-500",
             "Constellation" : "bg-purple-700",
             "Passive-Talents" : "bg-purple-900",
-            "Skill-Talents" : "bg-purple-950"
+            "Skill-Talents" : "bg-purple-950",
+            "Icon-High" : "to-purple-300",
+            "Icon-Low" : "from-purple-800"
         },
         "Anemo" : {
             "Keyword-Text" : "text-teal-300",
             "About" : "bg-teal-500",
             "Constellation" : "bg-teal-700",
             "Passive-Talents" : "bg-teal-900",
-            "Skill-Talents" : "bg-teal-950"
+            "Skill-Talents" : "bg-teal-950",
+            "Icon-High" : "to-teal-300",
+            "Icon-Low" : "from-teal-800"
         },
         "Geo" : {
             "Keyword-Text" : "text-amber-300",
             "About" : "bg-amber-500",
             "Constellation" : "bg-amber-700",
             "Passive-Talents" : "bg-amber-900",
-            "Skill-Talents" : "bg-amber-950"
+            "Skill-Talents" : "bg-amber-950",
+            "Icon-High" : "to-amber-300",
+            "Icon-Low" : "from-amber-800"
         },
         "Cryo" : {
             "Keyword-Text" : "text-cyan-300",
             "About" : "bg-cyan-500",
             "Constellation" : "bg-cyan-700",
             "Passive-Talents" : "bg-cyan-900",
-            "Skill-Talents" : "bg-cyan-950"
+            "Skill-Talents" : "bg-cyan-950",
+            "Icon-High" : "to-cyan-300",
+            "Icon-Low" : "from-cyan-800"
         }
     }
     // const colors2 = {
@@ -208,7 +222,7 @@ const CharactersPreview = (props) => {
         // Pushing the characters' skill names to keywords array as well
         props.charPreviewData.skillTalents.map(entry => {
             keywords.push(entry.name)
-            console.log(keywords)
+            // console.log(entry.name)
         })
     },[])
     
@@ -221,7 +235,7 @@ const CharactersPreview = (props) => {
     }
     return (
         <div className = "mb-4">
-            <button onClick = {() => console.log(keywords)}>keywords</button>
+            {/* <button onClick = {() => console.log(keywords)}>keywords</button> */}
             <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
@@ -261,6 +275,8 @@ const CharactersPreview = (props) => {
                     rarity = {props.charPreviewData.rarity}
                     weapon = {props.charPreviewData.weapon}
                     vision = {props.charPreviewData.vision}
+                    visionIconHigh = {colors[props.charPreviewData.vision]["Icon-High"]}
+                    visionIconLow = {colors[props.charPreviewData.vision]["Icon-Low"]}
                 />                
             </div>
 
