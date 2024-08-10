@@ -17,22 +17,27 @@ const CharactersPreview = (props) => {
         'CRIT DMG',
         '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
         'ATK',
-        'Electro DMG',
-        'Cryo DMG',
-        'Geo DMG',
-        'Hydro DMG',
-        'Dendro DMG',
-        'Anemo DMG',
-        'Pyro DMG',
+        'Electro',
+        'Cryo',
+        'Geo',
+        'Hydro',
+        'Dendro',
+        'Anemo',
+        'Pyro',
+        'AoE',
+        'RES',
+        'Max HP',
         'DMG',
         'Charged ATK',
         'Charged Attack DMG',
         'DEF',
         '\\d',
         '\\d*\\.?\\d',
+        'Normal Attack SPD',
         'Normal',
         'Charged',
-        'attacks'
+        'attacks',
+
     ];
 
     const colors = {
@@ -268,7 +273,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <h1>Skill Talents</h1>
                 {props.charPreviewData.skillTalents.map(entry => {
                     return(
