@@ -123,7 +123,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div>
+    <div className = "bg-slate-800">
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div>
@@ -135,7 +135,7 @@ const Characters = (props) => {
             </div>
             :
             <div>
-            <h1>Characters</h1>
+            <h1 className = "dark:text-white">Characters</h1>
             
             <div>
                 {/* Debugging */}
@@ -261,22 +261,24 @@ const Characters = (props) => {
                     if (entry["rarity"] == 4) {
                         return(
                             <div className = "border-4 w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
-                                <button className = "bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                <button className = "bg-gradient-to-b from-purple-500 to-white" >
+                                    <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
                                 }}/></button>
-                                <h2 className = "capitalize">{entry["name"]}</h2>
+                                <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
                             </div>
                         )
                     }
                     if (entry["rarity"] == 5) {                   
                         return(
                             <div className = "border-4 w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
-                                <button className = "bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                <button className = "bg-gradient-to-b from-orange-500 to-white" >
+                                    <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                     setCharPreviewState(true)
                                     setCharPreviewData(entry)
                                 }}/></button>
-                                <h2 className = "capitalize">{entry["name"]}</h2>
+                                <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
                             </div>
                         )
                     }

@@ -223,9 +223,9 @@ const CharactersPreview = (props) => {
                         props.setCharPreviewState(false)
                         }}> Go Back </button>
                     {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
-                    <h1 className="text-9xl">{props.charPreviewData.name}</h1>
-                    <p className="italic font-black text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{props.charPreviewData.description}</h2>
+                    <h1 className="dark:text-white text-gray-500 text-9xl">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
             </div>
 

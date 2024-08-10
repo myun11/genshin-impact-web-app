@@ -4,6 +4,7 @@ import Catalyst_Icon from '../images/Icon_Catalyst.webp'
 import Claymore_Icon from '../images/Icon_Claymore.webp'
 import Polearm_Icon from '../images/Icon_Polearm.webp'
 import Sword_Icon from '../images/Icon_Sword.webp'
+import Star from '../images/Star.png'
 
 const Factions = (props) => {
   const [visionIcon, setVisionIcon] = useState("")
@@ -54,9 +55,10 @@ const Factions = (props) => {
       {/* <p>Vision: {props.vision}</p> */}
       <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
       <img className="rounded-lg" src = {"https://genshin.jmp.blue/characters/" + props.id + "/gacha-card"}/>
+      <img className="rounded-lg bg-black" src = {Star}/>
       <div className="flex bg-black w-1/5">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
-        <img className="rounded-lg" src = {visionIcon}/>  
+        <img className="rounded-lg" src = {visionIcon}/>
       </div>
       
       {/* <p>Weapon: {props.weapon}</p> */}
