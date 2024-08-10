@@ -208,6 +208,7 @@ const CharactersPreview = (props) => {
         // Pushing the characters' skill names to keywords array as well
         props.charPreviewData.skillTalents.map(entry => {
             keywords.push(entry.name)
+            console.log(keywords)
         })
     },[])
     
