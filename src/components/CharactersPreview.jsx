@@ -16,6 +16,8 @@ const CharactersPreview = (props) => {
         'CRIT Rate',
         'CRIT DMG',
         '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
+        'ATK SPD',
+        'Charged Attack',
         'ATK',
         'Electro',
         'Cryo',
@@ -27,6 +29,9 @@ const CharactersPreview = (props) => {
         'AoE',
         'RES',
         'Max HP',
+        'HP',
+        'DMG Bonus',
+        'Healing Bonus',
         'DMG',
         'Charged ATK',
         'Charged Attack DMG',
@@ -34,10 +39,12 @@ const CharactersPreview = (props) => {
         '\\d',
         '\\d*\\.?\\d',
         'Normal Attack SPD',
-        'Normal',
+        'Elemental Skill DMG',
+        'Elemental Mastery',
         'Charged',
+        'Normal Attacks',
         'attacks',
-
+        'CD'
     ];
 
     const colors = {
@@ -197,6 +204,11 @@ const CharactersPreview = (props) => {
         setLoading(false)
         convertDates()
         // setCard("https://genshin.jmp.blue/characters/" + props.charPreviewData.id + "/card")
+    
+        // Pushing the characters' skill names to keywords array as well
+        props.charPreviewData.skillTalents.map(entry => {
+            keywords.push(entry.name)
+        })
     },[])
     
     if (loading) {
@@ -208,6 +220,7 @@ const CharactersPreview = (props) => {
     }
     return (
         <div className = "mb-4">
+            <button onClick = {() => console.log(keywords)}>keywords</button>
             <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>

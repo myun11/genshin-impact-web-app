@@ -19,7 +19,7 @@ const PassiveTalents = (props) => {
                                     <h5 className="text-left mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Level {entry.unlock}: {entry.name}</h5>
                                     <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-400">{
                                     parts.map((part, index) =>
-                                        props.keywords.some(keyword => new RegExp(keyword, 'i').test(part)) ? (
+                                        props.keywords.some(keyword => new RegExp(keyword).test(part)) ? (
                                           <span key={index} className={props.keywordsColor}>
                                             {part}
                                           </span>
