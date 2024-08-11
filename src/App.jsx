@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Theme from './components/Theme';
 import Weapons from './components/Weapons';
+import Dev from './components/Dev';
 
 function App() {
   const [data, setData] = useState([])
@@ -28,10 +29,10 @@ function App() {
     'weapons'
   ]
 
-  const fetchData = async (text) => {
+  const fetchData = async (header) => {
     try{
       setLoading(true)
-      await axios.get('https://genshin.jmp.blue/characters' + text)
+      await axios.get('https://genshin.jmp.blue/' + header)
       .then(res => {
         setCharacters(res.data)
         const api_data_map = new Map()
@@ -77,7 +78,7 @@ function App() {
     setMasterCharacterDataMap(api_data)  
   }
   useEffect(() => {
-    fetchData('')
+    fetchData('characters')
     // .then(() => getCharacterDataAll())
   }, [])
   return (
@@ -122,21 +123,10 @@ function App() {
         
           {/* Dev */}
           {page == 'Dev' &&
-          <div>
-            <button onClick={() => console.log(data)}> Get data. </button>
-            <button onClick={() => console.log(masterCharacterDataMap)}> Get master character data. </button>
-            {
-              types.map(entry => {
-                return(
-                  <div>
-                    <button onClick = {() => {
-                      fetchData(entry)
-                    }}> {entry} </button>
-                  </div>
-                )
-              })
-            }
-          </div>
+          <Dev
+            types = {types}
+          />
+          
           }
         
         </div>
