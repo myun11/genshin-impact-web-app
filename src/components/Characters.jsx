@@ -123,10 +123,10 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = "bg-slate-800">
+    <div className = " w-5/6 mx-auto ">
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
-            <div>
+            <div className='items-center justify-center'>
                 <CharactersPreview
                     setCharPreviewState={setCharPreviewState}
                     setCharPreviewData={setCharPreviewData}

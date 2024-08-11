@@ -3,7 +3,7 @@ import React from 'react'
 const Constellation = (props) => {
 
   return (
-    <div>
+    <div className = "p-4">
         <h1>Constellation: {props.constellationName}</h1>
         <div className="items-center justify-center grid grid-cols-2 gap-4">
 

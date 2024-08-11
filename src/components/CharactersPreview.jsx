@@ -5,6 +5,7 @@ import Constellation from './Constellation'
 import PassiveTalents from './PassiveTalents'
 import Sidebar from './Sidebar'
 import Factions from './Factions'
+import SkillTalents from './SkillTalents'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
@@ -236,9 +237,9 @@ const CharactersPreview = (props) => {
         )
     }
     return (
-        <div className = "mb-4 ">
+        <div className = "mb-4">
             {/* <button onClick = {() => console.log(keywords)}>keywords</button> */}
-            <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
+            {/* <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Factions">Factions</a></li>
@@ -246,7 +247,7 @@ const CharactersPreview = (props) => {
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Passive Talents">Passive Talents</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Skill Talents">Skill Talents</a></li>
                 </ul>
-            </div>
+            </div> */}
             {/* Character Card */}
             <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
                 <div className = "h-full min-h-screen flex justify-end items-end p-4">
@@ -306,29 +307,12 @@ const CharactersPreview = (props) => {
 
             {/* Skill Talents */}
             <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
-                <h1>Skill Talents</h1>
-                {props.charPreviewData.skillTalents.map(entry => {
-                    return(
-                        <div>
-                            {entry.unlock}
-                            {entry.name}
-                            {entry.description}
-                            Upgrades:
-                            {entry.upgrades && entry.upgrades.map(obj => {
-                                return(
-                                    <div>
-                                        <p>Name: {obj.name}</p>
-                                        <p>Value: {obj.value}</p>
-                                    </div>
-                                )
-                            })}
-                            <br/>
-                        </div>
-                    )
-                })}
-                <img src={images["talent-na"]}/>
-                <img src={images["talent-burst"]}/>
-                <img src={images["talent-skill"]}/>
+                <SkillTalents 
+                    keywords = {keywords}
+                    keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
+                    images = {images}
+                    skillTalents = {props.charPreviewData.skillTalents}
+                />
             </div>
         </div>
     )
