@@ -40,8 +40,8 @@ const SkillTalents = (props) => {
                                                         <table class="min-w-full divide-y divide-gray-200">
                                                           <tbody class="divide-y divide-gray-200">
                                                             <tr>
-                                                              <td class="px-6 py-4 whitespace-nowrap text-start font-medium dark:text-gray-400">{obj.name}</td>
-                                                              <td class="px-6 py-4 whitespace-nowrap text-end dark:text-gray-400">{obj.value}</td>
+                                                              <td class="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
+                                                              <td class="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
                                                               
                                                             </tr>
 
