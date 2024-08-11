@@ -137,7 +137,7 @@ const Characters = (props) => {
             <div>
             <h1 className = "dark:text-white">Characters</h1>
             
-            <div>
+            {/* <div> */}
                 {/* Debugging */}
                 {/* <button onClick = {() => console.log(props.masterCharacterData)}>props masterCharacterData</button>
                 <button onClick = {() => console.log(props.characters)}>props characters</button>
@@ -150,10 +150,9 @@ const Characters = (props) => {
                     })
                     console.log(new Set(weapons))
                 }}>list of weapons</button> */}
-            </div>
+            {/* </div> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             {/* Also accounts for capitalization variances. */}
-            
             <div className='inline-flex m-8'>
 
                 {/* Filter by element */}

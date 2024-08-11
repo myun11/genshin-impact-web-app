@@ -17,6 +17,8 @@ const CharactersPreview = (props) => {
         'CRIT Rate',
         'CRIT DMG',
         '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
+        'Elemental Skill DMG',
+        'Elemental Skill',
         'ATK SPD',
         'Movement SPD',
         'Charged Attack',
@@ -41,7 +43,6 @@ const CharactersPreview = (props) => {
         '\\d',
         '\\d*\\.?\\d',
         'Normal Attack SPD',
-        'Elemental Skill DMG',
         'Elemental Mastery',
         'Charged',
         'Normal Attacks',
