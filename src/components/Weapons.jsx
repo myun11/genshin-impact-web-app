@@ -17,7 +17,7 @@ const Weapons = () => {
                             .then(res2 => {
 
                                 // This method updates state better than the method below.
-                                setWeapons([...weapons, {
+                                setWeapons(wep => [...wep, {
                                     'id' : weapon,
                                     'data' : res2.data,
                                     'icon' : 'https://genshin.jmp.blue/weapons/' + weapon + '/icon'
@@ -69,7 +69,7 @@ const Weapons = () => {
                         return(
                             <div className = "border-4 w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                 <button className = "bg-gradient-to-b from-purple-500 to-white" >
-                                    <img className="w-full h-full rounded-lg " src = {entry.icon} onClick = {() => {
+                                    <img className="w-64 h-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                 
                                 }}/></button>
                                 <h2 className = "capitalize dark:text-white">{entry.data.name}</h2>
