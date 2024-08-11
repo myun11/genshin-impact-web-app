@@ -158,21 +158,40 @@ const Weapons = () => {
     // Whenever a filter is selected, the filteredWeapons array is rerendered
     useEffect(() => {
         let filteredArray = weapons
+
+        // Filters out type
         if (selectedOptions.types.length > 0) {
             filteredArray = filteredArray.filter(entry => {
                 return(selectedOptions.types.includes(entry.data.type))
             })
         }
+
+        // ATK value is "ATK,attack" because the API is messy so account for both.
+        const copy = []
+        selectedOptions.subStats.map(entry => {
+            if (entry == "ATK,Attack") {
+                copy.push("ATK")
+                copy.push("Attack")
+            } else {
+                copy.push(entry)
+            }
+        })
+
+        // Filters out substat
         if (selectedOptions.subStats.length > 0) {
             filteredArray = filteredArray.filter(entry => {
-                return(selectedOptions.subStats.includes(entry.data.subStat))
+                return(copy.includes(entry.data.subStat))
             })
         }
+
+        // Filters out rarity
         if (selectedOptions.rarity.length > 0) {
             filteredArray = filteredArray.filter(entry => {
                 return(selectedOptions.rarity.includes(entry.data.rarity))
             })
         }
+
+        // Filters out the search input
         if (weaponSearch.length > 0) {
             filteredArray = filteredArray.filter(entry => {
                 return(entry.data.name.includes(weaponSearch) || entry.data.id.includes(weaponSearch))
@@ -205,10 +224,13 @@ const Weapons = () => {
 
                  <button onClick = {() => {
                     let test = weapons.filter(entry => {
-                        entry.data.type = "Sword" && entry.data.subStat == "Attack"
+                        entry.data.type = "Sword" && entry.data.subStat == "ATK"
                     })
                     console.log(test)
                  }}>test</button>
+                 <button onClick = {() => {
+                    console.log(selectedOptions)
+                 }}>selected options</button>
                 
                 <div className = "inline-flex">
                     {/* Weapon type multiselect  */}
