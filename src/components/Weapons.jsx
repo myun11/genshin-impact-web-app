@@ -221,7 +221,7 @@ const Weapons = () => {
                 }}>types</button>
                 type (5), subStat (10), rarity (5), 
                  */}
-
+{/* 
                  <button onClick = {() => {
                     let test = weapons.filter(entry => {
                         entry.data.type = "Sword" && entry.data.subStat == "ATK"
@@ -231,7 +231,7 @@ const Weapons = () => {
                  <button onClick = {() => {
                     console.log(selectedOptions)
                  }}>selected options</button>
-                
+                 */}
                 <div className = "inline-flex">
                     {/* Weapon type multiselect  */}
                     <div className="relative w-64">
