@@ -17,6 +17,7 @@ const CharactersPreview = (props) => {
         'CRIT DMG',
         '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
         'ATK SPD',
+        'Movement SPD',
         'Charged Attack',
         'ATK',
         'Electro',
@@ -160,6 +161,7 @@ const CharactersPreview = (props) => {
         // genshin api
         // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-card")
         setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/portrait")
+        // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-splash")
     }
 
     const callAPI = (char) => {
@@ -234,7 +236,7 @@ const CharactersPreview = (props) => {
         )
     }
     return (
-        <div className = "mb-4">
+        <div className = "mb-4 ">
             {/* <button onClick = {() => console.log(keywords)}>keywords</button> */}
             <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>

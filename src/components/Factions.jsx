@@ -40,55 +40,48 @@ const Factions = (props) => {
     return card
   }
   return (
-    <div>
+    <div className = "flex justify-center items-center">
       
-      <div className={"w-1/4 justify-center items-center flex rounded-3xl bg-gradient-to-br " + props.visionIconLow + " " + props.visionIconHigh }>
-        {/* Vision and Weapon type */}
-        <div className = "m-2 inline-flex">
-          <img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
-          <img className="" src = {visionIcon}/>         
-        </div>
-        {/* Divider  */}
-        <div className = "h-[60px]  bg-slate-600 w-[2px]">
-        </div>
-        {/* Rarity stars (4 or 5) */}
-        <div className = "m-2 inline-flex">
-          {convertRarity()}
-        </div>
-      </div>
-      <div className="inline-flex">
-        <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation:</h2>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p>
-        </div>
-        <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p>
-        </div>
-        <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p>
-        </div>
-        <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p>
-        </div>
-        <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p>
-        </div>
-      </div>
-      {/* Show with icons */}
-
-      {/* Show these other three with icons */}
       <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
-      <img className="rounded-lg" src = {"https://genshin.jmp.blue/characters/" + props.id + "/gacha-card"}/>
-      
-      
-
-      {/* <p>Weapon: {props.weapon}</p> */}
-      {/* <button onClick = {() => console.log(props.charPreviewData)}>props</button> */}
-      {/* <p>id: {props.charPreviewData.id}</p> */}
+      <div className="grid">
+        
+        <div className={" justify-center h-full items-center flex rounded-3xl bg-gradient-to-br " + props.visionIconLow + " " + props.visionIconHigh }>
+          {/* Vision and Weapon type */}
+          <div className = "m-2 inline-flex">
+            <img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
+            <img className="" src = {visionIcon}/>         
+          </div>
+          {/* Divider  */}
+          <div className = "h-[60px]  bg-slate-600 w-[2px]">
+          </div>
+          {/* Rarity stars (4 or 5) */}
+          <div className = "m-2 inline-flex">
+            {convertRarity()}
+          </div>
+        </div>
+        <div className="inline-flex h-full">
+          <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation</h2>
+              <p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p>
+          </div>
+          <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
+              <p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p>
+          </div>
+          <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
+              <p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p>
+          </div>
+          <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
+              <p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p>
+          </div>
+          <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
+              <p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
