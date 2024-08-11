@@ -6,6 +6,7 @@ import Characters from './components/Characters';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Theme from './components/Theme';
+import Weapons from './components/Weapons';
 
 function App() {
   const [data, setData] = useState([])
@@ -110,6 +111,12 @@ function App() {
               masterCharacterDataMap = {masterCharacterDataMap}
               masterCharacterDataArray = {masterCharacterDataArray}
               loading = {loading}
+            />
+          }
+
+          {page == 'Weapons' &&
+            <Weapons 
+            
             />
           }
         

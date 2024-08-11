@@ -33,15 +33,15 @@ const SkillTalents = (props) => {
                                               {/* <p>Name: {obj.name}</p>
                                               <p>Value: {obj.value}</p> */}
                                               <div>
-                                                <div class="flex flex-col">
-                                                  <div class="-m-1.5 overflow-x-auto">
-                                                    <div class="p-1.5 w-1/2 inline-block align-middle">
-                                                      <div class="border rounded-lg shadow overflow-hidden">
-                                                        <table class="min-w-full divide-y divide-gray-200">
-                                                          <tbody class="divide-y divide-gray-200">
+                                                <div className="flex flex-col">
+                                                  <div className="-m-1.5 overflow-x-auto">
+                                                    <div className="p-1.5 w-1/2 inline-block align-middle">
+                                                      <div className="border rounded-lg shadow overflow-hidden">
+                                                        <table className="min-w-full divide-y divide-gray-200">
+                                                          <tbody className="divide-y divide-gray-200">
                                                             <tr>
-                                                              <td class="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
-                                                              <td class="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
+                                                              <td className="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
+                                                              <td className="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
                                                               
                                                             </tr>
 
