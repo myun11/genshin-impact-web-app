@@ -8,6 +8,8 @@ import Catalyst_Icon from '../images/Icon_Catalyst.webp'
 import Claymore_Icon from '../images/Icon_Claymore.webp'
 import Polearm_Icon from '../images/Icon_Polearm.webp'
 import Sword_Icon from '../images/Icon_Sword.webp'
+import Orange_Star from '../images/Orange_Star.png'
+import Purple_Star from '../images/Purple_Star.png'
 
 const Characters = (props) => {
     
@@ -45,12 +47,11 @@ const Characters = (props) => {
         ['Catalyst', 'favonius-codex']
     ]
 
-    // The current selected elements that the user can filter through by pressing buttons.
+    // The current selected elements, weapon types, and rarities that the user can filter through by pressing buttons.
     // This allows for multiple element filtering.
     const [selectedElements, setSelectedElements] = useState([])
-
-    // The current selected weapons to sort characters through
     const [selectedWeapons, setSelectedWeapons] = useState([])
+    const [selectedRarity, setSelectedRarity] = useState(null)
 
     // API call for one character
     // const getCharacterData = async (char) => {
@@ -90,23 +91,31 @@ const Characters = (props) => {
     // Array version
     useEffect(() => {
         let currentArray = props.masterCharacterDataArray
-        if (selectedElements.length == 0 && selectedWeapons.length == 0) {
+        if (selectedElements.length == 0 && selectedWeapons.length == 0 && selectedRarity == null) {
             setFilteredArray(currentArray)
         }
+
         if (selectedElements.length > 0) {
             let emptyArray = currentArray.filter(char => {
                 let char_vision = char["vision"]
-                // console.log(char_vision)
-                // console.log(selectedElements)
                 return (selectedElements.includes(char_vision))
             })
             currentArray = emptyArray
-    
         }
+
         if (selectedWeapons.length > 0) {
             let emptyArray = currentArray.filter(char => {
                 let char_weapon = char["weapon"]
                 return (selectedWeapons.includes(char_weapon))
+            })
+            currentArray = emptyArray
+        }
+
+        if (selectedRarity != null) {
+            let emptyArray = currentArray.filter(char => {
+                let char_rarity = char["rarity"]
+                console.log(char_rarity)
+                return(selectedRarity == char_rarity)
             })
             currentArray = emptyArray
         }
@@ -118,7 +127,7 @@ const Characters = (props) => {
         })
         setFilteredArray(currentArray)
 
-    }, [selectedElements, selectedWeapons])
+    }, [selectedElements, selectedWeapons, selectedRarity])
 
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
@@ -153,9 +162,10 @@ const Characters = (props) => {
             {/* </div> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             {/* Also accounts for capitalization variances. */}
-            <div className='inline-flex m-8'>
+            <div className='inline-flex m-8 p-4 space-x-7'>
 
                 {/* Filter by element */}
+                <div>
                 {elements.map(res => {
                     return(
                     <button className = {selectedElements.includes(res) ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
@@ -176,6 +186,10 @@ const Characters = (props) => {
                     </button>
                     )
                 })}
+                </div>
+
+                {/* Filter by weapon type */}
+                <div>
                 {weapons.map(entry => {
                     let wep = entry[0]
                     let icon = null
@@ -206,7 +220,39 @@ const Characters = (props) => {
                         </button>
                     )
                 })}
-            
+                </div>
+                {/* Filter by rarity */}
+                <div>
+                    <button className = {selectedRarity == 4 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                        {
+                            if (selectedRarity == 4) {
+                                setSelectedRarity(null)
+                            } else {
+                                setSelectedRarity(4)
+                            }
+                        }
+                    }>
+                        <img className="w-16 h-16 rounded-lg" src = {Purple_Star} />
+                    </button>
+                    <button className = {selectedRarity == 5 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                        {
+                            if (selectedRarity == 5) {
+                                setSelectedRarity(null)
+                            } else {
+                                setSelectedRarity(5)
+                            }
+                        }
+                    }>
+                        <img className="w-16 h-16 rounded-lg" src = {Orange_Star} />
+                    </button>
+                </div>
+
+                {/* Filter by name */}
+                <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                    let emptyArray = props.masterCharacterDataArray.filter(entry => entry["id"].includes(e.target.value.toLowerCase()))
+                    setFilteredArray(emptyArray)
+                }}/>
+                
             </div>
 
             
@@ -217,11 +263,6 @@ const Characters = (props) => {
                 setFilteredCharacters(emptyArray)
             }}/> */}
 
-            {/* Array version */}
-            <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                let emptyArray = props.masterCharacterDataArray.filter(entry => entry["id"].includes(e.target.value.toLowerCase()))
-                setFilteredArray(emptyArray)
-            }}/>
 
             {/* Character Grid */}
             {/* Map version. */}
