@@ -1,45 +1,8 @@
 import React from 'react'
-
+import Keywords from './Keywords';
 const WeaponPreview = (props) => {
 
-    const keywords = [
-        '\\d*\\.?\\d+s', // Any integer or float number followed by "s"
-        'CRIT Rate',
-        'CRIT DMG',
-        '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
-        'ATK SPD',
-        'Movement SPD',
-        'Charged Attack',
-        'Elemental Skill DMG',
-        'Elemental Skill',
-        'ATK',
-        'Electro',
-        'Cryo',
-        'Geo',
-        'Hydro',
-        'Dendro',
-        'Anemo',
-        'Pyro',
-        'AoE',
-        'RES',
-        'Max HP',
-        'HP',
-        'DMG Bonus',
-        'Healing Bonus',
-        'DMG',
-        'Charged ATK',
-        'Charged Attack DMG',
-        'DEF',
-        '\\d',
-        '\\d*\\.?\\d',
-        'Normal Attack SPD',
-        'Elemental Mastery',
-        'Charged',
-        'Normal Attacks',
-        'attacks',
-        'CD',
-
-    ];
+    const keywords = Keywords
 
     function reg() {
         const regex = new RegExp(`(${keywords.join('|')})`, 'gi');

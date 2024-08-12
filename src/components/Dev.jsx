@@ -1,10 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
-
+import Loader from './Loader'
 const Dev = (props) => {
+  const [loading, setLoading] = useState(true)
   return (
     <div>
         <h1>Dev</h1>
+
+        <div>
+          <button onClick = {() => {
+            setLoading(prev => !prev)
+            console.log(loading)
+            }}>loading</button>
+          <Loader
+            loading = {loading}
+          />
+        </div>
         <div>
             {
               props.types.map(entry => {

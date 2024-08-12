@@ -10,6 +10,7 @@ import Polearm_Icon from '../images/Icon_Polearm.webp'
 import Sword_Icon from '../images/Icon_Sword.webp'
 import Orange_Star from '../images/Orange_Star.png'
 import Purple_Star from '../images/Purple_Star.png'
+import Loader from './Loader'
 
 const Characters = (props) => {
     
@@ -331,8 +332,9 @@ const Characters = (props) => {
 )
     } else {
         <div>
-            Loading
+            <Loader/>
         </div>
+        
     }
     
 }

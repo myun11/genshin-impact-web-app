@@ -1,10 +1,20 @@
 import React from 'react'
-import 'ldrs/ring'
+import 'ldrs/tailChase'
 
-const Loader = () => {
-  return (
-    <div>Loader</div>
-  )
+const Loader = (props) => {
+    return (
+        <div>
+            <div aria-live="polite" aria-busy={props.loading}>
+                {props.loading && <l-tail-chase
+                size="150"
+                speed="1.75"
+                color="white" 
+                ></l-tail-chase>}
+            </div>
+
+            
+        </div>
+      )
 }
 
 export default Loader

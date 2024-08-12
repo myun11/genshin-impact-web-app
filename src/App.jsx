@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Theme from './components/Theme';
 import Weapons from './components/Weapons';
 import Dev from './components/Dev';
+import Loader from './components/Loader';
 
 function App() {
   const [data, setData] = useState([])
@@ -50,11 +51,8 @@ function App() {
         })
         setMasterCharacterDataMap(api_data_map)
         setMasterCharacterDataArray(api_data_array)
-        // console.log("we're here 1")
       }).then(() => {
-        // console.log("we're here 2")
         setLoading(false)
-        // console.log("we're here 3")
       }
         
       )
@@ -85,7 +83,9 @@ function App() {
     <div className="">
     {loading ?
       <div>
-        Loading Page
+        <Loader
+          loading = {loading}
+        />
       </div> :
       <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
               {/* Navbar */}

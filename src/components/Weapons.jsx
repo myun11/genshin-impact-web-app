@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Transition } from '@headlessui/react';
 import WeaponPreview from './WeaponPreview';
+import Loader from './Loader'
 
 const Weapons = () => {
 
@@ -205,23 +206,8 @@ const Weapons = () => {
     }, [weapons, selectedOptions, weaponSearch])
     return(
         <div className = " w-5/6 mx-auto ">
-        {loading ? 
-            <div>
-                Loading...
-            </div> :
-            <div>
-                <button onClick = {() => console.log(weapons)}>weps</button>
-                {weaponPreviewState ? 
-                    <div>
-                        <WeaponPreview
-                            wep = {selectedWeapon}
-                            setWeaponPreviewState={setWeaponPreviewState}
-                        />
-                    </div>
-                :
-                    <div className = "">
-                        <h1>Weapons</h1>
-                        <div className = "p-4">
+            <h1>Weapons</h1>
+            <div className = "p-4">
                             <div className = "bg-slate-500 h-1 w-full"></div>
                             <div className = "inline-flex content-start p-4 space-x-7">
                                 {/* Weapon type multiselect  */}
@@ -380,6 +366,22 @@ const Weapons = () => {
                             </div>
                             <div className = "bg-slate-500 h-1 w-full"></div>
                         </div>
+        {loading ? 
+            <div>
+                <Loader loading = {loading}/>
+            </div> :
+            <div>
+                {weaponPreviewState ? 
+                    <div>
+                        <WeaponPreview
+                            wep = {selectedWeapon}
+                            setWeaponPreviewState={setWeaponPreviewState}
+                        />
+                    </div>
+                :
+                    <div className = "">
+                        
+
                         <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {

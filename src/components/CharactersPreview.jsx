@@ -6,49 +6,14 @@ import PassiveTalents from './PassiveTalents'
 import Sidebar from './Sidebar'
 import Factions from './Factions'
 import SkillTalents from './SkillTalents'
+import Keywords from './Keywords'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [loading, setLoading] = useState(true)
     const [birthday, setBirthday] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
     const [images, setImages] = useState([])
-    const keywords = [
-        '\\d*\\.?\\d+s', // Any integer or float number followed by "s"
-        'CRIT Rate',
-        'CRIT DMG',
-        '\\d*\\.?\\d+%', // Any integer or float number followed by "%"
-        'Elemental Skill DMG',
-        'Elemental Skill',
-        'ATK SPD',
-        'Movement SPD',
-        'Charged Attack',
-        'ATK',
-        'Electro',
-        'Cryo',
-        'Geo',
-        'Hydro',
-        'Dendro',
-        'Anemo',
-        'Pyro',
-        'AoE',
-        'RES',
-        'Max HP',
-        'HP',
-        'DMG Bonus',
-        'Healing Bonus',
-        'DMG',
-        'Charged ATK',
-        'Charged Attack DMG',
-        'DEF',
-        '\\d',
-        '\\d*\\.?\\d',
-        'Normal Attack SPD',
-        'Elemental Mastery',
-        'Charged',
-        'Normal Attacks',
-        'attacks',
-        'CD'
-    ];
+    const keywords = [...Keywords]
 
     const colors = {
         "Dendro" : {
