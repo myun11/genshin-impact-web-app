@@ -39,9 +39,6 @@ const WeaponPreview = (props) => {
             <p>Ascension Material: {props.wep.data.ascensionMaterial}</p>
             <p>Base Attack: {props.wep.data.baseAttack}</p>
             <p>Location: {props.wep.data.location}</p>
-            <p>Passive Name: {props.wep.data.passiveName}</p>
-            <p>Passive Description: {props.wep.data.passiveDesc}</p>
-
                 {
                      reg()   
                     }
