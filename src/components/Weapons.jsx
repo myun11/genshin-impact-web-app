@@ -197,7 +197,7 @@ const Weapons = () => {
         // Filters out the search input
         if (weaponSearch.length > 0) {
             filteredArray = filteredArray.filter(entry => {
-                return(entry.data.name.includes(weaponSearch) || entry.data.id.includes(weaponSearch))
+                return(entry.data.name.toLowerCase().includes(weaponSearch.toLowerCase()))
             })
         }
         setFilteredWeapons(filteredArray)
@@ -210,6 +210,7 @@ const Weapons = () => {
                 Loading...
             </div> :
             <div>
+                <button onClick = {() => console.log(weapons)}>weps</button>
                 {weaponPreviewState ? 
                     <div>
                         <WeaponPreview
