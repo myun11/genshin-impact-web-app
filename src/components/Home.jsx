@@ -6,7 +6,13 @@ const Home = () => {
         <h1>Welcome to Sumeru.gg</h1>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <h2>This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact.</h2>
-
+        <div>
+          <h2>Skills Used:</h2>
+          <li>Regex</li>
+          <li>TailwindCSS</li>
+          <li>React</li>
+          <li>RESTful APIs</li>
+        </div>
     </div>
   )
 }

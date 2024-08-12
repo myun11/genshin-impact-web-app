@@ -29,31 +29,24 @@ const SkillTalents = (props) => {
                                     }</p>
                                     {entry.upgrades && entry.upgrades.map(obj => {
                                       return(
-                                          <div>
-                                              {/* <p>Name: {obj.name}</p>
-                                              <p>Value: {obj.value}</p> */}
-                                              <div>
-                                                <div className="flex flex-col">
-                                                  <div className="-m-1.5 overflow-x-auto">
-                                                    <div className="p-1.5 w-1/2 inline-block align-middle">
-                                                      <div className="border rounded-lg shadow overflow-hidden">
-                                                        <table className="min-w-full divide-y divide-gray-200">
-                                                          <tbody className="divide-y divide-gray-200">
-                                                            <tr>
-                                                              <td className="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
-                                                              <td className="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
-                                                              
-                                                            </tr>
+                                        <div className="flex flex-col">
+                                          <div className="-m-1.5 overflow-x-auto">
+                                            <div className="p-1.5 w-2/3 inline-block align-middle">
+                                              <div className="border rounded-lg shadow overflow-hidden">
+                                                <table className="min-w-full divide-y divide-gray-200">
+                                                  <tbody className="divide-y divide-gray-200">
+                                                    <tr>
+                                                      <td className="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
+                                                      <td className="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
+                                                      
+                                                    </tr>
 
-                                                          </tbody>
-                                                        </table>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                  </tbody>
+                                                </table>
                                               </div>
-                 
+                                            </div>
                                           </div>
+                                        </div>
                                       )
                                     })}
                                 </div>
