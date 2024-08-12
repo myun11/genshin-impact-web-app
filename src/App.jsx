@@ -82,7 +82,7 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className=" flex flex-col justify-between items-center">
+    <div className="">
     {loading ?
       <div>
         Loading Page

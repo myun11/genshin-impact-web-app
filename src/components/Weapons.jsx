@@ -220,7 +220,7 @@ const Weapons = () => {
                 :
                     <div className = "">
                         <h1>Weapons</h1>
-                        <div className = "p-4 mx-auto justify-start items-start ">
+                        <div className = "p-4">
                             <div className = "bg-slate-500 h-1 w-full"></div>
                             <div className = "inline-flex content-start p-4 space-x-7">
                                 {/* Weapon type multiselect  */}
@@ -252,11 +252,11 @@ const Weapons = () => {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <div className="absolute mt-2 w-full bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
+                                        <div className="absolute mt-2 w-full  bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
                                             {options.types.map((option) => (
                                                 <div
                                                 key={option.value}
-                                                className={`cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
                                                     selectedOptions.types.includes(option.value) ? 'bg-blue-100' : ''
                                                 }`}
                                                 onClick={() => toggleOptionTypes(option.value)}
@@ -307,7 +307,7 @@ const Weapons = () => {
                                             {options.subStats.map((option) => (
                                                 <div
                                                 key={option.value}
-                                                className={`cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
                                                     selectedOptions.subStats.includes(option.value) ? 'bg-blue-100' : ''
                                                 }`}
                                                 onClick={() => toggleOptionSubstats(option.value)}
@@ -358,7 +358,7 @@ const Weapons = () => {
                                             {options.rarity.map((option) => (
                                                 <div
                                                 key={option.value}
-                                                className={`cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
                                                     selectedOptions.rarity.includes(option.value) ? 'bg-blue-100' : ''
                                                 }`}
                                                 onClick={() => toggleOptionRarity(option.value)}
