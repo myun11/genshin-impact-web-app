@@ -100,10 +100,7 @@ const Weapons = () => {
         subStats : [],
         rarity : []
     });
-    // const [isTypesOpen, setIsTypesOpen] = useState(false);
-    // const [isSubstatsOpen, setIsSubstatsOpen] = useState(false);
-    // const [isRarityOpen, setIsRarityOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+
 
     const toggleOptionTypes = (option) => {
         setSelectedOptions((prev) =>
@@ -151,9 +148,49 @@ const Weapons = () => {
         );
     };
 
-    const handleDropdownClick = () => {
-    setIsOpen(!isOpen);
-    };
+    // const [isTypesOpen, setIsTypesOpen] = useState(false);
+    // const [isSubstatsOpen, setIsSubstatsOpen] = useState(false);
+    // const [isRarityOpen, setIsRarityOpen] = useState(false);
+
+    // const [isOpen, setIsOpen] = useState({
+    //     types : false,
+    //     subStats : false,
+    //     rarity : false
+    // });
+
+    // const handleDropdownClick = (field) => {
+    //     if (field == "types") {
+    //         setIsOpen(prev => {return({ 
+    //             "types" : !prev.types,
+    //             "subStats" : prev.subStats,
+    //             "rarity" : prev.rarity
+    //         })});
+    //     }
+    //     if (field == "subStats") {
+    //         setIsOpen(prev => {return({ 
+    //             "types" : prev.types,
+    //             "subStats" : !prev.subStats,
+    //             "rarity" : prev.rarity
+    //         })});
+    //     }
+    //     if (field == "rarity") {
+    //         setIsOpen(prev => {return({ 
+    //             "types" : prev.types,
+    //             "subStats" : prev.subStats,
+    //             "rarity" : !prev.rarity
+    //         })});
+    //     }
+    // };
+
+    const [isOpen, setIsOpen] = useState("")
+    const handleDropdownClick = (field) => {
+        if (isOpen == field) {
+            setIsOpen("")
+        } else {
+            setIsOpen(field)
+        }
+
+    }
 
     useEffect(() => {
         fetchData()
@@ -214,7 +251,7 @@ const Weapons = () => {
                     <div className="relative w-64">
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                            onClick={handleDropdownClick}
+                            onClick={() => handleDropdownClick("types")}
                         >
                             {selectedOptions.types.length > 0 ? (
                             selectedOptions.types.map((option) => (
@@ -231,7 +268,7 @@ const Weapons = () => {
                         </div>
 
                         <Transition
-                            show={isOpen}
+                            show={isOpen == "types"}
                             enter="transition ease-out duration-200"
                             enterFrom="transform opacity-0 scale-95"
                             enterTo="transform opacity-100 scale-100"
@@ -265,7 +302,7 @@ const Weapons = () => {
                     <div className="relative w-64">
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                            onClick={handleDropdownClick}
+                            onClick={() => handleDropdownClick("subStats")}
                         >
                             {selectedOptions.subStats.length > 0 ? (
                             selectedOptions.subStats.map((option) => (
@@ -282,7 +319,7 @@ const Weapons = () => {
                         </div>
 
                         <Transition
-                            show={isOpen}
+                            show={isOpen == "subStats"}
                             enter="transition ease-out duration-200"
                             enterFrom="transform opacity-0 scale-95"
                             enterTo="transform opacity-100 scale-100"
@@ -316,7 +353,7 @@ const Weapons = () => {
                     <div className="relative w-64">
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                            onClick={handleDropdownClick}
+                            onClick={() => handleDropdownClick("rarity")}
                         >
                             {selectedOptions.rarity.length > 0 ? (
                             selectedOptions.rarity.map((option) => (
@@ -333,7 +370,7 @@ const Weapons = () => {
                         </div>
 
                         <Transition
-                            show={isOpen}
+                            show={isOpen == "rarity"}
                             enter="transition ease-out duration-200"
                             enterFrom="transform opacity-0 scale-95"
                             enterTo="transform opacity-100 scale-100"
