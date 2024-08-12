@@ -208,164 +208,164 @@ const Weapons = () => {
         <div className = " w-5/6 mx-auto ">
             <h1>Weapons</h1>
             <div className = "p-4">
-                            <div className = "bg-slate-500 h-1 w-full"></div>
-                            <div className = "inline-flex content-start p-4 space-x-7">
-                                {/* Weapon type multiselect  */}
-                                <div className="relative w-64">
-                                    <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                                        onClick={handleDropdownClick}
-                                    >
-                                        {selectedOptions.types.length > 0 ? (
-                                        selectedOptions.types.map((option) => (
-                                            <span
-                                            key={option}
-                                            className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
-                                            >
-                                            {options.types.find((o) => o.value === option).label}
-                                            </span>
-                                        ))
-                                        ) : (
-                                        <span className="text-gray-500">Select Types</span>
-                                        )}
-                                    </div>
-
-                                    <Transition
-                                        show={isOpen}
-                                        enter="transition ease-out duration-200"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-150"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <div className="absolute mt-2 w-full  bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
-                                            {options.types.map((option) => (
-                                                <div
-                                                key={option.value}
-                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
-                                                    selectedOptions.types.includes(option.value) ? 'bg-blue-100' : ''
-                                                }`}
-                                                onClick={() => toggleOptionTypes(option.value)}
-                                                >
-                                                <input
-                                                    type="checkbox"
-                                                    checked={selectedOptions.types.includes(option.value)}
-                                                    readOnly
-                                                    className="mr-2"
-                                                />
-                                                {option.label}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Transition>
-                                </div>
-
-                                {/* Weapon substat multiselect  */}
-                                <div className="relative w-64">
-                                    <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                                        onClick={handleDropdownClick}
-                                    >
-                                        {selectedOptions.subStats.length > 0 ? (
-                                        selectedOptions.subStats.map((option) => (
-                                            <span
-                                            key={option}
-                                            className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
-                                            >
-                                            {options.subStats.find((o) => o.value === option).label}
-                                            </span>
-                                        ))
-                                        ) : (
-                                        <span className="text-gray-500">Select Substats</span>
-                                        )}
-                                    </div>
-
-                                    <Transition
-                                        show={isOpen}
-                                        enter="transition ease-out duration-200"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-150"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <div className="absolute mt-2 w-full bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
-                                            {options.subStats.map((option) => (
-                                                <div
-                                                key={option.value}
-                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
-                                                    selectedOptions.subStats.includes(option.value) ? 'bg-blue-100' : ''
-                                                }`}
-                                                onClick={() => toggleOptionSubstats(option.value)}
-                                                >
-                                                <input
-                                                    type="checkbox"
-                                                    checked={selectedOptions.subStats.includes(option.value)}
-                                                    readOnly
-                                                    className="mr-2"
-                                                />
-                                                {option.label}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Transition>
-                                </div>
-
-                                {/* Weapon rarity multiselect */}
-                                <div className="relative w-64">
-                                    <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
-                                        onClick={handleDropdownClick}
-                                    >
-                                        {selectedOptions.rarity.length > 0 ? (
-                                        selectedOptions.rarity.map((option) => (
-                                            <span
-                                            key={option}
-                                            className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
-                                            >
-                                            {options.rarity.find((o) => o.value === option).label}
-                                            </span>
-                                        ))
-                                        ) : (
-                                        <span className="text-gray-500">Select Rarity</span>
-                                        )}
-                                    </div>
-
-                                    <Transition
-                                        show={isOpen}
-                                        enter="transition ease-out duration-200"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-150"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <div className="absolute mt-2 w-full bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
-                                            {options.rarity.map((option) => (
-                                                <div
-                                                key={option.value}
-                                                className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
-                                                    selectedOptions.rarity.includes(option.value) ? 'bg-blue-100' : ''
-                                                }`}
-                                                onClick={() => toggleOptionRarity(option.value)}
-                                                >
-                                                <input
-                                                    type="checkbox"
-                                                    checked={selectedOptions.rarity.includes(option.value)}
-                                                    readOnly
-                                                    className="mr-2"
-                                                />
-                                                {option.label}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Transition>
-                                </div>
-                                <input className="relative w-64" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
-                            </div>
-                            <div className = "bg-slate-500 h-1 w-full"></div>
+                <div className = "bg-slate-500 h-1 w-full"></div>
+                <div className = "inline-flex content-start m-4 p-4 space-x-7">
+                    {/* Weapon type multiselect  */}
+                    <div className="relative w-64">
+                        <div
+                            className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                            onClick={handleDropdownClick}
+                        >
+                            {selectedOptions.types.length > 0 ? (
+                            selectedOptions.types.map((option) => (
+                                <span
+                                key={option}
+                                className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
+                                >
+                                {options.types.find((o) => o.value === option).label}
+                                </span>
+                            ))
+                            ) : (
+                            <span className="text-gray-500">Select Types</span>
+                            )}
                         </div>
+
+                        <Transition
+                            show={isOpen}
+                            enter="transition ease-out duration-200"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                        >
+                            <div className="absolute mt-2 w-full  bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
+                                {options.types.map((option) => (
+                                    <div
+                                    key={option.value}
+                                    className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                        selectedOptions.types.includes(option.value) ? 'bg-blue-100' : ''
+                                    }`}
+                                    onClick={() => toggleOptionTypes(option.value)}
+                                    >
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedOptions.types.includes(option.value)}
+                                        readOnly
+                                        className="mr-2"
+                                    />
+                                    {option.label}
+                                    </div>
+                                ))}
+                            </div>
+                        </Transition>
+                    </div>
+
+                    {/* Weapon substat multiselect  */}
+                    <div className="relative w-64">
+                        <div
+                            className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                            onClick={handleDropdownClick}
+                        >
+                            {selectedOptions.subStats.length > 0 ? (
+                            selectedOptions.subStats.map((option) => (
+                                <span
+                                key={option}
+                                className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
+                                >
+                                {options.subStats.find((o) => o.value === option).label}
+                                </span>
+                            ))
+                            ) : (
+                            <span className="text-gray-500">Select Substats</span>
+                            )}
+                        </div>
+
+                        <Transition
+                            show={isOpen}
+                            enter="transition ease-out duration-200"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                        >
+                            <div className="absolute mt-2 w-full bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
+                                {options.subStats.map((option) => (
+                                    <div
+                                    key={option.value}
+                                    className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                        selectedOptions.subStats.includes(option.value) ? 'bg-blue-100' : ''
+                                    }`}
+                                    onClick={() => toggleOptionSubstats(option.value)}
+                                    >
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedOptions.subStats.includes(option.value)}
+                                        readOnly
+                                        className="mr-2"
+                                    />
+                                    {option.label}
+                                    </div>
+                                ))}
+                            </div>
+                        </Transition>
+                    </div>
+
+                    {/* Weapon rarity multiselect */}
+                    <div className="relative w-64">
+                        <div
+                            className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                            onClick={handleDropdownClick}
+                        >
+                            {selectedOptions.rarity.length > 0 ? (
+                            selectedOptions.rarity.map((option) => (
+                                <span
+                                key={option}
+                                className="inline-block bg-gray-500 text-white text-sm rounded-md px-2 py-1 mr-1 mb-1"
+                                >
+                                {options.rarity.find((o) => o.value === option).label}
+                                </span>
+                            ))
+                            ) : (
+                            <span className="text-gray-500">Select Rarity</span>
+                            )}
+                        </div>
+
+                        <Transition
+                            show={isOpen}
+                            enter="transition ease-out duration-200"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                        >
+                            <div className="absolute mt-2 w-full bg-slate-500 border border-gray-300 rounded-md shadow-lg z-10">
+                                {options.rarity.map((option) => (
+                                    <div
+                                    key={option.value}
+                                    className={`text-left cursor-pointer px-4 py-2 hover:bg-gray-100 ${
+                                        selectedOptions.rarity.includes(option.value) ? 'bg-blue-100' : ''
+                                    }`}
+                                    onClick={() => toggleOptionRarity(option.value)}
+                                    >
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedOptions.rarity.includes(option.value)}
+                                        readOnly
+                                        className="mr-2"
+                                    />
+                                    {option.label}
+                                    </div>
+                                ))}
+                            </div>
+                        </Transition>
+                    </div>
+                    <input className="relative w-64" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
+                </div>
+                <div className = "bg-slate-500 h-1 w-full"></div>
+            </div>
         {loading ? 
             <div>
                 <Loader loading = {loading}/>

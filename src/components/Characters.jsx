@@ -163,100 +163,102 @@ const Characters = (props) => {
             {/* </div> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             {/* Also accounts for capitalization variances. */}
-            <div className='inline-flex m-8 p-4 space-x-7'>
+            <div className = "p-4 m-4">
+                <div className = "bg-slate-500 h-1 w-full"></div>
+                <div className='inline-flex m-4 space-x-7'>
 
-                {/* Filter by element */}
-                <div>
-                {elements.map(res => {
-                    return(
-                    <button className = {selectedElements.includes(res) ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                        {
-                            if (selectedElements.includes(res)) {
-                                // setSelectedElements([...selectedElements.filter(entry => entry != res)])
-                                setSelectedElements(current => [...current].filter(entry => entry != res))
-                            } else {
-                                // setSelectedElements([...selectedElements, res])
-                                setSelectedElements(current => [...current, res])
+                    {/* Filter by element */}
+                    <div>
+                    {elements.map(res => {
+                        return(
+                        <button className = {selectedElements.includes(res) ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                            {
+                                if (selectedElements.includes(res)) {
+                                    // setSelectedElements([...selectedElements.filter(entry => entry != res)])
+                                    setSelectedElements(current => [...current].filter(entry => entry != res))
+                                } else {
+                                    // setSelectedElements([...selectedElements, res])
+                                    setSelectedElements(current => [...current, res])
+                                }
+                                console.log(selectedElements.length > 0)
+                                // console.log(selectedElements.includes(res))
+                                console.log(selectedElements)
                             }
-                            console.log(selectedElements.length > 0)
-                            // console.log(selectedElements.includes(res))
-                            console.log(selectedElements)
-                        }
-                    }>
-                        <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
-                    </button>
-                    )
-                })}
-                </div>
-
-                {/* Filter by weapon type */}
-                <div>
-                {weapons.map(entry => {
-                    let wep = entry[0]
-                    let icon = null
-                    if (wep == "Sword") {
-                        icon = Sword_Icon
-                    }
-                    if (wep == "Bow") {
-                        icon = Bow_Icon
-                    }
-                    if (wep == "Claymore") {
-                        icon = Claymore_Icon
-                    }
-                    if (wep == "Polearm") {
-                        icon = Polearm_Icon
-                    }
-                    if (wep == "Catalyst") {
-                        icon = Catalyst_Icon
-                    }
-                    return(
-                        <button className={selectedWeapons.includes(wep) ? "px-1 py-1 rounded-full bg-gray-300" : "px-1 py-1 rounded-full bg-gray-500"} onClick = {() => {
-                            if (selectedWeapons.includes(wep)) {
-                                setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
-                            } else {
-                                setSelectedWeapons([...selectedWeapons, wep])
-                            }
-                        }}>
-                            <img className="w-full h-full rounded-lg" src = {icon} />
+                        }>
+                            <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
                         </button>
-                    )
-                })}
-                </div>
-                {/* Filter by rarity */}
-                <div>
-                    <button className = {selectedRarity == 4 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                        {
-                            if (selectedRarity == 4) {
-                                setSelectedRarity(null)
-                            } else {
-                                setSelectedRarity(4)
-                            }
-                        }
-                    }>
-                        <img className="w-16 h-16 rounded-lg" src = {Purple_Star} />
-                    </button>
-                    <button className = {selectedRarity == 5 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                        {
-                            if (selectedRarity == 5) {
-                                setSelectedRarity(null)
-                            } else {
-                                setSelectedRarity(5)
-                            }
-                        }
-                    }>
-                        <img className="w-16 h-16 rounded-lg" src = {Orange_Star} />
-                    </button>
-                </div>
+                        )
+                    })}
+                    </div>
 
-                {/* Filter by name */}
-                <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                    let emptyArray = props.masterCharacterDataArray.filter(entry => entry["id"].includes(e.target.value.toLowerCase()))
-                    setFilteredArray(emptyArray)
-                }}/>
-                
+                    {/* Filter by weapon type */}
+                    <div>
+                    {weapons.map(entry => {
+                        let wep = entry[0]
+                        let icon = null
+                        if (wep == "Sword") {
+                            icon = Sword_Icon
+                        }
+                        if (wep == "Bow") {
+                            icon = Bow_Icon
+                        }
+                        if (wep == "Claymore") {
+                            icon = Claymore_Icon
+                        }
+                        if (wep == "Polearm") {
+                            icon = Polearm_Icon
+                        }
+                        if (wep == "Catalyst") {
+                            icon = Catalyst_Icon
+                        }
+                        return(
+                            <button className={selectedWeapons.includes(wep) ? "px-1 py-1 rounded-full bg-gray-300" : "px-1 py-1 rounded-full bg-gray-500"} onClick = {() => {
+                                if (selectedWeapons.includes(wep)) {
+                                    setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
+                                } else {
+                                    setSelectedWeapons([...selectedWeapons, wep])
+                                }
+                            }}>
+                                <img className="w-full h-full rounded-lg" src = {icon} />
+                            </button>
+                        )
+                    })}
+                    </div>
+                    {/* Filter by rarity */}
+                    <div>
+                        <button className = {selectedRarity == 4 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                            {
+                                if (selectedRarity == 4) {
+                                    setSelectedRarity(null)
+                                } else {
+                                    setSelectedRarity(4)
+                                }
+                            }
+                        }>
+                            <img className="w-16 h-16 rounded-lg" src = {Purple_Star} />
+                        </button>
+                        <button className = {selectedRarity == 5 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                            {
+                                if (selectedRarity == 5) {
+                                    setSelectedRarity(null)
+                                } else {
+                                    setSelectedRarity(5)
+                                }
+                            }
+                        }>
+                            <img className="w-16 h-16 rounded-lg" src = {Orange_Star} />
+                        </button>
+                    </div>
+
+                    {/* Filter by name */}
+                    <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                        let emptyArray = props.masterCharacterDataArray.filter(entry => entry["id"].includes(e.target.value.toLowerCase()))
+                        setFilteredArray(emptyArray)
+                    }}/>
+                    
+                </div>
+                <div className = "bg-slate-500 h-1 w-full"></div>
             </div>
-
-            
 
             {/* Map version  */}
             {/* <input type = "string" placeholder='Search Character' onChange = {(e) => {
