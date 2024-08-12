@@ -4,15 +4,13 @@ import 'ldrs/tailChase'
 const Loader = (props) => {
     return (
         <div>
-            <div aria-live="polite" aria-busy={props.loading}>
+            <div className = "" aria-live="polite" aria-busy={props.loading}>
                 {props.loading && <l-tail-chase
                 size="150"
                 speed="1.75"
                 color="white" 
                 ></l-tail-chase>}
-            </div>
-
-            
+            </div>            
         </div>
       )
 }
