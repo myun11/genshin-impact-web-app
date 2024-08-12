@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { Transition } from '@headlessui/react';
 import WeaponPreview from './WeaponPreview';
@@ -182,6 +182,7 @@ const Weapons = () => {
     //     }
     // };
 
+    // Handles visibility of dropdown filters.
     const [isOpen, setIsOpen] = useState("")
     const handleDropdownClick = (field) => {
         if (isOpen == field) {
@@ -189,8 +190,17 @@ const Weapons = () => {
         } else {
             setIsOpen(field)
         }
-
     }
+    const wrapperRef = useRef();
+    useEffect(() => {
+        const closeDropdown = e => {
+            if (!wrapperRef.current.contains(e.target)) {
+                setIsOpen("");
+            }
+        }
+        document.body.addEventListener('click', closeDropdown)
+        return () => document.body.removeEventListener('click', closeDropdown)
+    }, [])
 
     useEffect(() => {
         fetchData()
@@ -246,9 +256,9 @@ const Weapons = () => {
             <h1>Weapons</h1>
             <div className = "p-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
-                <div className = "inline-flex content-start m-4 p-4 space-x-7">
+                <div className = "inline-flex content-start m-4 p-4 space-x-7" ref={wrapperRef}>
                     {/* Weapon type multiselect  */}
-                    <div className="relative w-64">
+                    <div className="relative w-64" >
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
                             onClick={() => handleDropdownClick("types")}
@@ -299,7 +309,7 @@ const Weapons = () => {
                     </div>
 
                     {/* Weapon substat multiselect  */}
-                    <div className="relative w-64">
+                    <div className="relative w-64" >
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
                             onClick={() => handleDropdownClick("subStats")}
@@ -350,7 +360,7 @@ const Weapons = () => {
                     </div>
 
                     {/* Weapon rarity multiselect */}
-                    <div className="relative w-64">
+                    <div className="relative w-64" >
                         <div
                             className="border border-gray-300 rounded-md p-2 cursor-pointer"
                             onClick={() => handleDropdownClick("rarity")}
