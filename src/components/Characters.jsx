@@ -140,7 +140,6 @@ const Characters = (props) => {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
     <div className = " w-5/6 mx-auto ">
-        <button onClick = {() => console.log(filteredArray)}>filtered array</button>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>
@@ -187,9 +186,9 @@ const Characters = (props) => {
                                     // setSelectedElements([...selectedElements, res])
                                     setSelectedElements(current => [...current, res])
                                 }
-                                console.log(selectedElements.length > 0)
+                                // console.log(selectedElements.length > 0)
                                 // console.log(selectedElements.includes(res))
-                                console.log(selectedElements)
+                                // console.log(selectedElements)
                             }
                         }>
                             <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
@@ -258,7 +257,7 @@ const Characters = (props) => {
                     </div>
 
                     {/* Filter by name */}
-                    <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                    <input id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
                         setSelectedName(e.target.value)
                     }}/>
                     

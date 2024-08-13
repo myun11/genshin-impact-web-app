@@ -204,7 +204,6 @@ const CharactersPreview = (props) => {
     }
     return (
         <div className = "mb-4">
-            {/* <button onClick = {() => console.log(keywords)}>keywords</button> */}
             {/* <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
@@ -214,6 +213,7 @@ const CharactersPreview = (props) => {
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Skill Talents">Skill Talents</a></li>
                 </ul>
             </div> */}
+            <button onClick = {() => console.log(props.charPreviewData)}>char </button>
             {/* Character Card */}
             <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
                 <div className = "h-full min-h-screen flex justify-end items-end p-4">
