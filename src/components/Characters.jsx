@@ -53,6 +53,8 @@ const Characters = (props) => {
     const [selectedElements, setSelectedElements] = useState([])
     const [selectedWeapons, setSelectedWeapons] = useState([])
     const [selectedRarity, setSelectedRarity] = useState(null)
+    // Searchable name filtering
+    const [selectedName, setSelectedName] = useState("")
 
     // API call for one character
     // const getCharacterData = async (char) => {
@@ -92,7 +94,7 @@ const Characters = (props) => {
     // Array version
     useEffect(() => {
         let currentArray = props.masterCharacterDataArray
-        if (selectedElements.length == 0 && selectedWeapons.length == 0 && selectedRarity == null) {
+        if (selectedElements.length == 0 && selectedWeapons.length == 0 && selectedRarity == null && selectedName.length == 0) {
             setFilteredArray(currentArray)
         }
 
@@ -115,9 +117,13 @@ const Characters = (props) => {
         if (selectedRarity != null) {
             let emptyArray = currentArray.filter(char => {
                 let char_rarity = char["rarity"]
-                console.log(char_rarity)
                 return(selectedRarity == char_rarity)
             })
+            currentArray = emptyArray
+        }
+
+        if (selectedName.length > 0) {
+            let emptyArray = currentArray.filter(char => char["name"].toLowerCase().includes(selectedName.toLowerCase()))
             currentArray = emptyArray
         }
 
@@ -128,12 +134,13 @@ const Characters = (props) => {
         })
         setFilteredArray(currentArray)
 
-    }, [selectedElements, selectedWeapons, selectedRarity])
+    }, [selectedElements, selectedWeapons, selectedRarity, selectedName])
 
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
     <div className = " w-5/6 mx-auto ">
+        <button onClick = {() => console.log(filteredArray)}>filtered array</button>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>
@@ -252,8 +259,7 @@ const Characters = (props) => {
 
                     {/* Filter by name */}
                     <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                        let emptyArray = props.masterCharacterDataArray.filter(entry => entry["id"].includes(e.target.value.toLowerCase()))
-                        setFilteredArray(emptyArray)
+                        setSelectedName(e.target.value)
                     }}/>
                     
                 </div>
