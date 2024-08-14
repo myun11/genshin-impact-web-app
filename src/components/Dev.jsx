@@ -17,16 +17,23 @@ const Dev = (props) => {
           />
         </div>
         <div>
+          <img src = "https://genshin.jmp.blue/artifacts/berserker/circlet-of-logos/"/>
+          <img src = "https://genshin.jmp.blue/artifacts/berserker/flower-of-life/"/>
+          <img src = "https://genshin.jmp.blue/artifacts/berserker/goblet-of-eonothem/"/>
+          <img src = "https://genshin.jmp.blue/artifacts/berserker/plume-of-death/"/>
+          <img src = "https://genshin.jmp.blue/artifacts/berserker/sands-of-eon/"/>
+        </div>
+        <div>
             {
               props.types.map(entry => {
                 return(
                   <div>
                     <button onClick = {async () => {
                       try{
-                        await axios.get('https://genshin.jmp.blue/' + entry)
-                        .then(res => {
-                          console.log(res)
-                        })
+                        // await axios.get('https://genshin.jmp.blue/' + entry)
+                        await axios.get('https://genshin.jmp.blue/artifacts/berserker/')
+                        .then(res => console.log(res.data))
+                        
                       } catch (error) {
                         console.log(error)
                       }

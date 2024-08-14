@@ -31,7 +31,8 @@ const WeaponPreview = (props) => {
     }
     
     return (
-        <div className = "flex-auto justify-center items-center mx-auto">
+        <div className = "flex-auto justify-center items-center mb-4 mx-auto">
+            <button onClick = {() => console.log(props.wep)}>wep</button>
 
             <h1>{props.wep.data.name}</h1>
             <img className = "rounded-lg" src = {props.wep.icon}/>
