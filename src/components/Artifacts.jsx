@@ -61,7 +61,6 @@ const Artifacts = () => {
     }, [])
 
     useEffect(() => {
-        console.log("input is: ", input)
         setPage(0)
         if (input.length > 0) {
             let temp = data.filter(entry => entry.name.toLowerCase().includes(input.toLowerCase())
@@ -139,7 +138,7 @@ const Artifacts = () => {
                                                         <td class="px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["2-piece_bonus"]}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["4-piece_bonus"]}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["rarity"]}</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["max_rarity"]}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                                         <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
                                                         </td>
