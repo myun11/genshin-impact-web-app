@@ -18,28 +18,32 @@ const Artifacts = () => {
         try{
             await axios.get('https://genshin.jmp.blue/artifacts/')
             .then(res => {
-                res.data.map(async archetype => {
+                res.data.map(async id => {
                     try {
-                        await axios.get('https://genshin.jmp.blue/artifacts/' + archetype)
+                        await axios.get('https://genshin.jmp.blue/artifacts/' + id)
                         .then(res2 => {
                             setData(prev => [...prev, res2.data])
+                            // return(res2.data)
                         })
-                        .then(async () => {
+                        .then(async (resdata) => {
                             try {
-                                await axios.get('https://genshin.jmp.blue/artifacts/' + archetype + '/list')
-                                .then(res3 => {
-                                    // console.log(res3)
-                                    let endpoints = res3.data.map(artifact_name => {
-                                        return({
-                                            "artifact_name": artifact_name,
-                                            "url": 'https://genshin.jmp.blue/artifacts/' + archetype + '/' + artifact_name
-                                        })
+                                const items = await axios.get('https://genshin.jmp.blue/artifacts/' + id + '/list')
+                            
+                                let endpoints = items.data.map(artifact_name => {
+                                    return({
+                                        "artifact_name": artifact_name,
+                                        "url": 'https://genshin.jmp.blue/artifacts/' + id + '/' + artifact_name
                                     })
-                                    setImages(prev => [...prev, {
-                                        "archetype": archetype,
-                                        "endpoints": endpoints
-                                    }])
-                                })    
+                                })
+                                // let urls = res3.data.map(artifact_name => 'https://genshin.jmp.blue/artifacts/' + archetype + '/' + artifact_name)
+                                // setData(prev => [...prev, {
+                                //     "data" : resdata,
+                                //     "images": res3.data
+                                // }])
+                                setImages(prev => [...prev, {
+                                    "id": id,
+                                    "endpoints": endpoints
+                                }])
                             } catch (error) {
                                 console.log(error)
                             }
@@ -56,6 +60,18 @@ const Artifacts = () => {
             console.log(error)
         }
     }
+
+    // Input Artifact id, return artifact images
+    function match(id) {
+        let items = images.filter(entry => entry.id == id)
+        if (items.length > 0) {
+            console.log("matching: ", items[0].endpoints)
+            return items[0].endpoints
+        } else {
+            return []
+        }
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -110,17 +126,12 @@ const Artifacts = () => {
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                                     <thead class="bg-gray-50 dark:bg-neutral-700">
                                     <tr className="divide-x divide-gray-200 dark:divide-slate-500">
-                                        <th scope="col" class="py-3 px-4 pe-0">
-                                        <div class="flex items-center h-5">
-                                            <input id="hs-table-pagination-checkbox-all" type="checkbox" class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-500 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"/>
-                                            <label for="hs-table-pagination-checkbox-all" class="sr-only">Checkbox</label>
-                                        </div>
-                                        </th>
                                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Artifact Class</th>
+                                        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Artifacts</th>
                                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">2-Piece Bonus</th>
                                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">4-Piece Bonus</th>
                                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Max Rarity</th>
-                                        <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Items</th>
+                                        {/* <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Items</th> */}
                                     </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
@@ -129,19 +140,19 @@ const Artifacts = () => {
                                             if (idx >= page * entriesPerPage && idx < (page + 1) * entriesPerPage) {
                                                 return(
                                                     <tr className="hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors duration-400 ease-in-out">
-                                                        <td class="py-3 ps-4">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="hs-table-pagination-checkbox-1" type="checkbox" class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"/>
-                                                            <label for="hs-table-pagination-checkbox-1" class="sr-only">Checkbox</label>
-                                                        </div>
-                                                        </td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["2-piece_bonus"]}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["4-piece_bonus"]}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["max_rarity"]}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                        <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">See Items</button>
+                                                        <td class="whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200 inline-flex">
+                                                        {match(entry.id).map(item => 
+                                                        <td class="w-20">
+                                                            <img className='w-40' src = {item.url}/>
+                                                        </td>)}
                                                         </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["2-piece_bonus"]}</td>
+                                                        <td class="text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["4-piece_bonus"]}</td>
+                                                        <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["max_rarity"]}</td>
+                                                        {/* <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                                            <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">See Items</button>
+                                                        </td> */}
                                                     </tr>
                                                     )        
                                             }
