@@ -127,6 +127,7 @@ const CharactersPreview = (props) => {
         
         // genshin api
         // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-card")
+        // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/card")
         setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/portrait")
         // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-splash")
     }
@@ -215,8 +216,8 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
-                <div className = "h-full min-h-screen flex justify-end items-end p-4">
-                    <img className = "object-contain max-h-screen" src={card}></img>
+                <div className = "items-end justify-end text-end">
+                    <img className = "h-full min-h-screen flex p-4 mx-auto object-cover max-h-screen" src={card}></img>
                 </div>
                 <div className="items-start justify-start text-start">
                     <button onClick = {() => {

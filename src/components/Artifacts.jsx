@@ -65,7 +65,6 @@ const Artifacts = () => {
     function match(id) {
         let items = images.filter(entry => entry.id == id)
         if (items.length > 0) {
-            console.log("matching: ", items[0].endpoints)
             return items[0].endpoints
         } else {
             return []
@@ -100,9 +99,10 @@ const Artifacts = () => {
                     <Loader loading = {loading}/>
                 </div> : 
                 <div>
-                    <button onClick = {() => console.log(data)}>data</button>
+                    {/* <button onClick = {() => console.log(data)}>data</button>
                     <button onClick = {() => console.log(images)}>images</button>
-                    table stuff goes here
+                    table stuff goes here */}
+                    <button onClick = {() => console.log(match("berserker"))}> match</button>
 
                     <div class="flex flex-col">
                         <div class="-m-1.5 overflow-x-auto">
@@ -141,18 +141,15 @@ const Artifacts = () => {
                                                 return(
                                                     <tr className="hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors duration-400 ease-in-out">
                                                         <td class="px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
-                                                        <td class="whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200 inline-flex">
-                                                        {match(entry.id).map(item => 
-                                                        <td class="w-20">
-                                                            <img className='w-40' src = {item.url}/>
-                                                        </td>)}
+                                                        <td class="inline-flex px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">
+                                                            {match(entry.id).map(item => 
+                                                            <td class="w-20">
+                                                                <img className="w-40" src = {item.url}/>
+                                                            </td>)}
                                                         </td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["2-piece_bonus"]}</td>
                                                         <td class="text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["4-piece_bonus"]}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["max_rarity"]}</td>
-                                                        {/* <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                            <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">See Items</button>
-                                                        </td> */}
                                                     </tr>
                                                     )        
                                             }

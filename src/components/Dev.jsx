@@ -30,8 +30,7 @@ const Dev = (props) => {
                   <div>
                     <button onClick = {async () => {
                       try{
-                        // await axios.get('https://genshin.jmp.blue/' + entry)
-                        await axios.get('https://genshin.jmp.blue/artifacts/berserker/')
+                        await axios.get('https://genshin.jmp.blue/' + entry + '/food/')
                         .then(res => console.log(res.data))
                         
                       } catch (error) {
