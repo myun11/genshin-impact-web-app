@@ -16,12 +16,12 @@ const Navbar = (props) => {
         <div>
             <nav className="bg-red-800 p-4 fixed w-full z-10 top-0">
             <div className="container flex justify-between items-center">
-                <div className="text-white text-lg font-bold"><img className="w-1/12" src={Sumeru_Icon}/></div>
-                <div className="hidden md:flex space-x-4">
-                    <a href='#' onClick = {() => props.setPage('Characters')} className="text-3xl text-gray-300 hover:text-white">Characters</a>
-                    <a href='#' onClick = {() => props.setPage('Weapons')} className="text-3xl text-gray-300 hover:text-white">Weapons</a>
-                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="text-3xl text-gray-300 hover:text-white">Artifacts</a>
-                    <a href='#' onClick = {() => props.setPage('Consumables')} className="text-3xl text-gray-300 hover:text-white">Consumables</a>
+                <div className="text-white font-bold"><img className="w-1/12" src={Sumeru_Icon}/></div>
+                <div className="md:flex space-x-4">
+                    <a href='#' onClick = {() => props.setPage('Characters')} className="sm:text-sm md:text-base lg:text-lg xl-text-xl text-gray-300 hover:text-white">Characters</a>
+                    <a href='#' onClick = {() => props.setPage('Weapons')} className="sm:text-sm md:text-base lg:text-lg xl-text-xl text-gray-300 hover:text-white">Weapons</a>
+                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="sm:text-sm md:text-base lg:text-lg xl-text-xl text-gray-300 hover:text-white">Artifacts</a>
+                    <a href='#' onClick = {() => props.setPage('Consumables')} className="sm:text-sm md:text-base lg:text-lg xl-text-xl text-gray-300 hover:text-white">Consumables</a>
                 </div>
                 <div className="md:hidden">
                 <button
