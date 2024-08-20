@@ -14,46 +14,47 @@ const Navbar = (props) => {
         // <button onClick = {() => props.setPage('Consumables')} className="text-gray-300 hover:text-white">Consumables</button>
         // <button onClick = {() => props.setPage('Dev')} className="text-gray-300 hover:text-white">Dev</button>
         <div>
-            <nav className="bg-red-800 p-4 fixed w-full z-10 top-0">
-            <div className="container flex justify-between items-center">
-                <div className="text-white text-lg font-bold"><img className="w-1/12" src={Sumeru_Icon}/></div>
-                <div className="hidden md:flex space-x-4">
-                    <a href='#' onClick = {() => props.setPage('Characters')} className="text-3xl text-gray-300 hover:text-white">Characters</a>
-                    <a href='#' onClick = {() => props.setPage('Weapons')} className="text-3xl text-gray-300 hover:text-white">Weapons</a>
-                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="text-3xl text-gray-300 hover:text-white">Artifacts</a>
-                    <a href='#' onClick = {() => props.setPage('Consumables')} className="text-3xl text-gray-300 hover:text-white">Consumables</a>
-                </div>
-                <div className="md:hidden">
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="text-gray-300 focus:outline-none"
-                >
-                    <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+            <nav className="bg-slate-700 p-4 fixed w-screen z-10 top-0">
+            <div className="container flex">
+                
+                <div className=" md:flex space-x-4 bg-red-500">
+                    <div className="flex items-start text-white text-lg font-bold"><img className="w-1/12" src={Sumeru_Icon}/></div>
+                        <a href='#' onClick = {() => props.setPage('Characters')} className="text-3xl text-gray-300 hover:text-white">Characters</a>
+                        <a href='#' onClick = {() => props.setPage('Weapons')} className="text-3xl text-gray-300 hover:text-white">Weapons</a>
+                        <a href='#' onClick = {() => props.setPage('Artifacts')} className="text-3xl text-gray-300 hover:text-white">Artifacts</a>
+                        <a href='#' onClick = {() => props.setPage('Consumables')} className="text-3xl text-gray-300 hover:text-white">Consumables</a>
+                    </div>
+                    <div className="md:hidden">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-gray-300 focus:outline-none"
                     >
-                    {isOpen ? (
-                        <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                        />
-                    ) : (
-                        <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 6h16M4 12h16m-7 6h7"
-                        />
-                    )}
-                    </svg>
-                </button>
+                        <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        {isOpen ? (
+                            <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                            />
+                        ) : (
+                            <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        )}
+                        </svg>
+                    </button>
+                    </div>
                 </div>
-            </div>
 
             {isOpen && (
                 <div className="md:hidden">

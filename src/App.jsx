@@ -84,11 +84,11 @@ function App() {
   }, [])
   return (
     <div className="">
-      <div className="p-4">
-      {/* Navbar */}
-      <Navbar
-        setPage = {setPage}
-      />
+      <div className="">
+        {/* Navbar */}
+        <Navbar
+          setPage = {setPage}
+        />
       </div>
       
     {loading ?
