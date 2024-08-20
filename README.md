@@ -8,3 +8,4 @@ Tech stack and skills used:
 - RESTful APIs
 - Regex
 - Git
+- Responsive Design
