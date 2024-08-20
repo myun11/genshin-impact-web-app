@@ -144,7 +144,7 @@ function App() {
         </div>
 
         {/* Footer */}
-        <div className='min-h-screen '>
+        <div className=''>
           <Footer/>
         </div>
       </div>
