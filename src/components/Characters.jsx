@@ -147,7 +147,7 @@ const Characters = (props) => {
                     setCharPreviewState={setCharPreviewState}
                     setCharPreviewData={setCharPreviewData}
                     charPreviewData={charPreviewData}
-                /> 
+                />  
             </div>
             :
             <div>

@@ -12,6 +12,7 @@ const Home = () => {
           <li>TailwindCSS</li>
           <li>React</li>
           <li>RESTful APIs</li>
+          <li>Responsive Design</li>
         </div>
     </div>
   )
