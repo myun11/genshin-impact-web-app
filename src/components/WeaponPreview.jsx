@@ -32,6 +32,7 @@ const WeaponPreview = (props) => {
     
     return (
         <div className = "flex-auto justify-center items-center mb-4 mx-auto">
+            <div className="h-20"></div>
             <button onClick = {() => console.log(props.wep)}>wep</button>
 
             <h1>{props.wep.data.name}</h1>

@@ -204,6 +204,7 @@ const CharactersPreview = (props) => {
     }
     return (
         <div className = "mb-4">
+            <div className="h-20"></div>
             {/* <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>

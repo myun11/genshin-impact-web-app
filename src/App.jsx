@@ -54,7 +54,7 @@ function App() {
         })
         setMasterCharacterDataMap(api_data_map)
         setMasterCharacterDataArray(api_data_array)
-      }).then(() => {
+      }).finally(() => {
         setLoading(false)
       }
         
@@ -86,9 +86,7 @@ function App() {
     <div className="">
       <div className="">
         {/* Navbar */}
-        <Navbar
-          setPage = {setPage}
-        />
+
       </div>
       
     {loading ?
@@ -97,9 +95,10 @@ function App() {
           loading = {loading}
         />
       </div> :
-      <div className='mb-auto h-10 min-height-full min-h-screen flex-grow'>
-              
-        <Theme/>
+      <div className='mx-auto h-10 min-h-screen flex-grow'>
+        <Navbar
+          setPage = {setPage}
+        />
         <div className = "">
           {/* Home */}
           {page == 'Home' && 

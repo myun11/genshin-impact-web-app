@@ -87,7 +87,8 @@ const Artifacts = () => {
     }, [input, data])
 
     return (
-        <div className="w-5/6 mx-auto">
+        <div className="p-4 w-5/6 mx-auto">
+            <div className="h-20"></div>
             <h1>Artifacts</h1>
             <div className = "p-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>

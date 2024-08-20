@@ -139,7 +139,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = " w-5/6 mx-auto ">
+    <div className = "p-4 w-5/6 mx-auto ">
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>
@@ -151,6 +151,7 @@ const Characters = (props) => {
             </div>
             :
             <div>
+            <div className="h-20"></div>
             <h1 className = "dark:text-white">Characters</h1>
             
             {/* <div> */}
@@ -169,7 +170,7 @@ const Characters = (props) => {
             {/* </div> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             {/* Also accounts for capitalization variances. */}
-            <div className = "p-4 m-4">
+            <div className = " m-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
                 <div className='inline-flex m-4 space-x-7'>
 
