@@ -103,7 +103,6 @@ const Artifacts = () => {
                     {/* <button onClick = {() => console.log(data)}>data</button>
                     <button onClick = {() => console.log(images)}>images</button>
                     table stuff goes here */}
-                    <button onClick = {() => console.log(match("berserker"))}> match</button>
 
                     <div class="flex flex-col">
                         <div class="-m-1.5 overflow-x-auto">

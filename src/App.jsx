@@ -10,7 +10,7 @@ import Weapons from './components/Weapons';
 import Dev from './components/Dev';
 import Loader from './components/Loader';
 import Artifacts from './components/Artifacts';
-import Food from './components/Food';
+import Consumables from './components/Consumables';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -129,7 +129,7 @@ function App() {
 
           {/* Food */}
           {page == 'Consumables' &&
-            <Food/>
+            <Consumables/>
           }
         
           {/* Dev */}

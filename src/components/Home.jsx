@@ -8,11 +8,11 @@ const Home = () => {
         <h2>This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact.</h2>
         <div>
           <h2>Skills Used:</h2>
-          <li>Regex</li>
+          <li>ReactJS</li>
           <li>TailwindCSS</li>
-          <li>React</li>
           <li>RESTful APIs</li>
           <li>Responsive Design</li>
+          <li>Regex</li>
         </div>
     </div>
   )
