@@ -109,10 +109,11 @@ const Navbar = (props) => {
                         <img className="w-14" src={Sumeru_Icon1}/> 
                         <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div>
                     </div>
-                    <a href='#' onClick = {() => props.setPage('Characters')} className="font-bold m-auto text-3xl text-gray-300 hover:text-white">Characters</a>
-                    <a href='#' onClick = {() => props.setPage('Weapons')} className="font-bold m-auto text-3xl text-gray-300 hover:text-white">Weapons</a>
-                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="font-bold m-auto text-3xl text-gray-300 hover:text-white">Artifacts</a>
-                    <a href='#' onClick = {() => props.setPage('Consumables')} className="font-bold m-auto text-3xl text-gray-300 hover:text-white">Consumables</a>
+                    <a href='#' onClick = {() => props.setPage('Characters')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Characters</a>
+                    <a href='#' onClick = {() => props.setPage('Weapons')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Weapons</a>
+                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Artifacts</a>
+                    <a href='#' onClick = {() => props.setPage('Consumables')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Consumables</a>
+                    
                     <Theme/>
                 </div>
             </nav>
