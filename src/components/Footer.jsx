@@ -20,7 +20,7 @@ const Footer = () => {
           <SocialIcon network="github" bgColor='gray' url="https://github.com/wanderer-moe/api"/>
         </div>  
       </div>
-      <div>
+      <div className="max-sm:text-sm">
         <p>Sumeru.gg is not affiliated with HoYoverse.</p>
         <p>Genshin Impact, game content and all assets are trademarks and copyrights of HoYoverse.</p>
       </div>
