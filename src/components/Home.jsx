@@ -6,20 +6,48 @@ const Home = (props) => {
         <br/><br/><br/><br/>
         <h1>Welcome to Sumeru.gg</h1>
                
-        <div className="p-4 mx-auto">
+        <div className="md:w-3/5 p-4 mx-auto">
           <p className="text-md lg:text-2xl">
           This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact. 
           Sumeru.gg provides data on character profiles, weapons, items and more. Everything you need in one place!
           </p>
 
-          <div className="grid grid-cols-2 lg:w-4/5 p-2 my-4 gap-2">
-            <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Characters")}>Characters</button>
-            <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Weapons")}>Weapons</button>
-            <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Artifacts")}>Artifacts</button>
-            <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Consumables")}>Consumables</button>
+          <div className="grid grid-cols-2 p-2 my-4 gap-5">
+            <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Characters")}>
+              <h2 className="md:text-2xl lg:text-4xl">Characters</h2>
+              <p className="p-4 max-md:hidden">
+                An assortment of characters with filter tools for querying specific needs.
+                Select your desired character to view detailed information including their skills, ascension materials, and more.
+              </p>
+              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
+            </button>
+            <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Weapons")}>
+              <h2 className="md:text-2xl lg:text-4xl">Weapons</h2>
+              <p className="p-4 max-md:hidden">
+                A grid of weapons with filter tools to find your ideal weapon.
+                Select your desired weapon to view detailed information including rarity and location of the weapon.
+              </p>
+              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>              
+            </button>
+            <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Artifacts")}>
+              <h2 className="md:text-2xl lg:text-4xl">Artifacts</h2>
+              <p className="p-4 max-md:hidden">
+                A table of different artifacts organized by their class set.
+                View set bonuses here.
+              </p>
+              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
+            </button>
+            <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Consumables")}>
+              <h2 className="md:text-2xl lg:text-4xl">Consumables</h2>
+              <p className="p-4 max-md:hidden">
+                - 
+              </p>
+              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
+            </button>
           </div>
-          
-          <ul className="text-md lg:text-2xl list-disc rounded-lg bg-slate-900">
+        </div>
+        <div className="justify-center">
+          <ul className="text-md lg:text-2xl lg:w-1/2 lg:mx-auto list-disc rounded-lg bg-slate-900">
             <h2>Skills Used:</h2>
             <li>ReactJS</li>
             <li>TailwindCSS</li>

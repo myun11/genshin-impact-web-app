@@ -41,7 +41,7 @@ const Factions = (props) => {
   }
   return (
     <div>
-      <h1 className = "p-4">Faction</h1>
+      <h1 className = "p-4">Factions</h1>
       <div className = "flex justify-center items-center">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
         <div className="grid">
