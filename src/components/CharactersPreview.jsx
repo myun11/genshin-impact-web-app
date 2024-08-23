@@ -216,7 +216,7 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
-                <div className = "h-full min-h-screen flex justify-end items-end p-4">
+                <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
                 <div className="items-start justify-start text-start">
