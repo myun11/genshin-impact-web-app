@@ -151,190 +151,209 @@ const Characters = (props) => {
             </div>
             :
             <div className=''>
-            <div className="h-20"></div>
-            <h1 className = "p-4 dark:text-white">Characters</h1>
-            
-            {/* <div> */}
-                {/* Debugging */}
-                {/* <button onClick = {() => console.log(props.masterCharacterData)}>props masterCharacterData</button>
-                <button onClick = {() => console.log(props.characters)}>props characters</button>
-                <button onClick = {() => console.log(filteredCharacters)}>filteredCharacters</button>
-                <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
-                {/* <button onClick = {() => {
-                    const weapons = []
-                    props.characters.map(char => {
-                        weapons.push(props.masterCharacterData[char]["weapon"])
-                    })
-                    console.log(new Set(weapons))
-                }}>list of weapons</button> */}
-            {/* </div> */}
-            {/* Filter function that filters prop's array into filteredCharacters array. */}
-            {/* Also accounts for capitalization variances. */}
-            <div className = "md:m-4">
-                <div className = "bg-slate-500 h-1 w-full"></div>
-                <div className="lg:inline-flex m-2 md:m-4 md:space-x-7">
+                <div className="h-20"></div>
+                <h1 className = "p-4 dark:text-white">Characters</h1>
+                
+                {/* <div> */}
+                    {/* Debugging */}
+                    {/* <button onClick = {() => console.log(props.masterCharacterData)}>props masterCharacterData</button>
+                    <button onClick = {() => console.log(props.characters)}>props characters</button>
+                    <button onClick = {() => console.log(filteredCharacters)}>filteredCharacters</button>
+                    <button onClick = {() => console.log(charPreviewData)}>preview character</button> */}
+                    {/* <button onClick = {() => {
+                        const weapons = []
+                        props.characters.map(char => {
+                            weapons.push(props.masterCharacterData[char]["weapon"])
+                        })
+                        console.log(new Set(weapons))
+                    }}>list of weapons</button> */}
+                {/* </div> */}
+                {/* Filter function that filters prop's array into filteredCharacters array. */}
+                {/* Also accounts for capitalization variances. */}
+                <div className = "md:m-4">
+                    <div className = "bg-slate-500 h-1 w-full"></div>
+                    <div className="lg:inline-flex m-2 md:m-4 md:space-x-7">
 
-                    {/* Filter by element */}
-                    <div className="flex p-2 items-center justify-center">
-                    {elements.map(res => {
-                        return(
-                        <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                            {
-                                if (selectedElements.includes(res)) {
-                                    // setSelectedElements([...selectedElements.filter(entry => entry != res)])
-                                    setSelectedElements(current => [...current].filter(entry => entry != res))
-                                } else {
-                                    // setSelectedElements([...selectedElements, res])
-                                    setSelectedElements(current => [...current, res])
-                                }
-                                // console.log(selectedElements.length > 0)
-                                // console.log(selectedElements.includes(res))
-                                // console.log(selectedElements)
+                        {/* Filter by element */}
+                        <div className="flex p-2 items-center justify-center">
+                        {elements.map(res => {
+                            return(
+                                <div className="relative group inline-block">
+                                    <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                        {
+                                            if (selectedElements.includes(res)) {
+                                                // setSelectedElements([...selectedElements.filter(entry => entry != res)])
+                                                setSelectedElements(current => [...current].filter(entry => entry != res))
+                                            } else {
+                                                // setSelectedElements([...selectedElements, res])
+                                                setSelectedElements(current => [...current, res])
+                                            }
+                                            // console.log(selectedElements.length > 0)
+                                            // console.log(selectedElements.includes(res))
+                                            // console.log(selectedElements)
+                                        }
+                                    }>
+                                        <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
+                                    </button>
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        {res}
+                                    </div>            
+                                </div>
+                            )
+                        })}
+                        </div>
+                        {/* Filter by weapon type */}
+                        <div className="flex p-2 items-center justify-center">
+                        {weapons.map(entry => {
+                            let wep = entry[0]
+                            let icon = null
+                            if (wep == "Sword") {
+                                icon = Sword_Icon
                             }
-                        }>
-                            <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
-                        </button>
-                        )
-                    })}
-                    </div>
+                            if (wep == "Bow") {
+                                icon = Bow_Icon
+                            }
+                            if (wep == "Claymore") {
+                                icon = Claymore_Icon
+                            }
+                            if (wep == "Polearm") {
+                                icon = Polearm_Icon
+                            }
+                            if (wep == "Catalyst") {
+                                icon = Catalyst_Icon
+                            }
+                            return(
+                                <div className="relative group inline-block">
+                                    <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
+                                        if (selectedWeapons.includes(wep)) {
+                                            setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
+                                        } else {
+                                            setSelectedWeapons([...selectedWeapons, wep])
+                                        }
+                                    }}>
+                                        <img className="object-scale-down h-full w-full rounded-lg" src = {icon} />
+                                    </button>
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        {wep}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                        </div>
+                        {/* Filter by rarity */}
+                        <div className="flex p-2 items-center justify-center">
+                            <div className="relative group inline-block">
+                                <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                    {
+                                        if (selectedRarity == 4) {
+                                            setSelectedRarity(null)
+                                        } else {
+                                            setSelectedRarity(4)
+                                        }
+                                    }
+                                }>
+                                    <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
+                                </button>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    4&nbsp;Star&nbsp;Rarity
+                                </div>
+                            </div>
+                            <div className="relative group inline-block">
+                                <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                    {
+                                        if (selectedRarity == 5) {
+                                            setSelectedRarity(null)
+                                        } else {
+                                            setSelectedRarity(5)
+                                        }
+                                    }
+                                }>
+                                    <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
+                                </button>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    5&nbsp;Star&nbsp;Rarity
+                                </div>
+                            </div>
+                        </div>
 
-                    {/* Filter by weapon type */}
-                    <div className="flex p-2 items-center justify-center">
-                    {weapons.map(entry => {
-                        let wep = entry[0]
-                        let icon = null
-                        if (wep == "Sword") {
-                            icon = Sword_Icon
-                        }
-                        if (wep == "Bow") {
-                            icon = Bow_Icon
-                        }
-                        if (wep == "Claymore") {
-                            icon = Claymore_Icon
-                        }
-                        if (wep == "Polearm") {
-                            icon = Polearm_Icon
-                        }
-                        if (wep == "Catalyst") {
-                            icon = Catalyst_Icon
-                        }
-                        return(
-                            <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
-                                if (selectedWeapons.includes(wep)) {
-                                    setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
-                                } else {
-                                    setSelectedWeapons([...selectedWeapons, wep])
-                                }
-                            }}>
-                                <img className="object-scale-down h-full w-full rounded-lg" src = {icon} />
-                            </button>
-                        )
-                    })}
+                        {/* Filter by name */}
+                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
+                            setSelectedName(e.target.value)
+                        }}/>
+                        
                     </div>
-                    {/* Filter by rarity */}
-                    <div className="flex p-2 items-center justify-center">
-                        <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                            {
-                                if (selectedRarity == 4) {
-                                    setSelectedRarity(null)
-                                } else {
-                                    setSelectedRarity(4)
-                                }
-                            }
-                        }>
-                            <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
-                        </button>
-                        <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
-                            {
-                                if (selectedRarity == 5) {
-                                    setSelectedRarity(null)
-                                } else {
-                                    setSelectedRarity(5)
-                                }
-                            }
-                        }>
-                            <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
-                        </button>
-                    </div>
-
-                    {/* Filter by name */}
-                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
-                        setSelectedName(e.target.value)
-                    }}/>
-                    
+                    <div className = "bg-slate-500 h-1 w-full"></div>
                 </div>
-                <div className = "bg-slate-500 h-1 w-full"></div>
+
+                {/* Map version  */}
+                {/* <input type = "string" placeholder='Search Character' onChange = {(e) => {
+                    let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
+                    setFilteredCharacters(emptyArray)
+                }}/> */}
+
+
+                {/* Character Grid */}
+                {/* Map version. */}
+                {/* <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+                    {filteredCharacters.map(entry => {
+                        if (props.masterCharacterDataMap[entry]["rarity"] == 4) {
+                            return(
+                                <div className = "w-full h-full">
+                                    <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(props.masterCharacterDataMap[entry])
+                                    }}/></button>
+                                    <h2 className = "capitalize">{entry}</h2>
+                                </div>
+                            )
+                        }
+                        if (props.masterCharacterDataMap[entry]["rarity"] == 5) {                   
+                            return(
+                                <div className = "w-full h-full">
+                                    <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(props.masterCharacterDataMap[entry])
+                                    }}/></button>
+                                    <h2 className = "capitalize">{entry}</h2>
+                                </div>
+                            )
+                        }
+                        
+                    })}                
+                </div>   */}
+
+                {/* Array version */}
+                <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4 ">
+                    {/* <button onClick = {() => console.log(filteredArray)}>filtered array </button> */}
+                    {filteredArray.map(entry => {
+                        if (entry["rarity"] == 4) {
+                            return(
+                                <div className = "border-4 w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
+                                    <button className = "bg-gradient-to-b from-purple-500 to-white" >
+                                        <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(entry)
+                                    }}/></button>
+                                    <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
+                                </div>
+                            )
+                        }
+                        if (entry["rarity"] == 5) {                   
+                            return(
+                                <div className = "border-4 w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
+                                    <button className = "bg-gradient-to-b from-orange-500 to-white" >
+                                        <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                        setCharPreviewState(true)
+                                        setCharPreviewData(entry)
+                                    }}/></button>
+                                    <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
+                                </div>
+                            )
+                        }
+                        
+                    })}                
+                </div>  
             </div>
-
-            {/* Map version  */}
-            {/* <input type = "string" placeholder='Search Character' onChange = {(e) => {
-                let emptyArray = props.characters.filter(entry => entry.includes(e.target.value.toLowerCase()))
-                setFilteredCharacters(emptyArray)
-            }}/> */}
-
-
-            {/* Character Grid */}
-            {/* Map version. */}
-            {/* <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
-                {filteredCharacters.map(entry => {
-                    if (props.masterCharacterDataMap[entry]["rarity"] == 4) {
-                        return(
-                            <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-purple-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-purple-500 to-white" src = {icons[entry]} onClick = {() => {
-                                    setCharPreviewState(true)
-                                    setCharPreviewData(props.masterCharacterDataMap[entry])
-                                }}/></button>
-                                <h2 className = "capitalize">{entry}</h2>
-                            </div>
-                        )
-                    }
-                    if (props.masterCharacterDataMap[entry]["rarity"] == 5) {                   
-                        return(
-                            <div className = "w-full h-full">
-                                <button className = "rounded-lg bg-gradient-to-b from-orange-500 to-white" ><img className="w-full h-full rounded-lg bg-gradient-to-b from-orange-500 to-white" src = {icons[entry]} onClick = {() => {
-                                    setCharPreviewState(true)
-                                    setCharPreviewData(props.masterCharacterDataMap[entry])
-                                }}/></button>
-                                <h2 className = "capitalize">{entry}</h2>
-                            </div>
-                        )
-                    }
-                    
-                })}                
-            </div>   */}
-
-            {/* Array version */}
-            <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4 ">
-                {/* <button onClick = {() => console.log(filteredArray)}>filtered array </button> */}
-                {filteredArray.map(entry => {
-                    if (entry["rarity"] == 4) {
-                        return(
-                            <div className = "border-4 w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
-                                <button className = "bg-gradient-to-b from-purple-500 to-white" >
-                                    <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
-                                    setCharPreviewState(true)
-                                    setCharPreviewData(entry)
-                                }}/></button>
-                                <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
-                            </div>
-                        )
-                    }
-                    if (entry["rarity"] == 5) {                   
-                        return(
-                            <div className = "border-4 w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
-                                <button className = "bg-gradient-to-b from-orange-500 to-white" >
-                                    <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
-                                    setCharPreviewState(true)
-                                    setCharPreviewData(entry)
-                                }}/></button>
-                                <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
-                            </div>
-                        )
-                    }
-                    
-                })}                
-            </div>  
-        </div>
         }
     </div>
 )

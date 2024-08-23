@@ -16,7 +16,7 @@ const Home = (props) => {
             <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Characters")}>Characters</button>
             <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Weapons")}>Weapons</button>
             <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Artifacts")}>Artifacts</button>
-            <button className="text-justify max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Consumables")}>Consumables</button>
+            <button className=" max-md:h-20 max-md:text-xl rounded-lg bg-slate-500 hover:bg-slate-400" onClick = {() => props.setPage("Consumables")}>Consumables</button>
           </div>
           
           <ul className="text-md lg:text-2xl list-disc rounded-lg bg-slate-900">
