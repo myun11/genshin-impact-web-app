@@ -205,7 +205,7 @@ const CharactersPreview = (props) => {
     return (
         <div className = "lg:mb-4">
             <div className="h-24"></div>
-            {/* <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
+            {/* <div className="md:hidden fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#Factions">Factions</a></li>
@@ -236,7 +236,7 @@ const CharactersPreview = (props) => {
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
-                <div className="items-start justify-start text-start">
+                <div className="items-start justify-start text-left">
                     <button onClick = {() => {
                         props.setCharPreviewData([])
                         props.setCharPreviewState(false)
@@ -245,6 +245,12 @@ const CharactersPreview = (props) => {
                     <h1 className="dark:text-white text-gray-500 text-9xl">{props.charPreviewData.name}</h1>
                     <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
                     <h2 className="mb-2 text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
+                    <div className="space-x-5">
+                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                    </div>
                 </div>
             </div>
 
