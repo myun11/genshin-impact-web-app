@@ -172,10 +172,10 @@ const Characters = (props) => {
             {/* Also accounts for capitalization variances. */}
             <div className = "md:m-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
-                <div className="md:inline-flex m-2 md:m-4 md:space-x-7">
+                <div className="lg:inline-flex m-2 md:m-4 md:space-x-7">
 
                     {/* Filter by element */}
-                    <div className="flex p-2 items-center justify-items-center">
+                    <div className="flex p-2 items-center justify-center">
                     {elements.map(res => {
                         return(
                         <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
@@ -192,14 +192,14 @@ const Characters = (props) => {
                                 // console.log(selectedElements)
                             }
                         }>
-                            <img className="object-cover w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
+                            <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
                         </button>
                         )
                     })}
                     </div>
 
                     {/* Filter by weapon type */}
-                    <div className="flex p-2 justify-center">
+                    <div className="flex p-2 items-center justify-center">
                     {weapons.map(entry => {
                         let wep = entry[0]
                         let icon = null
@@ -219,21 +219,21 @@ const Characters = (props) => {
                             icon = Catalyst_Icon
                         }
                         return(
-                            <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
+                            <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
                                 if (selectedWeapons.includes(wep)) {
                                     setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
                                 } else {
                                     setSelectedWeapons([...selectedWeapons, wep])
                                 }
                             }}>
-                                <img className="w-full h-full rounded-lg" src = {icon} />
+                                <img className="object-scale-down h-full w-full rounded-lg" src = {icon} />
                             </button>
                         )
                     })}
                     </div>
                     {/* Filter by rarity */}
-                    <div className="flex p-2 justify-center">
-                        <button className = {selectedRarity == 4 ? "flex justify-center items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                    <div className="flex p-2 items-center justify-center">
+                        <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedRarity == 4) {
                                     setSelectedRarity(null)
@@ -242,9 +242,9 @@ const Characters = (props) => {
                                 }
                             }
                         }>
-                            <img className="object-contain w-16 h-16 rounded-lg" src = {Purple_Star} />
+                            <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
                         </button>
-                        <button className = {selectedRarity == 5 ? "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                        <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedRarity == 5) {
                                     setSelectedRarity(null)
@@ -253,7 +253,7 @@ const Characters = (props) => {
                                 }
                             }
                         }>
-                            <img className="object-contain w-16 h-16 rounded-lg" src = {Orange_Star} />
+                            <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
                         </button>
                     </div>
 
@@ -304,7 +304,7 @@ const Characters = (props) => {
             </div>   */}
 
             {/* Array version */}
-            <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+            <div className = "grid max-md:grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                 {/* <button onClick = {() => console.log(filteredArray)}>filtered array </button> */}
                 {filteredArray.map(entry => {
                     if (entry["rarity"] == 4) {
