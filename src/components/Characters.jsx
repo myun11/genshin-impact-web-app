@@ -139,7 +139,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = "p-4 w-5/6 mx-auto ">
+    <div className = "p-0 md:p-4 w-5/6 mx-auto ">
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>
@@ -152,7 +152,7 @@ const Characters = (props) => {
             :
             <div>
             <div className="h-20"></div>
-            <h1 className = "dark:text-white">Characters</h1>
+            <h1 className = "p-4 dark:text-white">Characters</h1>
             
             {/* <div> */}
                 {/* Debugging */}
@@ -170,15 +170,15 @@ const Characters = (props) => {
             {/* </div> */}
             {/* Filter function that filters prop's array into filteredCharacters array. */}
             {/* Also accounts for capitalization variances. */}
-            <div className = " m-4">
+            <div className = "md:m-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
-                <div className='inline-flex m-4 space-x-7'>
+                <div className="md:inline-flex m-2 md:m-4 md:space-x-7">
 
                     {/* Filter by element */}
-                    <div>
+                    <div className="flex p-2 items-center justify-items-center">
                     {elements.map(res => {
                         return(
-                        <button className = {selectedElements.includes(res) ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                        <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedElements.includes(res)) {
                                     // setSelectedElements([...selectedElements.filter(entry => entry != res)])
@@ -192,14 +192,14 @@ const Characters = (props) => {
                                 // console.log(selectedElements)
                             }
                         }>
-                            <img className="w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
+                            <img className="object-cover w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
                         </button>
                         )
                     })}
                     </div>
 
                     {/* Filter by weapon type */}
-                    <div>
+                    <div className="flex p-2 justify-center">
                     {weapons.map(entry => {
                         let wep = entry[0]
                         let icon = null
@@ -219,7 +219,7 @@ const Characters = (props) => {
                             icon = Catalyst_Icon
                         }
                         return(
-                            <button className={selectedWeapons.includes(wep) ? "px-1 py-1 rounded-full bg-gray-300" : "px-1 py-1 rounded-full bg-gray-500"} onClick = {() => {
+                            <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
                                 if (selectedWeapons.includes(wep)) {
                                     setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
                                 } else {
@@ -232,8 +232,8 @@ const Characters = (props) => {
                     })}
                     </div>
                     {/* Filter by rarity */}
-                    <div>
-                        <button className = {selectedRarity == 4 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                    <div className="flex p-2 justify-center">
+                        <button className = {selectedRarity == 4 ? "flex justify-center items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedRarity == 4) {
                                     setSelectedRarity(null)
@@ -242,9 +242,9 @@ const Characters = (props) => {
                                 }
                             }
                         }>
-                            <img className="w-16 h-16 rounded-lg" src = {Purple_Star} />
+                            <img className="object-contain w-16 h-16 rounded-lg" src = {Purple_Star} />
                         </button>
-                        <button className = {selectedRarity == 5 ? "py-1 px-1 rounded-full bg-gray-300" : "py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                        <button className = {selectedRarity == 5 ? "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-12 max-md:h-12 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
                             {
                                 if (selectedRarity == 5) {
                                     setSelectedRarity(null)
@@ -253,7 +253,7 @@ const Characters = (props) => {
                                 }
                             }
                         }>
-                            <img className="w-16 h-16 rounded-lg" src = {Orange_Star} />
+                            <img className="object-contain w-16 h-16 rounded-lg" src = {Orange_Star} />
                         </button>
                     </div>
 

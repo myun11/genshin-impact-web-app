@@ -17,10 +17,10 @@ const Navbar = (props) => {
         <div className="">
             <nav className="bg-slate-700 p-4 text-left fixed w-screen z-10 top-0">
                 {/* Mobile */}
-                <div className="md:hidden">
+                <div className="md:hidden flex items-center justify-between ">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-gray-300 focus:outline-none"
+                        className="text-left text-gray-300 focus:outline-none"
                     >
                         <svg
                         className="w-6 h-6"
@@ -46,6 +46,11 @@ const Navbar = (props) => {
                         )}
                         </svg>
                     </button>
+                    <div onClick = {() => props.setPage('Home')} className="text-white text-lg font-bold">
+                        <img className="w-14" src={Sumeru_Icon1}/> 
+                        {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
+                    </div>
+                    {/* <button>Toggle</button> */}
                 </div>
                 {isOpen && (
                     <div className="md:hidden">
@@ -101,13 +106,12 @@ const Navbar = (props) => {
                     </a>
                     </div>
                 )}
-
                 {/* PC */}
-                <div className="space-x-10 inline-flex align-middle m-auto mx-auto">
+                <div className="max-md:hidden space-x-10 inline-flex align-middle m-auto mx-auto">
                     {/* Web App Icon */}
                     <div onClick = {() => props.setPage('Home')} className="inline-flex align-middle text-white text-lg font-bold">
                         <img className="w-14" src={Sumeru_Icon1}/> 
-                        <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div>
+                        {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
                     </div>
                     <a href='#' onClick = {() => props.setPage('Characters')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Characters</a>
                     <a href='#' onClick = {() => props.setPage('Weapons')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Weapons</a>

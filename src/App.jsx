@@ -95,7 +95,7 @@ function App() {
           loading = {loading}
         />
       </div> :
-      <div className='mx-auto h-10 min-h-screen flex-grow'>
+      <div className='md:mx-auto min-h-screen flex-grow'>
         <Navbar
           setPage = {setPage}
         />
