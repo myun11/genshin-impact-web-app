@@ -236,26 +236,73 @@ const CharactersPreview = (props) => {
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
-                <div className="items-start justify-start text-left">
-                    <button onClick = {() => {
-                        props.setCharPreviewData([])
-                        props.setCharPreviewState(false)
-                        }}> Go Back </button>
+                <div className="items-start justify-start text-left mr-10">
                     {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
                     <h1 className="dark:text-white text-gray-500 text-9xl">{props.charPreviewData.name}</h1>
                     <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
                     <h2 className="mb-2 text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
                     <div className="space-x-5">
-                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
-                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
-                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
-                        <button className="dark:text-white hover:text-blue-500 transition" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
+                            <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                    <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span className="text-2xl">
+                                Factions
+                            </span>
+                        </button>
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>
+                            <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                    <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span className="text-2xl">
+                                Constellation
+                            </span>
+                        </button>
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                            <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                    <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span className="text-2xl">
+                                Passive Talents
+                            </span>
+                        </button>
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                            <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                    <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span className="text-2xl">
+                                Skill Talents
+                            </span>
+                        </button>
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => {
+                            document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})
+                            props.setCharPreviewData([])
+                            props.setCharPreviewState(false)
+                            window.scrollTo(0, 0)
+                        }}>
+                            <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                                    <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span className="text-2xl">
+                                Go Back
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
 
             {/* About Card */}
-            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>
 
                 <Factions
                     id = {props.charPreviewData.id}
@@ -273,7 +320,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/*Constellation  */}
-            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " block p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
@@ -285,7 +332,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -295,7 +342,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " scroll-mt-20 dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <SkillTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
