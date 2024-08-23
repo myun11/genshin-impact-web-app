@@ -252,7 +252,7 @@ const Weapons = () => {
         
     }, [weapons, selectedOptions, weaponSearch])
     return(
-        <div className = "p-4 w-5/6 mx-auto ">
+        <div className = "p-4 mx-auto ">
             <div className="h-20"></div>
 
             {weaponPreviewState ? 
@@ -433,7 +433,7 @@ const Weapons = () => {
                             <div className = "bg-slate-500 h-1 w-full"></div>
                         </div>
 
-                        <div className = "grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+                        <div className = "lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(

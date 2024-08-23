@@ -95,16 +95,16 @@ function App() {
           loading = {loading}
         />
       </div> :
-      <div className='md:mx-auto min-h-screen flex-grow'>
+      <div className='min-h-screen flex-grow'>
         <Navbar
           setPage = {setPage}
         />
         <div className = "">
           {/* Home */}
           {page == 'Home' && 
-          <div className = "">
-            <Home />
-          </div>  
+            <Home
+              setPage = {setPage}
+            />
           }
 
           {/* Characters */}
@@ -114,6 +114,7 @@ function App() {
               masterCharacterDataMap = {masterCharacterDataMap}
               masterCharacterDataArray = {masterCharacterDataArray}
               loading = {loading}
+              setPage = {setPage}
             />
           }
 

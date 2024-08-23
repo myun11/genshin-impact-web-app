@@ -17,7 +17,7 @@ const Navbar = (props) => {
         <div className="">
             <nav className="bg-slate-700 p-4 text-left fixed w-screen z-10 top-0">
                 {/* Mobile */}
-                <div className="lg:hidden flex items-center justify-between ">
+                <div className="lg:hidden m-auto mx-auto flex items-center justify-between ">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="text-left text-gray-300 focus:outline-none"
@@ -46,7 +46,10 @@ const Navbar = (props) => {
                         )}
                         </svg>
                     </button>
-                    <div onClick = {() => props.setPage('Home')} className="text-white text-lg font-bold">
+                    <div onClick = {() => {
+                        props.setPage('Home')
+                        setIsOpen(false)
+                    }} className="text-white text-lg font-bold">
                         <img className="w-14" src={Sumeru_Icon1}/> 
                         {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
                     </div>
@@ -107,7 +110,7 @@ const Navbar = (props) => {
                     </div>
                 )}
                 {/* PC */}
-                <div className="max-lg:hidden space-x-10 inline-flex align-middle m-auto mx-auto">
+                <div className="max-lg:hidden space-x-10 flex align-middle m-auto mx-auto">
                     {/* Web App Icon */}
                     <div onClick = {() => props.setPage('Home')} className="inline-flex align-middle text-white text-lg font-bold">
                         <img className="w-14" src={Sumeru_Icon1}/> 

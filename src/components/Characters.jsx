@@ -139,7 +139,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = "p-0 md:p-4 w-5/6 mx-auto ">
+    <div className = " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center ">
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>
@@ -150,7 +150,7 @@ const Characters = (props) => {
                 />  
             </div>
             :
-            <div>
+            <div className=''>
             <div className="h-20"></div>
             <h1 className = "p-4 dark:text-white">Characters</h1>
             
@@ -304,7 +304,7 @@ const Characters = (props) => {
             </div>   */}
 
             {/* Array version */}
-            <div className = "grid max-md:grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+            <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4 ">
                 {/* <button onClick = {() => console.log(filteredArray)}>filtered array </button> */}
                 {filteredArray.map(entry => {
                     if (entry["rarity"] == 4) {

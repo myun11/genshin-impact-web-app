@@ -203,8 +203,8 @@ const CharactersPreview = (props) => {
         )
     }
     return (
-        <div className = "mb-4">
-            <div className="h-20"></div>
+        <div className = "lg:mb-4">
+            <div className="h-24"></div>
             {/* <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50 ">
                 <ul>
                     <li><a className="text-gray-500 hover:text-blue-500 transition" href="#/">Art</a></li>
@@ -215,7 +215,24 @@ const CharactersPreview = (props) => {
                 </ul>
             </div> */}
             {/* Character Card */}
-            <div id="/" className="grid grid-cols-2 gap-4 items-center mx-auto border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>           
+            {/* Mobile */}
+            <div id="/" className="lg:hidden items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+                <div className = "h-full min-h-screen flex items-center justify-end p-4">
+                    <img className = "object-contain max-h-screen" src={card}></img>
+                </div>
+                <div className="items-start justify-start text-start">
+                    <button onClick = {() => {
+                        props.setCharPreviewData([])
+                        props.setCharPreviewState(false)
+                        }}> Go Back </button>
+                    {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
+                    <h1 className="dark:text-white text-gray-500 text-9xl">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
+                </div>
+            </div>
+            {/* PC */}
+            <div id="/" className="max-lg:hidden lg:grid lg:grid-cols-2 lg:gap-4 items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
