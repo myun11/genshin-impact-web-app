@@ -233,7 +233,7 @@ const Characters = (props) => {
                                     }}>
                                         <img className="object-scale-down h-full w-full rounded-lg" src = {icon} />
                                     </button>
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         {wep}
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@ const Characters = (props) => {
                                 }>
                                     <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
                                 </button>
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     4&nbsp;Star&nbsp;Rarity
                                 </div>
                             </div>
@@ -270,7 +270,7 @@ const Characters = (props) => {
                                 }>
                                     <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
                                 </button>
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     5&nbsp;Star&nbsp;Rarity
                                 </div>
                             </div>
