@@ -52,13 +52,14 @@ const Factions = (props) => {
               <img className="" src = {visionIcon}/>         
             </div>
             {/* Divider  */}
-            <div className = "h-[60px]  bg-slate-600 w-[2px]">
+            <div className = "h-[60px]  bg-slate-500 w-[2px]">
             </div>
             {/* Rarity stars (4 or 5) */}
             <div className = "m-2 inline-flex">
               {convertRarity()}
             </div>
           </div>
+          
           <div className="flex h-32">
             <div className="block max-w-xs p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation</h2>
