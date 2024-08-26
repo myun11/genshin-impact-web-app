@@ -195,7 +195,7 @@ const Characters = (props) => {
                                     }>
                                         <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
                                     </button>
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         {res}
                                     </div>            
                                 </div>
