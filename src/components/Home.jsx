@@ -40,7 +40,7 @@ const Home = (props) => {
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Consumables")}>
               <h2 className="md:text-2xl lg:text-4xl">Consumables</h2>
               <p className="p-4 max-md:hidden">
-                - 
+                A collection of different consumables and their buffs.
               </p>
               <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
             </button>
