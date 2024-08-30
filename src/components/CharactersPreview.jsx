@@ -9,6 +9,7 @@ import SkillTalents from './SkillTalents'
 import Keywords from './Keywords'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
+    const [icon, setIcon] = useState([])
     const [loading, setLoading] = useState(true)
     const [birthday, setBirthday] = useState("")
     const [releaseDate, setReleaseDate] = useState("")
@@ -128,6 +129,7 @@ const CharactersPreview = (props) => {
         // genshin api
         // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-card")
         setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/portrait")
+        setIcon("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/icon-big")
         // setCard("https://genshin.jmp.blue/characters/" + char.toLowerCase() + "/gacha-splash")
     }
 
@@ -217,8 +219,9 @@ const CharactersPreview = (props) => {
             {/* Character Card */}
             {/* Mobile */}
             <div id="/" className="lg:hidden items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
-                <div className = "h-full min-h-screen flex items-center justify-end p-4">
-                    <img className = "object-contain max-h-screen" src={card}></img>
+                <div className = "h-full min-h-screen flex items-center justify-center md:justify-end p-4">
+                    <img className = "max-md:hidden object-contain max-h-screen" src={card}></img>
+                    <img className = "md:hidden" src={icon}></img>
                 </div>
                 <div className="items-start justify-start text-start">
                     <button onClick = {() => {
