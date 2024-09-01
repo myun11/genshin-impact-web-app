@@ -5,7 +5,7 @@ const SkillTalents = (props) => {
 
   return (
     <div className="">
-      <h1 className = "p-4" >Skill Talents</h1>
+      <h1 className = "font-bold p-4" >Skill Talents</h1>
       <div className="">
                 {props.skillTalents.map((entry, idx) => {
                     const regex = new RegExp(`(${props.keywords.join('|')})`, 'gi');

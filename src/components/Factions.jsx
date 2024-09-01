@@ -7,22 +7,22 @@ import Sword_Icon from '../images/Icon_Sword.webp'
 import Star from '../images/Star.png'
 
 const Factions = (props) => {
-  const [visionIcon, setVisionIcon] = useState("")
+  const [weaponIcon, setWeaponIcon] = useState("")
   useEffect(() => {
     if (props.weapon == "Sword") {
-      setVisionIcon(Sword_Icon)
+      setWeaponIcon(Sword_Icon)
     }
     if (props.weapon == "Claymore") {
-      setVisionIcon(Claymore_Icon)
+      setWeaponIcon(Claymore_Icon)
     }
     if (props.weapon == "Bow") {
-      setVisionIcon(Bow_Icon)
+      setWeaponIcon(Bow_Icon)
     }
     if (props.weapon == "Catalyst") {
-      setVisionIcon(Catalyst_Icon)
+      setWeaponIcon(Catalyst_Icon)
     }
     if (props.weapon == "Polearm") {
-      setVisionIcon(Polearm_Icon)
+      setWeaponIcon(Polearm_Icon)
     }
   }, [])
 
@@ -41,7 +41,7 @@ const Factions = (props) => {
   }
   return (
     <div>
-      <h1 className = "p-4">Factions</h1>
+      <h1 className = "font-bold p-4">Factions</h1>
       {/* PC */}
       <div className = "max-lg:hidden flex justify-center items-center">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
@@ -50,7 +50,7 @@ const Factions = (props) => {
             {/* Vision and Weapon type */}
             <div className = "m-2 inline-flex">
               <img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} />
-              <img className="" src = {visionIcon}/>         
+              <img className="" src = {weaponIcon}/>         
             </div>
             {/* Divider  */}
             <div className = "h-[60px]  bg-slate-500 w-[2px]">
@@ -87,8 +87,43 @@ const Factions = (props) => {
       </div>
 
       {/* Mobile */}
-      <div className = "lg:hidden">
-        
+      <div className = "lg:hidden text-left p-4 justify-center items-center mx-auto bg-slate-800 rounded-lg">
+        <table class="border-separate border border-slate-500 w-full border-spacing-2">
+          <tbody>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Weapon: </h2></td>
+              <td class="border border-slate-700 ..."><img src={weaponIcon}/></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Vision: </h2></td>
+              <td class="border border-slate-700 ..."><img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} /></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Rarity: </h2></td>
+              <td class="border border-slate-700 ..."><div className="inline-flex">{convertRarity()}</div></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Affiliation: </h2></td>
+              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Birthday: </h2></td>
+              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Release Date: </h2></td>
+              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Gender: </h2></td>
+              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p></td>
+            </tr>
+            <tr>
+              <td class="border border-slate-700 ..."><h2 className="text-2xl">Nation: </h2></td>
+              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   )
