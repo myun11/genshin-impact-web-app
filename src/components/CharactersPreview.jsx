@@ -218,22 +218,29 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             {/* Mobile */}
-            <div id="/" className="lg:hidden items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
-                <div className = "h-full min-h-screen flex items-center justify-center md:justify-end p-4">
-                    <img className = "max-md:hidden object-contain max-h-screen" src={card}></img>
-                    <img className = "md:hidden" src={icon}></img>
+            <div id="/" className="lg:hidden p-4 items-center border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+                <div className = "my-7 flex items-center justify-center">
+                    <img className = "rounded-lg " src={icon}></img>
                 </div>
-                <div className="items-start justify-start text-start">
-                    <button onClick = {() => {
-                        props.setCharPreviewData([])
-                        props.setCharPreviewState(false)
-                        }}> Go Back </button>
-                    {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
+                <div className="p-2 items-start justify-start text-start">
                     <h1 className="dark:text-white text-gray-500 text-5xl md:text-9xl">{props.charPreviewData.name}</h1>
                     <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-lg md:text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
+                    <h2 className="mb-2 text-sm font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
+                <div className="flex justify-between">
+                    <button className= "rounded-full" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                    <button className= "rounded-full" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                </div>
+                <div className="flex justify-between">
+                    <button className= "rounded-full" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                    <button className= "rounded-full" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                </div>
+                <button className= "rounded-full" onClick = {() => {
+                    props.setCharPreviewData([])
+                    props.setCharPreviewState(false)
+                }}> Go Back </button>
             </div>
+
             {/* PC */}
             <div id="/" className="max-lg:hidden lg:grid lg:grid-cols-2 lg:gap-4 items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
