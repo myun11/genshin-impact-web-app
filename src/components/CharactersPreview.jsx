@@ -218,7 +218,7 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             {/* Mobile */}
-            <div id="/" className="lg:hidden p-4 items-center border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+            <div id="/" className="lg:hidden space-y-2 p-4 items-center border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
                 <div className = "my-7 flex items-center justify-center">
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
@@ -227,15 +227,15 @@ const CharactersPreview = (props) => {
                     <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
                     <h2 className="mb-2 text-sm font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
-                <div className="flex justify-between">
-                    <button className= "rounded-full" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
-                    <button className= "rounded-full" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                <div className="flex space-x-5 justify-between">
+                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
                 </div>
-                <div className="flex justify-between">
-                    <button className= "rounded-full" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
-                    <button className= "rounded-full" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                <div className="flex space-x-5 justify-between">
+                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
                 </div>
-                <button className= "rounded-full" onClick = {() => {
+                <button className= "rounded-full bg-slate-800" onClick = {() => {
                     props.setCharPreviewData([])
                     props.setCharPreviewState(false)
                 }}> Go Back </button>
@@ -312,7 +312,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* About Card */}
-            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>
 
                 <Factions
                     id = {props.charPreviewData.id}
@@ -330,7 +330,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/*Constellation  */}
-            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
@@ -342,7 +342,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -352,7 +352,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " scroll-mt-20 dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " md:scroll-mt-20 dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <SkillTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}

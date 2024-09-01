@@ -42,7 +42,8 @@ const Factions = (props) => {
   return (
     <div>
       <h1 className = "p-4">Factions</h1>
-      <div className = "flex justify-center items-center">
+      {/* PC */}
+      <div className = "max-lg:hidden flex justify-center items-center">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
         <div className="grid">
           <div className={" justify-center h-32 items-center flex rounded-3xl bg-gradient-to-br " + props.visionIconLow + " " + props.visionIconHigh }>
@@ -83,6 +84,11 @@ const Factions = (props) => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile */}
+      <div className = "lg:hidden">
+        
       </div>
     </div>
   )
