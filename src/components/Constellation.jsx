@@ -5,7 +5,7 @@ const Constellation = (props) => {
   return (
     <div className = "p-4">
         <h1 className="font-bold p-4">Constellation: {props.constellationName}</h1>
-        <div className="items-center justify-center grid grid-cols-2 gap-4">
+        <div className="items-center justify-center lg:grid lg:grid-cols-2 lg:gap-4">
 
             {/* Image */}
             <div className="justify-items-center">
