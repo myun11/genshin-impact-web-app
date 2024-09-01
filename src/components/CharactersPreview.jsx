@@ -312,7 +312,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* About Card */}
-            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>
 
                 <Factions
                     id = {props.charPreviewData.id}
@@ -330,7 +330,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/*Constellation  */}
-            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
@@ -342,7 +342,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " md:scroll-mt-20 block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -352,7 +352,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " md:scroll-mt-20 dark:text-white block p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " md:scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <SkillTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
