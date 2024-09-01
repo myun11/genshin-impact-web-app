@@ -22,13 +22,13 @@ const Constellation = (props) => {
                     return(
                         <div className = "w-full p-2">
                             <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-3xl lg:rounded-full shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img className="max-lg:hidden object-cover  w-full md:h-auto md:w-auto md:rounded-none md:rounded-s-lg" src={props.images["constellation-" + num]} alt=""/>
+                                <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
                                 <div className="flex flex-col items-start lg:p-5 py-5 leading-normal">
                                     <div className="flex items-center">
-                                        <img className="lg:hidden pr-5 object-contain w-28 md:h-auto md:w-auto md:rounded-none md:rounded-s-lg" src={props.images["constellation-" + num]} alt=""/>
+                                        <img className="lg:hidden pr-5 object-contain w-28 md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
                                         <div className="">
                                             <p className="text-left text-lg italic tracking-tight text-gray-900 dark:text-white">Level {entry.level}</p>
-                                            <h5 className="text-left mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{entry.name}</h5>
+                                            <h2 className="text-left mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{entry.name}</h2>
                                         </div>
                                     </div>
                                     <p className="text-left text-lg mb-3 font-normal text-gray-700 dark:text-gray-400">{
