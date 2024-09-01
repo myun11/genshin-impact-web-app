@@ -12,7 +12,7 @@ const SkillTalents = (props) => {
                     const parts = entry.description.split(regex);
                     return(
                         <div className = "w-full p-2">
-                            <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <img className="p-5 object-cover w-full rounded-t-lg md:h-auto md:w-auto md:rounded-none md:rounded-s-lg" src={reorderedImages[idx]} alt=""/>
                                 <div className="flex flex-col justify-between p-5 leading-normal w-full">
                                     <h5 className="text-left mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{entry.unlock}: {entry.name}</h5>
