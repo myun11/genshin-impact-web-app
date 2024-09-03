@@ -3,14 +3,17 @@ import React from 'react'
 const Home = (props) => {
   return (
     <div className='p-4 align-middle justify-center dark:text-white bg-paimon bg-center w-screen bg-cover bg-slate-200 dark:bg-slate-800 bg-no-repeat min-h-screen'>
-        <br/><br/><br/><br/>
-        <h1>Welcome to Sumeru.gg</h1>
-               
-        <div className="md:w-3/5 p-4 mx-auto">
+      <br/><br/><br/><br/>
+      <div className="">
+        <div className="md:w-3/5 p-4 mx-auto bg-black bg-opacity-50 space-y-5">
+          <h1 className="text-8xl">Welcome to Sumeru.gg</h1>
           <p className="text-md lg:text-2xl">
-          This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact. 
-          Sumeru.gg provides data on character profiles, weapons, items and more. Everything you need in one place!
+            This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact. 
+            Sumeru.gg provides data on character profiles, weapons, items and more. Everything you need in one place!
           </p>
+        </div>
+        <div className="md:w-3/5 p-4 mx-auto">
+
 
           <div className="grid grid-cols-2 p-2 my-4 gap-5">
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Characters")}>
@@ -47,7 +50,7 @@ const Home = (props) => {
           </div>
         </div>
         <div className="justify-center">
-          <ul className="text-md lg:text-2xl lg:w-1/2 lg:mx-auto list-disc rounded-lg bg-slate-900">
+          <ul className="text-md lg:text-sm lg:w-1/2 lg:mx-auto list-disc rounded-lg ">
             <h2>Skills Used:</h2>
             <li>ReactJS</li>
             <li>TailwindCSS</li>
@@ -56,6 +59,7 @@ const Home = (props) => {
             <li>Regex</li>
           </ul>
         </div>
+      </div>
     </div>
   )
 }
