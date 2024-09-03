@@ -7,6 +7,7 @@ import Sidebar from './Sidebar'
 import Factions from './Factions'
 import SkillTalents from './SkillTalents'
 import Keywords from './Keywords'
+import AscensionMaterials from './AscensionMaterials'
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [icon, setIcon] = useState([])
@@ -313,7 +314,6 @@ const CharactersPreview = (props) => {
 
             {/* About Card */}
             <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>
-
                 <Factions
                     id = {props.charPreviewData.id}
                     affiliation = {props.charPreviewData.affiliation}
@@ -329,7 +329,7 @@ const CharactersPreview = (props) => {
                 />                
             </div>
 
-             {/*Constellation  */}
+             {/* Constellation */}
             <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
@@ -358,6 +358,13 @@ const CharactersPreview = (props) => {
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     images = {images}
                     skillTalents = {props.charPreviewData.skillTalents}
+                />
+            </div>
+
+            {/* Ascension Materials */}
+            <div id="Ascension Materials" className = "md:scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4">
+                <AscensionMaterials
+                    data = {props.charPreviewData.ascension_materials}
                 />
             </div>
         </div>
