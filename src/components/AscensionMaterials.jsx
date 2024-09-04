@@ -135,12 +135,10 @@ const AscensionMaterials = (props) => {
                                     return(
                                         <div className= "w-1/2 md:w-1/6 p-3">
                                             <div className="relative border border-solid border-white rounded-3xl">
-                                                <div className= "bottom-0 right-0 z-50 px-3 py-1 text-sm dark:text-white to-sky-300 from-black bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{entry["value"]}</div>
+                                                <div className= "bottom-0 right-0 z-50 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{entry["value"]}</div>
                                                 <img className = "" src = {itemImage(entry["name"])}/>
                                             </div>
                                             <p>{entry["name"]}</p>
-                                            {/* <p>Material: {entry["name"]}</p>
-                                            <p>Amount: {entry["value"]}</p> */}
                                         </div>
                                     )
                                 })}
@@ -148,14 +146,17 @@ const AscensionMaterials = (props) => {
                             <div >
                                 {levels.map((entry, idx) => {
                                     return(
-                                        <div className = "inline-flex">
+                                        <div className = "md:flex md:flex-wrap">
                                             {props.data[entry].map(lvl => {
                                                 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Ascension {idx + 1} Materials</h3>
                                                 if (selectedTab == idx) {
                                                     return(
-                                                        <div>
-                                                            <img src = {itemImage(lvl["name"])}/>
-                                                            <p> {lvl["value"] + " " + lvl["name"]}</p>
+                                                        <div className= "w-1/2 md:w-1/6 p-3">
+                                                            <div className="relative border border-solid border-white rounded-3xl">
+                                                                <div className= "bottom-0 right-0 z-50 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{lvl["value"]}</div>
+                                                                <img src = {itemImage(lvl["name"])}/>
+                                                            </div>
+                                                            <p> {lvl["name"]}</p>
                                                         </div>
                                                     )
                                                 }
