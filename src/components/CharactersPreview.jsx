@@ -25,7 +25,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-lime-900",
             "Skill-Talents" : "bg-lime-950",
             "Icon-High" : "to-lime-300",
-            "Icon-Low" : "from-lime-800"
+            "Icon-Low" : "from-lime-800",
+            "Ascension-Theme" : "to-lime-500"
         },
         "Pyro" : {
             "Keyword-Text" : "text-red-300",
@@ -34,7 +35,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-red-900",
             "Skill-Talents" : "bg-red-950",
             "Icon-High" : "to-red-300",
-            "Icon-Low" : "from-red-800"
+            "Icon-Low" : "from-red-800",
+            "Ascension-Theme" : "to-red-500"
         },
         "Hydro" : {
             "Keyword-Text" : "text-blue-300",
@@ -43,7 +45,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-blue-900",
             "Skill-Talents" : "bg-blue-950",
             "Icon-High" : "to-blue-300",
-            "Icon-Low" : "from-blue-800"
+            "Icon-Low" : "from-blue-800",
+            "Ascension-Theme" : "to-blue-500"
         },
         "Electro" : {
             "Keyword-Text" : "text-purple-300",
@@ -52,7 +55,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-purple-900",
             "Skill-Talents" : "bg-purple-950",
             "Icon-High" : "to-purple-300",
-            "Icon-Low" : "from-purple-800"
+            "Icon-Low" : "from-purple-800",
+            "Ascension-Theme" : "to-purple-500"
         },
         "Anemo" : {
             "Keyword-Text" : "text-teal-300",
@@ -61,7 +65,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-teal-900",
             "Skill-Talents" : "bg-teal-950",
             "Icon-High" : "to-teal-300",
-            "Icon-Low" : "from-teal-800"
+            "Icon-Low" : "from-teal-800",
+            "Ascension-Theme" : "to-teal-500"
         },
         "Geo" : {
             "Keyword-Text" : "text-amber-300",
@@ -70,7 +75,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-amber-900",
             "Skill-Talents" : "bg-amber-950",
             "Icon-High" : "to-amber-300",
-            "Icon-Low" : "from-amber-800"
+            "Icon-Low" : "from-amber-800",
+            "Ascension-Theme" : "to-amber-500"
         },
         "Cryo" : {
             "Keyword-Text" : "text-cyan-300",
@@ -79,7 +85,8 @@ const CharactersPreview = (props) => {
             "Passive-Talents" : "bg-cyan-900",
             "Skill-Talents" : "bg-cyan-950",
             "Icon-High" : "to-cyan-300",
-            "Icon-Low" : "from-cyan-800"
+            "Icon-Low" : "from-cyan-800",
+            "Ascension-Theme" : "to-cyan-500"
         }
     }
     // const colors2 = {
@@ -325,7 +332,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* About Card */}
-            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>
                 <Factions
                     id = {props.charPreviewData.id}
                     affiliation = {props.charPreviewData.affiliation}
@@ -342,7 +349,7 @@ const CharactersPreview = (props) => {
             </div>
 
              {/* Constellation */}
-            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
@@ -354,7 +361,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Passive Talents */}
-            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " md:scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -364,7 +371,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " md:scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
                 <SkillTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
@@ -374,9 +381,10 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Ascension Materials */}
-            <div id="Ascension Materials" className = "md:scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4">
+            <div id="Ascension Materials" className = "scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4">
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
+                    theme = {colors[props.charPreviewData.vision]["Ascension-Theme"]}
                 />
             </div>
         </div>

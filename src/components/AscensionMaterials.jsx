@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import mora from '../images/mora.webp'
+import { Transition } from '@headlessui/react';
+
 const AscensionMaterials = (props) => {
     const levels = ["level_20", "level_40", "level_50", "level_60", "level_70", "level_80"]
     const [selectedTab, setSelectedTab] = useState("Total")
@@ -11,6 +13,9 @@ const AscensionMaterials = (props) => {
     const [localSpecialties, setLocalSpecialties] = useState([])
     const [gemMaterials, setGemMaterials] = useState([])
     const [bossMaterials, setBossMaterials] = useState([])
+
+    // For drop down choosing ascension level on mobile
+    const [isOpen, setIsOpen] = useState(false)
 
     // Used for taking the total materials from all ascension levels
     const sumMaterials = (materials) => {
@@ -49,6 +54,9 @@ const AscensionMaterials = (props) => {
             console.log("Error: ", error)
         }
     }
+
+    // Used for capitalizing level thresholds
+    const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1)
 
     async function fetchLists() {
         try {
@@ -99,7 +107,7 @@ const AscensionMaterials = (props) => {
                                     "inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
                                 } aria-current="page"
                                 onClick = {() => setSelectedTab(idx)}>
-                                    Ascension {idx + 1}
+                                    Ascension {idx + 1} &#x28;{capitalize(levels[idx].replace('_', ' '))}&#x29;
                                 </button>
                             </li>
                         )
@@ -107,7 +115,26 @@ const AscensionMaterials = (props) => {
                 </ul>
                 
                 {/* Mobile Tabs */}
-                <div class="md:hidden text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                <div className="md:hidden p-4" >
+                    <form class="max-w-sm mx-auto">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                        <select class="bg-gray-50 border border-gray-300 text-black text-md rounded-lg focus:ring-blue-500 focus:border-blue-500
+                        block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                        dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={(e) => {
+                            setSelectedTab(e.target.value)
+                        }}>
+                            <option value="Total" selected>Total</option>
+                            <option value="0">Ascension 1 (Level 20)</option>
+                            <option value="1">Ascension 2 (Level 40)</option>
+                            <option value="2">Ascension 3 (Level 50)</option>
+                            <option value="3">Ascension 4 (Level 60)</option>
+                            <option value="4">Ascension 5 (Level 70)</option>
+                            <option value="5">Ascension 6 (Level 80)</option>
+                        </select>
+                    </form>
+                </div>
+                {/* <div class="md:hidden text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px">
                         <li class="me-2">
                             <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Total</button>
@@ -125,46 +152,47 @@ const AscensionMaterials = (props) => {
                             <button class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</button>
                         </li>
                     </ul>
-                </div>
+                </div> */}
 
                 {/* Body */}
-                <div class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
-                    {   selectedTab == "Total" ?  
-                            <div className = "md:flex md:flex-wrap">
-                                {totalMaterials.map(entry => {
-                                    return(
-                                        <div className= "w-1/2 md:w-1/6 p-3">
-                                            <div className="relative border border-solid border-white rounded-3xl">
-                                                <div className= "bottom-0 right-0 z-10 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{entry["value"]}</div>
-                                                <img className = "" src = {itemImage(entry["name"])}/>
-                                            </div>
-                                            <p>{entry["name"]}</p>
+                <div class="p-4 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                    {selectedTab == "Total" ?  
+                        <div className = "flex flex-wrap">
+                            {totalMaterials.map(entry => {
+                                return(
+                                    <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
+                                        <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
+                                            <div className= {props.theme + 
+                                            " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
+                                            <img className = "" src = {itemImage(entry["name"])}/>
                                         </div>
-                                    )
-                                })}
-                            </div> :
-                            <div >
-                                {levels.map((entry, idx) => {
-                                    return(
-                                        <div className = "md:flex md:flex-wrap">
-                                            {props.data[entry].map(lvl => {
-                                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Ascension {idx + 1} Materials</h3>
-                                                if (selectedTab == idx) {
-                                                    return(
-                                                        <div className= "w-1/2 md:w-1/6 p-3">
-                                                            <div className="relative border border-solid border-white rounded-3xl">
-                                                                <div className= "bottom-0 right-0 z-10 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{lvl["value"]}</div>
-                                                                <img src = {itemImage(lvl["name"])}/>
-                                                            </div>
-                                                            <p> {lvl["name"]}</p>
+                                        <p>{entry["name"]}</p>
+                                    </div>
+                                )
+                            })}
+                        </div> :
+                        <div>
+                            {levels.map((entry, idx) => {
+                                return(
+                                    <div className = "flex flex-wrap">
+                                        {props.data[entry].map(lvl => {
+                                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Ascension {idx + 1} Materials</h3>
+                                            if (selectedTab == idx) {
+                                                return(
+                                                    <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
+                                                        <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
+                                                            <div className= {props.theme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
+                                                            <img src = {itemImage(lvl["name"])}/>
                                                         </div>
-                                                    )
-                                                }
-                                            })}
-                                        </div>
-                                    )
-                                })}       
-                            </div>
+                                                        <p> {lvl["name"]}</p>
+                                                    </div>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                )
+                            })}       
+                        </div>
                     }
                 </div>
             </div>
