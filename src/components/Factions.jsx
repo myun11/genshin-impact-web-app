@@ -91,36 +91,36 @@ const Factions = (props) => {
         <table class="border-separate border border-slate-500 w-full border-spacing-2">
           <tbody>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Weapon: </h2></td>
-              <td class="border border-slate-700 ..."><img src={weaponIcon}/></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Weapon</h2></td>
+              <td class="border border-slate-700"><img src={weaponIcon}/></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Vision: </h2></td>
-              <td class="border border-slate-700 ..."><img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} /></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Vision</h2></td>
+              <td class="border border-slate-700"><img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} /></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Rarity: </h2></td>
-              <td class="border border-slate-700 ..."><div className="inline-flex">{convertRarity()}</div></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Rarity</h2></td>
+              <td class="border border-slate-700"><div className="inline-flex">{convertRarity()}</div></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Affiliation: </h2></td>
-              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Affiliation</h2></td>
+              <td class="border border-slate-700"><p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Birthday: </h2></td>
-              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Birthday</h2></td>
+              <td class="border border-slate-700"><p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Release Date: </h2></td>
-              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Release Date</h2></td>
+              <td class="border border-slate-700"><p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Gender: </h2></td>
-              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Gender</h2></td>
+              <td class="border border-slate-700"><p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-700 ..."><h2 className="text-2xl">Nation: </h2></td>
-              <td class="border border-slate-700 ..."><p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p></td>
+              <td class="border border-slate-700"><h2 className="md:text-2xl text-end">Nation</h2></td>
+              <td class="border border-slate-700"><p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p></td>
             </tr>
           </tbody>
         </table>
