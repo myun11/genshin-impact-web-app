@@ -135,7 +135,7 @@ const AscensionMaterials = (props) => {
                                     return(
                                         <div className= "w-1/2 md:w-1/6 p-3">
                                             <div className="relative border border-solid border-white rounded-3xl">
-                                                <div className= "bottom-0 right-0 z-50 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{entry["value"]}</div>
+                                                <div className= "bottom-0 right-0 z-10 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{entry["value"]}</div>
                                                 <img className = "" src = {itemImage(entry["name"])}/>
                                             </div>
                                             <p>{entry["name"]}</p>
@@ -153,7 +153,7 @@ const AscensionMaterials = (props) => {
                                                     return(
                                                         <div className= "w-1/2 md:w-1/6 p-3">
                                                             <div className="relative border border-solid border-white rounded-3xl">
-                                                                <div className= "bottom-0 right-0 z-50 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{lvl["value"]}</div>
+                                                                <div className= "bottom-0 right-0 z-10 px-3 py-1 text-lg dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute">{lvl["value"]}</div>
                                                                 <img src = {itemImage(lvl["name"])}/>
                                                             </div>
                                                             <p> {lvl["name"]}</p>
