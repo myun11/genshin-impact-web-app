@@ -37,8 +37,6 @@ const PassiveTalents = (props) => {
                                 </div>
                             </div>
                         </div>
-
-
                     )
                 })}
             </div>

@@ -250,14 +250,14 @@ const CharactersPreview = (props) => {
                     <h2 className="mb-2 text-sm font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
-                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
-                    <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
                 </div>
-                <button className= "w-full h-20 rounded-full bg-slate-800" onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
+                <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
                 <button className= "rounded-full bg-slate-800" onClick = {() => {
                     props.setCharPreviewData([])
                     props.setCharPreviewState(false)

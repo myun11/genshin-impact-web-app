@@ -13,8 +13,6 @@ const Home = (props) => {
           </p>
         </div>
         <div className="md:w-3/5 p-4 mx-auto">
-
-
           <div className="grid grid-cols-2 p-2 my-4 gap-5">
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Characters")}>
               <h2 className="md:text-2xl lg:text-4xl">Characters</h2>
