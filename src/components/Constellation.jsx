@@ -5,12 +5,12 @@ const Constellation = (props) => {
   return (
     <div className="md:p-4">
         <h1 className="font-bold p-4 text-4xl md:text-5xl">Constellation: {props.constellationName}</h1>
-        <div className="items-center justify-center lg:grid lg:grid-cols-2 lg:gap-4">
+        <div className="items-center justify-center lg:grid lg:grid-cols-2">
 
             {/* Image */}
-            <div className="justify-items-center relative">
-                <div className="grow z-50 left-[4.167%] top-[4.167%] p-4 absolute rounded-3xl w-11/12 min-h-[91.67%] border-white border"> </div>
-                <img className="justify-items-center border-solid border-4 border-white rounded-3xl" src={props.images["constellation"]}/>
+            <div className="relative items-center justify-center m-auto">
+                <div className="absolute z-20 left-[4.167%] top-[4.167%] rounded-3xl min-w-[91.67%] min-h-[91.67%] border-white border"> </div>
+                <img className="items-center justify-center border-solid border-4 border-white rounded-3xl w-full" src={props.images["constellation"]}/>
                 {/* <img src = {props.images["constellation-shape"]}/> */}
             </div>
 
