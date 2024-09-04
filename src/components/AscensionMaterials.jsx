@@ -15,14 +15,14 @@ const AscensionMaterials = (props) => {
     // Used for taking the total materials from all ascension levels
     const sumMaterials = (materials) => {
         const reduced = Object.values(materials).flat().sort((a,b) => a["name"] > b["name"]).reduce((acc, item) => {
-          if (acc[item.name]) {
-            acc[item.name] += item.value;
-          } else {
-            acc[item.name] = item.value;
-          }
-          return acc;
+            if (acc[item.name]) {
+                acc[item.name] += item.value;
+            } else {
+                acc[item.name] = item.value;
+            }
+            return acc;
         }, {});
-      
+        
         // Convert array into name and value pairs.
         return Object.entries(reduced).map(([name, value]) => ({ name, value }));
     };
@@ -112,8 +112,11 @@ const AscensionMaterials = (props) => {
                                 {totalMaterials.map(entry => {
                                     return(
                                         <div>
-                                            <img src = {itemImage(entry["name"])}/>
-                                            <p> {entry["value"] + " " + entry["name"]}</p>
+                                            <div className="relative border border-solid border-white rounded-3xl">
+                                                <div className= "bottom-0 right-0 z-50 p-4 text-sm dark:text-white to-sky-700 from-white bg-gradient-to-br rounded-br-3xl font-bold absolute">{entry["value"]}</div>
+                                                <img src = {itemImage(entry["name"])}/>
+                                            </div>
+                                            <p>{entry["name"]}</p>
                                             {/* <p>Material: {entry["name"]}</p>
                                             <p>Amount: {entry["value"]}</p> */}
                                         </div>

@@ -8,8 +8,9 @@ const Constellation = (props) => {
         <div className="items-center justify-center lg:grid lg:grid-cols-2 lg:gap-4">
 
             {/* Image */}
-            <div className="justify-items-center">
-                <img className="justify-items-center border-solid border border-spacing-2 border-white rounded-3xl" src={props.images["constellation"]}/>
+            <div className="justify-items-center relative">
+                <div className="grow z-50 left-[4.167%] top-[4.167%] p-4 absolute rounded-3xl w-11/12 min-h-[91.67%] border-white border"> </div>
+                <img className="justify-items-center border-solid border-4 border-white rounded-3xl" src={props.images["constellation"]}/>
                 {/* <img src = {props.images["constellation-shape"]}/> */}
             </div>
 
@@ -22,7 +23,9 @@ const Constellation = (props) => {
                     return(
                         <div className = "w-full p-2">
                             <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-3xl lg:rounded-full shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
+                                <div>
+                                    <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
+                                </div>
                                 <div className="flex flex-col items-start lg:p-5 py-5 leading-normal">
                                     <div className="flex items-center">
                                         <img className="lg:hidden pr-5 object-contain w-28 md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
