@@ -38,9 +38,7 @@ const SkillTalents = (props) => {
                                                     <tr>
                                                       <td className="px-6 py-4 whitespace-nowrap text-left font-medium dark:text-gray-400">{obj.name}</td>
                                                       <td className="px-6 py-4 whitespace-nowrap text-right dark:text-gray-400">{obj.value}</td>
-                                                      
                                                     </tr>
-
                                                   </tbody>
                                                 </table>
                                               </div>

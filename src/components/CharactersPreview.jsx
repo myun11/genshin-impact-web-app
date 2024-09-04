@@ -26,7 +26,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-lime-950",
             "Icon-High" : "to-lime-300",
             "Icon-Low" : "from-lime-800",
-            "Ascension-Theme" : "to-lime-500"
+            "Ascension-Quantity" : "to-lime-500",
+            "Ascension-Background" : "bg-lime-800",
+            "Ascension-Border" : "hover:border-lime-600"
         },
         "Pyro" : {
             "Keyword-Text" : "text-red-300",
@@ -36,7 +38,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-red-950",
             "Icon-High" : "to-red-300",
             "Icon-Low" : "from-red-800",
-            "Ascension-Theme" : "to-red-500"
+            "Ascension-Quantity" : "to-red-500",
+            "Ascension-Background" : "bg-red-600",
+            "Ascension-Border" : "hover:border-red-800"
         },
         "Hydro" : {
             "Keyword-Text" : "text-blue-300",
@@ -46,7 +50,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-blue-950",
             "Icon-High" : "to-blue-300",
             "Icon-Low" : "from-blue-800",
-            "Ascension-Theme" : "to-blue-500"
+            "Ascension-Quantity" : "to-blue-500",
+            "Ascension-Background" : "bg-blue-800",
+            "Ascension-Border" : "hover:border-blue-600"
         },
         "Electro" : {
             "Keyword-Text" : "text-purple-300",
@@ -56,7 +62,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-purple-950",
             "Icon-High" : "to-purple-300",
             "Icon-Low" : "from-purple-800",
-            "Ascension-Theme" : "to-purple-500"
+            "Ascension-Quantity" : "to-purple-500",
+            "Ascension-Background" : "bg-purple-800",
+            "Ascension-Border" : "hover:border-purple-600"
         },
         "Anemo" : {
             "Keyword-Text" : "text-teal-300",
@@ -66,7 +74,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-teal-950",
             "Icon-High" : "to-teal-300",
             "Icon-Low" : "from-teal-800",
-            "Ascension-Theme" : "to-teal-500"
+            "Ascension-Quantity" : "to-teal-500",
+            "Ascension-Background" : "bg-teal-800",
+            "Ascension-Border" : "hover:border-teal-600"
         },
         "Geo" : {
             "Keyword-Text" : "text-amber-300",
@@ -76,7 +86,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-amber-950",
             "Icon-High" : "to-amber-300",
             "Icon-Low" : "from-amber-800",
-            "Ascension-Theme" : "to-amber-500"
+            "Ascension-Quantity" : "to-amber-500",
+            "Ascension-Background" : "bg-amber-800",
+            "Ascension-Border" : "hover:border-amber-600"
         },
         "Cryo" : {
             "Keyword-Text" : "text-cyan-300",
@@ -86,7 +98,9 @@ const CharactersPreview = (props) => {
             "Skill-Talents" : "bg-cyan-950",
             "Icon-High" : "to-cyan-300",
             "Icon-Low" : "from-cyan-800",
-            "Ascension-Theme" : "to-cyan-500"
+            "Ascension-Quantity" : "to-cyan-500",
+            "Ascension-Background" : "bg-cyan-800",
+            "Ascension-Border" : "hover:border-cyan-600"
         }
     }
     // const colors2 = {
@@ -384,7 +398,9 @@ const CharactersPreview = (props) => {
             <div id="Ascension Materials" className = "scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4">
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
-                    theme = {colors[props.charPreviewData.vision]["Ascension-Theme"]}
+                    quantityTheme = {colors[props.charPreviewData.vision]["Ascension-Quantity"]}
+                    tabTheme = {colors[props.charPreviewData.vision]["Ascension-Background"]}
+                    borderTheme = {colors[props.charPreviewData.vision]["Ascension-Border"]}
                 />
             </div>
         </div>

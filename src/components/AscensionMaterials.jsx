@@ -34,6 +34,12 @@ const AscensionMaterials = (props) => {
 
     // Used for making the API endpoint for each item image.
     const itemImage = (item) => {
+        if (item == 'Artificed Spare Clockwork Component — Coppelia') {
+            return('https://genshin.jmp.blue/materials/boss-material/coppelia/')
+        }
+        if (item == 'Artificed Spare Clockwork Component — Coppelius') {
+            return('https://genshin.jmp.blue/materials/boss-material/coppelius/')
+        }
         if (item == 'Mora') {
             return mora
         }
@@ -87,13 +93,13 @@ const AscensionMaterials = (props) => {
             <h1 className = "font-bold p-4 text-4xl md:text-5xl">Ascension Materials</h1>
             <div class="md:flex">
                 {/* PC Tabs */}
-                <ul class="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+                <ul class="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">
                     <li>
                         <button class={selectedTab == "Total" ?
-                            "inline-flex items-center px-4 py-3 rounded-lg text-white bg-blue-700  active w-full dark:bg-blue-600"
+                            props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
                                 :
-                            "inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-                        } aria-current="page"
+                            "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
+                        }
                         onClick = {() => setSelectedTab("Total")}>
                             Total
                         </button>
@@ -102,10 +108,10 @@ const AscensionMaterials = (props) => {
                         return(
                             <li>
                                 <button class={selectedTab == idx ?
-                                    "inline-flex items-center px-4 py-3 rounded-lg text-white bg-blue-700  active w-full dark:bg-blue-600"
+                                    props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
                                         :
-                                    "inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-                                } aria-current="page"
+                                    "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
+                                }
                                 onClick = {() => setSelectedTab(idx)}>
                                     Ascension {idx + 1} &#x28;{capitalize(levels[idx].replace('_', ' '))}&#x29;
                                 </button>
@@ -162,7 +168,7 @@ const AscensionMaterials = (props) => {
                                 return(
                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
                                         <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
-                                            <div className= {props.theme + 
+                                            <div className= {props.quantityTheme + 
                                             " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
                                             <img className = "" src = {itemImage(entry["name"])}/>
                                         </div>
@@ -176,12 +182,11 @@ const AscensionMaterials = (props) => {
                                 return(
                                     <div className = "flex flex-wrap">
                                         {props.data[entry].map(lvl => {
-                                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Ascension {idx + 1} Materials</h3>
                                             if (selectedTab == idx) {
                                                 return(
                                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
                                                         <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
-                                                            <div className= {props.theme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white to-sky-500 from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
+                                                            <div className= {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
                                                             <img src = {itemImage(lvl["name"])}/>
                                                         </div>
                                                         <p> {lvl["name"]}</p>
