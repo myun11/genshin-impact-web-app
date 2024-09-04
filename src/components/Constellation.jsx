@@ -3,8 +3,8 @@ import React from 'react'
 const Constellation = (props) => {
 
   return (
-    <div className = "p-4">
-        <h1 className="font-bold p-4">Constellation: {props.constellationName}</h1>
+    <div className="md:p-4">
+        <h1 className="font-bold p-4 text-4xl md:text-5xl">Constellation: {props.constellationName}</h1>
         <div className="items-center justify-center lg:grid lg:grid-cols-2 lg:gap-4">
 
             {/* Image */}

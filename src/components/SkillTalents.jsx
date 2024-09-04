@@ -4,8 +4,8 @@ const SkillTalents = (props) => {
   const reorderedImages = [props.images["talent-na"], props.images["talent-skill"], props.images["talent-burst"]]
 
   return (
-    <div className="">
-      <h1 className = "font-bold p-4" >Skill Talents</h1>
+    <div className="md:p-4">
+      <h1 className = "font-bold p-4 text-4xl md:text-5xl" >Skill Talents</h1>
       <div className="">
                 {props.skillTalents.map((entry, idx) => {
                     const regex = new RegExp(`(${props.keywords.join('|')})`, 'gi');

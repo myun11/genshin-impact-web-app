@@ -4,8 +4,8 @@ const PassiveTalents = (props) => {
     const reorderedImages = [props.images["talent-passive-1"], props.images["talent-passive-2"], props.images["talent-passive-0"]]
 
     return (
-        <div className="p-4">
-            <h1 className = "font-bold p-4">Passive Talents</h1>
+        <div className="md:p-4">
+            <h1 className = "font-bold p-4 text-4xl md:text-5xl">Passive Talents</h1>
             {/* Passive Talent cards */}
             <div className="">
                 {props.passiveTalents.map((entry, idx) => {

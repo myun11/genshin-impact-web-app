@@ -40,8 +40,8 @@ const Factions = (props) => {
     return card
   }
   return (
-    <div>
-      <h1 className = "font-bold p-4">Factions</h1>
+    <div className="md:p-4">
+      <h1 className = "font-bold p-4 text-4xl md:text-5xl">Factions</h1>
       {/* PC */}
       <div className = "max-lg:hidden flex justify-center items-center">
         <img className="rounded-lg" src = {'https://genshin.jmp.blue/characters/' + props.id + '/icon-big'}/>
