@@ -401,6 +401,7 @@ const CharactersPreview = (props) => {
                     quantityTheme = {colors[props.charPreviewData.vision]["Ascension-Quantity"]}
                     tabTheme = {colors[props.charPreviewData.vision]["Ascension-Background"]}
                     borderTheme = {colors[props.charPreviewData.vision]["Ascension-Border"]}
+                    itemTheme = {colors[props.charPreviewData.vision]["Passive-Talents"]}
                 />
             </div>
         </div>
