@@ -23,11 +23,11 @@ const Constellation = (props) => {
                     return(
                         <div className = "w-full p-2">
                             <div className="p-5 flex w-full items-center bg-white border border-gray-200 rounded-3xl lg:rounded-full shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div>
-                                    <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
-                                </div>
+                                {/* PC upgrade icons */}
+                                <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
                                 <div className="flex flex-col items-start lg:p-5 py-5 leading-normal">
                                     <div className="flex items-center">
+                                        {/* Mobile upgrade icons */}
                                         <img className="lg:hidden pr-5 object-contain w-28 md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
                                         <div className="">
                                             <p className="text-left text-lg italic tracking-tight text-gray-900 dark:text-white">Level {entry.level}</p>
