@@ -112,14 +112,14 @@ const Navbar = (props) => {
                 {/* PC */}
                 <div className="max-lg:hidden space-x-10 flex align-middle m-auto mx-auto">
                     {/* Web App Icon */}
-                    <div onClick = {() => props.setPage('Home')} className="inline-flex align-middle text-white text-lg font-bold">
+                    <div onClick = {() => props.setPage('Home')} className="inline-flex align-middle">
                         <img className="w-14" src={Sumeru_Icon1}/> 
                         {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
                     </div>
-                    <a href='#' onClick = {() => props.setPage('Characters')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Characters</a>
-                    <a href='#' onClick = {() => props.setPage('Weapons')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Weapons</a>
-                    <a href='#' onClick = {() => props.setPage('Artifacts')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Artifacts</a>
-                    <a href='#' onClick = {() => props.setPage('Consumables')} className="hover:border-b-4 font-bold m-auto text-3xl text-gray-300 hover:text-white">Consumables</a>
+                    <a href='#' onClick = {() => props.setPage('Characters')}  className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Characters</a>
+                    <a href='#' onClick = {() => props.setPage('Weapons')}     className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Weapons</a>
+                    <a href='#' onClick = {() => props.setPage('Artifacts')}   className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Artifacts</a>
+                    <a href='#' onClick = {() => props.setPage('Consumables')} className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Consumables</a>
                     
                     <Theme/>
                 </div>
