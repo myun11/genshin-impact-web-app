@@ -2,10 +2,10 @@ import React from 'react'
 
 const Home = (props) => {
   return (
-    <div className='p-4 align-middle justify-center dark:text-white bg-paimon bg-center w-screen bg-cover bg-slate-200 dark:bg-slate-800 bg-no-repeat min-h-screen'>
+    <div className='p-4 align-middle justify-center text-black dark:text-white bg-paimon bg-center w-screen bg-cover bg-slate-200 dark:bg-slate-800 bg-no-repeat min-h-screen'>
       <br/><br/><br/><br/>
       <div className="">
-        <div className="md:w-3/5 p-4 mx-auto bg-black bg-opacity-50 space-y-5">
+        <div className="md:w-3/5 p-4 mx-auto bg-slate-300 dark:bg-slate-800 bg-opacity-50 space-y-5">
           <h1 className="text-8xl">Welcome to Sumeru.gg</h1>
           <p className="text-md lg:text-2xl">
             This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact. 

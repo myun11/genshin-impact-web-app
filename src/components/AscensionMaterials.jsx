@@ -90,7 +90,7 @@ const AscensionMaterials = (props) => {
     }, [])
     return (
         <div className="md:p-4">
-            <h1 className = "font-bold p-4 text-4xl md:text-5xl text-black dark:text-white">Ascension Materials</h1>
+            <h1 className = "uppercase font-bold p-4 text-4xl md:text-5xl text-black dark:text-white">Ascension Materials</h1>
             <div className="md:flex">
                 {/* PC Tabs */}
                 <ul className="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">

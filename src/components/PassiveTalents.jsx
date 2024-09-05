@@ -5,7 +5,7 @@ const PassiveTalents = (props) => {
 
     return (
         <div className="md:p-4">
-            <h1 className = "font-bold p-4 text-4xl md:text-5xl text-black dark:text-white">Passive Talents</h1>
+            <h1 className = "uppercase font-bold p-4 text-4xl md:text-5xl text-black dark:text-white">Passive Talents</h1>
             {/* Passive Talent cards */}
             <div className="">
                 {props.passiveTalents.map((entry, idx) => {

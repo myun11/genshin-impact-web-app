@@ -251,21 +251,21 @@ const CharactersPreview = (props) => {
                 <div className = "my-7 flex items-center justify-center">
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
-                <div className="p-2 items-start justify-start text-start">
-                    <h1 className="dark:text-white text-black text-5xl md:text-9xl">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-white italic text-black text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-sm font-bold text-black dark:text-white">{props.charPreviewData.description}</h2>
+                <div className="py-2 items-start justify-start text-start">
+                    <h1 className="dark:text-white text-black text-5xl md:text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-sm text-black dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
-                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
-                    <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
                 </div>
-                <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
-                <button className= "rounded-full bg-slate-800" onClick = {() => {
+                <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
+                <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white rounded-full"} onClick = {() => {
                     props.setCharPreviewData([])
                     props.setCharPreviewState(false)
                 }}> Go Back </button>
@@ -278,9 +278,9 @@ const CharactersPreview = (props) => {
                 </div>
                 <div className="items-start justify-start text-left mr-10">
                     {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
-                    <h1 className="dark:text-white text-black text-9xl">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-white italic text-black text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-3xl font-bold text-black dark:text-white">{props.charPreviewData.description}</h2>
+                    <h1 className="dark:text-white text-black text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-3xl text-black dark:text-white">{props.charPreviewData.description}</h2>
                     <div className="space-x-5">
                         <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
@@ -409,7 +409,7 @@ const CharactersPreview = (props) => {
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
                     quantityTheme = {colors[props.charPreviewData.vision]["Ascension-Quantity"]}
-                    tabTheme = {colors[props.charPreviewData.vision]["Card"]}
+                    tabTheme = {colors[props.charPreviewData.vision.toString()]["Card"]}
                     borderTheme = {colors[props.charPreviewData.vision]["Ascension-Border"]}
                     itemTheme = {colors[props.charPreviewData.vision]["Passive-Talents"]}
                     cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
