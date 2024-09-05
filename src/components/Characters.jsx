@@ -345,7 +345,7 @@ const Characters = (props) => {
                                         setCharPreviewState(true)
                                         setCharPreviewData(entry)
                                     }}/></button>
-                                    <h2 className = "capitalize text-black dark:text-white">{entry["name"]}</h2>
+                                    <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]}</h2>
                                 </div>
                             )
                         }
@@ -357,7 +357,7 @@ const Characters = (props) => {
                                         setCharPreviewState(true)
                                         setCharPreviewData(entry)
                                     }}/></button>
-                                    <h2 className = "capitalize text-black dark:text-white">{entry["name"]}</h2>
+                                    <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]} {entry["name"] == "Traveler" ? '(' + entry["vision"] + ')' : ""}</h2>
                                 </div>
                             )
                         }
