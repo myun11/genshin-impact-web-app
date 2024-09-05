@@ -16,13 +16,21 @@ const Dev = (props) => {
             loading = {loading}
           />
         </div>
-        <div>
+        {/* <div>
           <img src = "https://genshin.jmp.blue/artifacts/berserker/circlet-of-logos/"/>
           <img src = "https://genshin.jmp.blue/artifacts/berserker/flower-of-life/"/>
           <img src = "https://genshin.jmp.blue/artifacts/berserker/goblet-of-eonothem/"/>
           <img src = "https://genshin.jmp.blue/artifacts/berserker/plume-of-death/"/>
           <img src = "https://genshin.jmp.blue/artifacts/berserker/sands-of-eon/"/>
+        </div> */}
+        <div className="relative bg-slate-200 dark:bg-slate-800 p-4 align-middle justify-center text-black dark:text-white w-screen min-h-screen">
+          <div class="absolute inset-0 top-40 z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+            <div className = "rounded-lg h-56 bg-black w-1/2">
+eeeees
+            </div>
+          </div>
         </div>
+
         <div>
             {
               props.types.map(entry => {

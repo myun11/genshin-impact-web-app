@@ -115,6 +115,7 @@ const Navbar = (props) => {
                         <a href='#' onClick = {() => props.setPage('Weapons')}     className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Weapons</a>
                         <a href='#' onClick = {() => props.setPage('Artifacts')}   className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Artifacts</a>
                         <a href='#' onClick = {() => props.setPage('Consumables')} className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Consumables</a>
+                        {/* <a href='#' onClick = {() => props.setPage('Dev')} className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Dev</a> */}
                     </div>
                     <div className = "px-4">
                         <Theme/>

@@ -276,11 +276,12 @@ const CharactersPreview = (props) => {
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
-                <div className="items-start justify-start text-left mr-10">
-                    {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
-                    <h1 className="dark:text-white text-black text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-3xl text-black dark:text-white">{props.charPreviewData.description}</h2>
+                <div className="items-start justify-start text-left mr-10 space-y-16">
+                    <div>
+                        <h1 className="dark:text-white text-black text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
+                        <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
+                        <h2 className="mb-2 text-3xl text-black dark:text-white">{props.charPreviewData.description}</h2>
+                    </div>
                     <div className="space-x-5">
                         <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
