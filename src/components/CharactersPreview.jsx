@@ -19,7 +19,7 @@ const CharactersPreview = (props) => {
 
     const colors = {
         "Dendro" : {
-            "Keyword-Text" : "text-lime-300",
+            "Keyword-Text" : " text-lime-500 dark:text-lime-300 ",
             "About" : "bg-lime-600",
             "Constellation" : "bg-lime-700",
             "Passive-Talents" : "bg-lime-900",
@@ -32,7 +32,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-lime-300 hover:bg-lime-400 dark:bg-lime-900 dark:hover:bg-lime-800",
         },
         "Pyro" : {
-            "Keyword-Text" : "text-red-300",
+            "Keyword-Text" : " text-red-500 dark:text-red-300",
             "About" : "bg-red-500",
             "Constellation" : "bg-red-700",
             "Passive-Talents" : "bg-red-900",
@@ -45,7 +45,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-red-300 hover:bg-red-400 dark:bg-red-900 dark:hover:bg-red-800",
         },
         "Hydro" : {
-            "Keyword-Text" : "text-blue-300",
+            "Keyword-Text" : " text-blue-500 dark:text-blue-300",
             "About" : "bg-blue-500",
             "Constellation" : "bg-blue-700",
             "Passive-Talents" : "bg-blue-900",
@@ -58,7 +58,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-blue-300 hover:bg-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 ",
         },
         "Electro" : {
-            "Keyword-Text" : "text-violet-200",
+            "Keyword-Text" : " text-violet-500 dark:text-violet-200",
             "About" : "bg-violet-500",
             "Constellation" : "bg-violet-700",
             "Passive-Talents" : "bg-violet-900",
@@ -71,7 +71,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-violet-300 hover:bg-violet-400 dark:bg-violet-900 dark:hover:bg-violet-800",
         },
         "Anemo" : {
-            "Keyword-Text" : "text-teal-300",
+            "Keyword-Text" : " text-teal-500 dark:text-teal-300",
             "About" : "bg-teal-500",
             "Constellation" : "bg-teal-700",
             "Passive-Talents" : "bg-teal-900",
@@ -84,7 +84,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-teal-300 hover:bg-teal-400 dark:bg-teal-900 dark:hover:bg-teal-800"
         },
         "Geo" : {
-            "Keyword-Text" : "text-amber-300",
+            "Keyword-Text" : " text-amber-500 dark:text-amber-300",
             "About" : "bg-amber-500",
             "Constellation" : "bg-amber-700",
             "Passive-Talents" : "bg-amber-900",
@@ -97,7 +97,7 @@ const CharactersPreview = (props) => {
             "Card" : " bg-amber-300 hover:bg-amber-400 dark:bg-amber-900 dark:hover:bg-amber-800 "
         },
         "Cryo" : {
-            "Keyword-Text" : "text-sky-300",
+            "Keyword-Text" : "text-sky-500 dark:text-sky-300",
             "About" : "bg-sky-500",
             "Constellation" : "bg-sky-700",
             "Passive-Talents" : "bg-sky-900",

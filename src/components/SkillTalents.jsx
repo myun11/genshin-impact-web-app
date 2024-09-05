@@ -44,20 +44,20 @@ const SkillTalents = (props) => {
                     <div className="md:flex md:flex-col">
                       <div className="md:m-1.5 overflow-x-auto">
                         <div className="md:p-1.5 md:w-4/5 md:inline-block ">
-                          <div className="border rounded-lg shadow overflow-hidden">
-                            <table className="min-w-full divide-y table-auto divide-gray-200">
-                              <thead className="text-xs dark:text-white uppercase bg-gray-50 dark:bg-gray-600">
+                          <div className="border border-slate-500 dark:border-white rounded-lg shadow overflow-hidden">
+                            <table className="text-black dark:text-white min-w-full divide-y table-auto divide-black dark:divide-gray-200">
+                              <thead className="text-xs uppercase bg-gray-300 dark:bg-gray-600">
                                 <tr>
                                   <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-left font-medium">Attack Sequence</td>
                                   <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-right font-medium">Value</td>
                                 </tr>
                               </thead>
-                              <tbody className="divide-y divide-gray-200">
+                              <tbody className="divide-y divide-black dark:divide-gray-200">
                               {entry.upgrades && entry.upgrades.map(obj => {
                                 return(
                                 <tr>
-                                  <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium dark:text-gray-200">{obj.name}</td>
-                                  <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium dark:text-gray-200">{obj.value}</td>
+                                  <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium">{obj.name}</td>
+                                  <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium">{obj.value}</td>
                                 </tr>)
                               })}
                               </tbody>
