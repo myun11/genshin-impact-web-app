@@ -20,7 +20,7 @@ const Home = (props) => {
                 An assortment of characters with filter tools for querying specific needs.
                 Select your desired character to view detailed information including their skills, ascension materials, and more.
               </p>
-              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
+              <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
             </button>
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Weapons")}>
               <h2 className="md:text-2xl lg:text-4xl">Weapons</h2>
@@ -28,7 +28,7 @@ const Home = (props) => {
                 A grid of weapons with filter tools to find your ideal weapon.
                 Select your desired weapon to view detailed information including rarity and location of the weapon.
               </p>
-              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>              
+              <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>              
             </button>
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Artifacts")}>
               <h2 className="md:text-2xl lg:text-4xl">Artifacts</h2>
@@ -36,14 +36,14 @@ const Home = (props) => {
                 A table of different artifacts organized by their class set.
                 View set bonuses here.
               </p>
-              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
+              <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
             </button>
             <button className="group relative transition lg:h-52 h-20 rounded-lg bg-slate-500" onClick = {() => props.setPage("Consumables")}>
               <h2 className="md:text-2xl lg:text-4xl">Consumables</h2>
               <p className="p-4 max-md:hidden">
                 A collection of different consumables and their buffs.
               </p>
-              <div class="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
+              <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div> 
             </button>
           </div>
         </div>

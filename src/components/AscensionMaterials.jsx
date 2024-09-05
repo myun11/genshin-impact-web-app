@@ -91,11 +91,11 @@ const AscensionMaterials = (props) => {
     return (
         <div className="md:p-4">
             <h1 className = "font-bold p-4 text-4xl md:text-5xl">Ascension Materials</h1>
-            <div class="md:flex">
+            <div className="md:flex">
                 {/* PC Tabs */}
-                <ul class="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">
+                <ul className="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">
                     <li>
-                        <button class={selectedTab == "Total" ?
+                        <button className={selectedTab == "Total" ?
                             props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
                                 :
                             "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
@@ -107,7 +107,7 @@ const AscensionMaterials = (props) => {
                     {levels.map((entry, idx) => {
                         return(
                             <li>
-                                <button class={selectedTab == idx ?
+                                <button className={selectedTab == idx ?
                                     props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
                                         :
                                     "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
@@ -122,9 +122,9 @@ const AscensionMaterials = (props) => {
                 
                 {/* Mobile Tabs */}
                 <div className="md:hidden p-4" >
-                    <form class="max-w-sm mx-auto">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                        <select class="bg-gray-50 border border-gray-300 text-black text-md rounded-lg focus:ring-blue-500 focus:border-blue-500
+                    <form className="max-w-sm mx-auto">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                        <select className="bg-gray-50 border border-gray-300 text-black text-md rounded-lg focus:ring-blue-500 focus:border-blue-500
                         block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
                         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         onChange={(e) => {
@@ -140,28 +140,9 @@ const AscensionMaterials = (props) => {
                         </select>
                     </form>
                 </div>
-                {/* <div class="md:hidden text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-                    <ul class="flex flex-wrap -mb-px">
-                        <li class="me-2">
-                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Total</button>
-                        </li>
-                        <li class="me-2">
-                            <button class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Ascension 1</button>
-                        </li>
-                        <li class="me-2">
-                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Ascension 2</button>
-                        </li>
-                        <li class="me-2">
-                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Ascension 3</button>
-                        </li>
-                        <li>
-                            <button class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</button>
-                        </li>
-                    </ul>
-                </div> */}
 
                 {/* Body */}
-                <div class="p-4 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                <div className="p-4 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
                     {selectedTab == "Total" ?  
                         <div className = "flex flex-wrap">
                             {totalMaterials.map(entry => {

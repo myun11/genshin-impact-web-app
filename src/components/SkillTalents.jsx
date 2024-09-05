@@ -12,7 +12,7 @@ const SkillTalents = (props) => {
             const parts = entry.description.split(regex);
             return(
               <div className = "w-full py-2">
-                <div className="p-5 md:flex w-full items-start bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div className= {props.cardColor + "p-5 md:flex w-full items-start bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"}>
                   <div className="text-start md:w-1/2 md:p-5">
                     
                     {/* Skill Header and Icon */}

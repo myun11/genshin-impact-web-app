@@ -48,6 +48,17 @@ const Characters = (props) => {
         ['Catalyst', 'favonius-codex']
     ]
 
+    // Color palette for choosing different characters based on their vision.
+    const colors = {
+        "Dendro" : "bg-lime-300 dark:bg-lime-600 ",
+        "Pyro" : "bg-red-200 dark:bg-red-600 bg-opacity-50 ",
+        "Hydro" : "bg-blue-300 dark:bg-blue-600",
+        "Electro" : "bg-violet-300 dark:bg-violet-600",
+        "Anemo" : "bg-teal-300 dark:bg-teal-600",
+        "Geo" : "bg-amber-300 dark:bg-amber-600",
+        "Cryo" : "bg-sky-300 dark:bg-sky-600" 
+    }
+
     // The current selected elements, weapon types, and rarities that the user can filter through by pressing buttons.
     // This allows for multiple element filtering.
     const [selectedElements, setSelectedElements] = useState([])
@@ -139,7 +150,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center ">
+    <div className = {charPreviewData ? colors[charPreviewData.vision] + " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center" : " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center "}>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
             <div className='items-center justify-center'>

@@ -28,7 +28,8 @@ const CharactersPreview = (props) => {
             "Icon-Low" : "from-lime-800",
             "Ascension-Quantity" : "to-lime-500",
             "Ascension-Background" : "bg-lime-800",
-            "Ascension-Border" : "hover:border-lime-600"
+            "Ascension-Border" : "hover:border-lime-600",
+            "Card" : " bg-lime-400 hover:bg-lime-300 dark:bg-lime-900 dark:hover:bg-lime-800",
         },
         "Pyro" : {
             "Keyword-Text" : "text-red-300",
@@ -40,7 +41,8 @@ const CharactersPreview = (props) => {
             "Icon-Low" : "from-red-800",
             "Ascension-Quantity" : "to-red-500",
             "Ascension-Background" : "bg-red-600",
-            "Ascension-Border" : "hover:border-red-800"
+            "Ascension-Border" : "hover:border-red-800",
+            "Card" : " bg-red-400 hover:bg-red-300 dark:bg-red-900 dark:hover:bg-red-800",
         },
         "Hydro" : {
             "Keyword-Text" : "text-blue-300",
@@ -52,19 +54,21 @@ const CharactersPreview = (props) => {
             "Icon-Low" : "from-blue-800",
             "Ascension-Quantity" : "to-blue-500",
             "Ascension-Background" : "bg-blue-800",
-            "Ascension-Border" : "hover:border-blue-600"
+            "Ascension-Border" : "hover:border-blue-600",
+            "Card" : " bg-blue-400 bg-blue-300 dark:bg-blue-900 dark:hover:bg-blue-800",
         },
         "Electro" : {
-            "Keyword-Text" : "text-purple-300",
-            "About" : "bg-purple-500",
-            "Constellation" : "bg-purple-700",
-            "Passive-Talents" : "bg-purple-900",
-            "Skill-Talents" : "bg-purple-950",
-            "Icon-High" : "to-purple-300",
-            "Icon-Low" : "from-purple-800",
-            "Ascension-Quantity" : "to-purple-500",
-            "Ascension-Background" : "bg-purple-800",
-            "Ascension-Border" : "hover:border-purple-600"
+            "Keyword-Text" : "text-violet-200",
+            "About" : "bg-violet-500",
+            "Constellation" : "bg-violet-700",
+            "Passive-Talents" : "bg-violet-900",
+            "Skill-Talents" : "bg-violet-950",
+            "Icon-High" : "to-violet-300",
+            "Icon-Low" : "from-violet-800",
+            "Ascension-Quantity" : "to-violet-500",
+            "Ascension-Background" : "bg-violet-800",
+            "Ascension-Border" : "hover:border-violet-600",
+            "Card" : " bg-violet-400 hover:bg-violet-300 dark:bg-violet-900 dark:hover:bg-violet-800",
         },
         "Anemo" : {
             "Keyword-Text" : "text-teal-300",
@@ -76,7 +80,8 @@ const CharactersPreview = (props) => {
             "Icon-Low" : "from-teal-800",
             "Ascension-Quantity" : "to-teal-500",
             "Ascension-Background" : "bg-teal-800",
-            "Ascension-Border" : "hover:border-teal-600"
+            "Ascension-Border" : "hover:border-teal-600",
+            "Card" : " bg-teal-400 hover:bg-teal-300 dark:bg-teal-900 dark:hover:bg-teal-800"
         },
         "Geo" : {
             "Keyword-Text" : "text-amber-300",
@@ -88,19 +93,21 @@ const CharactersPreview = (props) => {
             "Icon-Low" : "from-amber-800",
             "Ascension-Quantity" : "to-amber-500",
             "Ascension-Background" : "bg-amber-800",
-            "Ascension-Border" : "hover:border-amber-600"
+            "Ascension-Border" : "hover:border-amber-600",
+            "Card" : " bg-amber-400 hover:bg-amber-300 dark:bg-amber-900 dark:hover:bg-amber-800 "
         },
         "Cryo" : {
-            "Keyword-Text" : "text-cyan-300",
-            "About" : "bg-cyan-500",
-            "Constellation" : "bg-cyan-700",
-            "Passive-Talents" : "bg-cyan-900",
-            "Skill-Talents" : "bg-cyan-950",
-            "Icon-High" : "to-cyan-300",
-            "Icon-Low" : "from-cyan-800",
-            "Ascension-Quantity" : "to-cyan-500",
-            "Ascension-Background" : "bg-cyan-800",
-            "Ascension-Border" : "hover:border-cyan-600"
+            "Keyword-Text" : "text-sky-300",
+            "About" : "bg-sky-500",
+            "Constellation" : "bg-sky-700",
+            "Passive-Talents" : "bg-sky-900",
+            "Skill-Talents" : "bg-sky-950",
+            "Icon-High" : "to-sky-300",
+            "Icon-Low" : "from-sky-800",
+            "Ascension-Quantity" : "to-sky-500",
+            "Ascension-Background" : "bg-sky-800",
+            "Ascension-Border" : "hover:border-sky-600",
+            "Card" : " bg-sky-400 hover:bg-sky-300 dark:bg-sky-900 dark:hover:bg-sky-800 "
         }
     }
     // const colors2 = {
@@ -240,7 +247,7 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             {/* Mobile */}
-            <div id="/" className="lg:hidden space-y-2 p-4 items-center border border-gray-200 rounded-lg bg-cover bg-center h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+            <div id="/" className="lg:hidden space-y-2 p-4 items-center rounded-lg h-screen">
                 <div className = "my-7 flex items-center justify-center">
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
@@ -265,7 +272,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* PC */}
-            <div id="/" className="max-lg:hidden lg:grid lg:grid-cols-2 lg:gap-4 items-center border border-gray-200 rounded-lg bg-cover bg-center lg:h-screen" style={{backgroundImage: `url('${images["namecard-background"]}')`}}>
+            <div id="/" className="max-lg:hidden lg:grid lg:grid-cols-2 lg:gap-4 items-center rounded-lg bg-cover bg-center lg:h-screen">
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
                     <img className = "object-contain max-h-screen" src={card}></img>
                 </div>
@@ -346,7 +353,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* About Card */}
-            <div id="Factions" className ={colors[props.charPreviewData.vision.toString()]["About"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>
+            <div id="Factions" className = " scroll-mt-20 block lg:p-6 rounded-3xl gap-4">
                 <Factions
                     id = {props.charPreviewData.id}
                     affiliation = {props.charPreviewData.affiliation}
@@ -359,49 +366,53 @@ const CharactersPreview = (props) => {
                     vision = {props.charPreviewData.vision}
                     visionIconHigh = {colors[props.charPreviewData.vision]["Icon-High"]}
                     visionIconLow = {colors[props.charPreviewData.vision]["Icon-Low"]}
+                    cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />                
             </div>
 
              {/* Constellation */}
-            <div id="Constellation" className = {colors[props.charPreviewData.vision.toString()]["Constellation"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}>   
+            <div id="Constellation" className = {" scroll-mt-20 block lg:p-6 rounded-3xl gap-4"}>   
                 <Constellation
                     images = {images}
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     constellationName = {props.charPreviewData.constellation}
                     constellationLevel = {props.charPreviewData.constellations}
-
+                    cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />
             </div>
 
             {/* Passive Talents */}
-            <div id="Passive Talents" className = {colors[props.charPreviewData.vision.toString()]["Passive-Talents"] + " scroll-mt-20 block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Passive Talents" className = " scroll-mt-20 block lg:p-6 rounded-3xl gap-4"> 
                 <PassiveTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     images = {images}
-                    passiveTalents = {props.charPreviewData.passiveTalents}   
+                    passiveTalents = {props.charPreviewData.passiveTalents}
+                    cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />
             </div>
 
             {/* Skill Talents */}
-            <div id="Skill Talents" className = {colors[props.charPreviewData.vision.toString()]["Skill-Talents"] + " scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4"}> 
+            <div id="Skill Talents" className = " scroll-mt-20 dark:text-white block lg:p-6 rounded-3xl gap-4">
                 <SkillTalents 
                     keywords = {keywords}
                     keywordsColor = {colors[props.charPreviewData.vision.toString()]["Keyword-Text"]}
                     images = {images}
                     skillTalents = {props.charPreviewData.skillTalents}
+                    cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />
             </div>
 
             {/* Ascension Materials */}
-            <div id="Ascension Materials" className = "scroll-mt-20 dark:text-white block lg:p-6 border border-gray-200 rounded-lg gap-4">
+            <div id="Ascension Materials" className = " scroll-mt-20 dark:text-white block lg:p-6 rounded-3xl gap-4">
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
                     quantityTheme = {colors[props.charPreviewData.vision]["Ascension-Quantity"]}
                     tabTheme = {colors[props.charPreviewData.vision]["Ascension-Background"]}
                     borderTheme = {colors[props.charPreviewData.vision]["Ascension-Border"]}
                     itemTheme = {colors[props.charPreviewData.vision]["Passive-Talents"]}
+                    cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />
             </div>
         </div>
