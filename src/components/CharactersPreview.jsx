@@ -20,105 +20,69 @@ const CharactersPreview = (props) => {
     const colors = {
         "Dendro" : {
             "Keyword-Text" : " text-lime-500 dark:text-lime-300 ",
-            "About" : "bg-lime-600",
-            "Constellation" : "bg-lime-700",
-            "Passive-Talents" : "bg-lime-900",
-            "Skill-Talents" : "bg-lime-950",
             "Icon-High" : "to-lime-300",
             "Icon-Low" : "from-lime-800",
             "Ascension-Quantity" : "to-lime-500",
             "Ascension-Background" : "bg-lime-300 hover:bg-lime-400 dark:bg-lime-800 dark:hover:bg-lime-700",
             "Ascension-Border" : "hover:border-lime-600",
-            "Card" : " bg-lime-300 hover:bg-lime-400 dark:bg-lime-900 dark:hover:bg-lime-800",
+            "Card" : "bg-lime-300 hover:bg-lime-400 dark:bg-lime-900 dark:hover:bg-lime-800 ",
         },
         "Pyro" : {
             "Keyword-Text" : " text-red-500 dark:text-red-300",
-            "About" : "bg-red-500",
-            "Constellation" : "bg-red-700",
-            "Passive-Talents" : "bg-red-900",
-            "Skill-Talents" : "bg-red-950",
             "Icon-High" : "to-red-300",
             "Icon-Low" : "from-red-800",
             "Ascension-Quantity" : "to-red-500",
             "Ascension-Background" : "bg-red-800",
             "Ascension-Border" : "hover:border-red-800",
-            "Card" : " bg-red-300 hover:bg-red-400 dark:bg-red-900 dark:hover:bg-red-800",
+            "Card" : "bg-red-300 hover:bg-red-400 dark:bg-red-900 dark:hover:bg-red-800 ",
         },
         "Hydro" : {
             "Keyword-Text" : " text-blue-500 dark:text-blue-300",
-            "About" : "bg-blue-500",
-            "Constellation" : "bg-blue-700",
-            "Passive-Talents" : "bg-blue-900",
-            "Skill-Talents" : "bg-blue-950",
             "Icon-High" : "to-blue-300",
             "Icon-Low" : "from-blue-800",
             "Ascension-Quantity" : "to-blue-500",
             "Ascension-Background" : "bg-blue-800",
             "Ascension-Border" : "hover:border-blue-600",
-            "Card" : " bg-blue-300 hover:bg-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 ",
+            "Card" : "bg-blue-300 hover:bg-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 ",
         },
         "Electro" : {
             "Keyword-Text" : " text-violet-500 dark:text-violet-200",
-            "About" : "bg-violet-500",
-            "Constellation" : "bg-violet-700",
-            "Passive-Talents" : "bg-violet-900",
-            "Skill-Talents" : "bg-violet-950",
             "Icon-High" : "to-violet-300",
             "Icon-Low" : "from-violet-800",
             "Ascension-Quantity" : "to-violet-500",
             "Ascension-Background" : "bg-violet-800",
             "Ascension-Border" : "hover:border-violet-600",
-            "Card" : " bg-violet-300 hover:bg-violet-400 dark:bg-violet-900 dark:hover:bg-violet-800",
+            "Card" : "bg-violet-300 hover:bg-violet-400 dark:bg-violet-900 dark:hover:bg-violet-800 ",
         },
         "Anemo" : {
             "Keyword-Text" : " text-teal-500 dark:text-teal-300",
-            "About" : "bg-teal-500",
-            "Constellation" : "bg-teal-700",
-            "Passive-Talents" : "bg-teal-900",
-            "Skill-Talents" : "bg-teal-950",
             "Icon-High" : "to-teal-300",
             "Icon-Low" : "from-teal-800",
             "Ascension-Quantity" : "to-teal-500",
             "Ascension-Background" : "bg-teal-800",
             "Ascension-Border" : "hover:border-teal-600",
-            "Card" : " bg-teal-300 hover:bg-teal-400 dark:bg-teal-900 dark:hover:bg-teal-800"
+            "Card" : "bg-teal-300 hover:bg-teal-400 dark:bg-teal-900 dark:hover:bg-teal-800 "
         },
         "Geo" : {
             "Keyword-Text" : " text-amber-500 dark:text-amber-300",
-            "About" : "bg-amber-500",
-            "Constellation" : "bg-amber-700",
-            "Passive-Talents" : "bg-amber-900",
-            "Skill-Talents" : "bg-amber-950",
             "Icon-High" : "to-amber-300",
             "Icon-Low" : "from-amber-800",
             "Ascension-Quantity" : "to-amber-500",
             "Ascension-Background" : "bg-amber-800",
             "Ascension-Border" : "hover:border-amber-600",
-            "Card" : " bg-amber-300 hover:bg-amber-400 dark:bg-amber-900 dark:hover:bg-amber-800 "
+            "Card" : "bg-amber-300 hover:bg-amber-400 dark:bg-amber-900 dark:hover:bg-amber-800 "
         },
         "Cryo" : {
             "Keyword-Text" : "text-sky-500 dark:text-sky-300",
-            "About" : "bg-sky-500",
-            "Constellation" : "bg-sky-700",
-            "Passive-Talents" : "bg-sky-900",
-            "Skill-Talents" : "bg-sky-950",
             "Icon-High" : "to-sky-300",
             "Icon-Low" : "from-sky-800",
             "Ascension-Quantity" : "to-sky-500",
             "Ascension-Background" : "bg-sky-800",
             "Ascension-Border" : "hover:border-sky-600",
-            "Card" : " bg-sky-300 hover:bg-sky-400 dark:bg-sky-900 dark:hover:bg-sky-800 "
+            "Card" : "bg-sky-300 hover:bg-sky-400 dark:bg-sky-900 dark:hover:bg-sky-800 "
         }
     }
-    // const colors2 = {
-    //     "Dendro" : "bg-lime-500",
-    //     "Pyro" : ,
-    //     "Hydro" : ,
-    //     "Electro" : ,
-    //     "Anemo" : ,
-    //     "Geo" : ,
-    //     "Cryo" : 
-    // }
+    
     // Helper function for converting birthday and release date data from api to a readable string.
     const convertDates = () => {
         let temp_birthday = moment(props.charPreviewData.birthday, "YYYY-MM-DD").format("MMMM D")
@@ -283,7 +247,7 @@ const CharactersPreview = (props) => {
                         <h2 className="mb-2 text-3xl text-black dark:text-white">{props.charPreviewData.description}</h2>
                     </div>
                     <div className="space-x-5">
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -293,7 +257,7 @@ const CharactersPreview = (props) => {
                                 Factions
                             </span>
                         </button>
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -303,7 +267,7 @@ const CharactersPreview = (props) => {
                                 Constellation
                             </span>
                         </button>
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -314,7 +278,7 @@ const CharactersPreview = (props) => {
                             </span>
                         </button>
                         <br/>
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -324,7 +288,7 @@ const CharactersPreview = (props) => {
                                 Skill Talents
                             </span>
                         </button>
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -334,7 +298,7 @@ const CharactersPreview = (props) => {
                                 Ascension Materials
                             </span>
                         </button>
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => {
+                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => {
                             document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})
                             props.setCharPreviewData([])
                             props.setCharPreviewState(false)
