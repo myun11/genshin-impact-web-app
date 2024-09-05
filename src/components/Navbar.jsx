@@ -15,7 +15,7 @@ const Navbar = (props) => {
         // <button onClick = {() => props.setPage('Consumables')} className="text-gray-300 hover:text-white">Consumables</button>
         // <button onClick = {() => props.setPage('Dev')} className="text-gray-300 hover:text-white">Dev</button>
         <div className="">
-            <nav className="bg-slate-700 p-4 text-left fixed w-screen z-50 top-100">
+            <nav className="bg-slate-400 dark:bg-slate-700 p-4 text-left fixed w-screen z-50 top-100">
                 {/* Mobile */}
                 <div className="lg:hidden m-auto mx-auto flex items-center justify-between ">
                     <button

@@ -190,7 +190,7 @@ const Characters = (props) => {
                         {elements.map(res => {
                             return(
                                 <div className="relative group inline-block">
-                                    <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                    <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                         {
                                             if (selectedElements.includes(res)) {
                                                 // setSelectedElements([...selectedElements.filter(entry => entry != res)])
@@ -206,7 +206,7 @@ const Characters = (props) => {
                                     }>
                                         <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + res.toLowerCase() + '/icon'} />
                                     </button>
-                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         {res}
                                     </div>            
                                 </div>
@@ -235,7 +235,7 @@ const Characters = (props) => {
                             }
                             return(
                                 <div className="relative group inline-block">
-                                    <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() => {
+                                    <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() => {
                                         if (selectedWeapons.includes(wep)) {
                                             setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
                                         } else {
@@ -244,7 +244,7 @@ const Characters = (props) => {
                                     }}>
                                         <img className="object-scale-down h-full w-full rounded-lg" src = {icon} />
                                     </button>
-                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         {wep}
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@ const Characters = (props) => {
                         {/* Filter by rarity */}
                         <div className="flex p-2 items-center justify-center">
                             <div className="relative group inline-block">
-                                <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                     {
                                         if (selectedRarity == 4) {
                                             setSelectedRarity(null)
@@ -265,12 +265,12 @@ const Characters = (props) => {
                                 }>
                                     <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
                                 </button>
-                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     4&nbsp;Star&nbsp;Rarity
                                 </div>
                             </div>
                             <div className="relative group inline-block">
-                                <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-500"} onClick = {() =>
+                                <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                     {
                                         if (selectedRarity == 5) {
                                             setSelectedRarity(null)
@@ -281,7 +281,7 @@ const Characters = (props) => {
                                 }>
                                     <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
                                 </button>
-                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-400 text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     5&nbsp;Star&nbsp;Rarity
                                 </div>
                             </div>
