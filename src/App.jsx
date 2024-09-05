@@ -83,7 +83,7 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className="">
+    <div className="bg-slate-100 dark:bg-slate-900">
       <div className="">
         {/* Navbar */}
 

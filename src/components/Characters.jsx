@@ -163,7 +163,7 @@ const Characters = (props) => {
             :
             <div className=''>
                 <div className="h-20"></div>
-                <h1 className = "p-4 dark:text-white">Characters</h1>
+                <h1 className = "p-4 text-black dark:text-white">Characters</h1>
                 
                 {/* <div> */}
                     {/* Debugging */}
@@ -182,7 +182,7 @@ const Characters = (props) => {
                 {/* Filter function that filters prop's array into filteredCharacters array. */}
                 {/* Also accounts for capitalization variances. */}
                 <div className = "md:m-4">
-                    <div className = "bg-slate-500 h-1 w-full"></div>
+                    <div className =  " bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
                     <div className="lg:inline-flex m-2 md:m-4 md:space-x-7">
 
                         {/* Filter by element */}
@@ -293,7 +293,7 @@ const Characters = (props) => {
                         }}/>
                         
                     </div>
-                    <div className = "bg-slate-500 h-1 w-full"></div>
+                    <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
                 </div>
 
                 {/* Map version  */}
@@ -339,25 +339,25 @@ const Characters = (props) => {
                     {filteredArray.map(entry => {
                         if (entry["rarity"] == 4) {
                             return(
-                                <div className = "border-4 w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
+                                <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-purple-500 to-white" >
                                         <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         setCharPreviewState(true)
                                         setCharPreviewData(entry)
                                     }}/></button>
-                                    <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
+                                    <h2 className = "capitalize text-black dark:text-white">{entry["name"]}</h2>
                                 </div>
                             )
                         }
                         if (entry["rarity"] == 5) {                   
                             return(
-                                <div className = "border-4 w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
+                                <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-orange-500 to-white" >
                                         <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         setCharPreviewState(true)
                                         setCharPreviewData(entry)
                                     }}/></button>
-                                    <h2 className = "capitalize dark:text-white">{entry["name"]}</h2>
+                                    <h2 className = "capitalize text-black dark:text-white">{entry["name"]}</h2>
                                 </div>
                             )
                         }
