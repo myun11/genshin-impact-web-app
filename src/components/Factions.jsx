@@ -62,23 +62,23 @@ const Factions = (props) => {
           </div>
           
           <div className="flex h-32">
-            <div className={props.cardColor + " block max-w-xs p-5 bg-white border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
+            <div className={props.cardColor + " block max-w-xs p-5  border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Affiliation</h2>
                 <p className="font-normal text-gray-700 dark:text-gray-300">{props.affiliation}</p>
             </div>
-            <div className={props.cardColor + " block max-w-xs p-5 bg-white border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
+            <div className={props.cardColor + " block max-w-xs p-5  border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Birthday</h2>
                 <p className="font-normal text-gray-700 dark:text-gray-300">{props.birthday}</p>
             </div>
-            <div className={props.cardColor + " block max-w-xs p-5 bg-white border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
+            <div className={props.cardColor + " block max-w-xs p-5  border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Release Date</h2>
                 <p className="font-normal text-gray-700 dark:text-gray-300">{props.releaseDate}</p>
             </div>
-            <div className={props.cardColor + " block max-w-xs p-5 bg-white border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
+            <div className={props.cardColor + " block max-w-xs p-5  border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Gender</h2>
                 <p className="font-normal text-gray-700 dark:text-gray-300">{props.gender}</p>
             </div>
-            <div className={props.cardColor + " block max-w-xs p-5 bg-white border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
+            <div className={props.cardColor + " block max-w-xs p-5  border border-gray-800 rounded-lg shadow dark:border-gray-200"}>
                 <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Nation</h2>
                 <p className="font-normal text-gray-700 dark:text-gray-300">{props.nation}</p>
             </div>
@@ -87,7 +87,7 @@ const Factions = (props) => {
       </div>
 
       {/* Mobile */}
-      <div className = {props.cardColor + " border border-gray-200 lg:hidden text-left py-2 justify-center items-center mx-auto bg-slate-200 dark:bg-slate-800 rounded-lg" }>
+      <div className = {props.cardColor + " border border-gray-200 lg:hidden text-left py-2 justify-center items-center mx-auto rounded-lg" }>
         <table class="border-separate border border-slate-900 dark:border-slate-500 w-full border-spacing-2 text-black dark:text-white">
           <tbody>
             <tr>

@@ -22,7 +22,7 @@ const Constellation = (props) => {
                     let num = (idx + 1).toString()
                     return(
                         <div className = "w-full p-2">
-                            <div className= {props.cardColor + " p-5 flex w-full items-center bg-white border border-gray-800 dark:border-gray-200 rounded-3xl lg:rounded-full shadow"}>
+                            <div className= {props.cardColor + " p-5 flex w-full items-center border border-gray-800 dark:border-gray-200 rounded-3xl lg:rounded-full shadow"}>
                                 {/* PC upgrade icons */}
                                 <img className="max-lg:hidden object-cover w-full md:h-auto md:w-auto" src={props.images["constellation-" + num]} alt=""/>
                                 <div className="flex flex-col items-start lg:p-5 py-5 leading-normal">
