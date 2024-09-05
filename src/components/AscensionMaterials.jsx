@@ -96,9 +96,9 @@ const AscensionMaterials = (props) => {
                 <ul className="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">
                     <li>
                         <button className={selectedTab == "Total" ?
-                            props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
+                            props.tabTheme + " border-2 border-gray-800 dark:border-gray-200 inline-flex px-4 py-3 rounded-lg text-black dark:text-white active w-full " + props.borderTheme
                                 :
-                            "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
+                            "border-2 border-gray-300 dark:border-gray-700 inline-flex px-4 py-3 rounded-lg text-gray-600 hover:text-black bg-gray-200 hover:bg-gray-300 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
                         }
                         onClick = {() => setSelectedTab("Total")}>
                             Total
@@ -108,9 +108,9 @@ const AscensionMaterials = (props) => {
                         return(
                             <li>
                                 <button className={selectedTab == idx ?
-                                    props.tabTheme + " inline-flex px-4 py-3 rounded-lg text-white active w-full " + props.borderTheme
+                                    props.tabTheme + " border-2 border-gray-800 dark:border-gray-200 inline-flex px-4 py-3 rounded-lg text-black dark:text-white active w-full " + props.borderTheme
                                         :
-                                    "inline-flex px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
+                                    "border-2 border-gray-300 dark:border-gray-700 inline-flex px-4 py-3 rounded-lg text-gray-600 hover:black bg-gray-200 hover:bg-gray-300 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white " + props.borderTheme
                                 }
                                 onClick = {() => setSelectedTab(idx)}>
                                     Ascension {idx + 1} &#x28;{capitalize(levels[idx].replace('_', ' '))}&#x29;
@@ -142,15 +142,15 @@ const AscensionMaterials = (props) => {
                 </div>
 
                 {/* Body */}
-                <div className= {props.cardColor + "p-4 text-medium text-gray-500 dark:text-gray-200 rounded-lg w-full"}>
+                <div className= {props.cardColor + "p-4 text-medium text-black dark:text-gray-200 rounded-lg w-full"}>
                     {selectedTab == "Total" ?  
                         <div className = "flex flex-wrap">
                             {totalMaterials.map(entry => {
                                 return(
                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
-                                        <div className= {props.cardColor + " relative border border-solid border-white rounded-3xl"}>
+                                        <div className= {props.cardColor + " relative border border-solid border-black dark:border-white rounded-3xl"}>
                                             <div className= {props.quantityTheme + 
-                                            " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
+                                            " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
                                             <img src = {itemImage(entry["name"])}/>
                                         </div>
                                         <p>{entry["name"]}</p>
@@ -167,7 +167,7 @@ const AscensionMaterials = (props) => {
                                                 return(
                                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
                                                         <div className= {props.cardColor + " relative border border-solid border-white rounded-3xl"}>
-                                                            <div className = {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
+                                                            <div className = {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
                                                             <img src = {itemImage(lvl["name"])}/>
                                                         </div>
                                                         <p> {lvl["name"]}</p>

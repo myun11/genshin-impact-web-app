@@ -27,7 +27,7 @@ const CharactersPreview = (props) => {
             "Icon-High" : "to-lime-300",
             "Icon-Low" : "from-lime-800",
             "Ascension-Quantity" : "to-lime-500",
-            "Ascension-Background" : "bg-lime-800",
+            "Ascension-Background" : "bg-lime-300 hover:bg-lime-400 dark:bg-lime-800 dark:hover:bg-lime-700",
             "Ascension-Border" : "hover:border-lime-600",
             "Card" : " bg-lime-300 hover:bg-lime-400 dark:bg-lime-900 dark:hover:bg-lime-800",
         },
@@ -40,7 +40,7 @@ const CharactersPreview = (props) => {
             "Icon-High" : "to-red-300",
             "Icon-Low" : "from-red-800",
             "Ascension-Quantity" : "to-red-500",
-            "Ascension-Background" : "bg-red-600",
+            "Ascension-Background" : "bg-red-800",
             "Ascension-Border" : "hover:border-red-800",
             "Card" : " bg-red-300 hover:bg-red-400 dark:bg-red-900 dark:hover:bg-red-800",
         },
@@ -409,7 +409,7 @@ const CharactersPreview = (props) => {
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
                     quantityTheme = {colors[props.charPreviewData.vision]["Ascension-Quantity"]}
-                    tabTheme = {colors[props.charPreviewData.vision]["Ascension-Background"]}
+                    tabTheme = {colors[props.charPreviewData.vision]["Card"]}
                     borderTheme = {colors[props.charPreviewData.vision]["Ascension-Border"]}
                     itemTheme = {colors[props.charPreviewData.vision]["Passive-Talents"]}
                     cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
