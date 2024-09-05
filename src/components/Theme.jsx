@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const Theme = () => {
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -15,14 +16,30 @@ const Theme = () => {
       setIsDarkMode(!isDarkMode);
     };
   
-    return (
-      <button
-        onClick={toggleTheme}
-        className="px-4 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-black rounded-md"
-      >
-        {isDarkMode ? "Toggle Light Mode" : " Toggle Dark Mode"}
-      </button>
-    );
+    if (isDarkMode) {
+      return (
+        <button
+          onClick={toggleTheme}
+          className="w-14 lg:w-full h-full px-4 py-2 border-2 border-white bg-gray-800 text-white rounded-3xl"
+        >
+          <div className="inline-flex mx-auto items-center justify-center text-center content-center m-auto space-x-1.5">
+          <MdOutlineDarkMode /> <p className="max-lg:hidden">Dark</p>
+          </div>
+          
+        </button>
+      )
+    } else {
+      return (
+        <button
+          onClick={toggleTheme}
+          className="w-14 lg:w-full h-full px-4 py-2 border-2 border-black bg-slate-300 text-black rounded-3xl"
+        >
+          <div className="inline-flex mx-auto items-center justify-center text-center content-center m-auto space-x-1.5">
+          <MdOutlineLightMode /> <p className="max-lg:hidden">Light</p>
+          </div>
+        </button>
+      )
+    }
 }
 
 export default Theme
