@@ -90,7 +90,7 @@ const AscensionMaterials = (props) => {
     }, [])
     return (
         <div className="md:p-4">
-            <h1 className = "font-bold p-4 text-4xl md:text-5xl">Ascension Materials</h1>
+            <h1 className = "font-bold p-4 text-4xl md:text-5xl text-black dark:text-white">Ascension Materials</h1>
             <div className="md:flex">
                 {/* PC Tabs */}
                 <ul className="max-md:hidden md:flex-column space-y space-y-4 text-xl md:w-1/4 font-medium dark:text-gray-400 md:me-4 mb-4">
@@ -142,13 +142,13 @@ const AscensionMaterials = (props) => {
                 </div>
 
                 {/* Body */}
-                <div className="p-4 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                <div className= {props.cardColor + "p-4 text-medium text-gray-500 dark:text-gray-200 rounded-lg w-full"}>
                     {selectedTab == "Total" ?  
                         <div className = "flex flex-wrap">
                             {totalMaterials.map(entry => {
                                 return(
                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
-                                        <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
+                                        <div className= {props.cardColor + " relative border border-solid border-white rounded-3xl"}>
                                             <div className= {props.quantityTheme + 
                                             " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
                                             <img src = {itemImage(entry["name"])}/>
@@ -166,7 +166,7 @@ const AscensionMaterials = (props) => {
                                             if (selectedTab == idx) {
                                                 return(
                                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
-                                                        <div className="relative border border-solid border-white rounded-3xl hover:bg-slate-700">
+                                                        <div className= {props.cardColor + " relative border border-solid border-white rounded-3xl"}>
                                                             <div className = {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
                                                             <img src = {itemImage(lvl["name"])}/>
                                                         </div>

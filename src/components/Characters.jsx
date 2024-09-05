@@ -50,13 +50,13 @@ const Characters = (props) => {
 
     // Color palette for choosing different characters based on their vision.
     const colors = {
-        "Dendro" : "bg-lime-300 dark:bg-lime-600 ",
-        "Pyro" : "bg-red-200 dark:bg-red-600 bg-opacity-50 ",
-        "Hydro" : "bg-blue-300 dark:bg-blue-600",
-        "Electro" : "bg-violet-300 dark:bg-violet-600",
-        "Anemo" : "bg-teal-300 dark:bg-teal-600",
-        "Geo" : "bg-amber-300 dark:bg-amber-600",
-        "Cryo" : "bg-sky-300 dark:bg-sky-600" 
+        "Dendro" : "bg-lime-100 dark:bg-lime-600 ",
+        "Pyro" : "bg-red-100 dark:bg-red-600 ",
+        "Hydro" : "bg-blue-100 dark:bg-blue-600",
+        "Electro" : "bg-violet-100 dark:bg-violet-600",
+        "Anemo" : "bg-teal-100 dark:bg-teal-600",
+        "Geo" : "bg-amber-100 dark:bg-amber-600",
+        "Cryo" : "bg-sky-100 dark:bg-sky-600" 
     }
 
     // The current selected elements, weapon types, and rarities that the user can filter through by pressing buttons.

@@ -29,7 +29,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-lime-500",
             "Ascension-Background" : "bg-lime-800",
             "Ascension-Border" : "hover:border-lime-600",
-            "Card" : " bg-lime-400 hover:bg-lime-300 dark:bg-lime-900 dark:hover:bg-lime-800",
+            "Card" : " bg-lime-300 hover:bg-lime-400 dark:bg-lime-900 dark:hover:bg-lime-800",
         },
         "Pyro" : {
             "Keyword-Text" : "text-red-300",
@@ -42,7 +42,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-red-500",
             "Ascension-Background" : "bg-red-600",
             "Ascension-Border" : "hover:border-red-800",
-            "Card" : " bg-red-400 hover:bg-red-300 dark:bg-red-900 dark:hover:bg-red-800",
+            "Card" : " bg-red-300 hover:bg-red-400 dark:bg-red-900 dark:hover:bg-red-800",
         },
         "Hydro" : {
             "Keyword-Text" : "text-blue-300",
@@ -55,7 +55,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-blue-500",
             "Ascension-Background" : "bg-blue-800",
             "Ascension-Border" : "hover:border-blue-600",
-            "Card" : " bg-blue-400 bg-blue-300 dark:bg-blue-900 dark:hover:bg-blue-800",
+            "Card" : " bg-blue-300 hover:bg-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 ",
         },
         "Electro" : {
             "Keyword-Text" : "text-violet-200",
@@ -68,7 +68,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-violet-500",
             "Ascension-Background" : "bg-violet-800",
             "Ascension-Border" : "hover:border-violet-600",
-            "Card" : " bg-violet-400 hover:bg-violet-300 dark:bg-violet-900 dark:hover:bg-violet-800",
+            "Card" : " bg-violet-300 hover:bg-violet-400 dark:bg-violet-900 dark:hover:bg-violet-800",
         },
         "Anemo" : {
             "Keyword-Text" : "text-teal-300",
@@ -81,7 +81,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-teal-500",
             "Ascension-Background" : "bg-teal-800",
             "Ascension-Border" : "hover:border-teal-600",
-            "Card" : " bg-teal-400 hover:bg-teal-300 dark:bg-teal-900 dark:hover:bg-teal-800"
+            "Card" : " bg-teal-300 hover:bg-teal-400 dark:bg-teal-900 dark:hover:bg-teal-800"
         },
         "Geo" : {
             "Keyword-Text" : "text-amber-300",
@@ -94,7 +94,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-amber-500",
             "Ascension-Background" : "bg-amber-800",
             "Ascension-Border" : "hover:border-amber-600",
-            "Card" : " bg-amber-400 hover:bg-amber-300 dark:bg-amber-900 dark:hover:bg-amber-800 "
+            "Card" : " bg-amber-300 hover:bg-amber-400 dark:bg-amber-900 dark:hover:bg-amber-800 "
         },
         "Cryo" : {
             "Keyword-Text" : "text-sky-300",
@@ -107,7 +107,7 @@ const CharactersPreview = (props) => {
             "Ascension-Quantity" : "to-sky-500",
             "Ascension-Background" : "bg-sky-800",
             "Ascension-Border" : "hover:border-sky-600",
-            "Card" : " bg-sky-400 hover:bg-sky-300 dark:bg-sky-900 dark:hover:bg-sky-800 "
+            "Card" : " bg-sky-300 hover:bg-sky-400 dark:bg-sky-900 dark:hover:bg-sky-800 "
         }
     }
     // const colors2 = {
@@ -252,9 +252,9 @@ const CharactersPreview = (props) => {
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
                 <div className="p-2 items-start justify-start text-start">
-                    <h1 className="dark:text-white text-gray-500 text-5xl md:text-9xl">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-sm font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
+                    <h1 className="dark:text-white text-black text-5xl md:text-9xl">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-white italic text-black text-2xl">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-sm font-bold text-black dark:text-white">{props.charPreviewData.description}</h2>
                 </div>
                 <div className="flex space-x-5 justify-between">
                     <button className= "w-full h-16 rounded-full bg-slate-800" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
@@ -278,9 +278,9 @@ const CharactersPreview = (props) => {
                 </div>
                 <div className="items-start justify-start text-left mr-10">
                     {/* <button onClick = {() => console.log(props.charPreviewData)}>char prev data</button> */}
-                    <h1 className="dark:text-white text-gray-500 text-9xl">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-white italic text-gray-500 text-2xl">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-3xl font-bold text-gray-500 dark:text-white">{props.charPreviewData.description}</h2>
+                    <h1 className="dark:text-white text-black text-9xl">{props.charPreviewData.name}</h1>
+                    <p className="dark:text-white italic text-black text-2xl">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-3xl font-bold text-black dark:text-white">{props.charPreviewData.description}</h2>
                     <div className="space-x-5">
                         <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 dark:text-white" onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
                             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
