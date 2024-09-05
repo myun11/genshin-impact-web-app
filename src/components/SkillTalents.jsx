@@ -5,14 +5,14 @@ const SkillTalents = (props) => {
 
   return (
     <div className="md:p-4">
-      <h1 className = "uppercase font-bold p-4 text-4xl md:text-5xl text-black dark:text-white" >Skill Talents</h1>
+      <h1 className = "uppercase font-bold p-4 text-4xl md:text-5xl text-black dark:text-white text-left lg:text-center" >Skill Talents</h1>
       <div className="">
         {props.skillTalents.map((entry, idx) => {
             const regex = new RegExp(`(${props.keywords.join('|')})`, 'gi');
             const parts = entry.description.split(regex);
             return(
               <div className = "w-full py-2">
-                <div className= {props.cardColor + " p-5 md:flex w-full items-start bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"}>
+                <div className= {props.cardColor + " p-5 md:flex w-full items-start bg-white border border-gray-800 dark:border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700"}>
                   <div className="text-start md:w-1/2 md:p-5">
                     
                     {/* Skill Header and Icon */}

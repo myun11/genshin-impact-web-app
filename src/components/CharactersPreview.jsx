@@ -253,8 +253,8 @@ const CharactersPreview = (props) => {
                 </div>
                 <div className="py-2 items-start justify-start text-start">
                     <h1 className="dark:text-white text-black text-5xl md:text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
-                    <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
-                    <h2 className="mb-2 text-sm text-black dark:text-white">{props.charPreviewData.description}</h2>
+                    <p className="dark:text-gray-300 italic text-gray-500 text-2xl md:text-4xl uppercase font-bold">{props.charPreviewData.title}</p>
+                    <h2 className="mb-2 text-sm text-black dark:text-white md:text-xl">{props.charPreviewData.description}</h2>
                 </div>
                 <div className="flex space-x-5 justify-between">
                     <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
