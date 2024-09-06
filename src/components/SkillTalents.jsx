@@ -48,16 +48,16 @@ const SkillTalents = (props) => {
                             <table className="text-black dark:text-white min-w-full divide-y table-auto divide-black dark:divide-gray-200">
                               <thead className="text-xs uppercase bg-gray-300 dark:bg-gray-600">
                                 <tr>
-                                  <td className="max-lg:text-sm px-6 py-4 whitespace-nowrap text-left font-medium">Attack Sequence</td>
-                                  <td className="max-lg:text-sm px-6 py-4 whitespace-nowrap text-right font-medium">Value</td>
+                                  <td className="text-sm md:text-lg px-6 py-4 whitespace-nowrap text-left font-medium">Attack Sequence</td>
+                                  <td className="text-sm md:text-lg px-6 py-4 whitespace-nowrap text-right font-medium">Value</td>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-black dark:divide-gray-200">
                               {entry.upgrades && entry.upgrades.map(obj => {
                                 return(
                                 <tr>
-                                  <td className="max-lg:text-sm px-3 py-4 whitespace-nowrap text-left font-medium">{obj.name}</td>
-                                  <td className="max-lg:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium">{obj.value}</td>
+                                  <td className="text-sm md:text-lg px-3 py-4 whitespace-nowrap text-left font-medium">{obj.name}</td>
+                                  <td className="text-sm md:text-lg px-3 mr-5 py-4 whitespace-nowrap text-right font-medium">{obj.value}</td>
                                 </tr>)
                               })}
                               </tbody>

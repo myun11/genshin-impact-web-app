@@ -217,18 +217,18 @@ const CharactersPreview = (props) => {
                 </div>
                 <div className="py-2 items-start justify-start text-start">
                     <h1 className="text-black dark:text-white  text-5xl md:text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
-                    <p className="text-gray-500 dark:text-gray-300 italic  text-2xl md:text-4xl uppercase font-bold">{props.charPreviewData.title}</p>
+                    <p className="text-gray-500 dark:text-gray-300 italic text-2xl md:text-4xl uppercase font-bold">{props.charPreviewData.title}</p>
                     <h2 className="text-black dark:text-white mb-2 text-sm  md:text-xl">{props.charPreviewData.description}</h2>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
-                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>Constellation</button>
                 </div>
                 <div className="flex space-x-5 justify-between">
-                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
-                    <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>Passive Talents</button>
+                    <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>Skill Talents</button>
                 </div>
-                <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
+                <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>Ascension Materials</button>                
                 <button className= {colors[props.charPreviewData.vision]["Card"] + " border-gray-800 dark:border-white text-black dark:text-white rounded-full"} onClick = {() => {
                     props.setCharPreviewData([])
                     props.setCharPreviewState(false)

@@ -58,6 +58,15 @@ const Characters = (props) => {
         "Geo" : "bg-amber-100 dark:bg-amber-600",
         "Cryo" : "bg-sky-100 dark:bg-sky-600" 
     }
+    // const colors = {
+    //     "Dendro" : "absolute dark:inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] ",
+    //     "Pyro" : "bg-red-100 dark:bg-red-600 ",
+    //     "Hydro" : "bg-blue-100 dark:bg-blue-600",
+    //     "Electro" : "bg-violet-100 dark:bg-violet-600",
+    //     "Anemo" : "bg-teal-100 dark:bg-teal-600",
+    //     "Geo" : "bg-amber-100 dark:bg-amber-600",
+    //     "Cryo" : "bg-sky-100 dark:bg-sky-600" 
+    // }
 
     // The current selected elements, weapon types, and rarities that the user can filter through by pressing buttons.
     // This allows for multiple element filtering.
@@ -150,10 +159,10 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = {charPreviewData ? colors[charPreviewData.vision] + " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center" : " p-2 md:p-4 items-center justify-center justify-items-center content-center text-center "}>
+    <div className = {charPreviewData ? colors[charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {charPreviewState ? 
-            <div className='items-center justify-center'>
+            <div className="">
                 <CharactersPreview
                     setCharPreviewState={setCharPreviewState}
                     setCharPreviewData={setCharPreviewData}
@@ -341,7 +350,7 @@ const Characters = (props) => {
                             return(
                                 <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-purple-500 to-white" >
-                                        <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                        <img className="box-content w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         setCharPreviewState(true)
                                         setCharPreviewData(entry)
                                     }}/></button>

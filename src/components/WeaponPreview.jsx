@@ -8,13 +8,13 @@ const WeaponPreview = (props) => {
         return(
             <div className = "w-full p-2">
                 <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <h2>Passive Name: {props.wep.data.passiveName}</h2>
+                <h2 className="text-black dark:text-white">Passive Name: {props.wep.data.passiveName}</h2>
                     <div className="flex flex-col justify-between p-5 leading-normal">
                         
                         <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-400">{
                             parts.map((part, index) =>
                                 keywords.some(keyword => new RegExp(keyword).test(part)) ? (
-                                    <span key={index} className={"text-white"}>
+                                    <span key={index} className={"text-gray-400 dark:text-white"}>
                                     {part}
                                     </span>
                                 ) : (
@@ -33,7 +33,7 @@ const WeaponPreview = (props) => {
             <div className="h-20"></div>
             {/* <button onClick = {() => console.log(props.wep)}>wep</button> */}
 
-            <h1>{props.wep.data.name}</h1>
+            <h1 className="text-black dark:text-white uppercase font-bold">{props.wep.data.name}</h1>
             <button onClick = {() => props.setWeaponPreviewState(false)}>Go Back</button>
             <div className="flex">
                 <img className = "rounded-lg" src = {props.wep.icon}/>
