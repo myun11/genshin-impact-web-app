@@ -19,11 +19,8 @@ const Characters = (props) => {
 
     const [filteredArray, setFilteredArray] = useState(props.masterCharacterDataArray)
 
-      // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
-    // const [charPreviewData, setCharPreviewData] = useState([])
-    // const [charPreviewState, setCharPreviewState] = useState(false)
-
     // For toggling between grid and table for filteredArray
+    // True for table and false for grid
     const [form, setForm] = useState(true)
     
     // Icons for each character button in the grid
@@ -304,7 +301,7 @@ const Characters = (props) => {
 
                         {/* Toggle between grid and table */}
                         <label className="inline-flex items-center cursor-pointer">
-                            <input type="checkbox" value="" className="sr-only peer" onClick = {() => console.log()}/>
+                            <input type="checkbox" value="" className="sr-only peer" onClick = {() => setForm(prev => !prev)}/>
                             <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                             <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
                         </label>                        
@@ -350,7 +347,8 @@ const Characters = (props) => {
                 </div>   */}
 
                 {/* Array version */}
-                {filteredArray.length > 0 ?
+                {/* Grid */}
+                {form ? <div>{filteredArray.length > 0 ?
                 <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
                     {filteredArray.map(entry => {
                         if (entry["rarity"] == 4) {
@@ -379,7 +377,14 @@ const Characters = (props) => {
                         }
                         
                     })}
-                </div> : <div className="text-black dark:text-white flex items-center justify-center md:text-3xl p-8">No characters available.</div>}
+                </div> : <div className="text-black dark:text-white flex items-center justify-center md:text-3xl p-8">No characters available.</div>}</div>:
+
+                // Table
+                <div>
+                    <button onClick = {() => console.log(filteredArray)}>fil</button>
+                </div> 
+                }
+                
             </div>
         }
     </div>
