@@ -370,6 +370,7 @@ const CharactersPreview = (props) => {
             </div>
 
             {/* Ascension Materials */}
+            { props.charPreviewData["ascension_materials"] &&
             <div id="Ascension Materials" className = " scroll-mt-20 dark:text-white block lg:p-6 rounded-3xl gap-4">
                 <AscensionMaterials
                     data = {props.charPreviewData.ascension_materials}
@@ -380,6 +381,7 @@ const CharactersPreview = (props) => {
                     cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
                 />
             </div>
+            }
         </div>
     )
 }
