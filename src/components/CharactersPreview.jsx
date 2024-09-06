@@ -8,6 +8,7 @@ import Factions from './Factions'
 import SkillTalents from './SkillTalents'
 import Keywords from './Keywords'
 import AscensionMaterials from './AscensionMaterials'
+
 const CharactersPreview = (props) => {
     const [card, setCard] = useState([])
     const [icon, setIcon] = useState([])
@@ -316,7 +317,7 @@ const CharactersPreview = (props) => {
                     </div>
                 </div>
             </div>
-
+                        
             {/* About Card */}
             <div id="Factions" className = " scroll-mt-20 block lg:p-6 rounded-3xl gap-4">
                 <Factions
@@ -332,7 +333,7 @@ const CharactersPreview = (props) => {
                     visionIconHigh = {colors[props.charPreviewData.vision]["Icon-High"]}
                     visionIconLow = {colors[props.charPreviewData.vision]["Icon-Low"]}
                     cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
-                />                
+                />
             </div>
 
              {/* Constellation */}

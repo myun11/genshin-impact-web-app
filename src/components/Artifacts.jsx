@@ -92,7 +92,7 @@ const Artifacts = () => {
             <h1>Artifacts</h1>
             <div className = "p-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
-                filter stuff maybe here?
+                {/* filter stuff maybe here? */}
                 <div className = "bg-slate-500 h-1 w-full"></div>
             </div>
             { loading ? 

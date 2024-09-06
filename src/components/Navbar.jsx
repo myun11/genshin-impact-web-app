@@ -19,7 +19,7 @@ const Navbar = (props) => {
                 <div className="lg:hidden m-auto mx-auto flex items-center justify-between">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-left bg-slate-300 dark:bg-gray-800 text-black dark:text-gray-300 focus:outline-none"
+                        className="text-left bg-slate-300 dark:bg-gray-800 text-black dark:text-gray-300 focus:outline-none border border-black dark:border-white"
                     >
                         <svg
                         className="w-6 h-6"
