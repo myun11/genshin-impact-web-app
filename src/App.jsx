@@ -83,7 +83,7 @@ function App() {
     // .then(() => getCharacterDataAll())
   }, [])
   return (
-    <div className="bg-slate-100 dark:bg-slate-900">
+    <div className="">
       <div className="">
         {/* Navbar */}
 
@@ -95,7 +95,7 @@ function App() {
           loading = {loading}
         />
       </div> :
-      <div className='min-h-screen flex-grow'>
+      <div className='min-h-screen flex-grow bg-slate-100 dark:bg-slate-900'>
         <Navbar
           setPage = {setPage}
         />
