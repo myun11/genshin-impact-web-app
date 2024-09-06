@@ -14,7 +14,11 @@ const Home = (props) => {
           </div>
           <div className="md:w-4/5 p-4 mx-auto">
             <div className="grid grid-cols-2 p-2 my-4 gap-5">
-              <button className="group relative transition box-content h-20 md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => props.setPage("Characters")}>
+              <button className="group relative transition box-content h-20 md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
+                props.setPage("Characters")
+                props.setCharPreviewState(false)
+                props.setCharPreviewData([])
+              }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Characters</h2>
                 <p className="p-4 md:text-sm lg:text-xl max-md:hidden">
                   An assortment of characters with filter tools for querying specific needs.

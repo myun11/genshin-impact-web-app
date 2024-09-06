@@ -118,6 +118,8 @@ function App() {
           {page == 'Home' && 
             <Home
               setPage = {setPage}
+              setCharPreviewData = {setCharPreviewData}
+              setCharPreviewState = {setCharPreviewState}
             />
           }
 
