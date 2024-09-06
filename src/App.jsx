@@ -20,11 +20,9 @@ function App() {
   const [masterCharacterDataMap, setMasterCharacterDataMap] = useState([])
   const [masterCharacterDataArray, setMasterCharacterDataArray] = useState([])
 
-  // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
-  const [charPreviewData, setCharPreviewData] = useState([])
-
   // This is the current character's data that is being previewed.
   const [charPreviewState, setCharPreviewState] = useState(false)
+  const [charPreviewData, setCharPreviewData] = useState(false)
 
   const types = [
     'artifacts',
@@ -43,28 +41,36 @@ function App() {
     try{
       setLoading(true)
       await axios.get('https://genshin.jmp.blue/' + header)
-      .then(res => {
+      .then(async res => {
         setCharacters(res.data)
-        const api_data_map = new Map()
-        const api_data_array = []
-        res.data.map(async char => {
-          try {
-            await axios.get('https://genshin.jmp.blue/characters/' + char)
-            .then(res => {
-              api_data_map[char] = res.data
-              api_data_array.push(res.data)
-            })
-          } catch (error) {
-            console.log("Error getting API: ", error)
-          }
-        })
-        setMasterCharacterDataMap(api_data_map)
-        setMasterCharacterDataArray(api_data_array)
+        // const api_data_array = []
+        // res.data.map(async char => {
+        //   try {
+        //     await axios.get('https://genshin.jmp.blue/characters/' + char)
+        //     .then(res => {
+        //       api_data_array.push(res.data)
+        //     })
+        //   } catch (error) {
+        //     console.log("Error getting API: ", error)
+        //   }
+        // })
+        // setMasterCharacterDataArray(api_data_array)
+
+        // This method loads the entire array before rendering the grid
+        try {
+          const endpoints = [...res.data.map(char => axios.get('https://genshin.jmp.blue/characters/' + char))]
+          const responses = await Promise.all([...endpoints])
+          const data = []
+          responses.map(entry => data.push(entry.data))
+          setMasterCharacterDataArray(data)
+        } catch (error) {
+          console.log(error)
+        }
+
       }).finally(() => {
+        setInterval(2500)
         setLoading(false)
-      }
-        
-      )
+      })
     } catch (error) {
       // setLoading(false)
       console.log(error)
@@ -104,8 +110,8 @@ function App() {
       <div className='min-h-screen flex-grow bg-slate-100 dark:bg-slate-900'>
         <Navbar
           setPage = {setPage}
-          setCharPreviewData = {setCharPreviewData}
           setCharPreviewState = {setCharPreviewState}
+          setCharPreviewData = {setCharPreviewData}
         />
         <div className = "">
           {/* Home */}
@@ -123,10 +129,10 @@ function App() {
               masterCharacterDataArray = {masterCharacterDataArray}
               loading = {loading}
               setPage = {setPage}
-              setCharPreviewData = {setCharPreviewData}
-              charPreviewData = {charPreviewData}
               setCharPreviewState = {setCharPreviewState}
               charPreviewState = {charPreviewState}
+              setCharPreviewData = {setCharPreviewData}
+              charPreviewData = {charPreviewData}
             />
           }
 

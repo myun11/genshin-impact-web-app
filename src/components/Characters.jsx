@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react'
 import axios from 'axios'
 import CharactersPreview from './CharactersPreview'
 
@@ -19,12 +19,15 @@ const Characters = (props) => {
 
     const [filteredArray, setFilteredArray] = useState(props.masterCharacterDataArray)
 
+      // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
+    // const [charPreviewData, setCharPreviewData] = useState([])
+    // const [charPreviewState, setCharPreviewState] = useState(false)
+
     // For toggling between grid and table for filteredArray
     const [form, setForm] = useState(true)
     
     // Icons for each character button in the grid
     const [icons, setIcons] = useState([])
-    
 
     // An array of elements to iterate through for convenience
     const elements = [
@@ -150,14 +153,14 @@ const Characters = (props) => {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
         })
-        setFilteredArray(currentArray)
+        setFilteredArray([...currentArray])
 
     }, [selectedElements, selectedWeapons, selectedRarity, selectedName])
 
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = {props.charPreviewData ? colors[props.charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
+    <div className = {props.charPreviewState ? colors[props.charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {props.charPreviewState ? 
             <div className="">
@@ -171,7 +174,6 @@ const Characters = (props) => {
             <div className='min-h-screen'>
                 <div className="h-20"></div>
                 <h1 className = "p-4 text-black dark:text-white">Characters</h1>
-                
                 {/* <div> */}
                     {/* Debugging */}
                     {/* <button onClick = {() => console.log(props.masterCharacterData)}>props masterCharacterData</button>

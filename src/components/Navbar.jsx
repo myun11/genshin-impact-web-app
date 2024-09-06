@@ -71,6 +71,7 @@ const Navbar = (props) => {
                             setIsOpen(false)
                             props.setPage('Characters')
                             props.setCharPreviewData([])
+                            props.setCharPreviewState(false)
                         }}
                     >
                         Characters
@@ -114,8 +115,8 @@ const Navbar = (props) => {
                         </div>
                         <a href='#' onClick = {() => {
                             props.setPage('Characters')
-                            props.setCharPreviewData([])
                             props.setCharPreviewState(false)
+                            props.setCharPreviewData([])
                         }}  className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Characters</a>
                         <a href='#' onClick = {() => props.setPage('Weapons')}     className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Weapons</a>
                         <a href='#' onClick = {() => props.setPage('Artifacts')}   className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Artifacts</a>
