@@ -55,7 +55,7 @@ const Navbar = (props) => {
                     <Theme/>
                 </div>
                 {isOpen && (
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                     <a
                         className="block text-black dark:text-gray-300 py-2"
                         onClick={() => {

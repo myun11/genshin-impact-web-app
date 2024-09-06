@@ -20,7 +20,7 @@ const PassiveTalents = (props) => {
                                         <img className="lg:hidden pr-5 object-contain w-28 md:h-auto md:w-auto" src={reorderedImages[idx]} alt=""/>
                                         <div className="">
                                             <p className="text-left text-lg italic tracking-tight text-gray-900 dark:text-white">{entry.unlock}</p>
-                                            <h2 className="text-left mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{entry.name}</h2>
+                                            <h2 className="text-left mb-3 text-3xl font-bold max-md:tracking-tight text-gray-900 dark:text-white">{entry.name}</h2>
                                         </div>
                                     </div>
                                     <p className="text-left md:text-lg mb-3 font-normal text-gray-700 dark:text-gray-200">{

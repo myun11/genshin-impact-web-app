@@ -211,8 +211,8 @@ const CharactersPreview = (props) => {
             </div> */}
             {/* Character Card */}
             {/* Mobile */}
-            <div id="/" className="lg:hidden space-y-2 p-4 items-center rounded-lg h-screen">
-                <div className = "my-7 flex items-center justify-center">
+            <div id="/" className="lg:hidden space-y-2 py-4 items-center rounded-lg h-screen">
+                <div className = "my-2 flex items-center justify-center">
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
                 <div className="py-2 items-start justify-start text-start">
