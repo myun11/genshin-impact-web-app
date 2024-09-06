@@ -215,7 +215,7 @@ const Characters = (props) => {
                 {/* Also accounts for capitalization variances. */}
                 <div className = "md:m-4">
                     <div className =  " bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
-                    <div className="lg:inline-flex m-2 md:m-4 md:space-x-7">
+                    <div className="lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
 
                         {/* Filter by element */}
                         <div className="flex p-2 items-center justify-center">
@@ -392,9 +392,8 @@ const Characters = (props) => {
                 // Table
                 
                 <div className="lg:w-4/5 lg:mx-auto flex flex-col">
-                    {/* <button onClick = {() => console.log(filteredArray)}>fil</button> */}
-                    <div className="-m-1.5 overflow-x-auto">
-                        <div className="p-1.5 min-w-full inline-block align-middle">
+                    <div className=" overflow-x-auto">
+                        <div className="">
                             <div className="bg-white dark:bg-slate-700 border border-black dark:border-neutral-700 divide-y divide-gray-200 dark:divide-neutral-700">
                                 <div className="overflow-hidden">
                                     <table className="w-full table-fixed min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
@@ -416,36 +415,40 @@ const Characters = (props) => {
                                                 if (idx >= page * entriesPerPage && idx < (page + 1) * entriesPerPage) {
                                                     return(
                                                         <tr className="md:text-lg lg:text-xl hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors duration-400 ease-in-out">
-                                                            <td className="w-1/2 px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">
-                                                                <button className = "bg-transparent flex items-center justify-start hover:border-transparent" onClick = {() => {
+                                                            <td className="w-1/2 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">
+                                                                <button className = "bg-transparent hover:border-transparent" onClick = {() => {
                                                                     props.setCharPreviewState(true)
                                                                     props.setCharPreviewData(entry)
-                                                                }}><img className="box-content w-1/2 md:w-full lg:w-1/2 h-fit rounded-lg " src = {icons[entry["id"].toLowerCase()]}/></button>
+                                                                }}>
+                                                                    {/* <div className=""> */}
+                                                                        <img className="box-content w-1/2 md:w-full lg:w-1/2 h-fit rounded-lg " src = {icons[entry["id"].toLowerCase()]}/>
+                                                                        {/* {entry["name"]} */}
+                                                                    {/* </div> */}
+                                                                </button>
                                                             </td>
-                                                            <td className="w-1/2 px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
-                                                            <td className="max-md:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                            <td className="px-6 w-1/2 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
+                                                            <td className="max-md:hidden text-wrap whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
                                                                 <div className="">
                                                                     {/* {entry["vision"]} */}
-                                                                    <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + entry["vision"].toLowerCase() + '/icon'} />
+                                                                    <img className="object-scale-down rounded-lg" src = {'https://genshin.jmp.blue/elements/' + entry["vision"].toLowerCase() + '/icon'} />
                                                                 </div>
                                                                 
                                                             </td>
-                                                            <td className="max-md:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
-                                                                <div className="">
-                                                                    {/* {entry["weapon"]} */}
-                                                                    <img className="object-scale-down w-full h-full rounded-lg" src = {getIcon(entry["weapon"])} />   
-                                                                </div>
+                                                            <td className="max-md:hidden text-wrap whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                {/* {entry["weapon"]} */}
+                                                                <img className="object-scale-down rounded-lg" src = {getIcon(entry["weapon"])} />   
+                                                                
                                                             </td>
-                                                            <td className="max-md:hidden px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                            <td className="px-6 max-md:hidden whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
                                                                 {entry["rarity"] == 4 ? 
                                                                     <img className="object-scale-down w-16 h-16 rounded-lg" src = {Purple_Star} /> :
                                                                     <img className="object-scale-down w-16 h-16 rounded-lg" src = {Orange_Star} />
                                                                 }
                                                             </td>
-                                                            <td className="max-lg:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                            <td className="px-6 max-lg:hidden text-wrap whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
                                                                 {entry["nation"]}
                                                             </td>
-                                                            <td className="max-lg:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                            <td className="px-6 max-lg:hidden text-wrap whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
                                                                 {moment(entry["release"], "YYYY-MM-DD").format("MMMM D YYYY")}
                                                                 {/* moment(props.charPreviewData.release, "YYYY-MM-DD").format("MMMM D YYYY") */}
                                                             </td>
@@ -461,7 +464,7 @@ const Characters = (props) => {
                                         </tbody>
                                     </table>
                                 </div>
-                                <div className="py-1 px-4">
+                                <div className="py-1 px-4 bg-gray-100 dark:bg-neutral-700">
                                     <nav className="flex items-center space-x-1" aria-label="Pagination">
                                         <button onClick = {() => {
                                             if (page != 0) {
