@@ -26,7 +26,7 @@ const SkillTalents = (props) => {
                   
                     {/* Skill Description */}
                     <div>
-                      <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-200">{
+                      <p className="text-left md:text-lg mb-3 font-normal text-gray-700 dark:text-gray-200">{
                         parts.map((part, index) =>
                           props.keywords.some(keyword => new RegExp(keyword).test(part)) ? (
                             <span key={index} className={props.keywordsColor}>
@@ -44,7 +44,7 @@ const SkillTalents = (props) => {
                     <div className="md:flex md:flex-col">
                       <div className="md:m-1.5 overflow-x-auto">
                         <div className="md:p-1.5 md:w-4/5 md:inline-block ">
-                          <div className="border border-slate-500 dark:border-white rounded-lg shadow overflow-hidden">
+                          <div className="border border-slate-500 dark:border-white rounded-lg shadow overflow-scroll">
                             <table className="text-black dark:text-white min-w-full divide-y table-auto divide-black dark:divide-gray-200">
                               <thead className="text-xs uppercase bg-gray-300 dark:bg-gray-600">
                                 <tr>

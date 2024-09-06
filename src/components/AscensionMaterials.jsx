@@ -153,7 +153,7 @@ const AscensionMaterials = (props) => {
                                             " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
                                             <img src = {itemImage(entry["name"])}/>
                                         </div>
-                                        <p>{entry["name"]}</p>
+                                        <p className="md:text-lg">{entry["name"]}</p>
                                     </div>
                                 )
                             })}
@@ -170,7 +170,7 @@ const AscensionMaterials = (props) => {
                                                             <div className = {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
                                                             <img src = {itemImage(lvl["name"])}/>
                                                         </div>
-                                                        <p> {lvl["name"]}</p>
+                                                        <p className="md:text-lg"> {lvl["name"]}</p>
                                                     </div>
                                                 )
                                             }
