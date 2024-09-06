@@ -170,7 +170,7 @@ const Characters = (props) => {
                 />  
             </div>
             :
-            <div className=''>
+            <div className='min-h-screen'>
                 <div className="h-20"></div>
                 <h1 className = "p-4 text-black dark:text-white">Characters</h1>
                 
@@ -343,12 +343,12 @@ const Characters = (props) => {
                 </div>   */}
 
                 {/* Array version */}
-                <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4 ">
-                    {/* <button onClick = {() => console.log(filteredArray)}>filtered array </button> */}
+                {filteredArray.length > 0 ?
+                <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
                     {filteredArray.map(entry => {
                         if (entry["rarity"] == 4) {
                             return(
-                                <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
+                                <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-purple-500 to-white" >
                                         <img className="box-content w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         setCharPreviewState(true)
@@ -360,7 +360,7 @@ const Characters = (props) => {
                         }
                         if (entry["rarity"] == 5) {                   
                             return(
-                                <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
+                                <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-orange-500 to-white" >
                                         <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         setCharPreviewState(true)
@@ -371,8 +371,8 @@ const Characters = (props) => {
                             )
                         }
                         
-                    })}                
-                </div>  
+                    })}
+                </div> : <div className="text-black dark:text-white flex items-center justify-center md:text-3xl p-8">No characters available.</div>}
             </div>
         }
     </div>

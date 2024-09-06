@@ -88,39 +88,39 @@ const Factions = (props) => {
 
       {/* Mobile */}
       <div className = {props.cardColor + " border border-gray-200 lg:hidden text-left py-2 justify-center items-center mx-auto rounded-lg" }>
-        <table class="border-separate border border-slate-900 dark:border-slate-500 w-full border-spacing-2 text-black dark:text-white">
+        <table className="border-separate border border-slate-900 dark:border-slate-500 w-full border-spacing-2 text-black dark:text-white">
           <tbody>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Weapon</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><img src={weaponIcon}/></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Weapon</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><img src={weaponIcon}/></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Vision</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} /></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Vision</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><img className="" src = {'https://genshin.jmp.blue/elements/' + props.vision.toLowerCase() + '/icon'} /></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Rarity</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><div className="inline-flex">{convertRarity()}</div></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Rarity</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><div className="inline-flex">{convertRarity()}</div></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Affiliation</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Affiliation</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.affiliation}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Birthday</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Birthday</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.birthday}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Release Date</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Release Date</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.releaseDate}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Gender</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Gender</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.gender}</p></td>
             </tr>
             <tr>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Nation</h2></td>
-              <td class="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><h2 className="md:text-2xl text-end">Nation</h2></td>
+              <td className="border border-slate-800 dark:border-slate-200 p-2"><p className="font-normal text-gray-700 dark:text-gray-400">{props.nation}</p></td>
             </tr>
           </tbody>
         </table>
