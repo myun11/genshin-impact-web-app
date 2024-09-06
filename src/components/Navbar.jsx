@@ -70,6 +70,7 @@ const Navbar = (props) => {
                         onClick={() => {
                             setIsOpen(false)
                             props.setPage('Characters')
+                            props.setCharPreviewData([])
                         }}
                     >
                         Characters
@@ -111,7 +112,11 @@ const Navbar = (props) => {
                             <img className="w-14" src={Sumeru_Icon1}/> 
                             {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
                         </div>
-                        <a href='#' onClick = {() => props.setPage('Characters')}  className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Characters</a>
+                        <a href='#' onClick = {() => {
+                            props.setPage('Characters')
+                            props.setCharPreviewData([])
+                            props.setCharPreviewState(false)
+                        }}  className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Characters</a>
                         <a href='#' onClick = {() => props.setPage('Weapons')}     className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Weapons</a>
                         <a href='#' onClick = {() => props.setPage('Artifacts')}   className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Artifacts</a>
                         <a href='#' onClick = {() => props.setPage('Consumables')} className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Consumables</a>

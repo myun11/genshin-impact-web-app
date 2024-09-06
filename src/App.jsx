@@ -14,12 +14,18 @@ import Consumables from './components/Consumables';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState('Home')
   const [characters, setCharacters] = useState([])
   const [masterCharacterDataMap, setMasterCharacterDataMap] = useState([])
   const [masterCharacterDataArray, setMasterCharacterDataArray] = useState([])
+
+  // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
+  const [charPreviewData, setCharPreviewData] = useState([])
+
+  // This is the current character's data that is being previewed.
+  const [charPreviewState, setCharPreviewState] = useState(false)
+
   const types = [
     'artifacts',
     'boss',
@@ -98,6 +104,8 @@ function App() {
       <div className='min-h-screen flex-grow bg-slate-100 dark:bg-slate-900'>
         <Navbar
           setPage = {setPage}
+          setCharPreviewData = {setCharPreviewData}
+          setCharPreviewState = {setCharPreviewState}
         />
         <div className = "">
           {/* Home */}
@@ -115,6 +123,10 @@ function App() {
               masterCharacterDataArray = {masterCharacterDataArray}
               loading = {loading}
               setPage = {setPage}
+              setCharPreviewData = {setCharPreviewData}
+              charPreviewData = {charPreviewData}
+              setCharPreviewState = {setCharPreviewState}
+              charPreviewState = {charPreviewState}
             />
           }
 

@@ -18,15 +18,13 @@ const Characters = (props) => {
     const [filteredCharacters, setFilteredCharacters] = useState(props.characters)
 
     const [filteredArray, setFilteredArray] = useState(props.masterCharacterDataArray)
+
+    // For toggling between grid and table for filteredArray
+    const [form, setForm] = useState(true)
     
     // Icons for each character button in the grid
     const [icons, setIcons] = useState([])
     
-    // This will be set to true when the user clicks on a character and then their preview component will show instead of the grid.
-    const [charPreviewState, setCharPreviewState] = useState(false)
-
-    // This is the current character's data that is being previewed.
-    const [charPreviewData, setCharPreviewData] = useState([])
 
     // An array of elements to iterate through for convenience
     const elements = [
@@ -159,14 +157,14 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = {charPreviewData ? colors[charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
+    <div className = {props.charPreviewData ? colors[props.charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
-        {charPreviewState ? 
+        {props.charPreviewState ? 
             <div className="">
                 <CharactersPreview
-                    setCharPreviewState={setCharPreviewState}
-                    setCharPreviewData={setCharPreviewData}
-                    charPreviewData={charPreviewData}
+                    setCharPreviewState={props.setCharPreviewState}
+                    setCharPreviewData={props.setCharPreviewData}
+                    charPreviewData={props.charPreviewData}
                 />  
             </div>
             :
@@ -188,6 +186,7 @@ const Characters = (props) => {
                         console.log(new Set(weapons))
                     }}>list of weapons</button> */}
                 {/* </div> */}
+
                 {/* Filter function that filters prop's array into filteredCharacters array. */}
                 {/* Also accounts for capitalization variances. */}
                 <div className = "md:m-4">
@@ -300,7 +299,13 @@ const Characters = (props) => {
                         <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
                             setSelectedName(e.target.value)
                         }}/>
-                        
+
+                        {/* Toggle between grid and table */}
+                        <label className="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" className="sr-only peer" onClick = {() => console.log()}/>
+                            <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                            <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
+                        </label>                        
                     </div>
                     <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
                 </div>
@@ -351,8 +356,8 @@ const Characters = (props) => {
                                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-purple-500 to-white" >
                                         <img className="box-content w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
-                                        setCharPreviewState(true)
-                                        setCharPreviewData(entry)
+                                        props.setCharPreviewState(true)
+                                        props.setCharPreviewData(entry)
                                     }}/></button>
                                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]}</h2>
                                 </div>
@@ -363,8 +368,8 @@ const Characters = (props) => {
                                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-orange-500 to-white" >
                                         <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
-                                        setCharPreviewState(true)
-                                        setCharPreviewData(entry)
+                                        props.setCharPreviewState(true)
+                                        props.setCharPreviewData(entry)
                                     }}/></button>
                                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]} {entry["name"] == "Traveler" ? '(' + entry["vision"] + ')' : ""}</h2>
                                 </div>
