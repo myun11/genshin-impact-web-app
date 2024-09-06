@@ -198,7 +198,7 @@ const Artifacts = () => {
                             </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             }
             

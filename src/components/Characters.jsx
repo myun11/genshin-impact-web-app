@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react'
 import axios from 'axios'
 import CharactersPreview from './CharactersPreview'
+import moment from 'moment'
 
 // Weapon icons
 import Bow_Icon from '../images/Icon_Bow.webp'
@@ -22,6 +23,10 @@ const Characters = (props) => {
     // For toggling between grid and table for filteredArray
     // True for table and false for grid
     const [form, setForm] = useState(true)
+
+    // For table form
+    const [page, setPage] = useState(0)
+    const [entriesPerPage, setEntriesPerPage] = useState(10)
     
     // Icons for each character button in the grid
     const [icons, setIcons] = useState([])
@@ -45,6 +50,26 @@ const Characters = (props) => {
         ['Polearm', 'favonius-lance'],
         ['Catalyst', 'favonius-codex']
     ]
+
+    function getIcon(wep) {
+        let icon = null
+        if (wep == "Sword") {
+            icon = Sword_Icon
+        }
+        if (wep == "Bow") {
+            icon = Bow_Icon
+        }
+        if (wep == "Claymore") {
+            icon = Claymore_Icon
+        }
+        if (wep == "Polearm") {
+            icon = Polearm_Icon
+        }
+        if (wep == "Catalyst") {
+            icon = Catalyst_Icon
+        }
+        return(icon)
+    }
 
     // Color palette for choosing different characters based on their vision.
     const colors = {
@@ -224,22 +249,8 @@ const Characters = (props) => {
                         <div className="flex p-2 items-center justify-center">
                         {weapons.map(entry => {
                             let wep = entry[0]
-                            let icon = null
-                            if (wep == "Sword") {
-                                icon = Sword_Icon
-                            }
-                            if (wep == "Bow") {
-                                icon = Bow_Icon
-                            }
-                            if (wep == "Claymore") {
-                                icon = Claymore_Icon
-                            }
-                            if (wep == "Polearm") {
-                                icon = Polearm_Icon
-                            }
-                            if (wep == "Catalyst") {
-                                icon = Catalyst_Icon
-                            }
+                            let icon = getIcon(wep)
+
                             return(
                                 <div className="relative group inline-block">
                                     <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() => {
@@ -301,7 +312,7 @@ const Characters = (props) => {
 
                         {/* Toggle between grid and table */}
                         <label className="inline-flex items-center cursor-pointer">
-                            <input type="checkbox" value="" className="sr-only peer" onClick = {() => setForm(prev => !prev)}/>
+                            <input type="checkbox" checked={form} className="sr-only peer" onClick = {() => setForm(prev => !prev)}/>
                             <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                             <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
                         </label>                        
@@ -375,16 +386,121 @@ const Characters = (props) => {
                                 </div>
                             )
                         }
-                        
                     })}
                 </div> : <div className="text-black dark:text-white flex items-center justify-center md:text-3xl p-8">No characters available.</div>}</div>:
 
                 // Table
-                <div>
-                    <button onClick = {() => console.log(filteredArray)}>fil</button>
-                </div> 
-                }
                 
+                <div className="lg:w-4/5 lg:mx-auto flex flex-col">
+                    {/* <button onClick = {() => console.log(filteredArray)}>fil</button> */}
+                    <div className="-m-1.5 overflow-x-auto">
+                        <div className="p-1.5 min-w-full inline-block align-middle">
+                            <div className="bg-white dark:bg-slate-700 border border-black dark:border-neutral-700 divide-y divide-gray-200 dark:divide-neutral-700">
+                                <div className="overflow-hidden">
+                                    <table className="w-full table-fixed min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                                        <thead className="bg-gray-100 dark:bg-neutral-700">
+                                            <tr className="divide-x divide-gray-200 dark:divide-slate-500">
+                                                <th scope="col" className="md:text-sm lg:text-lg w-1/2 md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Icon</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg w-1/2 md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Name</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg max-md:hidden md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Vision</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg max-md:hidden md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Weapon</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg max-md:hidden md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Rarity</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg max-lg:hidden md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Nation</th>
+                                                <th scope="col" className="md:text-sm lg:text-lg max-lg:hidden md:w-[19%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300">Release Date</th>
+                                                {/* <th scope="col" className=" md:w-[5%] px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-300"></th> */}
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                        { filteredArray.length > 0 ?
+                                            filteredArray.map((entry, idx) => {
+                                                if (idx >= page * entriesPerPage && idx < (page + 1) * entriesPerPage) {
+                                                    return(
+                                                        <tr className="md:text-lg lg:text-xl hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors duration-400 ease-in-out">
+                                                            <td className="w-1/2 px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">
+                                                                <button className = "bg-transparent flex items-center justify-start hover:border-transparent" onClick = {() => {
+                                                                    props.setCharPreviewState(true)
+                                                                    props.setCharPreviewData(entry)
+                                                                }}><img className="box-content w-1/2 md:w-full lg:w-1/2 h-fit rounded-lg " src = {icons[entry["id"].toLowerCase()]}/></button>
+                                                            </td>
+                                                            <td className="w-1/2 px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</td>
+                                                            <td className="max-md:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                <div className="">
+                                                                    {/* {entry["vision"]} */}
+                                                                    <img className="object-scale-down w-full h-full rounded-lg" src = {'https://genshin.jmp.blue/elements/' + entry["vision"].toLowerCase() + '/icon'} />
+                                                                </div>
+                                                                
+                                                            </td>
+                                                            <td className="max-md:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                <div className="">
+                                                                    {/* {entry["weapon"]} */}
+                                                                    <img className="object-scale-down w-full h-full rounded-lg" src = {getIcon(entry["weapon"])} />   
+                                                                </div>
+                                                            </td>
+                                                            <td className="max-md:hidden px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                {entry["rarity"] == 4 ? 
+                                                                    <img className="object-scale-down w-16 h-16 rounded-lg" src = {Purple_Star} /> :
+                                                                    <img className="object-scale-down w-16 h-16 rounded-lg" src = {Orange_Star} />
+                                                                }
+                                                            </td>
+                                                            <td className="max-lg:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                {entry["nation"]}
+                                                            </td>
+                                                            <td className="max-lg:hidden text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">
+                                                                {moment(entry["release"], "YYYY-MM-DD").format("MMMM D YYYY")}
+                                                                {/* moment(props.charPreviewData.release, "YYYY-MM-DD").format("MMMM D YYYY") */}
+                                                            </td>
+                                                        </tr>
+                                                        )        
+                                                }
+                                            }) :
+                                            <div className = "flex items-center justify-center">
+                                                
+                                            </div>
+                                            
+                                        }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className="py-1 px-4">
+                                    <nav className="flex items-center space-x-1" aria-label="Pagination">
+                                        <button onClick = {() => {
+                                            if (page != 0) {
+                                                setPage(prev => prev - 1)
+                                            }
+                                        }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full bg-gray-400 dark:bg-gray-900 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Previous">
+                                            <span aria-hidden="true">«</span>
+                                            <span className="sr-only">Previous</span>
+                                        </button>
+                                        {
+                                            
+                                            filteredArray.map((entry, idx) => {
+                                                if (idx < filteredArray.length / entriesPerPage) {
+                                                    return(
+                                                        <button onClick = {() => {
+                                                            setPage(idx)
+                                                        }}type="button" className={page == idx ? 
+                                                            "bg-gray-400 dark:bg-black min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
+                                                            :
+                                                            "bg-gray-200 dark:bg-gray-600 min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"}>{idx + 1}</button>
+                                                    )
+                                                }
+                                            })
+                                        }
+                                        <button onClick = {() => {
+                                            if (page != Math.floor(filteredArray.length / entriesPerPage)) {
+                                                setPage(prev => prev + 1)
+                                            }
+                                        }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full bg-gray-400 dark:bg-gray-900 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Next">
+                                        <span className="sr-only">Next</span>
+                                        <span aria-hidden="true">»</span>
+                                        </button>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }    
             </div>
         }
     </div>
