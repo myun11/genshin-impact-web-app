@@ -25,7 +25,7 @@ const Dev = (props) => {
         </div> */}
         <div className="relative bg-slate-200 dark:bg-slate-800 p-4 align-middle justify-center text-black dark:text-white w-screen min-h-screen">
           <div class="absolute inset-0 top-40 z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-            <div className = "rounded-lg h-56 bg-black w-1/2">
+            <div className = "rounded-lg h-56 bg-black w-1/2 min-h-screen">
 eeeees
             </div>
           </div>
