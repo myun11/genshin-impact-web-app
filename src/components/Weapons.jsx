@@ -274,7 +274,7 @@ const Weapons = () => {
                         <div className = "">
 
                         <div className = "p-4">
-                            <div className = "bg-slate-500 h-1 w-full"></div>
+                            <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                             <div className = "inline-flex content-start m-4 p-4 space-x-7" ref={wrapperRef}>
                                 {/* Weapon type multiselect  */}
                                 <div className="relative w-64" >
@@ -430,7 +430,7 @@ const Weapons = () => {
                                 </div>
                                 <input className="relative w-64" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
                             </div>
-                            <div className = "bg-slate-500 h-1 w-full"></div>
+                            <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
 
                         <div className = "lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
