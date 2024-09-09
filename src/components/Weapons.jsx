@@ -432,8 +432,8 @@ const Weapons = () => {
                             </div>
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
-
-                        <div className = "lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+                        {
+                            filteredWeapons.length > 0 ? <div className = "lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(
@@ -506,6 +506,10 @@ const Weapons = () => {
                                 }
                             })}                
                         </div>
+                        : <div>
+                            <p className="text-black dark:text-white flex items-center justify-center md:text-3xl p-8">No weapons match.</p>
+                        </div>
+                        }
                         </div>
                     }
             </div>
