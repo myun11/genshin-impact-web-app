@@ -428,7 +428,7 @@ const Weapons = () => {
                                         </div>
                                     </Transition>
                                 </div>
-                                <input className="relative w-64" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
+                                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="weapon-search" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
                             </div>
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
