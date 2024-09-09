@@ -273,9 +273,9 @@ const Weapons = () => {
                     :
                         <div className = "">
 
-                        <div className = "p-4">
+                        <div className = "p-4 ">
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
-                            <div className = "inline-flex content-start m-4 p-4 space-x-7" ref={wrapperRef}>
+                            <div className = "lg:inline-flex content-start m-4 p-4 lg:space-x-7 flex max-md:flex-col space-y-4 items-center justify-center" ref={wrapperRef}>
                                 {/* Weapon type multiselect  */}
                                 <div className="relative w-64" >
                                     <div
@@ -506,7 +506,7 @@ const Weapons = () => {
                                 }
                             })}                
                         </div>
-                    </div>
+                        </div>
                     }
             </div>
         }
