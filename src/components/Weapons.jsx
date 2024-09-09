@@ -275,7 +275,7 @@ const Weapons = () => {
 
                         <div className = "p-4 ">
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
-                            <div className = "lg:inline-flex content-start m-4 p-4 lg:space-x-7 flex max-md:flex-col space-y-4 items-center justify-center" ref={wrapperRef}>
+                            <div className = "lg:inline-flex content-start m-4 p-4 lg:space-x-7 flex max-lg:flex-col max-lg:space-y-4 items-center justify-center" ref={wrapperRef}>
                                 {/* Weapon type multiselect  */}
                                 <div className="relative w-64" >
                                     <div
@@ -428,7 +428,9 @@ const Weapons = () => {
                                         </div>
                                     </Transition>
                                 </div>
-                                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="weapon-search" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
+                                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 
+                                focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                                 dark:focus:ring-blue-500 dark:focus:border-blue-500" id="weapon-search" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
                             </div>
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
