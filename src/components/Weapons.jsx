@@ -252,7 +252,7 @@ const Weapons = () => {
         
     }, [weapons, selectedOptions, weaponSearch])
     return(
-        <div className = "p-4 mx-auto ">
+        <div className = "p-4 mx-auto min-h-screen">
             <div className="h-20"></div>
 
             {weaponPreviewState ? 
