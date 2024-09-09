@@ -7,7 +7,7 @@ const WeaponPreview = (props) => {
         const parts = props.wep.data.passiveDesc.split(regex);
         return(
             <div className = "w-full p-2">
-                <div className="p-5 inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div className="p-5 lg:inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <h2 className="text-black dark:text-white">Passive Name: {props.wep.data.passiveName}</h2>
                     <div className="flex flex-col justify-between p-5 leading-normal">
                         
@@ -29,13 +29,13 @@ const WeaponPreview = (props) => {
     }
     
     return (
-        <div className = "w-4/5 flex-auto justify-center items-center mb-4 mx-auto">
+        <div className = "lg:w-4/5 flex-auto justify-center items-center mb-4 mx-auto">
             <div className="h-20"></div>
             {/* <button onClick = {() => console.log(props.wep)}>wep</button> */}
 
             <h1 className="text-black dark:text-white uppercase font-bold">{props.wep.data.name}</h1>
             <button onClick = {() => props.setWeaponPreviewState(false)}>Go Back</button>
-            <div className="flex">
+            <div className="lg:flex">
                 <img className = "rounded-lg" src = {props.wep.icon}/>
                 {reg()}
             </div>
