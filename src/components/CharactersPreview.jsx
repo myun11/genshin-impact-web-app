@@ -300,7 +300,6 @@ const CharactersPreview = (props) => {
                             </span>
                         </button>
                         <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => {
-                            document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})
                             props.setCharPreviewData([])
                             props.setCharPreviewState(false)
                             window.scrollTo(0, 0)
