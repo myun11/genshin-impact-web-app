@@ -42,16 +42,19 @@ const SkillTalents = (props) => {
                     </div>
                   </div>
                   {/* Table */}
-                  {idx == 0 && chart ? 
-                  <RadarChart
-                    chart = {chart}
-                    showChart = {showChart}
-                    charPreviewData = {props.charPreviewData}
-                    rosterData = {props.rosterData}
-                  />
-                  :
+
                   <div className= "lg:w-1/2">
                     <div className="lg:flex lg:flex-col">
+                      {idx == 0 && chart ?
+                      <div className="">
+                        <RadarChart
+                          chart = {chart}
+                          showChart = {showChart}
+                          charPreviewData = {props.charPreviewData}
+                          rosterData = {props.rosterData}
+                        />
+                      </div>
+                      :
                       <div className="lg:m-1.5 overflow-x-auto">
                         <div className="lg:p-1.5 lg:w-4/5 lg:inline-block ">
                           <div className="border border-slate-500 dark:border-white shadow max-lg:overflow-scroll lg:rounded-b-3xl">
@@ -75,10 +78,9 @@ const SkillTalents = (props) => {
                           </div>
                         </div>
                       </div>
+                      }
                     </div>
                   </div>
-                  }
-                  
                 </div>
               </div>
             )
