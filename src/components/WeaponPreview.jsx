@@ -6,15 +6,15 @@ const WeaponPreview = (props) => {
         const regex = new RegExp(`(${keywords.join('|')})`, 'gi');
         const parts = props.wep.data.passiveDesc.split(regex);
         return(
-            <div className = "w-full p-2">
+            <div className = "w-full max-md:p-2">
                 <div className="p-5 lg:inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <h2 className="text-black dark:text-white">Passive Name: {props.wep.data.passiveName}</h2>
                     <div className="flex flex-col justify-between p-5 leading-normal">
                         
-                        <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-200">{
+                        <p className="text-left mb-3 text-xl font-normal text-gray-700 dark:text-gray-200">{
                             parts.map((part, index) =>
                                 keywords.some(keyword => new RegExp(keyword).test(part)) ? (
-                                    <span key={index} className={"text-gray-400 dark:text-white"}>
+                                    <span key={index} className={"text-gray-400 dark:text-gray-400"}>
                                     {part}
                                     </span>
                                 ) : (
@@ -47,7 +47,7 @@ const WeaponPreview = (props) => {
                     Go Back
                 </span>
             </button>
-            <div className="lg:flex">
+            <div className="lg:flex h-full justify-center items-center py-4">
                 <img className = "rounded-lg" src = {props.wep.icon}/>
                 {reg()}
             </div>
