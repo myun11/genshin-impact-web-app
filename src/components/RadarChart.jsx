@@ -175,9 +175,12 @@ const RadarChart = (props) => {
             return frequency_a < frequency_b
         })
         console.log("sorted names is ", sortedNames)
+        console.log("selfSkills: ", selfSkills)
         const dict = {}
         selfSkills.map(entry => {
-            dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
+            if (getFinalName(entry.name) != "Low / High Plunge DMG") {
+                dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
+            }
         })
 
         console.log("dict is: ", dict)
