@@ -8,7 +8,10 @@ const WeaponPreview = (props) => {
         return(
             <div className = "w-full max-md:p-2">
                 <div className="p-5 lg:inline-flex w-full items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <h2 className="text-black dark:text-white">Passive Name: {props.wep.data.passiveName}</h2>
+                    <div className="">
+                        {/* <p className="text-left text-lg italic tracking-tight text-gray-900 dark:text-white">Passive Name</p> */}
+                        <h2 className="text-black dark:text-white text-xl">{props.wep.data.passiveName}</h2>
+                    </div>
                     <div className="flex flex-col justify-between p-5 leading-normal">
                         
                         <p className="text-left mb-3 text-xl font-normal text-gray-700 dark:text-gray-200">{

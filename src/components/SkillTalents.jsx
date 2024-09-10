@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import RadarChart from './RadarChart'
 
 const SkillTalents = (props) => {
   const reorderedImages = [props.images["talent-na"], props.images["talent-skill"], props.images["talent-burst"]]
+  const [chart, showChart] = useState(true)
 
   return (
     <div className="md:p-4">
@@ -40,6 +42,9 @@ const SkillTalents = (props) => {
                     </div>
                   </div>
                   {/* Table */}
+                  { chart ? 
+                  <RadarChart/>
+                  :
                   <div className= "lg:w-1/2">
                     <div className="lg:flex lg:flex-col">
                       <div className="lg:m-1.5 overflow-x-auto">
@@ -67,6 +72,8 @@ const SkillTalents = (props) => {
                       </div>
                     </div>
                   </div>
+                  }
+                  
                 </div>
               </div>
             )
