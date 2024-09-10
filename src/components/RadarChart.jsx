@@ -5,6 +5,7 @@ const RadarChart = (props) => {
     const [aggregate, setAggregate] = useState([])
     const [selfData, setSelfData] = useState([])
     const [totalData, setTotalData] = useState([])
+    const [xaxis, setXaxis] = useState([])
 
     // Helper function that returns the combined descriptor for multiple misspelled skill descriptors
     // Most common are
@@ -77,7 +78,7 @@ const RadarChart = (props) => {
                     let finalName = getFinalName(skill.name)
                     if (finalName.includes('Low')) {
                         // For Low / High Plunge DMG
-                        let val = skill.value.replaceAll('%','')
+                        let val = skill.value.replaceAll('%','').replaceAll('/s', '')
                         val = val.split('/')
 
                         if (Object.keys(names).includes(finalName)) {
@@ -132,39 +133,76 @@ const RadarChart = (props) => {
         setAggregate(names)
     }
 
+    // Helper Function for returning count when entering a skill descriptor
+    const returnCount = (skill) => {
+        let counts = getCounts()
+        let dict = {}
+        counts.map(entry => {
+            dict[entry.name] = entry.value
+        })
+        return dict[getFinalName(skill)]
+    }
+
+
     // Prepares chart data
     const prepareChart = () => {
-        const names = [
-            "1-Hit DMG",
-            "2-Hit DMG",
-            "3-Hit DMG",
-            "4-Hit DMG",
-            "5-Hit DMG",
-            "Plunge DMG"            
-        ]
 
-        const data = []
-        names.map(entry => {
-            data.push(aggregate[entry]?.toFixed(2))
-        })
-        setTotalData(data)
+        let counts = getCounts()
+        // Parse current character skill descriptors and rank among top 8
+        // Excluded descriptors for now. Maybe future improvement
+        const excludedNames = [
+            "Charged Attack Stamina Cost", 
+            "Max Duration",
+            "Low / High Plunge DMG",
+            "Charged Attack Stamina Cost"
+        ]
         
-        const data2 = []
+        // Start here
         let selfSkills = props.charPreviewData.skillTalents[0].upgrades
+        const names = []
+        selfSkills.map(entry => {
+            let name = entry.name
+            // Excludes excludedNames and only counts descriptors with 5 counts or more in total.
+            if (!excludedNames.includes(getFinalName(name)) && returnCount(getFinalName(name)) > 5) {
+                if (!names.includes(name)) {
+                    names.push(name)
+                }    
+            }
+        })
+        const sortedNames = names.sort((a,b) => {
+            let frequency_a = returnCount(getFinalName(a))
+            let frequency_b = returnCount(getFinalName(b))
+            return frequency_a < frequency_b
+        })
+        console.log("sorted names is ", sortedNames)
         const dict = {}
         selfSkills.map(entry => {
-            dict[entry.name] = Number(eval(entry.value.replaceAll('%', '')))
+            dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
         })
-        names.map(entry => {
-            let desc = dict[entry]
-            if (desc == undefined) {
-                data2.push(0)
-            } else {
-                data2.push(dict[entry])
-            }
+
+        console.log("dict is: ", dict)
+        const data = []
+        sortedNames.map(entry => {
+            // let desc = dict[entry]
+            // if (desc == undefined) {
+            //     data.push(0)
+            // } else {
+                data.push(dict[entry])
+            // }
             
         })
-        setSelfData(data2)
+        setSelfData(data)
+
+        const data2 = []
+        sortedNames.map(entry => {
+            if (!excludedNames.includes(getFinalName(entry))) {
+                let val = aggregate[getFinalName(entry)]
+                data2.push(val?.toFixed(2))
+            }
+        })
+        setTotalData(data2)
+        setXaxis(sortedNames)
+        
     }
 
     useEffect(() => {
@@ -198,14 +236,7 @@ const RadarChart = (props) => {
             },
             // Skill Descriptors
             xaxis: { 
-                categories: [
-                    "1-Hit DMG",
-                    "2-Hit DMG",
-                    "3-Hit DMG",
-                    "4-Hit DMG",
-                    "5-Hit DMG",
-                    "Plunge DMG"            
-                ]
+                categories: xaxis
             },
             dropShadow: {
                 enabled: true,
@@ -217,24 +248,28 @@ const RadarChart = (props) => {
     };
     return (
         <div className="flex items-center justify-center">
-            {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
+            <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
-            <button onClick = {() => console.log(getAverageCounts())}>getAverageCount</button>
+            <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
-            <button onClick = {() => console.log("aaaaa".split('+'))}>test</button> */}
-            {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
-            {/* <button onClick = {() => console.log(aggregate)}>aggregate</button>
+            <button onClick = {() => console.log(returnCount("1-Hit DMG"))}>returnsCount</button>
+            <button onClick = {() => console.log(aggregate)}>aggregate</button>
             <button onClick = {() => console.log(getCounts())}>get counts</button>
-            <button onClick = {() => console.log(selfData)}>chart data</button>
-             */}
+            <button onClick = {() => console.log(selfData)}>self data</button>
+            <button onClick = {() => {
+                let test = "40%/s"
+                console.log(test.replaceAll('%', '').replaceAll('/s', ''))
+            }}>regex test</button>
+            
 
+            {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
             <div className="">
                 <div className="mixed-chart">
                     <Chart
                     options={state.options}
                     series={state.series}
                     type="radar"
-                    width="700"
+                    width="1000"
                     />
                 </div>
             </div>
