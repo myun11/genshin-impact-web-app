@@ -5,29 +5,6 @@ const RadarChart = (props) => {
     const [data, setData] = useState([])
     const [aggregate, setAggregate] = useState([])
 
-    // This function returns the frequency of all types of skill data.
-    // This is helpful because there are a lot of misnamed skill descriptors and typos that I count as the same skill.
-    const getAverageCounts = () => {
-        let hashmap = {
-            "error" : 0
-        }
-        props.rosterData.map(character => {
-            try {
-                character.skillTalents[0]?.upgrades.map(skill => {
-                    if (hashmap[skill.name]) {
-                        hashmap[skill.name] += 1
-                    } else {
-                        hashmap[skill.name] = 1
-                    }
-                })
-            } catch (error) {
-                hashmap["error"] += 1
-            }
-            
-        })
-        return hashmap
-    }
-
     // Helper function that returns the combined descriptor for multiple misspelled skill descriptors
     // Most common are
 
@@ -56,6 +33,38 @@ const RadarChart = (props) => {
             return "Low / High Plunge DMG"
         }
         return name
+    }
+
+        // This function returns the frequency of all types of skill data and orders them in order of importance.
+    // This is helpful because there are a lot of misnamed skill descriptors and typos that I count as the same skill.
+    const getCounts = () => {
+        let hashmap = {}
+        props.rosterData.map(character => {
+            try {
+                character.skillTalents[0]?.upgrades.map(skill => {
+                    let name = getFinalName(skill.name)
+                    if (hashmap[name]) {
+                        hashmap[name] += 1
+                    } else {
+                        hashmap[name] = 1
+                    }
+                })
+            } catch (error) {
+                hashmap["error"] += 1
+            }
+            
+        })
+        const arr = []
+        Object.keys(hashmap).map(entry => {
+            if (entry != "error") {
+                arr.push({
+                    "name" : entry,
+                    "value" : hashmap[entry]
+                })    
+            }
+        })
+
+        return arr.sort((a,b) => a.value < b.value)
     }
 
     // Get all average values of skill descriptors
@@ -122,12 +131,13 @@ const RadarChart = (props) => {
         setAggregate(names)
     }
 
-    // Gets all skill type descriptor names
-    const getNames = () => {
-
+    // Prepares chart data
+    const prepareChart = () => {
+        
     }
+    
     useEffect(() => {
-        getAverageCounts()
+        getAverageValues()
     }, [])
     const state = {
         series: [{
@@ -155,11 +165,12 @@ const RadarChart = (props) => {
         <div className="flex items-center justify-center">
             {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
-            <button onClick = {() => console.log(aggregate)}>aggregate</button>
             <button onClick = {() => console.log(getAverageCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
             <button onClick = {() => console.log("aaaaa".split('+'))}>test</button> */}
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
+            <button onClick = {() => console.log(aggregate)}>aggregate</button>
+            <button onClick = {() => console.log(getCounts())}>get counts</button>
             
 
             <div className="">
