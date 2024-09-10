@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Chart from "react-apexcharts";
 
 const RadarChart = (props) => {
     const [data, setData] = useState([])
@@ -128,6 +129,27 @@ const RadarChart = (props) => {
     useEffect(() => {
         getAverageCounts()
     }, [])
+    const state = {
+        series: [{
+            name: props.charPreviewData.name,
+            data: [80, 50, 30, 40, 100, 20],
+        }],
+        options: {
+            chart: {
+                height: 350,
+                type: 'radar',
+            },
+            title: {
+                text: "Stats"
+            },
+            yaxis: {
+                stepSize: 20
+            },
+            xaxis: {
+                categories: ['January', 'February', 'March', 'April', 'May', 'June']
+            }
+        }
+    };
     return (
         <div>
             <button onClick = {() => console.log(props.rosterData)}>all</button>
@@ -137,7 +159,18 @@ const RadarChart = (props) => {
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
             <button onClick = {() => console.log("aaaaa".split('+'))}>test</button>
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
-            Begin radar chart.
+            
+
+            <div className="row">
+                <div className="mixed-chart">
+                    <Chart
+                    options={state.options}
+                    series={state.series}
+                    type="radar"
+                    width="800"
+                    />
+                </div>
+            </div>
         </div>
   )
 }
