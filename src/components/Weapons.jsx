@@ -435,7 +435,7 @@ const Weapons = () => {
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
                         {
-                            filteredWeapons.length > 0 ? <div className = "lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4 ">
+                            filteredWeapons.length > 0 ? <div className = "w-full lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(
