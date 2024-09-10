@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Chart from "react-apexcharts";
 
 const RadarChart = (props) => {
-    const [data, setData] = useState([])
     const [aggregate, setAggregate] = useState([])
+    const [selfData, setSelfData] = useState([])
+    const [totalData, setTotalData] = useState([])
 
     // Helper function that returns the combined descriptor for multiple misspelled skill descriptors
     // Most common are
@@ -133,17 +134,57 @@ const RadarChart = (props) => {
 
     // Prepares chart data
     const prepareChart = () => {
+        const names = [
+            "1-Hit DMG",
+            "2-Hit DMG",
+            "3-Hit DMG",
+            "4-Hit DMG",
+            "5-Hit DMG",
+            "Plunge DMG"            
+        ]
+
+        const data = []
+        names.map(entry => {
+            data.push(aggregate[entry]?.toFixed(2))
+        })
+        setTotalData(data)
         
+        const data2 = []
+        let selfSkills = props.charPreviewData.skillTalents[0].upgrades
+        const dict = {}
+        selfSkills.map(entry => {
+            dict[entry.name] = Number(eval(entry.value.replaceAll('%', '')))
+        })
+        names.map(entry => {
+            let desc = dict[entry]
+            if (desc == undefined) {
+                data2.push(0)
+            } else {
+                data2.push(dict[entry])
+            }
+            
+        })
+        setSelfData(data2)
     }
-    
+
     useEffect(() => {
         getAverageValues()
     }, [])
+
+    useEffect(() => {
+        prepareChart()
+    }, [aggregate, props.charPreviewData])
     const state = {
-        series: [{
-            name: props.charPreviewData.name,
-            data: [80, 50, 30, 40, 100, 20],
-        }],
+        series: [
+            {
+                name: props.charPreviewData.name,
+                data: selfData,
+            },
+            {
+                name: "Average",
+                data: totalData,
+            },
+        ],
         options: {
             // chart: {
                 // height: 800,
@@ -157,7 +198,20 @@ const RadarChart = (props) => {
             },
             // Skill Descriptors
             xaxis: { 
-                categories: ['January', 'February', 'March', 'April', 'May', 'June']
+                categories: [
+                    "1-Hit DMG",
+                    "2-Hit DMG",
+                    "3-Hit DMG",
+                    "4-Hit DMG",
+                    "5-Hit DMG",
+                    "Plunge DMG"            
+                ]
+            },
+            dropShadow: {
+                enabled: true,
+                blur: 1,
+                left: 1,
+                top: 1
             }
         }
     };
@@ -169,9 +223,10 @@ const RadarChart = (props) => {
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
             <button onClick = {() => console.log("aaaaa".split('+'))}>test</button> */}
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
-            <button onClick = {() => console.log(aggregate)}>aggregate</button>
+            {/* <button onClick = {() => console.log(aggregate)}>aggregate</button>
             <button onClick = {() => console.log(getCounts())}>get counts</button>
-            
+            <button onClick = {() => console.log(selfData)}>chart data</button>
+             */}
 
             <div className="">
                 <div className="mixed-chart">
