@@ -366,6 +366,8 @@ const CharactersPreview = (props) => {
                     images = {images}
                     skillTalents = {props.charPreviewData.skillTalents}
                     cardColor = {colors[props.charPreviewData.vision.toString()]["Card"]}
+                    rosterData = {props.rosterData}
+                    charPreviewData = {props.charPreviewData}
                 />
             </div>
 

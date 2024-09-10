@@ -42,8 +42,13 @@ const SkillTalents = (props) => {
                     </div>
                   </div>
                   {/* Table */}
-                  { chart ? 
-                  <RadarChart/>
+                  {idx == 0 && chart ? 
+                  <RadarChart
+                    chart = {chart}
+                    showChart = {showChart}
+                    charPreviewData = {props.charPreviewData}
+                    rosterData = {props.rosterData}
+                  />
                   :
                   <div className= "lg:w-1/2">
                     <div className="lg:flex lg:flex-col">

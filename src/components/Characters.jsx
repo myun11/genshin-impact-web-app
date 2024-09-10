@@ -190,6 +190,7 @@ const Characters = (props) => {
                     setCharPreviewState={props.setCharPreviewState}
                     setCharPreviewData={props.setCharPreviewData}
                     charPreviewData={props.charPreviewData}
+                    rosterData={props.masterCharacterDataArray}
                 />  
             </div>
             :
