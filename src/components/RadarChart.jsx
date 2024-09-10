@@ -64,28 +64,28 @@ const RadarChart = (props) => {
             try {
                 character.skillTalents[0]?.upgrades.map(skill => {
                     let finalName = getFinalName(skill.name)
-                    if (finalName.includes('/')) {
+                    if (finalName.includes('Low')) {
                         // For Low / High Plunge DMG
-                        let val = skill.value.replace('%','').split('/')
+                        let val = skill.value.replaceAll('%','')
+                        val = val.split('/')
 
                         if (Object.keys(names).includes(finalName)) {
                             // If the skill descriptor already exists in hashmap
                             names[finalName].count += 1
-                            names[finalName].value.low += eval(val[0])
-                            names[finalName].value.high += eval(val[1])
+                            names[finalName].value.low += Number(val[0])
+                            names[finalName].value.high += Number(val[1])
                         } else { 
                             // New skill descriptor
-                            
                             names[finalName] = {
                                 "count" : 1,
                                 "value" : {
-                                    "low" : eval(val[0]),
-                                    "high" : eval(val[1])
+                                    "low" : Number(val[0]),
+                                    "high" : Number(val[1])
                                 }
                             }                        
                         }
                     } else {
-                        let val = skill.value.replace('%','')
+                        let val = skill.value.replaceAll('%','')
                         
                         // For values with multiple numbers e.g a sum of numbers, we add them together. Except for division                    
                         val = eval(val)
@@ -96,7 +96,6 @@ const RadarChart = (props) => {
                             names[finalName].value += val
                         } else { 
                             // New skill descriptor
-                            
                             names[finalName] = {
                                 "count" : 1,
                                 "value" : val
@@ -110,10 +109,16 @@ const RadarChart = (props) => {
         })
 
         Object.keys(names).map(entry => {
-            names[entry] = names[entry].value / names[entry].count
+            if (entry == "Low / High Plunge DMG") {
+                names[entry].value.low = names[entry].value.low / names[entry].count
+                names[entry].value.high = names[entry].value.high / names[entry].count
+            } else {
+                names[entry] = names[entry].value / names[entry].count
+            }
+            
         })
 
-        return names
+        setAggregate(names)
     }
 
     // Gets all skill type descriptor names
