@@ -11,7 +11,7 @@ const WeaponPreview = (props) => {
                 <h2 className="text-black dark:text-white">Passive Name: {props.wep.data.passiveName}</h2>
                     <div className="flex flex-col justify-between p-5 leading-normal">
                         
-                        <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-400">{
+                        <p className="text-left mb-3 font-normal text-gray-700 dark:text-gray-200">{
                             parts.map((part, index) =>
                                 keywords.some(keyword => new RegExp(keyword).test(part)) ? (
                                     <span key={index} className={"text-gray-400 dark:text-white"}>
@@ -55,34 +55,34 @@ const WeaponPreview = (props) => {
                 <table className="min-w-full divide-y table-auto divide-gray-200">
                     <thead className="text-xs dark:text-white uppercase bg-gray-50 dark:bg-gray-600">
                     <tr>
-                        <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-gray-800 text-left font-medium">Name</td>
-                        <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-gray-800 text-right font-medium">Value</td>
+                        <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-300 text-left font-medium">Name</td>
+                        <td className="max-md:text-sm px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-300 text-right font-medium">Value</td>
                     </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Ascension Material</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.ascensionMaterial}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Ascension Material</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.ascensionMaterial}</td>
                         </tr>
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Base Attack</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.baseAttack}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Base Attack</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.baseAttack}</td>
                         </tr>
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Location</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.location}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Location</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.location}</td>
                         </tr>
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Rarity</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.rarity}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Rarity</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.rarity}</td>
                         </tr>
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Substat</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.subStat}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Substat</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.subStat}</td>
                         </tr>
                         <tr>
-                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-400">Rarity</td>
-                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-400">{props.wep.data.type}</td>
+                            <td className="max-md:text-sm px-3 py-4 whitespace-nowrap text-left font-medium text-gray-800 dark:text-gray-200">Rarity</td>
+                            <td className="max-md:text-sm px-3 mr-5 py-4 whitespace-nowrap text-right font-medium text-gray-800 dark:text-gray-200">{props.wep.data.type}</td>
                         </tr>
                     </tbody>
                 </table>

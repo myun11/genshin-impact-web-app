@@ -435,11 +435,11 @@ const Weapons = () => {
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
                         {
-                            filteredWeapons.length > 0 ? <div className = "w-full lg:h-5/6 lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 ">
+                            filteredWeapons.length > 0 ? <div className = "lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(
-                                        <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-gray-500 hover:border-gray-500 transition duration-300 ease-in-out">
+                                        <div className = " border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-gray-500 hover:border-gray-500 transition duration-300 ease-in-out">
                                             <button className = "bg-gradient-to-b from-gray-500 to-white" onClick = {() => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
@@ -452,7 +452,7 @@ const Weapons = () => {
                                 }
                                 if (entry.data.rarity == 2) {
                                     return(
-                                        <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-green-500 hover:border-green-500 transition duration-300 ease-in-out">
+                                        <div className = " border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-green-500 hover:border-green-500 transition duration-300 ease-in-out">
                                             <button className = "bg-gradient-to-b from-green-500 to-white" onClick = {() => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
@@ -466,12 +466,12 @@ const Weapons = () => {
                                 }
                                 if (entry.data.rarity == 3) {
                                     return(
-                                        <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-blue-500 hover:border-blue-500 transition duration-300 ease-in-out">
+                                        <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-blue-500 hover:border-blue-500 transition duration-300 ease-in-out">
                                             <button className = "bg-gradient-to-b from-blue-500 to-white" onClick = {() => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="bg-cover w-60 h-60 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-cover w-64 h-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -480,12 +480,12 @@ const Weapons = () => {
                                 }
                                 if (entry.data.rarity == 4) {
                                     return(
-                                        <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
+                                        <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                             <button className = "bg-gradient-to-b from-purple-500 to-white" onClick = {() => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="bg-cover w-60 h-60 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-cover w-64 h-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -494,7 +494,7 @@ const Weapons = () => {
                                 }
                                 if (entry.data.rarity == 5) {
                                     return(
-                                        <div className = "border-4 border-black dark:border-white w-full h-full box rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
+                                        <div className = "border-4 border-black dark:border-white rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                                             <button className = "bg-gradient-to-b from-orange-500 to-white" onClick = {() => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
