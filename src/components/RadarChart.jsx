@@ -231,8 +231,9 @@ const RadarChart = (props) => {
         const data2 = []
         sortedNames.map(entry => {
             if (!excludedNames.includes(getFinalName(entry))) {
-                let val = aggregate[getFinalName(entry)]
-                data2.push(val?.toFixed(2))
+                let val = Number(aggregate[getFinalName(entry)])
+                console.log("val: ", Number(val.toFixed(2)))
+                data2.push(Number(val?.toFixed(2)))
             }
         })
         setTotalData(data2)
@@ -246,13 +247,11 @@ const RadarChart = (props) => {
 
     useEffect(() => {
         prepareChart()
-    }, [props.charPreviewData])
-    const state = {
+    }, [])
 
-    };
     return (
         <div className="flex items-center justify-center">
-            {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
+            <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
             <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
@@ -263,13 +262,14 @@ const RadarChart = (props) => {
             <button onClick = {() => {
                 let test = "55.25% + 55.25%"
                 console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
-            }}>test</button> */}
+            }}>test</button>
+            <button onClick = {() => console.log(totalData)}>total</button>
             
 
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
             
                  
-                <div className="">
+                <div className="bg-transparent">
                     <HighchartsReact
                         highcharts={Highcharts}
                         constructor='chart'
@@ -283,21 +283,18 @@ const RadarChart = (props) => {
                             //     text: ''
                             // },
                             title: {
-                                text: 'Budget vs spending',
+                                text: '',
                                 x: -80
                             },
                         
-                            pane: {
-                                size: '80%'
-                            },
+                            // pane: {
+                            //     size: '80%'
+                            // },
                         
                             xAxis: {
-                                categories: [
-                                    'Sales', 'Marketing', 'Development', 'Customer Support',
-                                    'Information Technology', 'Administration'
-                                ],
+                                categories: xaxis,
                                 tickmarkPlacement: 'on',
-                                lineWidth: 0
+                                lineWidth: 1
                             },
                         
                             yAxis: {
@@ -319,19 +316,19 @@ const RadarChart = (props) => {
                             },
                         
                             series: [{
-                                name: 'Allocated Budget',
-                                data: [43000, 19000, 60000, 35000, 17000, 10000],
+                                name: props.charPreviewData.name,
+                                data: selfData,
                                 pointPlacement: 'on'
                             }, {
-                                name: 'Actual Spending',
-                                data: [50000, 39000, 42000, 31000, 26000, 14000],
+                                name: 'Average',
+                                data: totalData,
                                 pointPlacement: 'on'
                             }],
                         
                             responsive: {
                                 rules: [{
                                     condition: {
-                                        maxWidth: 500
+                                        maxWidth: 1000
                                     },
                                     chartOptions: {
                                         legend: {
