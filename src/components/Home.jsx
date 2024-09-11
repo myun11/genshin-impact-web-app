@@ -7,7 +7,7 @@ const Home = (props) => {
         <div className = "absolute top-48 h-fit">
           <div className="md:w-4/5 p-4 mx-auto bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
             <h1 className="md:text-8xl font-extrabold">Welcome to Sumeru.dev</h1>
-            <p className="text-md lg:text-2xl">
+            <p className="text-md lg:text-2xl lg:w-1/2 lg:flex-col item-center justify-center mx-auto">
               This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact.
               Sumeru.dev provides data on character profiles, weapons, items and more. Everything you need in one place!
             </p>
