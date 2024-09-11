@@ -2,7 +2,41 @@ import React, { useState, useEffect } from 'react'
 import Chart from "react-apexcharts";
 
 const RadarChart = (props) => {
-    const [aggregate, setAggregate] = useState([])
+    const [aggregate, setAggregate] = useState({
+        "1-Hit DMG": 51.52434782608696,
+        "2-Hit DMG": 49.83623188405798,
+        "3-Hit DMG": 63.836515151515165,
+        "4-Hit DMG": 71.79685185185187,
+        "5-Hit DMG": 68.90962962962963,
+        "Charged Attack DMG": 119.39692308343362,
+        "Charged Attack Stamina Cost": 32,
+        "Plunge DMG": 60.96060000000003,
+        "Low / High Plunge DMG": {
+            "count": 50,
+            "value": {
+                "low": 122.12340000000002,
+                "high": 152.4188
+            }
+        },
+        "Aimed Shot DMG": 43.81166666666666,
+        "Fully Charged Aimed Shot DMG": 124,
+        "Arataki Kesagiri Combo Slash DMG": 91.2,
+        "Arataki Kesagiri Final Slash DMG": 190.1,
+        "Masque of the Red Death Increase": 120.4,
+        "6-Hit DMG": 76.12333333333333,
+        "Charged Attack Spinning DMG": 60.82857142857143,
+        "Charged Attack Final DMG": 108.056,
+        "Spiritbreath Thorn DMG": 11.17,
+        "Charged Attack Cyclic DMG": 57.333333333333336,
+        "Frostflake Arrow DMG": 128,
+        "Frostflake Arrow Bloom DMG": 218,
+        "Charged Attack": 128.83,
+        "Normal Attack DMG": 28,
+        "DMG per Star Jade": 49.6,
+        "Height DMG": 0.6666666666666666,
+        "Scarlet Seal Stamina Consumption Decrease Per Seal": 15,
+        "Scarlet Seal Duration": 10
+    })
     const [selfData, setSelfData] = useState([])
     const [totalData, setTotalData] = useState([])
     const [xaxis, setXaxis] = useState([])
@@ -147,7 +181,6 @@ const RadarChart = (props) => {
     // Prepares chart data
     const prepareChart = () => {
 
-        let counts = getCounts()
         // Parse current character skill descriptors and rank among top 8
         // Excluded descriptors for now. Maybe future improvement
         const excludedNames = [
@@ -178,7 +211,8 @@ const RadarChart = (props) => {
         console.log("selfSkills: ", selfSkills)
         const dict = {}
         selfSkills.map(entry => {
-            if (getFinalName(entry.name) != "Low / High Plunge DMG") {
+            console.log("step: ", entry)
+            if (getFinalName(entry.name) != "Max Duration") {
                 dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
             }
         })
@@ -186,13 +220,7 @@ const RadarChart = (props) => {
         console.log("dict is: ", dict)
         const data = []
         sortedNames.map(entry => {
-            // let desc = dict[entry]
-            // if (desc == undefined) {
-            //     data.push(0)
-            // } else {
-                data.push(dict[entry])
-            // }
-            
+            data.push(dict[entry])            
         })
         setSelfData(data)
 
@@ -209,23 +237,13 @@ const RadarChart = (props) => {
     }
 
     useEffect(() => {
-        getAverageValues()
+        // getAverageValues()
     }, [])
 
     useEffect(() => {
         prepareChart()
     }, [aggregate, props.charPreviewData])
     const state = {
-        series: [
-            {
-                name: props.charPreviewData.name,
-                data: selfData,
-            },
-            {
-                name: "Average",
-                data: totalData,
-            },
-        ],
         options: {
             // chart: {
                 // height: 800,
@@ -251,7 +269,7 @@ const RadarChart = (props) => {
     };
     return (
         <div className="flex items-center justify-center">
-            <button onClick = {() => console.log(props.rosterData)}>all</button>
+            {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
             <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
@@ -260,9 +278,9 @@ const RadarChart = (props) => {
             <button onClick = {() => console.log(getCounts())}>get counts</button>
             <button onClick = {() => console.log(selfData)}>self data</button>
             <button onClick = {() => {
-                let test = "40%/s"
-                console.log(test.replaceAll('%', '').replaceAll('/s', ''))
-            }}>regex test</button>
+                let test = "55.25% + 55.25%"
+                console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
+            }}>test</button> */}
             
 
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
@@ -270,7 +288,16 @@ const RadarChart = (props) => {
                 <div className="mixed-chart">
                     <Chart
                     options={state.options}
-                    series={state.series}
+                    series={[
+                        {
+                            name: props.charPreviewData.name,
+                            data: selfData,
+                        },
+                        {
+                            name: "Average",
+                            data: totalData,
+                        },
+                    ]}
                     type="radar"
                     width="1000"
                     />
