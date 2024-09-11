@@ -202,8 +202,8 @@ const RadarChart = (props) => {
             let name = entry.name
             // Excludes excludedNames and only counts descriptors with 5 counts or more in total.
             if (!excludedNames.includes(getFinalName(name)) && returnCount(getFinalName(name)) > 5) {
-                if (!names.includes(name)) {
-                    names.push(name)
+                if (!names.includes(getFinalName(name))) {
+                    names.push(getFinalName(name))
                 }    
             }
         })
@@ -212,13 +212,13 @@ const RadarChart = (props) => {
             let frequency_b = returnCount(getFinalName(b))
             return frequency_a < frequency_b
         })
-        console.log("sorted names is ", sortedNames)
-        console.log("selfSkills: ", selfSkills)
+        // console.log("sorted names is ", sortedNames)
+        // console.log("selfSkills: ", selfSkills)
         const dict = {}
         selfSkills.map(entry => {
-            console.log("step: ", entry)
+            // console.log("step: ", entry)
             if (sortedNames.includes(getFinalName(entry.name))) {
-                dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
+                dict[getFinalName(entry.name)] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
             }
         })
 
@@ -233,10 +233,11 @@ const RadarChart = (props) => {
         sortedNames.map(entry => {
             if (!excludedNames.includes(getFinalName(entry))) {
                 let val = Number(aggregate[getFinalName(entry)])
-                console.log("val: ", Number(val.toFixed(2)))
+                // console.log("val: ", Number(val.toFixed(2)))
                 data2.push(Number(val?.toFixed(2)))
             }
         })
+        // console.log(data)
         setTotalData(data2)
         setXaxis(sortedNames)
         
