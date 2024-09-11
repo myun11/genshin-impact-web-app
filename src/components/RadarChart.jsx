@@ -218,11 +218,12 @@ const RadarChart = (props) => {
         selfSkills.map(entry => {
             // console.log("step: ", entry)
             if (sortedNames.includes(getFinalName(entry.name))) {
-                dict[getFinalName(entry.name)] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
+                let num = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '').replaceAll('x', '*').replaceAll('×', '*')).toFixed(2))
+                dict[getFinalName(entry.name)] = num              
             }
         })
 
-        console.log("dict is: ", dict)
+        // console.log("dict is: ", dict)
         const data = []
         sortedNames.map(entry => {
             data.push(dict[entry])            
