@@ -217,7 +217,7 @@ const RadarChart = (props) => {
         const dict = {}
         selfSkills.map(entry => {
             console.log("step: ", entry)
-            if (getFinalName(entry.name) != "Max Duration") {
+            if (sortedNames.includes(getFinalName(entry.name))) {
                 dict[entry.name] = Number(eval(entry.value.replaceAll('%', '').replaceAll('/s', '')))
             }
         })
