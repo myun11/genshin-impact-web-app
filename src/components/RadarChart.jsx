@@ -3,10 +3,14 @@ import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import Chart from "react-apexcharts";
 import HC_more from "highcharts/highcharts-more";
+import WindowDimensions from './WindowDimensions';
 
 // init the module
 HC_more(Highcharts);
 const RadarChart = (props) => {
+    // For resizing apex charts
+    const {height, width} = WindowDimensions()
+    const [size, setSize] = useState(0)
     const [aggregate, setAggregate] = useState({
         "1-Hit DMG": 51.52434782608696,
         "2-Hit DMG": 49.83623188405798,
@@ -277,9 +281,28 @@ const RadarChart = (props) => {
         }
     };
 
+    useEffect(() => {      
+        if (width >= 300 && width < 600) {
+            setSize(600 + width/3)
+        } else if (width >= 600 && width < 800) {
+            setSize(650 + width/2)        
+        } else if (width >= 800 && width < 1024) {
+            setSize(650 + width/1.5)
+        } else if (width >= 1024 && width < 1400) {
+            // column change when width is 1024 or more
+            setSize(600 + width/4)
+        } else if (width >= 1400 && width < 1700) {
+            setSize(700 + width/3)
+        } else {
+            setSize(800 + width/4)
+        }
+    }, [width])
+
     return (
-        <div className="flex items-center justify-center">
-            {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
+        <div className="max-w-full flex items-center justify-center mx-auto">
+            {/* <button onClick = {() => console.log(width)}>width</button> */}
+            {/* <div>
+            <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
             <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
@@ -291,13 +314,14 @@ const RadarChart = (props) => {
                 let test = "55.25% + 55.25%"
                 console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
             }}>test</button>
-            <button onClick = {() => console.log(totalData)}>total</button> */}
+            <button onClick = {() => console.log(totalData)}>total</button>
             
 
-            {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
-            
+            <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button>
+            </div> */}
                  
                     <Chart
+                    className=""
                     options={state.options}
                     series={[
                         {
@@ -310,7 +334,8 @@ const RadarChart = (props) => {
                         },
                     ]}
                     type="radar"
-                    width="1000"
+                    width={size}
+                    // width='660'
                     />
         </div>
   )
