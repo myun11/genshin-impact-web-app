@@ -6,10 +6,10 @@ const Home = (props) => {
       <div className="absolute inset-0 z-0 h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#00a_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#00a_100%)]"></div>
         <div className = "absolute top-48 h-fit">
           <div className="md:w-4/5 p-4 mx-auto bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
-            <h1 className="md:text-8xl font-extrabold">Welcome to Sumeru.gg</h1>
+            <h1 className="md:text-8xl font-extrabold">Welcome to Sumeru.dev</h1>
             <p className="text-md lg:text-2xl">
-              This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact. 
-              Sumeru.gg provides data on character profiles, weapons, items and more. Everything you need in one place!
+              This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact.
+              Sumeru.dev provides data on character profiles, weapons, items and more. Everything you need in one place!
             </p>
           </div>
           <div className="md:w-4/5 p-4 mx-auto">

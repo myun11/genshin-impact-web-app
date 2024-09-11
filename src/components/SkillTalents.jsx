@@ -45,7 +45,7 @@ const SkillTalents = (props) => {
 
                   <div className= "lg:w-1/2">
                     <div className="lg:flex lg:flex-col">
-                      {idx == 0 && chart ?
+                      {idx == 0 && false && chart ?
                       <div className="">
                         <RadarChart
                           chart = {chart}

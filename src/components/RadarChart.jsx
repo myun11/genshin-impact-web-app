@@ -251,7 +251,7 @@ const RadarChart = (props) => {
 
     return (
         <div className="flex items-center justify-center">
-            <button onClick = {() => console.log(props.rosterData)}>all</button>
+            {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
             <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
             <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
             <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
@@ -263,7 +263,7 @@ const RadarChart = (props) => {
                 let test = "55.25% + 55.25%"
                 console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
             }}>test</button>
-            <button onClick = {() => console.log(totalData)}>total</button>
+            <button onClick = {() => console.log(totalData)}>total</button> */}
             
 
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
@@ -294,7 +294,7 @@ const RadarChart = (props) => {
                             xAxis: {
                                 categories: xaxis,
                                 tickmarkPlacement: 'on',
-                                lineWidth: 1
+                                lineWidth: 0
                             },
                         
                             yAxis: {

@@ -1,8 +1,5 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
-import { TbApi } from "react-icons/tb";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -21,7 +18,7 @@ const Footer = () => {
         </div>  
       </div>
       <div className="text-sm text-black dark:text-white">
-        <p>Sumeru.gg is not affiliated with HoYoverse.</p>
+        <p>Sumeru.dev is not affiliated with HoYoverse.</p>
         <p>Genshin Impact, game content and all assets are trademarks and copyrights of HoYoverse.</p>
       </div>
     </div>
