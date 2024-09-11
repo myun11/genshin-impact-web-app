@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
+import Chart from "react-apexcharts";
 import HC_more from "highcharts/highcharts-more";
 
 // init the module
@@ -249,6 +250,31 @@ const RadarChart = (props) => {
         prepareChart()
     }, [])
 
+    const state = {
+        options: {
+            // chart: {
+                // height: 800,
+                // type: 'radar',
+            // },
+            // title: {
+            //     text: "Stats"
+            // },
+            yaxis: {
+                stepSize: 20
+            },
+            // Skill Descriptors
+            xaxis: { 
+                categories: xaxis
+            },
+            dropShadow: {
+                enabled: true,
+                blur: 1,
+                left: 1,
+                top: 1
+            }
+        }
+    };
+
     return (
         <div className="flex items-center justify-center">
             {/* <button onClick = {() => console.log(props.rosterData)}>all</button>
@@ -269,82 +295,21 @@ const RadarChart = (props) => {
             {/* <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
             
                  
-                <div className="bg-transparent">
-                    <HighchartsReact
-                        highcharts={Highcharts}
-                        constructor='chart'
-                        allowChartUpdate={true}
-                        options={{
-                            chart: {
-                                polar: true,
-                                type: 'line'
-                            },
-                            // subtitle: {
-                            //     text: ''
-                            // },
-                            title: {
-                                text: '',
-                                x: -80
-                            },
-                        
-                            // pane: {
-                            //     size: '80%'
-                            // },
-                        
-                            xAxis: {
-                                categories: xaxis,
-                                tickmarkPlacement: 'on',
-                                lineWidth: 0
-                            },
-                        
-                            yAxis: {
-                                gridLineInterpolation: 'polygon',
-                                lineWidth: 0,
-                                min: 0
-                            },
-                        
-                            tooltip: {
-                                shared: true,
-                                pointFormat: '<span style="color:{series.color}">{series.name}: <b>' +
-                                    '${point.y:,.0f}</b><br/>'
-                            },
-                        
-                            legend: {
-                                align: 'right',
-                                verticalAlign: 'middle',
-                                layout: 'vertical'
-                            },
-                        
-                            series: [{
-                                name: props.charPreviewData.name,
-                                data: selfData,
-                                pointPlacement: 'on'
-                            }, {
-                                name: 'Average',
-                                data: totalData,
-                                pointPlacement: 'on'
-                            }],
-                        
-                            responsive: {
-                                rules: [{
-                                    condition: {
-                                        maxWidth: 1000
-                                    },
-                                    chartOptions: {
-                                        legend: {
-                                            align: 'center',
-                                            verticalAlign: 'bottom',
-                                            layout: 'horizontal'
-                                        },
-                                        pane: {
-                                            size: '70%'
-                                        }
-                                    }
-                                }]
-                            }
-                        }}
+                    <Chart
+                    options={state.options}
+                    series={[
+                        {
+                            name: props.charPreviewData.name,
+                            data: selfData,
+                        },
+                        {
+                            name: "Average",
+                            data: totalData,
+                        },
+                    ]}
+                    type="radar"
+                    width="1000"
                     />
-                </div>           
         </div>
   )
 }
