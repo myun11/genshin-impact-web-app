@@ -353,7 +353,7 @@ const RadarChart = (props) => {
                 top: 1
             },
             // 
-            colors: [vision, hexcolor["Average"]],
+            colors: [vision, hexcolor["average"]],
             fill: {
                 opacity: [0.6, 0.2],
                 // Area color
@@ -369,14 +369,14 @@ const RadarChart = (props) => {
             //         colors: ['#00ff00', '#ff0000']
             //     }
             // },
-            markers: {
-                // Dot color
-                colors: [vision, '#808080']
-            },
+            // markers: {
+            //     // Dot color
+            //     colors: [vision, hexcolor["average"]]
+            // },
             plotOptions: {
                 radar: {
                     polygons: {
-                        strokeColor: '#ffffff',
+                        strokeColor: hexcolor["average"],
                         fill: {
                             // Striped pattern
                             // Light Mode: #d4d1d1
