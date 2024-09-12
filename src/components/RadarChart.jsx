@@ -397,7 +397,7 @@ const RadarChart = (props) => {
     }, [xaxis])
 
     useEffect(() => {      
-        if (width >= 300 && width < 600) {
+        if (width < 600) {
             setSize(600 + width/3)
         } else if (width >= 600 && width < 800) {
             setSize(650 + width/2)        
