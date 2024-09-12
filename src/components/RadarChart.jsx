@@ -369,10 +369,10 @@ const RadarChart = (props) => {
             //         colors: ['#00ff00', '#ff0000']
             //     }
             // },
-            // markers: {
-            //     // Dot color
-            //     colors: [vision, hexcolor["average"]]
-            // },
+            markers: {
+                // Dot color
+                colors: [vision, hexcolor["average"]]
+            },
             plotOptions: {
                 radar: {
                     polygons: {
