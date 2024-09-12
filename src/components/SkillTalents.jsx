@@ -18,11 +18,11 @@ const SkillTalents = (props) => {
                   <div className="text-start lg:w-1/2 lg:p-5 ">
                     
                     {/* Skill Header and Icon */}
-                    <div className="inline-flex justify-between p-5 leading-normal">                      
+                    <div className="inline-flex justify-between p-5 ">                      
                       <img className="pr-5 rounded-t-lg lg:rounded-none lg:rounded-s-lg w-28 md:h-auto md:w-auto" src={reorderedImages[idx]} alt=""/>
                       <div className="flex flex-col items-start justify-center">
                         <p className="text-left text-lg italic tracking-tight text-gray-900 dark:text-white">{entry.unlock}</p>
-                        <h2 className="text-left mb-3 text-3xl font-bold max-md:tracking-tight text-gray-900 dark:text-white">{entry.name}</h2>
+                        <h2 className="text-left text-3xl font-bold max-md:tracking-tight text-gray-900 dark:text-white">{entry.name}</h2>
                       </div>
                     </div>
                   

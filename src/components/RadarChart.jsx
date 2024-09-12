@@ -324,10 +324,8 @@ const RadarChart = (props) => {
             'light' : '#000000'
             }
         const vision = hexcolor[props.charPreviewData.vision.toLowerCase()]
-            console.log("vision is: ", vision)
         const xaxisColors = []
         xaxis.map((entry, idx) => {
-            console.log("here")
             xaxisColors.push(
                 hexcolor[theme]
             )
@@ -378,12 +376,12 @@ const RadarChart = (props) => {
             plotOptions: {
                 radar: {
                     polygons: {
-                    strokeColor: '#ffffff',
-                    fill: {
-                        // Striped pattern
-                        // Light Mode: #d4d1d1
-                        colors: ['#c1bcbc', '#c1bcbc']
-                    }
+                        strokeColor: '#ffffff',
+                        fill: {
+                            // Striped pattern
+                            // Light Mode: #d4d1d1
+                            colors: ['#c1bcbc', '#c1bcbc']
+                        }
                     }
                 }
             },
