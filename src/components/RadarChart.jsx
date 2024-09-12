@@ -4,13 +4,17 @@ import HighchartsReact from "highcharts-react-official";
 import Chart from "react-apexcharts";
 import HC_more from "highcharts/highcharts-more";
 import WindowDimensions from './WindowDimensions';
+import Loader from './Loader';
 
 // init the module
 HC_more(Highcharts);
 const RadarChart = (props) => {
     // For resizing apex charts
+    const [loadingData, setLoadingData] = useState(true)
+    const [loadingOptions, setLoadingOptions] = useState(true)
+    
     const {width, height} = WindowDimensions()
-    const [size, setSize] = useState(0)
+    const [size, setSize] = useState(300)
     const [aggregate, setAggregate] = useState({
         "1-Hit DMG": 51.52434782608696,
         "2-Hit DMG": 49.83623188405798,
@@ -245,7 +249,7 @@ const RadarChart = (props) => {
         // console.log(data)
         setTotalData(data2)
         setXaxis(sortedNames)
-        
+        setLoadingOptions(false)
     }
 
     // useEffect(() => {
@@ -258,6 +262,11 @@ const RadarChart = (props) => {
 
     
     const [options, setOptions] = useState({
+        chart : {
+            toolbar: {
+                show: false
+              }
+        },
         yaxis: {
             stepSize: 20
         },
@@ -331,6 +340,14 @@ const RadarChart = (props) => {
             )
         })
         const obj = {
+            chart : {
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false,
+                }
+            },
             yaxis: {
                 stepSize: 20
             },
@@ -375,6 +392,8 @@ const RadarChart = (props) => {
             },
             plotOptions: {
                 radar: {
+                    size : size / 10
+                    ,
                     polygons: {
                         strokeColor: hexcolor["average"],
                         fill: {
@@ -387,16 +406,18 @@ const RadarChart = (props) => {
             },
             tooltip: {
                 theme: theme
-            }
+            },
+            
         }
         setOptions(obj)
+        setLoadingData(false)
     }
 
     useEffect(() => {
         prepareChartOptions()
-    }, [xaxis])
+    }, [xaxis, size])
 
-    useEffect(() => {      
+    useEffect(() => {
         if (width < 600) {
             setSize(600 + width/3)
         } else if (width >= 600 && width < 800) {
@@ -405,39 +426,38 @@ const RadarChart = (props) => {
             setSize(650 + width/1.5)
         } else if (width >= 1024 && width < 1400) {
             // column change when width is 1024 or more
-            setSize(600 + width/4)
+            setSize(600 + width/2)
         } else if (width >= 1400 && width < 1700) {
-            setSize(700 + width/3)
+            setSize(700 + width/1.5)
         } else {
-            setSize(800 + width/4)
+            setSize(800 + width/1.4)
         }
-    }, [width])
+    }, [])
 
     return (
         <div className="w-full flex items-center justify-center mx-auto">
-            {/* <button onClick = {()=> console.log(document.documentElement.classList.contains('dark'))}>contains</button> */}
-            {/* <button onClick = {() => console.log(width)}>width</button> */}
-            {/* <div>
-            <button onClick = {() => console.log(props.rosterData)}>all</button>
-            <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
-            <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
-            <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
-            <button onClick = {() => console.log(returnCount("1-Hit DMG"))}>returnsCount</button>
-            <button onClick = {() => console.log(aggregate)}>aggregate</button>
-            <button onClick = {() => console.log(getCounts())}>get counts</button>
-            <button onClick = {() => console.log(selfData)}>self data</button>
-            <button onClick = {() => {
-                let test = "55.25% + 55.25%"
-                console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
-            }}>test</button>
-            <button onClick = {() => console.log(totalData)}>total</button>
-            
-
-            <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button>
-            </div> */}
-                 
+            <div>
+                {/* <button onClick = {()=> console.log(document.documentElement.classList.contains('dark'))}>contains</button>
+                <button onClick = {() => console.log(width)}>width</button>
+                <button onClick = {() => console.log(props.rosterData)}>all</button>
+                <button onClick = {() => console.log(props.charPreviewData.skillTalents[0].upgrades)}>this char</button>
+                <button onClick = {() => console.log(getCounts())}>getAverageCount</button>
+                <button onClick = {() => console.log(getAverageValues())}>getAverageValues</button>
+                <button onClick = {() => console.log(returnCount("1-Hit DMG"))}>returnsCount</button>
+                <button onClick = {() => console.log(aggregate)}>aggregate</button>
+                <button onClick = {() => console.log(getCounts())}>get counts</button>
+                <button onClick = {() => console.log(selfData)}>self data</button>
+                <button onClick = {() => {
+                    let test = "55.25% + 55.25%"
+                    console.log(Number(eval(test.replaceAll('%', '').replaceAll('/s', ''))))
+                }}>test</button>
+                <button onClick = {() => console.log(totalData)}>total</button>
+                <button onClick = {() => props.showChart(prev => !prev)}>Toggle Table/Chart</button> */}
+            </div>
+                 <div className = "h-full">
+                    {loadingData || loadingOptions ? 
+                    <Loader loading = {loadingData}/> :
                     <Chart
-                    className=""
                     options={options}
                     series={[
                         {
@@ -450,9 +470,13 @@ const RadarChart = (props) => {
                         },
                     ]}
                     type="radar"
-                    width={size}
                     // width='660'
+                    width={size /2}
                     />
+
+                    }
+
+                 </div>
         </div>
   )
 }
