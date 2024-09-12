@@ -9,7 +9,7 @@ import WindowDimensions from './WindowDimensions';
 HC_more(Highcharts);
 const RadarChart = (props) => {
     // For resizing apex charts
-    const {height, width} = WindowDimensions()
+    const {width, height} = WindowDimensions()
     const [size, setSize] = useState(0)
     const [aggregate, setAggregate] = useState({
         "1-Hit DMG": 51.52434782608696,
@@ -49,7 +49,7 @@ const RadarChart = (props) => {
     const [selfData, setSelfData] = useState([])
     const [totalData, setTotalData] = useState([])
     const [xaxis, setXaxis] = useState([])
-
+    
     // Helper function that returns the combined descriptor for multiple misspelled skill descriptors
     // Most common are
 
@@ -256,30 +256,147 @@ const RadarChart = (props) => {
         prepareChart()
     }, [])
 
-    const state = {
-        options: {
-            // chart: {
-                // height: 800,
-                // type: 'radar',
-            // },
-            // title: {
-            //     text: "Stats"
-            // },
+    
+    const [options, setOptions] = useState({
+        yaxis: {
+            stepSize: 20
+        },
+        // Skill Descriptors
+        xaxis: { 
+            categories: xaxis,
+            labels: {
+                show: true,
+                style: {
+                    colors: ["#000000"],
+                    fontSize: "11px",
+                    fontFamily: 'Arial'
+                }
+            }
+        },
+        dropShadow: {
+            enabled: true,
+            blur: 1,
+            left: 1,
+            top: 1
+        },
+        colors:['#0000FF', '#FFFFFF'],
+        fill: {
+            opacity: 0.25,
+            colors: ['#0000FF', '#FFFFFF']
+        },
+        dataLabels: {
+            style: {
+                colors: ['#0000FF', '#FFFFFF']
+            }
+        },
+        markers: {
+            colors: ['#0000FF', '#FFFFFF']
+        },
+        plotOptions: {
+            radar: {
+                polygons: {
+                strokeColor: '#000000',
+                fill: {
+                    // Light Mode: #d4d1d1
+                    colors: ['#d4d1d1', '#c1bcbc']
+                }
+                }
+            }
+        },
+        tooltip: {
+            theme: 'dark'
+        }
+    })
+
+    const prepareChartOptions = () => {
+        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+
+        const hexcolor = {
+            'dendro' : '#84cc16',
+            'pyro' : '#f87171', 
+            'hydro' : '#60a5fa',
+            'geo' : '#fbbf24',
+            'anemo' : '#2dd4bf',
+            'cryo' : '#38bdf8',
+            'electro': '#a78bfa',
+            'average': '#808080',
+            'dark' : '#ffffff',
+            'light' : '#000000'
+            }
+        const vision = hexcolor[props.charPreviewData.vision.toLowerCase()]
+            console.log("vision is: ", vision)
+        const xaxisColors = []
+        xaxis.map((entry, idx) => {
+            console.log("here")
+            xaxisColors.push(
+                hexcolor[theme]
+            )
+        })
+        const obj = {
             yaxis: {
                 stepSize: 20
             },
             // Skill Descriptors
             xaxis: { 
-                categories: xaxis
+                categories: xaxis,
+                labels: {
+                    show: true,
+                    style: {
+                        colors: xaxisColors,
+                        fontSize: "11px",
+                        fontFamily: 'Arial'
+                    }
+                }
             },
             dropShadow: {
                 enabled: true,
                 blur: 1,
                 left: 1,
                 top: 1
+            },
+            // 
+            colors: [vision, hexcolor["Average"]],
+            fill: {
+                opacity: [0.6, 0.2],
+                // Area color
+                colors: [vision, '#282828']
+            },
+            // dataLabels: {
+            //     enabled: true,
+            //     background: {
+            //         enabled: true,
+            //         borderRadius:2,
+            //     },
+            //     style: {
+            //         colors: ['#00ff00', '#ff0000']
+            //     }
+            // },
+            markers: {
+                // Dot color
+                colors: [vision, '#808080']
+            },
+            plotOptions: {
+                radar: {
+                    polygons: {
+                    strokeColor: '#ffffff',
+                    fill: {
+                        // Striped pattern
+                        // Light Mode: #d4d1d1
+                        colors: ['#c1bcbc', '#c1bcbc']
+                    }
+                    }
+                }
+            },
+            tooltip: {
+                theme: theme
             }
         }
-    };
+        setOptions(obj)
+    }
+
+    useEffect(() => {
+        prepareChartOptions()
+    }, [xaxis])
 
     useEffect(() => {      
         if (width >= 300 && width < 600) {
@@ -299,7 +416,8 @@ const RadarChart = (props) => {
     }, [width])
 
     return (
-        <div className="max-w-full flex items-center justify-center mx-auto">
+        <div className="w-full flex items-center justify-center mx-auto">
+            {/* <button onClick = {()=> console.log(document.documentElement.classList.contains('dark'))}>contains</button> */}
             {/* <button onClick = {() => console.log(width)}>width</button> */}
             {/* <div>
             <button onClick = {() => console.log(props.rosterData)}>all</button>
@@ -322,7 +440,7 @@ const RadarChart = (props) => {
                  
                     <Chart
                     className=""
-                    options={state.options}
+                    options={options}
                     series={[
                         {
                             name: props.charPreviewData.name,
