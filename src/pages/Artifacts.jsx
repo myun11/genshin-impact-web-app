@@ -113,7 +113,7 @@ const Artifacts = () => {
                                             <label className="sr-only">Search</label>
                                             <input onChange={(e) => {
                                                 setInput(e.target.value)
-                                            }} type="text" name="hs-table-with-pagination-search" id="hs-table-with-pagination-search" className="py-2 px-3 ps-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-400 dark:focus:ring-neutral-600" placeholder="Search for Artifact Class"/>
+                                            }} type="text" name="hs-table-with-pagination-search" id="hs-table-with-pagination-search" className="py-2 px-3 ps-9 block w-full bg-gray-200 border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-400 dark:focus:ring-neutral-600" placeholder="Search for Artifact Class"/>
                                             <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                                                 <svg className="size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <circle cx="11" cy="11" r="8"></circle>
@@ -204,7 +204,7 @@ const Artifacts = () => {
                                                 if (page != 0) {
                                                     setPage(prev => prev - 1)
                                                 }
-                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Previous">
+                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Previous">
                                             <span aria-hidden="true">«</span>
                                             <span className="sr-only">Previous</span>
                                             </button>
@@ -215,9 +215,9 @@ const Artifacts = () => {
                                                             <button onClick = {() => {
                                                                 setPage(idx)
                                                             }}type="button" className={page == idx ? 
-                                                                "bg-black min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
+                                                                "dark:bg-black min-w-[40px] flex justify-center items-center text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
                                                                 :
-                                                                "bg-gray-600 min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"}>{idx + 1}</button>
+                                                                "dark:bg-gray-600 min-w-[40px] flex justify-center items-center text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"}>{idx + 1}</button>
                                                         )
                                                     }
                                                 })
@@ -226,7 +226,7 @@ const Artifacts = () => {
                                                 if (page != Math.floor(filteredData.length / entriesPerPage)) {
                                                     setPage(prev => prev + 1)
                                                 }
-                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Next">
+                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Next">
                                             <span className="sr-only">Next</span>
                                             <span aria-hidden="true">»</span>
                                             </button>
