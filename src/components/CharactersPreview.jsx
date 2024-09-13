@@ -6,7 +6,7 @@ import PassiveTalents from './PassiveTalents'
 import Sidebar from './Sidebar'
 import Factions from './Factions'
 import SkillTalents from './SkillTalents'
-import Keywords from './Keywords'
+import Keywords from '../utility/Keywords'
 import AscensionMaterials from './AscensionMaterials'
 
 const CharactersPreview = (props) => {

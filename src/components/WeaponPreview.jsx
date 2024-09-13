@@ -1,5 +1,5 @@
 import React from 'react'
-import Keywords from './Keywords';
+import Keywords from '../utility/Keywords';
 const WeaponPreview = (props) => {
     const keywords = Keywords
     function reg() {
