@@ -87,7 +87,7 @@ const Artifacts = () => {
     }, [input, data])
 
     return (
-        <div className="p-2 md:p-4 lg:w-5/6 mx-auto min-h-screen">
+        <div className="p-2 md:p-4 min-h-screen">
             <div className="h-20"></div>
             <h1 className="p-4 text-black dark:text-white">Artifacts</h1>
             <div className = "p-4">
@@ -104,7 +104,7 @@ const Artifacts = () => {
                     <button onClick = {() => console.log(images)}>images</button>
                     table stuff goes here */}
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col lg:w-4/5 mx-auto">
                         <div className="lg:-m-1.5 ">
                             <div className="lg:p-1.5 max-w-full inline-block align-middle">
                                 <div className="border rounded-lg divide-y divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
@@ -161,24 +161,34 @@ const Artifacts = () => {
                                         </table>
 
                                         {/* Card Form */}
-                                        <div className="lg:hidden  w-full p-4 space-y-4 flex-col m-auto items-center justify-center">
+                                        <div className="lg:hidden w-full p-4 space-y-4 flex-col m-auto items-center justify-center">
                                             { data.length > 0 ?
                                                 filteredData.map((entry, idx) => {
                                                     if (idx >= page * entriesPerPage && idx < (page + 1) * entriesPerPage) {
                                                         return(
-                                                            <div className = "block bg-slate-300 dark:bg-slate-800 w-full border border-gray-800 dark:border-gray-200 rounded-xl lg:rounded-full shadow">
-                                                                <tr className="hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors duration-400 ease-in-out">
-                                                                    <div className="px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">{entry["name"]}</div>
-                                                                    <div className="inline-flex px-6 py-4 whitespace-nowrap text-start font-medium text-gray-800 dark:text-neutral-200">
-                                                                        {match(entry.id).map(item => 
-                                                                        <td className="w-20">
-                                                                            <img className="w-40" src = {item.url}/>
-                                                                        </td>)}
-                                                                    </div>
-                                                                    <div className="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["2-piece_bonus"]}</div>
-                                                                    <div className="text-wrap px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["4-piece_bonus"]}</div>
-                                                                    <div className="px-6 py-4 whitespace-nowrap text-start text-gray-800 dark:text-neutral-200">{entry["max_rarity"]}</div>
-                                                                </tr>
+                                                            <div className = "block py-2 bg-slate-300 dark:bg-slate-800 w-full border border-gray-800 dark:border-gray-200 rounded-xl shadow">
+                                                                <div className="p-2 text-start font-medium text-gray-800 dark:text-neutral-200">
+                                                                    <p className="uppercase font-bold">Artifact Class:</p>
+                                                                    {entry["name"]}
+                                                                </div>
+                                                                <div className="p-2 inline-flex text-start font-medium text-gray-800 dark:text-neutral-200">
+                                                                    {match(entry.id).map(item => 
+                                                                    <div>
+                                                                        <img className="w-40" src = {item.url}/>
+                                                                    </div>)}
+                                                                </div>
+                                                                <div className="p-2 text-start text-gray-800 dark:text-neutral-200">
+                                                                    <p className="uppercase font-bold">2-Piece Bonus:</p>
+                                                                    {entry["2-piece_bonus"]}
+                                                                </div>
+                                                                <div className="p-2 text-start text-gray-800 dark:text-neutral-200">
+                                                                    <p className="uppercase font-bold">4-Piece Bonus:</p>
+                                                                    {entry["4-piece_bonus"]}
+                                                                </div>
+                                                                <div className="p-2  text-start text-gray-800 dark:text-neutral-200">
+                                                                    <p className="uppercase font-bold">Rarity:</p>
+                                                                    {entry["max_rarity"]}
+                                                                </div>
                                                             </div>
                                                         )
                                                     }
