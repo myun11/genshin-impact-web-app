@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import Loader from './Loader'
+import Loader from '../components/Loader'
 const Dev = (props) => {
   const [loading, setLoading] = useState(true)
   return (

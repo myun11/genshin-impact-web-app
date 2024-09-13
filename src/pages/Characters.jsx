@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import axios from 'axios'
-import CharactersPreview from './CharactersPreview'
+import CharactersPreview from '../components/CharactersPreview'
 import moment from 'moment'
 
 // Weapon icons
@@ -11,7 +11,7 @@ import Polearm_Icon from '../images/Icon_Polearm.webp'
 import Sword_Icon from '../images/Icon_Sword.webp'
 import Orange_Star from '../images/Orange_Star.png'
 import Purple_Star from '../images/Purple_Star.png'
-import Loader from './Loader'
+import Loader from '../components/Loader'
 
 const Characters = (props) => {
     

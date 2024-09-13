@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import './output.css'
 import axios from 'axios';
-import Characters from './components/Characters';
 import Footer from './components/Footer';
-import Home from './components/Home';
 import Theme from './components/Theme';
-import Weapons from './components/Weapons';
-import Dev from './components/Dev';
 import Loader from './components/Loader';
-import Artifacts from './components/Artifacts';
-import Consumables from './components/Consumables';
 import Navbar from './components/Navbar';
+
+//Pages
+import Home from './pages/Home';
+import Characters from './pages/Characters';
+import Weapons from './pages/Weapons';
+import Dev from './pages/Dev';
+import Artifacts from './pages/Artifacts';
+import Consumables from './pages/Consumables';
 
 function App() {
   const [loading, setLoading] = useState(true)

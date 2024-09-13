@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Loader from './Loader'
+import Loader from '../components/Loader'
 
 const Artifacts = () => {
     const [loading, setLoading] = useState(true)

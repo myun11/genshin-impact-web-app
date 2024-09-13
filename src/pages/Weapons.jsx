@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { Transition } from '@headlessui/react';
-import WeaponPreview from './WeaponPreview';
-import Loader from './Loader'
+import WeaponPreview from '../components/WeaponPreview';
+import Loader from '../components/Loader'
 
 const Weapons = () => {
 
