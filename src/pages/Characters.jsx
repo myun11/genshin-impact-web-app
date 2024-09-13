@@ -367,7 +367,7 @@ const Characters = (props) => {
                             return(
                                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                                     <button className = "bg-gradient-to-b from-purple-500 to-white" >
-                                        <img className="box-content w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
+                                        <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                         props.setCharPreviewState(true)
                                         props.setCharPreviewData(entry)
                                     }}/></button>
