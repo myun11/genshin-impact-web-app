@@ -182,7 +182,7 @@ const Characters = (props) => {
     if (props.masterCharacterDataArray) {
     // Renders each character background orange for 5 star and purple for 4 star
     return (
-    <div className = {props.charPreviewState ? colors[props.charPreviewData.vision] + " p-2 md:p-4" : " p-2 md:p-4"}>
+    <div className = {props.charPreviewState ? colors[props.charPreviewData.vision] + " p-2 md:p-4 min-h-screen" : " min-h-screen p-2 md:p-4"}>
         {/* When state is true, the current character details page will be rendered. When false, the grid will be rendered. */}
         {props.charPreviewState ? 
             <div className="">
@@ -194,7 +194,7 @@ const Characters = (props) => {
                 />  
             </div>
             :
-            <div className='min-h-screen'>
+            <div className=''>
                 <div className="h-20"></div>
                 <h1 className = "p-4 text-black dark:text-white">Characters</h1>
                 {/* <div> */}

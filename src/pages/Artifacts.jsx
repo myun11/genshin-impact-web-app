@@ -90,11 +90,7 @@ const Artifacts = () => {
         <div className="p-2 md:p-4 min-h-screen">
             <div className="h-20"></div>
             <h1 className="p-4 text-black dark:text-white">Artifacts</h1>
-            <div className = "p-4">
-                <div className = "bg-slate-500 h-1 w-full"></div>
-                {/* filter stuff maybe here? */}
-                <div className = "max-lg:hidden bg-slate-500 h-1 w-full"></div>
-            </div>
+
             { loading ? 
                 <div>
                     <Loader loading = {loading}/>
@@ -103,7 +99,11 @@ const Artifacts = () => {
                     {/* <button onClick = {() => console.log(data)}>data</button>
                     <button onClick = {() => console.log(images)}>images</button>
                     table stuff goes here */}
-
+                    <div className = "p-4">
+                        <div className = "bg-slate-500 h-1 w-full"></div>
+                        {/* filter stuff maybe here? */}
+                        <div className = "max-lg:hidden bg-slate-500 h-1 w-full"></div>
+                    </div>
                     <div className="flex flex-col lg:w-4/5 mx-auto">
                         <div className="lg:-m-1.5 ">
                             <div className="lg:p-1.5 max-w-full inline-block align-middle">
