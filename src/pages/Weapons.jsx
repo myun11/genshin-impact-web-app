@@ -18,26 +18,24 @@ const Weapons = () => {
             await axios.get('https://genshin.jmp.blue/weapons')
             .then(res => {
                 res.data.map(async weapon => {
-                    if (weapon != "sword-of-narzissenkreuz") { // Until API is updated.
-                        try {
-                            await axios.get('https://genshin.jmp.blue/weapons/' + weapon)
-                            .then(res2 => {
+                    try {
+                        await axios.get('https://genshin.jmp.blue/weapons/' + weapon)
+                        .then(res2 => {
 
-                                // This method updates state better than the method below.
-                                setWeapons(wep => [...wep, {
-                                    'id' : weapon,
-                                    'data' : res2.data,
-                                    'icon' : 'https://genshin.jmp.blue/weapons/' + weapon + '/icon'
-                                }])
-                                setFilteredWeapons(wep => [...wep, {
-                                    'id' : weapon,
-                                    'data' : res2.data,
-                                    'icon' : 'https://genshin.jmp.blue/weapons/' + weapon + '/icon'
-                                }])
-                            })
-                        } catch (error) {
-                            console.log("Error getting weapon data: ", error)
-                        }
+                            // This method updates state better than the method below.
+                            setWeapons(wep => [...wep, {
+                                'id' : weapon,
+                                'data' : res2.data,
+                                'icon' : 'https://genshin.jmp.blue/weapons/' + weapon + '/icon'
+                            }])
+                            setFilteredWeapons(wep => [...wep, {
+                                'id' : weapon,
+                                'data' : res2.data,
+                                'icon' : 'https://genshin.jmp.blue/weapons/' + weapon + '/icon'
+                            }])
+                        })
+                    } catch (error) {
+                        console.log("Error getting weapon data: ", error)
                     }
                 })
                 // const array = []
