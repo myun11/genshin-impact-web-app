@@ -257,10 +257,10 @@ const Weapons = () => {
 
             {weaponPreviewState ? 
                 <div>
-                            <WeaponPreview
-                                wep = {selectedWeapon}
-                                setWeaponPreviewState={setWeaponPreviewState}
-                            />
+                    <WeaponPreview
+                        wep = {selectedWeapon}
+                        setWeaponPreviewState={setWeaponPreviewState}
+                    />
                 </div> :
                 <div>
                     <h1 className="p-4 text-black dark:text-white">Weapons</h1>
@@ -279,7 +279,7 @@ const Weapons = () => {
                                 {/* Weapon type multiselect  */}
                                 <div className="relative w-64" >
                                     <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                                        className="border border-gray-300 bg-gray-200 dark:bg-gray-800 rounded-md p-2 cursor-pointer"
                                         onClick={() => handleDropdownClick("types")}
                                     >
                                         {selectedOptions.types.length > 0 ? (
@@ -330,7 +330,7 @@ const Weapons = () => {
                                 {/* Weapon substat multiselect  */}
                                 <div className="relative w-64" >
                                     <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                                        className="border border-gray-300 bg-gray-200 dark:bg-gray-800 rounded-md p-2 cursor-pointer"
                                         onClick={() => handleDropdownClick("subStats")}
                                     >
                                         {selectedOptions.subStats.length > 0 ? (
@@ -381,7 +381,7 @@ const Weapons = () => {
                                 {/* Weapon rarity multiselect */}
                                 <div className="relative w-64" >
                                     <div
-                                        className="border border-gray-300 rounded-md p-2 cursor-pointer"
+                                        className="border border-gray-300 bg-gray-200 dark:bg-gray-800 rounded-md p-2 cursor-pointer"
                                         onClick={() => handleDropdownClick("rarity")}
                                     >
                                         {selectedOptions.rarity.length > 0 ? (
@@ -428,14 +428,23 @@ const Weapons = () => {
                                         </div>
                                     </Transition>
                                 </div>
-                                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 
-                                focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                                <div className="relative max-w-xs">
+                                    <label className="sr-only">Search</label>
+                                    <input className="bg-gray-200 ps-9 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 
+                                focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
                                  dark:focus:ring-blue-500 dark:focus:border-blue-500" id="weapon-search" type = "string" placeholder='Search Weapon' onChange = {(e) => setWeaponSearch(e.target.value)}/>
+                                    <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
+                                        <svg className="size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <path d="m21 21-4.3-4.3"></path>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
                         {
-                            filteredWeapons.length > 0 ? <div className = "lg:w-5/6 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 ">
+                            filteredWeapons.length > 0 ? <div className = "lg:w-4/5 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 md:gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(
@@ -444,7 +453,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }} >
-                                                <img className="bg-cover w-60 h-60 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
                                         </div>
@@ -457,7 +466,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="bg-cover w-60 h-60 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -471,7 +480,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-cover w-64 h-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -485,7 +494,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-cover w-64 h-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -499,7 +508,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="bg-cover w-60 h-60 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
