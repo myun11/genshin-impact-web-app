@@ -9,6 +9,7 @@ const Consumables = () => {
   const [potionData, setPotionData] = useState([])
 
   const [loading, setLoading] = useState(true)
+  const [selectedName, setSelectedName] = useState("")
 
   async function fetchData() {
     const promise1 = axios.get('https://genshin.jmp.blue/consumables/food/list');
@@ -38,9 +39,37 @@ const Consumables = () => {
     fetchData()
   }, [])
   return (
-    <div className="p-2 md:p-4 w-5/6 mx-auto min-h-screen">
+    <div className="p-2 md:p-4 mx-auto min-h-screen">
       <div className="h-20"></div>
       <h1 className="p-4 text-black dark:text-white">Consumables</h1>
+
+      {/* Filters */}
+      <div className = "md:m-4">
+        <div className =  " bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
+        <div className="lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
+
+            {/* Filter by element */}
+
+            {/* Filter by name */}
+            <div className="relative max-w-xs">
+              <label className="sr-only">Search</label>
+              <input className="bg-gray-200 ps-9 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 
+          focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+            dark:focus:ring-blue-500 dark:focus:border-blue-500" id="consumable-search" type = "string" placeholder='Search Consumable' onChange = {(e) => setSelectedName(e.target.value)}/>
+              <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
+                  <svg className="size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+              </div>
+            </div>
+
+            {/* Toggle between grid and table */}                   
+        </div>
+        <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
+    </div>
+
+
       <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
           {foodIds.map(id => {
             if (id != "chili-minced-cornbreaad-buns" && id != "dizziness-be-gone-no-jutsu-version-2.0" && id != "nutritious-meal-(v.593)") {
