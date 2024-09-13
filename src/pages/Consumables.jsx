@@ -48,8 +48,13 @@ const Consumables = () => {
       {/* Filters */}
       <div className = "md:m-4">
         <div className =  " bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
-        <div className="lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
-
+        <div className="lg:inline-flex content-start m-4 p-4 lg:space-x-7 flex max-lg:flex-col max-lg:space-y-4 items-center justify-center">
+            {/* Toggle between Food and Potions */}
+            <label className="inline-flex items-center cursor-pointer">
+              <input type="checkbox" className="sr-only peer" onClick = {() => setConsumableType(prev => !prev)}/>
+              <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Food/Potions</span>
+            </label> 
             {/* Filter by element */}
 
             {/* Filter by name */}
@@ -57,7 +62,7 @@ const Consumables = () => {
               <label className="sr-only">Search</label>
               <input className="bg-gray-200 ps-9 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 
           focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-            dark:focus:ring-blue-500 dark:focus:border-blue-500" id="consumable-search" type = "string" placeholder='Search Consumable' onChange = {(e) => setSelectedName(e.target.value)}/>
+            dark:focus:ring-blue-500 dark:focus:border-blue-500" id="consumable-search" type = "string" placeholder={consumableType ? 'Search Food' : 'Search Potion' } onChange = {(e) => setSelectedName(e.target.value)}/>
               <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                   <svg className="size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <circle cx="11" cy="11" r="8"></circle>
@@ -66,12 +71,7 @@ const Consumables = () => {
               </div>
             </div>
 
-            {/* Toggle between Food and Potions */}
-            <label className="inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" onClick = {() => setConsumableType(prev => !prev)}/>
-              <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Food/Potions</span>
-            </label>      
+     
 
             {/* <button onClick = {() => console.log(foodIds)}>food ids</button>
             <button onClick = {() => console.log(foodData)}>food data</button>
