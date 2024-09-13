@@ -204,7 +204,7 @@ const Artifacts = () => {
                                                 if (page != 0) {
                                                     setPage(prev => prev - 1)
                                                 }
-                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Previous">
+                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full bg-gray-400 dark:bg-gray-900 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Previous">
                                             <span aria-hidden="true">«</span>
                                             <span className="sr-only">Previous</span>
                                             </button>
@@ -215,9 +215,9 @@ const Artifacts = () => {
                                                             <button onClick = {() => {
                                                                 setPage(idx)
                                                             }}type="button" className={page == idx ? 
-                                                                "dark:bg-black min-w-[40px] flex justify-center items-center text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
+                                                                "bg-gray-400 dark:bg-black min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
                                                                 :
-                                                                "dark:bg-gray-600 min-w-[40px] flex justify-center items-center text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"}>{idx + 1}</button>
+                                                                "bg-gray-200 dark:bg-gray-600 min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"}>{idx + 1}</button>
                                                         )
                                                     }
                                                 })
@@ -226,7 +226,7 @@ const Artifacts = () => {
                                                 if (page != Math.floor(filteredData.length / entriesPerPage)) {
                                                     setPage(prev => prev + 1)
                                                 }
-                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Next">
+                                            }} type="button" className="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full bg-gray-400 dark:bg-gray-900 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-label="Next">
                                             <span className="sr-only">Next</span>
                                             <span aria-hidden="true">»</span>
                                             </button>
