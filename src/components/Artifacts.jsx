@@ -87,9 +87,9 @@ const Artifacts = () => {
     }, [input, data])
 
     return (
-        <div className="py-4 lg:w-5/6 mx-auto">
+        <div className="p-2 md:p-4 lg:w-5/6 mx-auto">
             <div className="h-20"></div>
-            <h1 className="text-black dark:text-white">Artifacts</h1>
+            <h1 className="p-4 text-black dark:text-white">Artifacts</h1>
             <div className = "p-4">
                 <div className = "bg-slate-500 h-1 w-full"></div>
                 {/* filter stuff maybe here? */}

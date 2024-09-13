@@ -252,7 +252,7 @@ const Weapons = () => {
         
     }, [weapons, selectedOptions, weaponSearch])
     return(
-        <div className = "p-4 mx-auto min-h-screen">
+        <div className = "p-2 md:p-4 mx-auto min-h-screen">
             <div className="h-20"></div>
 
             {weaponPreviewState ? 
@@ -263,7 +263,7 @@ const Weapons = () => {
                             />
                 </div> :
                 <div>
-                    <h1 className="text-black dark:text-white">Weapons</h1>
+                    <h1 className="p-4 text-black dark:text-white">Weapons</h1>
                     {loading ? 
                         <div>
                             <Loader 
