@@ -61,6 +61,7 @@ const Navbar = (props) => {
                     onClick={() => {
                         setIsOpen(false)
                         props.setPage('Home')
+                        window.scrollTo(0, 0)
                     }}
                 >
                     Home
@@ -72,6 +73,7 @@ const Navbar = (props) => {
                         props.setPage('Characters')
                         props.setCharPreviewData([])
                         props.setCharPreviewState(false)
+                        window.scrollTo(0, 0)
                     }}
                 >
                     Characters
@@ -81,6 +83,7 @@ const Navbar = (props) => {
                     onClick={() => {
                         setIsOpen(false)
                         props.setPage('Weapons')
+                        window.scrollTo(0, 0)
                     }}
                 >
                     Weapons
@@ -90,6 +93,7 @@ const Navbar = (props) => {
                     onClick={() => {
                         setIsOpen(false)
                         props.setPage('Artifacts')
+                        window.scrollTo(0, 0)
                     }}
                 >
                     Artifacts
@@ -99,6 +103,7 @@ const Navbar = (props) => {
                     onClick={() => {
                         setIsOpen(false)
                         props.setPage('Consumables')
+                        window.scrollTo(0, 0)
                     }}
                 >
                     Consumables
@@ -109,7 +114,10 @@ const Navbar = (props) => {
             <div className="max-lg:hidden flex justify-between align-middle">
                 {/* Web App Icon */}
                 <div className = "inline-flex space-x-10">
-                    <div onClick = {() => props.setPage('Home')} className="inline-flex align-middle">
+                    <div onClick = {() => {
+                        props.setPage('Home')
+                        window.scrollTo(0, 0)
+                    }} className="inline-flex align-middle">
                         <img className="w-14" src={Sumeru_Icon1}/> 
                         {/* <div className="m-auto font-bold text-3xl text-gray-300 hover:text-white">.GG</div> */}
                     </div>
@@ -117,6 +125,7 @@ const Navbar = (props) => {
                         props.setPage('Characters')
                         props.setCharPreviewState(false)
                         props.setCharPreviewData([])
+                        window.scrollTo(0, 0)
                     }}  className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Characters</a>
                     <a href='#' onClick = {() => props.setPage('Weapons')}     className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Weapons</a>
                     <a href='#' onClick = {() => props.setPage('Artifacts')}   className="hover:border-b-4 border-b-black dark:border-b-white font-bold m-auto text-3xl text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">Artifacts</a>
