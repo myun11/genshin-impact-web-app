@@ -1,8 +1,11 @@
 import React from 'react'
 
-const ConsumablePreview = () => {
+const ConsumablePreview = (props) => {
   return (
-    <div>ConsumablePreview</div>
+    <div>
+        ConsumablePreview
+        <button onClick = {() => console.log(props)}>props</button>
+    </div>
   )
 }
 
