@@ -13,7 +13,7 @@ const PassiveTalents = (props) => {
                     const parts = entry.description.split(regex);
                     return(
                         <div className = "w-full p-2">
-                            <div className= {props.cardColor + " p-5 inline-flex w-full items-center border border-gray-800 dark:border-gray-200 rounded-3xl lg:rounded-full shadow"}>
+                            <div className= {props.cardColor + " p-5 inline-flex w-full items-center border border-gray-800 dark:border-gray-200 rounded-3xl lg:rounded-3xl shadow"}>
                                 <img className="max-lg:hidden p-5 object-cover w-full md:h-auto md:w-auto" src={reorderedImages[idx]} alt=""/>
                                 <div className="flex flex-col items-start lg:p-5 py-5 leading-normal">
                                     <div className="flex items-center">
