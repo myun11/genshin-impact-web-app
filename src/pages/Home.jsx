@@ -21,7 +21,7 @@ const Home = (props) => {
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Characters</h2>
-                <p className="p-4 md:text-sm max-md:hidden">
+                <p className="lg:p-2 md:text-sm max-md:hidden">
                   An assortment of characters with filter tools for querying specific needs.
                   Select your desired character to view detailed information including their skills, ascension materials, and more.
                 </p>
@@ -32,7 +32,7 @@ const Home = (props) => {
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Weapons</h2>
-                <p className="p-4 md:text-sm max-md:hidden">
+                <p className="lg:p-2 md:text-sm max-md:hidden">
                   A grid of weapons with filter tools to find your ideal weapon.
                   Select your desired weapon to view detailed information including rarity and location of the weapon.
                 </p>
@@ -43,7 +43,7 @@ const Home = (props) => {
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Artifacts</h2>
-                <p className="p-4 md:text-sm max-md:hidden">
+                <p className="lg:p-2 md:text-sm max-md:hidden">
                   A table of different artifacts organized by their class set.
                   View set bonuses here.
                 </p>
@@ -53,10 +53,12 @@ const Home = (props) => {
                 props.setPage("Consumables")
                 window.scrollTo(0, 0)
               }}>
-                <h2 className="md:text-2xl lg:text-4xl md:font-bold">Consumables</h2>
-                <p className="p-4 md:text-sm max-md:hidden">
-                  A collection of different consumables and their buffs.
-                </p>
+                <span className = "">
+                  <h2 className="md:text-2xl lg:text-4xl md:font-bold">Consumables</h2>
+                  <p className="lg:p-2 md:text-sm max-md:hidden">
+                    A collection of different consumables and their buffs.
+                  </p>
+                </span>
                 <div className="absolute inset-0 h-full w-0 bg-gray-600 bg-opacity-30 dark:bg-white/30 transition-[width] group-hover:w-full"></div> 
               </button>
             </div>
