@@ -375,6 +375,7 @@ const Characters = (props) => {
                                             <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                             props.setCharPreviewState(true)
                                             props.setCharPreviewData(entry)
+                                            window.scrollTo(0, 0)
                                         }}/></button>
                                         <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]}</h2>
                                     </div>
@@ -387,6 +388,7 @@ const Characters = (props) => {
                                             <img className="w-full h-full rounded-lg " src = {icons[entry["id"].toLowerCase()]} onClick = {() => {
                                             props.setCharPreviewState(true)
                                             props.setCharPreviewData(entry)
+                                            window.scrollTo(0, 0)
                                         }}/></button>
                                         <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{entry["name"]} {entry["name"] == "Traveler" ? '(' + entry["vision"] + ')' : ""}</h2>
                                     </div>
@@ -431,6 +433,7 @@ const Characters = (props) => {
                                                                 <button className = "bg-transparent hover:border-transparent" onClick = {() => {
                                                                     props.setCharPreviewState(true)
                                                                     props.setCharPreviewData(entry)
+                                                                    window.scrollTo(0, 0)
                                                                 }}>
                                                                     {/* <div className=""> */}
                                                                         <img className="box-content w-1/2 md:w-full lg:w-1/2 h-fit rounded-lg " src = {icons[entry["id"].toLowerCase()]}/>

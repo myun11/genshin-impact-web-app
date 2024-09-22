@@ -109,7 +109,7 @@ function App() {
           loading = {loading}
         />
       </div> :
-      <div className='min-h-screen flex-grow bg-slate-100 dark:bg-slate-900'>
+      <div className='min-h-screen grow bg-slate-100 dark:bg-slate-900'>
         <Navbar
           setPage = {setPage}
           setCharPreviewState = {setCharPreviewState}
