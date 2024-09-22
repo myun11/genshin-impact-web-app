@@ -2,9 +2,9 @@ import React from 'react'
 
 const Home = (props) => {
   return (
-    <div className='relative bg-slate-200 dark:bg-slate-800  p-4 text-black dark:text-white w-screen min-h-screen '>
+    <div className='relative bg-slate-200 dark:bg-slate-800  p-4 text-black dark:text-white w-screen min-h-screen  '>
       <div className="absolute inset-0 z-0 h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#00a_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#00a_100%)]"></div>
-        <div className = "absolute top-48 h-full min-h-screen">
+        <div className = "absolute top-32 ">
           <div className="md:w-4/5 p-4 mx-auto bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
             <h1 className="md:text-5xl font-extrabold">Welcome to Sumeru.dev</h1>
             <p className="text-base lg:w-1/2 lg:flex-col item-center justify-center mx-auto">
@@ -12,8 +12,8 @@ const Home = (props) => {
               Sumeru.dev provides data on character profiles, weapons, items and more. Everything you need in one place!
             </p>
           </div>
-          <div className="md:w-4/5 p-4 mx-auto">
-            <div className="grid grid-cols-2 p-2 my-4 gap-5">
+          <div className="md:w-4/5 px-4 mx-auto">
+            <div className="grid grid-cols-2 p-2 gap-5">
               <button className="group relative transition box-content h-20 md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
                 props.setPage("Characters")
                 props.setCharPreviewState(false)
