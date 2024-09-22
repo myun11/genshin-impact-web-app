@@ -217,7 +217,6 @@ const Characters = (props) => {
                 <div className = "md:m-4">
                     <div className =  " bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
                     <div className="lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
-
                         {/* Filter by element */}
                         <div className="flex items-center justify-center">
                         {elements.map(res => {
@@ -305,18 +304,18 @@ const Characters = (props) => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Filter by name */}
-                        <input className="text-sm md:text-base h-1/2 flex my-auto bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
-                            setSelectedName(e.target.value)
-                        }}/>
-
+                    </div>
+                    <div className = "lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
                         {/* Toggle between grid and table */}
                         <label className="inline-flex items-center cursor-pointer">
                             <input type="checkbox" className="sr-only peer" onClick = {() => setForm(prev => !prev)}/>
                             <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                             <span className="ms-3 text-sm md:text-base font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
-                        </label>                        
+                        </label>
+                        {/* Filter by name */}
+                        <input className="text-sm md:text-base h-1/2 flex my-auto bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
+                            setSelectedName(e.target.value)
+                        }}/>
                     </div>
                     <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
                 </div>
@@ -361,7 +360,7 @@ const Characters = (props) => {
                 {/* Array version */}
                 {/* Grid */}
                 {form ? <div>{filteredArray.length > 0 ?
-                <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
+                <div className = "lg:w-5/6 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
                     {filteredArray.map(entry => {
                         // These characters are new, so there's not much information on them yet.
                         if (entry["name"] != "Kachina" && 

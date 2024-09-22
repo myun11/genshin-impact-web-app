@@ -3,7 +3,7 @@ import React from 'react'
 const Home = (props) => {
   return (
     <div className='relative bg-slate-200 dark:bg-slate-800  p-4 text-black dark:text-white w-screen min-h-screen  '>
-      <div className="absolute inset-0 z-0 h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#00a_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#00a_100%)]"></div>
+      <div className="absolute inset-0 z-0 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#00a_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#00a_100%)]"></div>
         <div className = "absolute top-32 ">
           <div className="md:w-4/5 p-4 mx-auto bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
             <h1 className="md:text-5xl font-extrabold">Welcome to Sumeru.dev</h1>

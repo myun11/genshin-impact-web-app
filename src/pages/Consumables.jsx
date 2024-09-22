@@ -97,7 +97,7 @@ const Consumables = () => {
         </div>
         <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
       </div>
-      <div className = "lg:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
+      <div className = "lg:w-5/6 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
         {consumableType && foodIds.map(id => {
           if (id != "chili-minced-cornbreaad-buns" && id != "dizziness-be-gone-no-jutsu-version-2.0" && id != "nutritious-meal-(v.593)" && foodData[id]["name"].toLowerCase().includes(selectedName)) {
             if (foodData[id]["rarity"] == 1) {
