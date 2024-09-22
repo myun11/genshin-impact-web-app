@@ -219,11 +219,11 @@ const Characters = (props) => {
                     <div className="lg:inline-flex m-2 md:m-4 md:space-x-7 max-lg:space-y-2">
 
                         {/* Filter by element */}
-                        <div className="flex p-2 items-center justify-center">
+                        <div className="flex items-center justify-center">
                         {elements.map(res => {
                             return(
                                 <div className="relative group inline-block">
-                                    <button className = {selectedElements.includes(res) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
+                                    <button className = {selectedElements.includes(res) ? "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                         {
                                             if (selectedElements.includes(res)) {
                                                 // setSelectedElements([...selectedElements.filter(entry => entry != res)])
@@ -247,14 +247,14 @@ const Characters = (props) => {
                         })}
                         </div>
                         {/* Filter by weapon type */}
-                        <div className="flex p-2 items-center justify-center">
+                        <div className="flex items-center justify-center">
                         {weapons.map(entry => {
                             let wep = entry[0]
                             let icon = getIcon(wep)
 
                             return(
                                 <div className="relative group inline-block">
-                                    <button className={selectedWeapons.includes(wep) ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() => {
+                                    <button className={selectedWeapons.includes(wep) ? "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() => {
                                         if (selectedWeapons.includes(wep)) {
                                             setSelectedWeapons([...selectedWeapons].filter(entry => entry != wep))
                                         } else {
@@ -271,9 +271,9 @@ const Characters = (props) => {
                         })}
                         </div>
                         {/* Filter by rarity */}
-                        <div className="flex p-2 items-center justify-center">
+                        <div className="flex items-center justify-center">
                             <div className="relative group inline-block">
-                                <button className = {selectedRarity == 4 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
+                                <button className = {selectedRarity == 4 ? "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                     {
                                         if (selectedRarity == 4) {
                                             setSelectedRarity(null)
@@ -282,14 +282,14 @@ const Characters = (props) => {
                                         }
                                     }
                                 }>
-                                    <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Purple_Star} />
+                                    <img className="object-contain h-full w-full rounded-lg" src = {Purple_Star} />
                                 </button>
                                 <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     4&nbsp;Star&nbsp;Rarity
                                 </div>
                             </div>
                             <div className="relative group inline-block">
-                                <button className = {selectedRarity == 5 ? "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center max-md:w-10 max-md:h-10 py-1 px-1 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
+                                <button className = {selectedRarity == 5 ? "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 rounded-full bg-gray-800 dark:bg-gray-300" : "flex items-center w-16 h-16 max-md:w-10 max-md:h-10 rounded-full bg-gray-400 dark:bg-gray-500"} onClick = {() =>
                                     {
                                         if (selectedRarity == 5) {
                                             setSelectedRarity(null)
@@ -298,7 +298,7 @@ const Characters = (props) => {
                                         }
                                     }
                                 }>
-                                    <img className="object-scale-down md:h-16 md:w-16 rounded-lg" src = {Orange_Star} />
+                                    <img className="object-contain w-full h-full rounded-lg" src = {Orange_Star} />
                                 </button>
                                 <div className="max-md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-300 dark:bg-slate-400 text-black dark:text-white text-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     5&nbsp;Star&nbsp;Rarity
@@ -307,7 +307,7 @@ const Characters = (props) => {
                         </div>
 
                         {/* Filter by name */}
-                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
+                        <input className="text-sm md:text-base h-1/2 flex my-auto bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 max-lg:w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="character-search" type = "string" placeholder='Search Character' value= {selectedName} onChange = {(e) => {
                             setSelectedName(e.target.value)
                         }}/>
 
@@ -315,7 +315,7 @@ const Characters = (props) => {
                         <label className="inline-flex items-center cursor-pointer">
                             <input type="checkbox" className="sr-only peer" onClick = {() => setForm(prev => !prev)}/>
                             <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                            <span className="ms-3 text-sm md:text-md lg:text-lg font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
+                            <span className="ms-3 text-sm md:text-base font-medium text-black dark:text-gray-300">Toggle Grid/Table</span>
                         </label>                        
                     </div>
                     <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
