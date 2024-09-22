@@ -104,7 +104,7 @@ const Artifacts = () => {
                         {/* filter stuff maybe here? */}
                         <div className = "max-lg:hidden bg-slate-500 h-1 w-full"></div>
                     </div>
-                    <div className="flex flex-col lg:w-4/5 mx-auto">
+                    <div className="flex flex-col w-full mx-auto">
                         <div className="lg:-m-1.5 ">
                             <div className="lg:p-1.5 max-w-full inline-block align-middle">
                                 <div className="border rounded-lg divide-y divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
