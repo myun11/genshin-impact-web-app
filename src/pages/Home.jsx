@@ -14,47 +14,47 @@ const Home = (props) => {
           </div>
           <div className="md:w-4/5 px-4 mx-auto">
             <div className="grid grid-cols-2 p-2 gap-5">
-              <button className="group relative transition box-content h-20 md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
+              <button className="group relative transition box-content h-20 md:h-32 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
                 props.setPage("Characters")
                 props.setCharPreviewState(false)
                 props.setCharPreviewData([])
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Characters</h2>
-                <p className="p-4 md:text-sm lg:text-base max-md:hidden">
+                <p className="p-4 md:text-sm max-md:hidden">
                   An assortment of characters with filter tools for querying specific needs.
                   Select your desired character to view detailed information including their skills, ascension materials, and more.
                 </p>
                 <div className="absolute inset-0 h-full w-0 bg-gray-600 bg-opacity-30 dark:bg-white/30 transition-[width] group-hover:w-full"></div>
               </button>
-              <button className="group relative transition box-content h-20  md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
+              <button className="group relative transition box-content h-20  md:h-32 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
                 props.setPage("Weapons")
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Weapons</h2>
-                <p className="p-4 md:text-sm lg:text-base max-md:hidden">
+                <p className="p-4 md:text-sm max-md:hidden">
                   A grid of weapons with filter tools to find your ideal weapon.
                   Select your desired weapon to view detailed information including rarity and location of the weapon.
                 </p>
                 <div className="absolute inset-0 h-full w-0 bg-gray-600 bg-opacity-30 dark:bg-white/30 transition-[width] group-hover:w-full"></div>              
               </button>
-              <button className="group relative transition box-content h-20  md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
+              <button className="group relative transition box-content h-20  md:h-32 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
                 props.setPage("Artifacts")
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Artifacts</h2>
-                <p className="p-4 md:text-sm lg:text-base max-md:hidden">
+                <p className="p-4 md:text-sm max-md:hidden">
                   A table of different artifacts organized by their class set.
                   View set bonuses here.
                 </p>
                 <div className="absolute inset-0 h-full w-0 bg-gray-600 bg-opacity-30 dark:bg-white/30 transition-[width] group-hover:w-full"></div> 
               </button>
-              <button className="group relative transition box-content h-20  md:h-52 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
+              <button className="group relative transition box-content h-20  md:h-32 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
                 props.setPage("Consumables")
                 window.scrollTo(0, 0)
               }}>
                 <h2 className="md:text-2xl lg:text-4xl md:font-bold">Consumables</h2>
-                <p className="p-4 md:text-sm lg:text-base max-md:hidden">
+                <p className="p-4 md:text-sm max-md:hidden">
                   A collection of different consumables and their buffs.
                 </p>
                 <div className="absolute inset-0 h-full w-0 bg-gray-600 bg-opacity-30 dark:bg-white/30 transition-[width] group-hover:w-full"></div> 
