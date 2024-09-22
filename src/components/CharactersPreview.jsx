@@ -217,9 +217,9 @@ const CharactersPreview = (props) => {
                     <img className = "rounded-lg " src={icon}></img>
                 </div>
                 <div className="py-2 items-start justify-start text-start">
-                    <h1 className="text-black dark:text-white  text-5xl md:text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
+                    <h1 className="text-black dark:text-white  text-5xl md:text-7xl uppercase font-bold">{props.charPreviewData.name}</h1>
                     <p className="text-gray-500 dark:text-gray-300 italic text-2xl md:text-4xl uppercase font-bold">{props.charPreviewData.title}</p>
-                    <h2 className="text-black dark:text-white mb-2 text-sm  md:text-xl">{props.charPreviewData.description}</h2>
+                    <p className="text-black dark:text-white mb-2 text-sm  md:text-xl">{props.charPreviewData.description}</p>
                 </div>
                 <div className="flex space-x-5 justify-between">
                     <button className= {colors[props.charPreviewData.vision]["Card"] + " md:text-3xl flex items-center justify-center border-gray-800 dark:border-white text-black dark:text-white w-full h-16 rounded-full"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>Factions</button>
@@ -243,63 +243,63 @@ const CharactersPreview = (props) => {
                 </div>
                 <div className="items-start justify-start text-left mr-10 space-y-16">
                     <div>
-                        <h1 className="dark:text-white text-black text-9xl uppercase font-bold">{props.charPreviewData.name}</h1>
+                        <h1 className="dark:text-white text-black xl:text-7xl uppercase font-bold">{props.charPreviewData.name}</h1>
                         <p className="dark:text-gray-300 italic text-gray-500 text-2xl uppercase font-bold">{props.charPreviewData.title}</p>
-                        <h2 className="mb-2 text-3xl text-black dark:text-white">{props.charPreviewData.description}</h2>
+                        <h2 className="mb-2 text-2xl text-black dark:text-white">{props.charPreviewData.description}</h2>
                     </div>
-                    <div className="space-x-5">
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
+                    <div className="grid grid-flow-col grid-cols-3 grid-rows-2 gap-4">
+                        
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14  group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Factions')?.scrollIntoView({behavior: 'smooth'})}>
                             <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 Factions
                             </span>
                         </button>
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14 group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Constellation')?.scrollIntoView({behavior: 'smooth'})}>
                             <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl ">
                                 Constellation
                             </span>
                         </button>
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14 group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Passive Talents')?.scrollIntoView({behavior: 'smooth'})}>
                             <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 Passive Talents
                             </span>
                         </button>
-                        <br/>
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14 group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Skill Talents')?.scrollIntoView({behavior: 'smooth'})}>
                             <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 Skill Talents
                             </span>
                         </button>
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14 group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => document.getElementById('Ascension Materials')?.scrollIntoView({behavior: 'smooth'})}>
                             <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 Ascension Materials
                             </span>
                         </button>
-                        <button className={colors[props.charPreviewData.vision]["Card"] + "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => {
+                        <button className={colors[props.charPreviewData.vision]["Card"] + " w-full h-14 group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 text-black dark:text-white border border-black dark:border-white"} onClick = {() => {
                             props.setCharPreviewData([])
                             props.setCharPreviewState(false)
                             window.scrollTo(0, 0)
@@ -309,7 +309,7 @@ const CharactersPreview = (props) => {
                                     <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
                                 </svg>
                             </div>
-                            <span className="text-2xl">
+                            <span className="text-xl">
                                 Go Back
                             </span>
                         </button>
