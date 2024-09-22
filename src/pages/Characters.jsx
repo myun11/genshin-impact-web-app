@@ -360,7 +360,7 @@ const Characters = (props) => {
                 {/* Array version */}
                 {/* Grid */}
                 {form ? <div>{filteredArray.length > 0 ?
-                <div className = "lg:w-5/6 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
+                <div className = "lg:w-5/6 2xl:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
                     {filteredArray.map(entry => {
                         // These characters are new, so there's not much information on them yet.
                         if (entry["name"] != "Kachina" && 

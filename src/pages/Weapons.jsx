@@ -442,7 +442,7 @@ const Weapons = () => {
                             <div className = "bg-black dark:bg-slate-500 h-1 w-full"></div>
                         </div>
                         {
-                            filteredWeapons.length > 0 ? <div className = "lg:w-4/5 mx-auto grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 md:gap-4 ">
+                            filteredWeapons.length > 0 ? <div className = "lg:w-5/6 2xl:w-4/5 mx-auto grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-8 2xl:grid-cols-8 gap-2 md:gap-4 ">
                             {filteredWeapons.map(entry => {
                                 if (entry.data.rarity == 1) {
                                     return(
@@ -451,7 +451,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }} >
-                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="bg-contain sm:size-44 md:size-24 lg:size-24 rounded-lg " src = {entry.icon} onClick = {() => {
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
                                         </div>
@@ -464,7 +464,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="bg-contain sm:size-44 md:size-24 lg:size-24 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -478,7 +478,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="bg-contain sm:size-44 md:size-24 lg:size-24 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -492,7 +492,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="bg-contain sm:size-44 md:size-24 lg:size-24 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
@@ -506,7 +506,7 @@ const Weapons = () => {
                                                 setSelectedWeapon(entry)
                                                 setWeaponPreviewState(true)
                                             }}>
-                                                <img className="object-contain size-64 rounded-lg " src = {entry.icon} onClick = {() => {
+                                                <img className="bg-contain sm:size-44 md:size-24 lg:size-24 rounded-lg " src = {entry.icon} onClick = {() => {
                                             
                                             }}/></button>
                                             <h2 className = "capitalize text-black dark:text-white">{entry.data.name}</h2>
