@@ -118,7 +118,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-gray-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -130,7 +130,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-green-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -142,7 +142,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-blue-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -154,7 +154,7 @@ const Consumables = () => {
                   <button className = "bg-gradient-to-b from-purple-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
                     setPreviewState(true)
-                    setPreviewItem(entry)
+                    setPreviewItem(foodData[id])
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -166,7 +166,7 @@ const Consumables = () => {
                   <button className = "bg-gradient-to-b from-orange-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
                     setPreviewState(true)
-                    setPreviewItem(entry)
+                    setPreviewItem(foodData[id])
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -182,7 +182,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-gray-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -194,7 +194,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-green-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -206,7 +206,7 @@ const Consumables = () => {
                     <button className = "bg-gradient-to-b from-blue-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
                       setPreviewState(true)
-                      setPreviewItem(entry)
+                      setPreviewItem(foodData[id])
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -218,7 +218,7 @@ const Consumables = () => {
                   <button className = "bg-gradient-to-b from-purple-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
                     setPreviewState(true)
-                    setPreviewItem(entry)
+                    setPreviewItem(foodData[id])
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -230,7 +230,7 @@ const Consumables = () => {
                   <button className = "bg-gradient-to-b from-orange-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
                     setPreviewState(true)
-                    setPreviewItem(entry)
+                    setPreviewItem(foodData[id])
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
