@@ -103,6 +103,12 @@ const Consumables = () => {
       {loading ?
         <Loader loading = {loading}/>
       :
+      <div>
+      {previewState ?
+        <ConsumablePreview
+          data = {previewItem}
+          setPreviewState = {setPreviewState}
+        /> :
         <div className = "lg:w-5/6 2xl:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
         {consumableType && foodIds.map(id => {
           if (id != "chili-minced-cornbreaad-buns" && id != "dizziness-be-gone-no-jutsu-version-2.0" && id != "nutritious-meal-(v.593)" && foodData[id]["name"].toLowerCase().includes(selectedName)) {
@@ -233,6 +239,10 @@ const Consumables = () => {
           }
         })}
         </div>
+
+
+      }
+      </div>
       }
           
     </div>
