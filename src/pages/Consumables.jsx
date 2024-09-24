@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Loader from '../components/Loader'
+import ConsumablePreview from '../components/ConsumablePreview'
 const Consumables = () => {
 
   const [foodIds, setFoodIds] = useState([])
@@ -12,6 +13,8 @@ const Consumables = () => {
   const [loading, setLoading] = useState(true)
   const [selectedName, setSelectedName] = useState("")
   const [filteredArray, setFilteredArray] = useState([])
+  const [previewState, setPreviewState] = useState(false)
+  const [previewItem, setPreviewItem] = useState([])
 
   async function fetchData() {
     const promise1 = axios.get('https://genshin.jmp.blue/consumables/food/list');
@@ -97,7 +100,10 @@ const Consumables = () => {
         </div>
         <div className = "bg-slate-800 dark:bg-slate-500 h-1 w-full"></div>
       </div>
-      <div className = "lg:w-5/6 2xl:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
+      {loading ?
+        <Loader loading = {loading}/>
+      :
+        <div className = "lg:w-5/6 2xl:w-4/5 lg:mx-auto grid max-md:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2 md:gap-4">
         {consumableType && foodIds.map(id => {
           if (id != "chili-minced-cornbreaad-buns" && id != "dizziness-be-gone-no-jutsu-version-2.0" && id != "nutritious-meal-(v.593)" && foodData[id]["name"].toLowerCase().includes(selectedName)) {
             if (foodData[id]["rarity"] == 1) {
@@ -105,8 +111,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-gray-500 hover:border-gray-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-gray-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -117,8 +123,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-green-500 hover:border-green-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-green-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -129,8 +135,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-blue-500 hover:border-blue-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-blue-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -141,8 +147,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                   <button className = "bg-gradient-to-b from-purple-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
-                    // props.setCharPreviewState(true)
-                    // props.setCharPreviewData(entry)
+                    setPreviewState(true)
+                    setPreviewItem(entry)
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -153,8 +159,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                   <button className = "bg-gradient-to-b from-orange-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/food/' + id} onClick = {() => {
-                    // props.setCharPreviewState(true)
-                    // props.setCharPreviewData(entry)
+                    setPreviewState(true)
+                    setPreviewItem(entry)
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{foodData[id]["name"]}</h2>
                 </div>
@@ -169,8 +175,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-gray-500 hover:border-gray-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-gray-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -181,8 +187,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-green-500 hover:border-green-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-green-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -193,8 +199,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-blue-500 hover:border-blue-500 transition duration-300 ease-in-out">
                     <button className = "bg-gradient-to-b from-blue-500 to-white" >
                       <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
-                      // props.setCharPreviewState(true)
-                      // props.setCharPreviewData(entry)
+                      setPreviewState(true)
+                      setPreviewItem(entry)
                     }}/></button>
                     <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -205,8 +211,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-purple-500 hover:border-purple-500 transition duration-300 ease-in-out">
                   <button className = "bg-gradient-to-b from-purple-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
-                    // props.setCharPreviewState(true)
-                    // props.setCharPreviewData(entry)
+                    setPreviewState(true)
+                    setPreviewItem(entry)
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -217,8 +223,8 @@ const Consumables = () => {
                 <div className = "border-4 border-black dark:border-white w-full h-full rounded-lg hover:bg-orange-500 hover:border-orange-500 transition duration-300 ease-in-out">
                   <button className = "bg-gradient-to-b from-orange-500 to-white" >
                     <img className="w-full h-full rounded-lg " src = {'https://genshin.jmp.blue/consumables/potions/' + id} onClick = {() => {
-                    // props.setCharPreviewState(true)
-                    // props.setCharPreviewData(entry)
+                    setPreviewState(true)
+                    setPreviewItem(entry)
                   }}/></button>
                   <h2 className = "capitalize text-black dark:text-white min-h-8 flex justify-center align-middle">{potionData[id]["name"]}</h2>
                 </div>
@@ -226,7 +232,9 @@ const Consumables = () => {
             }
           }
         })}
-      </div>    
+        </div>
+      }
+          
     </div>
   )
 }
