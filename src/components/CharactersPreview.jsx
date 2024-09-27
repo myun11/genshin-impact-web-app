@@ -214,7 +214,7 @@ const CharactersPreview = (props) => {
             {/* Mobile */}
             <div id="/" className="lg:hidden space-y-2 py-4 items-center rounded-lg min-h-screen">
                 <div className = "my-2 flex items-center justify-center">
-                    <img className = "rounded-lg " src={icon}></img>
+                    <img className = "rounded-lg " src={icon} loading="eager"/>
                 </div>
                 <div className="py-2 items-start justify-start text-start">
                     <h1 className="text-black dark:text-white  text-5xl md:text-7xl uppercase font-bold">{props.charPreviewData.name}</h1>
@@ -239,7 +239,7 @@ const CharactersPreview = (props) => {
             {/* PC */}
             <div id="/" className="max-lg:hidden lg:grid lg:grid-cols-2 lg:gap-4 items-center rounded-lg bg-cover bg-center lg:h-screen">
                 <div className = "h-full min-h-screen flex items-center justify-end p-4">
-                    <img className = "object-contain max-h-screen" src={card}></img>
+                    <img className = "object-contain max-h-screen" src={card} loading="eager"/>
                 </div>
                 <div className="items-start justify-start text-left mr-10 space-y-16">
                     <div>
