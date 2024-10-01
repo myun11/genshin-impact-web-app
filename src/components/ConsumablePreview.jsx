@@ -12,7 +12,8 @@ const ConsumablePreview = (props) => {
         Has Recipe: {props.data.hasRecipe}
         Name: {props.data.name}
         Rarity: {props.data.rarity}
-        Recipe:
+        {/* Recipe has 3 images. */}
+        Recipe: 
         Type: {props.data.type}
     </div>
   )
