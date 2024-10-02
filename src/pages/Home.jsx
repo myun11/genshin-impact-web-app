@@ -13,7 +13,7 @@ const Home = (props) => {
             Sumeru.dev provides data on character profiles, weapons, items and more. Everything you need in one place!
           </p>
         </div>
-        <div className="px-4">
+        <div className="xl:w-3/5 flex items-center justify-center mx-auto px-4">
           <div className="grid grid-cols-2 p-2 gap-5">
             <button className="group relative transition box-content h-20 md:h-32 rounded-lg border-2 border-black dark:border-slate-800 bg-slate-100 dark:bg-slate-500" onClick = {() => {
               props.setPage("Characters")
