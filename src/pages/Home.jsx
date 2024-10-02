@@ -6,7 +6,7 @@ const Home = (props) => {
      <div className='relative bg-slate-200 dark:bg-slate-800 text-black dark:text-white w-full min-h-screen  '>
       <div className="absolute inset-0 z-0 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#00a_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#00a_100%)]"></div>
       <div className = "w-full absolute top-24 ">
-        <div className=" p-4  bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
+        <div className="xl:w-3/5 mx-auto p-4  bg-slate-300 dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-50 space-y-5 rounded-3xl">
           <h1 className="md:text-5xl font-extrabold">Welcome to Sumeru.dev</h1>
           <p className="text-base lg:w-1/2 lg:flex-col item-center justify-center mx-auto">
             This web application serves as a data hub for users to plan and compare between various assets in the online game of Genshin Impact.
