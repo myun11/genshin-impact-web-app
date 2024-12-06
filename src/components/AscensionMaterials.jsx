@@ -150,7 +150,7 @@ const AscensionMaterials = (props) => {
                                         <div className= {props.cardColor + " relative border border-solid border-black dark:border-white rounded-3xl"}>
                                             <div className= {props.quantityTheme + 
                                             " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{entry["value"]}</div>
-                                            <img src = {itemImage(entry["name"])} alt = "Not found"/>
+                                            <img src = {itemImage(entry["name"])} alt = "Not found" loading="eager"/>
                                         </div>
                                         <p className="md:text-lg">{entry["name"]}</p>
                                     </div>
@@ -167,7 +167,7 @@ const AscensionMaterials = (props) => {
                                                     <div className= "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-3">
                                                         <div className= {props.cardColor + " relative border border-solid border-black dark:border-white rounded-3xl"}>
                                                             <div className = {props.quantityTheme + " bottom-0 right-0 z-10 px-3 py-1 text-2xl text-black dark:text-white from-transparent bg-gradient-to-br rounded-br-3xl rounded-tl-3xl font-bold absolute"}>{lvl["value"]}</div>
-                                                            <img src = {itemImage(lvl["name"])} alt = "Not found" />
+                                                            <img src = {itemImage(lvl["name"])} alt = "Not found" loading="eager" />
                                                         </div>
                                                         <p className="md:text-lg"> {lvl["name"]}</p>
                                                     </div>
